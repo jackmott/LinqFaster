@@ -12,10 +12,10 @@ namespace LinqFaster
         public static TResult[] SelectMany<TSource, TResult>(this TSource[] source, Func<TSource, TResult[]> selector)
         {
             var result = new List<TResult>();            
-            for (int i = 0; i < source.Length; i++)
+            for (long i = 0; i < source.LongLength; i++)
             {
                 var va = selector(source[i]);
-                for (int j = 0; j < va.Length; j++)
+                for (long j = 0; j < va.LongLength; j++)
                 {
                     result.Add(va[j]);
                 }         
@@ -26,10 +26,10 @@ namespace LinqFaster
          public static TResult[] SelectMany<TSource, TResult>(this TSource[] source, Func<TSource,int, TResult[]> selector)
         {
             var result = new List<TResult>();            
-            for (int i = 0; i < source.Length; i++)
+            for (int i = 0; i < source.LongLength; i++)
             {
                 var va = selector(source[i],i);
-                for (int j = 0; j < va.Length; j++)
+                for (long j = 0; j < va.LongLength; j++)
                 {
                     result.Add(va[j]);
                 }         

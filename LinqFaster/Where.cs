@@ -20,7 +20,7 @@ namespace LinqFaster
             }
 
             List<T> temp = new List<T>();
-            for (int i = 0; i < a.Length;i++)
+            for (long i = 0; i < a.LongLength;i++)
             {
                 if (predicate(a[i])) temp.Add(a[i]);
             }

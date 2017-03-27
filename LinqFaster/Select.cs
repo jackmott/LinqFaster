@@ -22,7 +22,7 @@ namespace LinqFaster
             }
 
             var r = new TResult[a.Length];
-            for (int i = 0; i < a.Length; i++)
+            for (long i = 0; i < a.LongLength; i++)
             {
                 r[i] = selector(a[i]);
             }

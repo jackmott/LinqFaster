@@ -18,7 +18,7 @@ namespace LinqFaster
             T r = default(T);
             if (r == null)
             {
-                for (int i = 0; i < a.Length; i++)
+                for (long i = 0; i < a.LongLength; i++)
                 {
                     if (a[i] != null && comparer.Compare(a[i], r) > 0) r = a[i];
                 }
@@ -29,7 +29,7 @@ namespace LinqFaster
                 {
                     throw Error.NoElements();
                 }
-                for (int i = 0; i < a.Length; i++)
+                for (long i = 0; i < a.LongLength; i++)
                 {
                     if (comparer.Compare(a[i], r) > 0) r = a[i];
                 }
@@ -52,7 +52,7 @@ namespace LinqFaster
             TResult r = default(TResult);
             if (r == null)
             {
-                for (int i = 0; i < a.Length; i++)
+                for (long i = 0; i < a.LongLength; i++)
                 {
                     var v = selector(a[i]);
                     if (v != null && comparer.Compare(v, r) > 0) r = v;
@@ -64,7 +64,7 @@ namespace LinqFaster
                 {
                     throw Error.NoElements();
                 }
-                for (int i = 0; i < a.Length; i++)
+                for (long i = 0; i < a.LongLength; i++)
                 {
                     var v = selector(a[i]);
                     if (comparer.Compare(v, r) > 0) r = v;
@@ -84,14 +84,14 @@ namespace LinqFaster
                 throw Error.NoElements();
             }
             int r = int.MaxValue;
-            for (int i = 0; i < a.Length; i++)
+            for (long i = 0; i < a.LongLength; i++)
             {
                 if (a[i] > r) r = a[i];
             }
             return r;
         }
 
-        public static int Max<T>(this T[] a, Func<T,int> selector)
+        public static int Max<T>(this T[] a, Func<T, int> selector)
         {
             if (a == null)
             {
@@ -107,7 +107,7 @@ namespace LinqFaster
             }
 
             int r = int.MaxValue;
-            for (int i = 0; i < a.Length; i++)
+            for (long i = 0; i < a.LongLength; i++)
             {
                 var v = selector(a[i]);
                 if (v > r) r = v;
@@ -126,7 +126,7 @@ namespace LinqFaster
                 throw Error.NoElements();
             }
             long r = long.MaxValue;
-            for (int i = 0; i < a.Length; i++)
+            for (long i = 0; i < a.LongLength; i++)
             {
                 if (a[i] > r) r = a[i];
             }
@@ -151,7 +151,7 @@ namespace LinqFaster
             }
 
             long r = long.MinValue;
-            for (int i = 0; i < a.Length; i++)
+            for (long i = 0; i < a.LongLength; i++)
             {
                 var v = selector(a[i]);
                 if (v > r) r = v;
@@ -171,7 +171,7 @@ namespace LinqFaster
             }
             float r = a[0];
             int startIndex = 0;
-            for (;startIndex < a.Length;startIndex++)
+            for (; startIndex < a.Length; startIndex++)
             {
                 if (!float.IsNaN(a[startIndex]))
                 {
@@ -179,14 +179,14 @@ namespace LinqFaster
                     break;
                 }
             }
-            for (int i = startIndex; i < a.Length; i++)
+            for (long i = startIndex; i < a.Length; i++)
             {
                 if (a[i] > r) r = a[i];
             }
             return r;
         }
 
-        public static float Max<T>(this T[] a, Func<T,float> selector)
+        public static float Max<T>(this T[] a, Func<T, float> selector)
         {
             if (a == null)
             {
@@ -212,7 +212,7 @@ namespace LinqFaster
                     break;
                 }
             }
-            for (int i = startIndex; i < a.Length; i++)
+            for (long i = startIndex; i < a.Length; i++)
             {
                 var v = selector(a[i]);
                 if (v > r) r = v;
@@ -240,7 +240,7 @@ namespace LinqFaster
                     break;
                 }
             }
-            for (int i = startIndex; i < a.Length; i++)
+            for (long i = startIndex; i < a.Length; i++)
             {
                 if (a[i] > r) r = a[i];
             }
@@ -273,7 +273,7 @@ namespace LinqFaster
                     break;
                 }
             }
-            for (int i = startIndex; i < a.Length; i++)
+            for (long i = startIndex; i < a.Length; i++)
             {
                 var v = selector(a[i]);
                 if (v > r) r = v;
@@ -293,14 +293,14 @@ namespace LinqFaster
                 throw Error.NoElements();
             }
             decimal r = decimal.MaxValue;
-            for (int i = 0; i < a.Length; i++)
+            for (long i = 0; i < a.LongLength; i++)
             {
                 if (a[i] > r) r = a[i];
             }
             return r;
         }
 
-        public static decimal Max<T>(this T[] a, Func<T,decimal> selector)
+        public static decimal Max<T>(this T[] a, Func<T, decimal> selector)
         {
             if (a == null)
             {
@@ -315,7 +315,7 @@ namespace LinqFaster
                 throw Error.ArgumentNull(nameof(selector));
             }
             decimal r = decimal.MaxValue;
-            for (int i = 0; i < a.Length; i++)
+            for (long i = 0; i < a.LongLength; i++)
             {
                 var v = selector(a[i]);
                 if (v > r) r = v;
@@ -354,7 +354,7 @@ namespace LinqFaster
             return r;
         }
 
-        public static TResult Max<T,TResult>(this List<T> a, Func<T,TResult> selector)
+        public static TResult Max<T, TResult>(this List<T> a, Func<T, TResult> selector)
         {
             if (a == null)
             {
@@ -370,7 +370,7 @@ namespace LinqFaster
             TResult r = default(TResult);
             if (r == null)
             {
-                 for (int i = 0; i < a.Count; i++)
+                for (int i = 0; i < a.Count; i++)
                 {
                     var v = selector(a[i]);
                     if (v != null && comparer.Compare(v, r) > 0) r = v;
@@ -410,7 +410,7 @@ namespace LinqFaster
             return r;
         }
 
-        public static int Max<T>(this List<T> a,Func<T,int> selector)
+        public static int Max<T>(this List<T> a, Func<T, int> selector)
         {
             if (a == null)
             {
@@ -452,7 +452,7 @@ namespace LinqFaster
             return r;
         }
 
-        public static long Max<T>(this List<T> a, Func<T,long> selector)
+        public static long Max<T>(this List<T> a, Func<T, long> selector)
         {
             if (a == null)
             {
@@ -502,7 +502,7 @@ namespace LinqFaster
             return r;
         }
 
-        public static float Max<T>(this List<T> a,Func<T,float> selector)
+        public static float Max<T>(this List<T> a, Func<T, float> selector)
         {
             if (a == null)
             {
@@ -562,7 +562,7 @@ namespace LinqFaster
             return r;
         }
 
-        public static double Max<T>(this List<T> a, Func<T,double> selector)
+        public static double Max<T>(this List<T> a, Func<T, double> selector)
         {
             if (a == null)
             {
@@ -612,7 +612,7 @@ namespace LinqFaster
             return r;
         }
 
-        public static decimal Max<T>(this List<T> a, Func<T,decimal> selector)
+        public static decimal Max<T>(this List<T> a, Func<T, decimal> selector)
         {
             if (a == null)
             {

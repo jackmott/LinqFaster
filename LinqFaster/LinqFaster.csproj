@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Average.cs" />
     <Compile Include="Error.cs" />
     <Compile Include="Max.cs" />
     <Compile Include="Range.cs" />

@@ -19,7 +19,7 @@ namespace LinqFaster
             T r = default(T);
             if (r == null)
             {
-                for (int i = 0; i < a.Length; i++)
+                for (long i = 0; i < a.LongLength; i++)
                 {
                     if (a[i] != null && comparer.Compare(a[i], r) < 0) r = a[i];
                 }
@@ -30,7 +30,7 @@ namespace LinqFaster
                 {
                     throw Error.NoElements();
                 }
-                for (int i = 0; i < a.Length; i++)
+                for (long i = 0; i < a.LongLength; i++)
                 {
                     if (comparer.Compare(a[i], r) < 0) r = a[i];
                 }
@@ -54,7 +54,7 @@ namespace LinqFaster
             TResult r = default(TResult);
             if (r == null)
             {
-                for (int i = 0; i < a.Length; i++)
+                for (long i = 0; i < a.LongLength; i++)
                 {
                     var v = selector(a[i]);
                     if (v != null && comparer.Compare(v, r) < 0) r = v;
@@ -66,7 +66,7 @@ namespace LinqFaster
                 {
                     throw Error.NoElements();
                 }
-                for (int i = 0; i < a.Length; i++)
+                for (long i = 0; i < a.LongLength; i++)
                 {
                     var v = selector(a[i]);
                     if (comparer.Compare(v, r) < 0) r = v;
@@ -86,7 +86,7 @@ namespace LinqFaster
                 throw Error.NoElements();
             }
             int r = int.MaxValue;
-            for (int i = 0; i < a.Length; i++)
+            for (long i = 0; i < a.LongLength; i++)
             {
                 if (a[i] < r) r = a[i];
             }
@@ -109,7 +109,7 @@ namespace LinqFaster
             }
 
             int r = int.MinValue;
-            for (int i = 0; i < a.Length; i++)
+            for (long i = 0; i < a.LongLength; i++)
             {
                 var v = selector(a[i]);
                 if (v < r) r = v;
@@ -128,7 +128,7 @@ namespace LinqFaster
                 throw Error.NoElements();
             }
             long r = long.MaxValue;
-            for (int i = 0; i < a.Length; i++)
+            for (long i = 0; i < a.LongLength; i++)
             {
                 if (a[i] < r) r = a[i];
             }
@@ -151,7 +151,7 @@ namespace LinqFaster
             }
 
             long r = long.MinValue;
-            for (int i = 0; i < a.Length; i++)
+            for (long i = 0; i < a.LongLength; i++)
             {
                 var v = selector(a[i]);
                 if (v < r) r = v;
@@ -171,7 +171,7 @@ namespace LinqFaster
                 throw Error.NoElements();
             }
             float r = float.MaxValue;
-            for (int i = 0; i < a.Length; i++)
+            for (long i = 0; i < a.LongLength; i++)
             {
                 if (a[i] < r) r = a[i];
                 else if (float.IsNaN(a[i])) return a[i];
@@ -195,7 +195,7 @@ namespace LinqFaster
                 throw Error.ArgumentNull(nameof(selector));
             }
             float r = float.MaxValue;
-            for (int i = 0; i < a.Length; i++)
+            for (long i = 0; i < a.LongLength; i++)
             {
                 var v = selector(a[i]);
                 if (v < r) r = v;
@@ -216,7 +216,7 @@ namespace LinqFaster
                 throw Error.NoElements();
             }
             double r = double.MaxValue;
-            for (int i = 0; i < a.Length; i++)
+            for (long i = 0; i < a.LongLength; i++)
             {
                 if (a[i] < r) r = a[i];
                 else if (double.IsNaN(a[i])) return a[i];
@@ -240,7 +240,7 @@ namespace LinqFaster
                 throw Error.ArgumentNull(nameof(selector));
             }
             double r = double.MaxValue;
-            for (int i = 0; i < a.Length; i++)
+            for (long i = 0; i < a.LongLength; i++)
             {
                 var v = selector(a[i]);
                 if (v < r) r = v;
@@ -261,7 +261,7 @@ namespace LinqFaster
                 throw Error.NoElements();
             }
             decimal r = decimal.MaxValue;
-            for (int i = 0; i < a.Length; i++)
+            for (long i = 0; i < a.LongLength; i++)
             {
                 if (a[i] < r) r = a[i];
             }
@@ -283,7 +283,7 @@ namespace LinqFaster
                 throw Error.ArgumentNull(nameof(selector));
             }
             decimal r = decimal.MaxValue;
-            for (int i = 0; i < a.Length; i++)
+            for (long i = 0; i < a.LongLength; i++)
             {
                 var v = selector(a[i]);
                 if (v < r) r = v;

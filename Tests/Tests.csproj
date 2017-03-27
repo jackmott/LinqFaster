@@ -156,9 +156,11 @@
   <ItemGroup>
     <Compile Include="Max.cs" />
     <Compile Include="Min.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Benchmarks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Range.cs" />
     <Compile Include="Select.cs" />
+    <Compile Include="SelectMany.cs" />
     <Compile Include="Sum.cs" />
     <Compile Include="Where.cs" />
   </ItemGroup>
