@@ -45,6 +45,11 @@ namespace LinqFaster
                 throw Error.ArgumentNull(nameof(a));
             }
 
+            if (selector == null)
+            {
+                throw Error.ArgumentNull(nameof(selector));
+            }
+
             Comparer<TResult> comparer = Comparer<TResult>.Default;
             TResult r = default(TResult);
             if (r == null)
@@ -154,7 +159,7 @@ namespace LinqFaster
             return r;
         }
 
-
+     
         public static float Min(this float[] a)
         {
             if (a == null)
@@ -171,6 +176,31 @@ namespace LinqFaster
                 if (a[i] < r) r = a[i];
                 else if (float.IsNaN(a[i])) return a[i];
                   
+            }
+            return r;
+        }
+
+        public static float Min<T>(this T[] a, Func<T,float> selector)
+        {
+            if (a == null)
+            {
+                throw Error.ArgumentNull(nameof(a));
+            }
+            if (a.Length == 0)
+            {
+                throw Error.NoElements();
+            }
+            if (selector == null)
+            {
+                throw Error.ArgumentNull(nameof(selector));
+            }
+            float r = float.MaxValue;
+            for (int i = 0; i < a.Length; i++)
+            {
+                var v = selector.Invoke(a[i]);
+                if (v < r) r = v;
+                else if (float.IsNaN(v)) return v;
+
             }
             return r;
         }
@@ -195,6 +225,31 @@ namespace LinqFaster
             return r;
         }
 
+        public static double Min<T>(this T[] a, Func<T, double> selector)
+        {
+            if (a == null)
+            {
+                throw Error.ArgumentNull(nameof(a));
+            }
+            if (a.Length == 0)
+            {
+                throw Error.NoElements();
+            }
+            if (selector == null)
+            {
+                throw Error.ArgumentNull(nameof(selector));
+            }
+            double r = double.MaxValue;
+            for (int i = 0; i < a.Length; i++)
+            {
+                var v = selector.Invoke(a[i]);
+                if (v < r) r = v;
+                else if (double.IsNaN(v)) return v;
+
+            }
+            return r;
+        }
+
         public static decimal Min(this decimal[] a)
         {
             if (a == null)
@@ -209,6 +264,29 @@ namespace LinqFaster
             for (int i = 0; i < a.Length; i++)
             {
                 if (a[i] < r) r = a[i];
+            }
+            return r;
+        }
+
+        public static decimal Min<T>(this T[] a, Func<T,decimal> selector)
+        {
+            if (a == null)
+            {
+                throw Error.ArgumentNull(nameof(a));
+            }
+            if (a.Length == 0)
+            {
+                throw Error.NoElements();
+            }
+            if (selector == null)
+            {
+                throw Error.ArgumentNull(nameof(selector));
+            }
+            decimal r = decimal.MaxValue;
+            for (int i = 0; i < a.Length; i++)
+            {
+                var v = selector.Invoke(a[i]);
+                if (v < r) r = v;
             }
             return r;
         }
@@ -294,6 +372,7 @@ namespace LinqFaster
             for (int i = 0; i < a.Count; i++)
             {
                 if (a[i] < r) r = a[i];
+                else if (float.IsNaN(a[i])) return a[i];
             }
             return r;
         }
@@ -312,6 +391,7 @@ namespace LinqFaster
             for (int i = 0; i < a.Count; i++)
             {
                 if (a[i] < r) r = a[i];
+                else if (double.IsNaN(a[i])) return a[i];
             }
             return r;
         }

@@ -43,6 +43,10 @@ namespace LinqFaster
             {
                 throw Error.ArgumentNull(nameof(a));
             }
+            if (selector == null)
+            {
+                throw Error.ArgumentNull(nameof(a));
+            }
 
             Comparer<TResult> comparer = Comparer<TResult>.Default;
             TResult r = default(TResult);
@@ -128,6 +132,8 @@ namespace LinqFaster
             }
             return r;
         }
+
+
 
         public static long Max<T>(this T[] a, Func<T, long> selector)
         {
@@ -302,8 +308,17 @@ namespace LinqFaster
             {
                 throw Error.NoElements();
             }
-            float r = float.MaxValue;
-            for (int i = 0; i < a.Count; i++)
+            float r = a[0];
+            int startIndex = 0;
+            for (; startIndex < a.Count; startIndex++)
+            {
+                if (!float.IsNaN(a[startIndex]))
+                {
+                    r = a[startIndex];
+                    break;
+                }
+            }
+            for (int i = startIndex; i < a.Count; i++)
             {
                 if (a[i] > r) r = a[i];
             }
@@ -320,8 +335,17 @@ namespace LinqFaster
             {
                 throw Error.NoElements();
             }
-            double r = double.MaxValue;
-            for (int i = 0; i < a.Count; i++)
+            double r = a[0];
+            int startIndex = 0;
+            for (; startIndex < a.Count; startIndex++)
+            {
+                if (!double.IsNaN(a[startIndex]))
+                {
+                    r = a[startIndex];
+                    break;
+                }
+            }
+            for (int i = startIndex; i < a.Count; i++)
             {
                 if (a[i] > r) r = a[i];
             }
