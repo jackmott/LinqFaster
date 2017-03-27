@@ -11,7 +11,7 @@ namespace LinqFaster
     {
         // --------------------------  ARRAYS  --------------------------------------------
 
-        public static T Min<T>(this T[] a) where T : IComparable
+        public static T Min<T>(this T[] a) 
         {
             if (a == null)
             {
@@ -27,13 +27,13 @@ namespace LinqFaster
             {
                 for (int i = 0; i < a.Length; i++)
                 {
-                    if (a[i] != null && r.CompareTo(a[i]) < 0) r = a[i];
+                    if (a[i] != null && comparer.Compare(a[i], r) < 0) r = a[i];
                 }
             } else
             {
                 for (int i = 0; i < a.Length; i++)
                 {
-                    if ( r.CompareTo(a[i]) < 0) r = a[i];
+                    if (comparer.Compare(a[i], r) < 0) r = a[i];
                 }
             }
             return r;
@@ -132,7 +132,7 @@ namespace LinqFaster
         }
 
         // --------------------------  LISTS  --------------------------------------------
-        public static T Min<T>(this List<T> a) where T : IComparable
+        public static T Min<T>(this List<T> a) 
         {
             if (a == null)
             {
@@ -148,14 +148,14 @@ namespace LinqFaster
             {
                 for (int i = 0; i < a.Count; i++)
                 {
-                    if (a[i] != null && r.CompareTo(a[i]) < 0) r = a[i];
+                    if (a[i] != null && comparer.Compare(a[i], r) < 0) r = a[i];
                 }
             }
             else
             {
                 for (int i = 0; i < a.Count; i++)
                 {
-                    if (r.CompareTo(a[i]) < 0) r = a[i];
+                    if (comparer.Compare(a[i], r) < 0) r = a[i];
                 }
             }
             return r;

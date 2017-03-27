@@ -11,22 +11,41 @@ namespace LinqFaster
 
         // --------------------------  ARRAYS  --------------------------------------------
 
-        public static TResult[] Select<T,TResult>(this T[] a, Func<T,TResult> selector)
-        {                        
+        public static TResult[] Select<T, TResult>(this T[] a, Func<T, TResult> selector)
+        {
+            if (a == null)
+            {
+                throw Error.ArgumentNull(nameof(a));
+            }
+
+            if (selector == null)
+            {
+                throw Error.ArgumentNull(nameof(selector));
+            }
+
             var r = new TResult[a.Length];
-            for (int i = 0; i < a.Length;i++)
+            for (int i = 0; i < a.Length; i++)
             {
                 r[i] = selector.Invoke(a[i]);
             }
             return r;
         }
 
-        public static TResult[] Select<T, TResult>(this T[] a, Func<T,int,TResult> selector)
+        public static TResult[] Select<T, TResult>(this T[] a, Func<T, int, TResult> selector)
         {
+            if (a == null)
+            {
+                throw Error.ArgumentNull(nameof(a));
+            }
+
+            if (selector == null)
+            {
+                throw Error.ArgumentNull(nameof(selector));
+            }
             var r = new TResult[a.Length];
             for (int i = 0; i < a.Length; i++)
             {
-                r[i] = selector.Invoke(a[i],i);
+                r[i] = selector.Invoke(a[i], i);
             }
             return r;
         }
@@ -35,6 +54,16 @@ namespace LinqFaster
 
         public static List<TResult> Select<T, TResult>(this List<T> a, Func<T, TResult> selector)
         {
+            if (a == null)
+            {
+                throw Error.ArgumentNull(nameof(a));
+            }
+
+            if (selector == null)
+            {
+                throw Error.ArgumentNull(nameof(selector));
+            }
+
             var r = new List<TResult>(a.Count);
             for (int i = 0; i < a.Count; i++)
             {
@@ -45,6 +74,16 @@ namespace LinqFaster
 
         public static List<TResult> Select<T, TResult>(this List<T> a, Func<T, int, TResult> selector)
         {
+            if (a == null)
+            {
+                throw Error.ArgumentNull(nameof(a));
+            }
+
+            if (selector == null)
+            {
+                throw Error.ArgumentNull(nameof(selector));
+            }
+
             var r = new List<TResult>(a.Count);
             for (int i = 0; i < a.Count; i++)
             {

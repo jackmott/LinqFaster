@@ -11,7 +11,17 @@ namespace LinqFaster
         // --------------------------  ARRAYS --------------------------------------------
 
         public static T[] Where<T>(this T[] a, Func<T,bool> predicate)
-        {            
+        {
+            if (a == null)
+            {
+                throw Error.ArgumentNull(nameof(a));
+            }
+
+            if (predicate == null)
+            {
+                throw Error.ArgumentNull(nameof(predicate));
+            }
+
             List<T> temp = new List<T>();
             for (int i = 0; i < a.Length;i++)
             {
@@ -22,6 +32,16 @@ namespace LinqFaster
 
         public static T[] Where<T>(this T[] a, Func<T,int, bool> predicate)
         {
+            if (a == null)
+            {
+                throw Error.ArgumentNull(nameof(a));
+            }
+
+            if (predicate == null)
+            {
+                throw Error.ArgumentNull(nameof(predicate));
+            }
+
             List<T> temp = new List<T>();
             for (int i = 0; i < a.Length; i++)
             {
@@ -34,6 +54,16 @@ namespace LinqFaster
 
         public static List<T> Where<T>(this List<T> a, Func<T, bool> predicate)
         {
+            if (a == null)
+            {
+                throw Error.ArgumentNull(nameof(a));
+            }
+
+            if (predicate == null)
+            {
+                throw Error.ArgumentNull(nameof(predicate));
+            }
+
             List<T> r = new List<T>();
             for (int i = 0; i < a.Count ; i++)
             {
@@ -44,6 +74,16 @@ namespace LinqFaster
 
         public static List<T> Where<T>(this List<T> a, Func<T, int, bool> predicate)
         {
+            if (a == null)
+            {
+                throw Error.ArgumentNull(nameof(a));
+            }
+
+            if (predicate == null)
+            {
+                throw Error.ArgumentNull(nameof(predicate));
+            }
+
             List<T> r = new List<T>();
             for (int i = 0; i < a.Count; i++)
             {
