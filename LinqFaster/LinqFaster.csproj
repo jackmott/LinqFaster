@@ -47,6 +47,7 @@
     <Compile Include="Average.cs" />
     <Compile Include="Contains.cs" />
     <Compile Include="Error.cs" />
+    <Compile Include="First.cs" />
     <Compile Include="Max.cs" />
     <Compile Include="Range.cs" />
     <Compile Include="SelectMany.cs" />
