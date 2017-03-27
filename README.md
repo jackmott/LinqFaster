@@ -1,5 +1,5 @@
 # LinqFaster
-A set of extension methods for arrays and List<T> that are faster and allocate less. This eventually will cover all the Linq extension methods
+A set of extension methods for array and `List<T>` that are faster and allocate less. This eventually will cover all the Linq extension methods
 that are appropriate, and then some. I plan to add SIMD versions where appropriate, in place array Select, etc.
 
 # Features
