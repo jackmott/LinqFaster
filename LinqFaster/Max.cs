@@ -186,6 +186,40 @@ namespace LinqFaster
             return r;
         }
 
+        public static float Max<T>(this T[] a, Func<T,float> selector)
+        {
+            if (a == null)
+            {
+                throw Error.ArgumentNull(nameof(a));
+            }
+            if (a.Length == 0)
+            {
+                throw Error.NoElements();
+            }
+            if (selector == null)
+            {
+                throw Error.ArgumentNull(nameof(selector));
+            }
+
+            float r = selector.Invoke(a[0]);
+            int startIndex = 0;
+            for (; startIndex < a.Length; startIndex++)
+            {
+                var v = selector.Invoke(a[startIndex]);
+                if (!float.IsNaN(v))
+                {
+                    r = v;
+                    break;
+                }
+            }
+            for (int i = startIndex; i < a.Length; i++)
+            {
+                var v = selector.Invoke(a[i]);
+                if (v > r) r = v;
+            }
+            return r;
+        }
+
         public static double Max(this double[] a)
         {
             if (a == null)
@@ -213,6 +247,41 @@ namespace LinqFaster
             return r;
         }
 
+        public static double Max<T>(this T[] a, Func<T, double> selector)
+        {
+            if (a == null)
+            {
+                throw Error.ArgumentNull(nameof(a));
+            }
+            if (a.Length == 0)
+            {
+                throw Error.NoElements();
+            }
+            if (selector == null)
+            {
+                throw Error.ArgumentNull(nameof(selector));
+            }
+
+            double r = selector.Invoke(a[0]);
+            int startIndex = 0;
+            for (; startIndex < a.Length; startIndex++)
+            {
+                var v = selector.Invoke(a[startIndex]);
+                if (!double.IsNaN(v))
+                {
+                    r = v;
+                    break;
+                }
+            }
+            for (int i = startIndex; i < a.Length; i++)
+            {
+                var v = selector.Invoke(a[i]);
+                if (v > r) r = v;
+            }
+            return r;
+        }
+
+
         public static decimal Max(this decimal[] a)
         {
             if (a == null)
@@ -227,6 +296,29 @@ namespace LinqFaster
             for (int i = 0; i < a.Length; i++)
             {
                 if (a[i] > r) r = a[i];
+            }
+            return r;
+        }
+
+        public static decimal Max<T>(this T[] a, Func<T,decimal> selector)
+        {
+            if (a == null)
+            {
+                throw Error.ArgumentNull(nameof(a));
+            }
+            if (a.Length == 0)
+            {
+                throw Error.NoElements();
+            }
+            if (selector == null)
+            {
+                throw Error.ArgumentNull(nameof(selector));
+            }
+            decimal r = decimal.MaxValue;
+            for (int i = 0; i < a.Length; i++)
+            {
+                var v = selector.Invoke(a[i]);
+                if (v > r) r = v;
             }
             return r;
         }
