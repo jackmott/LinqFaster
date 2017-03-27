@@ -1,4 +1,3 @@
-
 ``` ini
 
 BenchmarkDotNet=v0.10.3.0, OS=Microsoft Windows NT 6.2.9200.0
@@ -11,9 +10,11 @@ Frequency=2742188 Hz, Resolution=364.6723 ns, Timer=TSC
 ```
  |           Method | TEST_SIZE |                Mean |            StdDev |
  |----------------- |---------- |-------------------- |------------------ |
- | **SelectLinqFaster** |       **100** |         **304.8399 ns** |         **5.3932 ns** |
- |       SelectLinq |       100 |       1,319.8975 ns |        30.0837 ns |
- | **SelectLinqFaster** |    **100000** |     **307,316.8480 ns** |     **3,403.7513 ns** |
- |       SelectLinq |    100000 |   1,524,372.9414 ns |    39,966.7960 ns |
- | **SelectLinqFaster** |  **10000000** |  **38,567,270.0808 ns** |   **437,889.3283 ns** |
- |       SelectLinq |  10000000 | 156,447,374.3230 ns | 3,022,294.6038 ns |
+ | **SelectLinqFaster** |       **100** |       **1,578.2046 ns** |        **33.6516 ns** |
+ |       SelectLinq |       100 |       1,282.7017 ns |        28.7260 ns |
+ |  WhereLinqFaster |       100 |       1,297.8546 ns |        25.1934 ns |
+ |        WhereLinq |       100 |         957.4197 ns |        45.3095 ns |
+ | **SelectLinqFaster** |  **10000000** | **176,940,320.3881 ns** | **4,213,808.7948 ns** |
+ |       SelectLinq |  10000000 | 139,707,733.6905 ns |   975,855.3571 ns |
+ |  WhereLinqFaster |  10000000 | 182,708,851.6589 ns |   930,856.7298 ns |
+ |        WhereLinq |  10000000 | 149,473,422.3183 ns | 1,160,919.4309 ns |
