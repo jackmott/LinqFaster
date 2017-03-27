@@ -16,7 +16,7 @@ namespace LinqFaster
                 throw Error.ArgumentNull(nameof(predicate));
             }
 
-            for (int i = 0; i < source.Length; i++)
+            for (long i = 0; i < source.LongLength; i++)
             {
                 if (predicate(source[i]))
                 {
@@ -39,7 +39,7 @@ namespace LinqFaster
                 throw Error.ArgumentNull(nameof(predicate));
             }
 
-            for (int i = 0; i < source.Length; i++)
+            for (long i = 0; i < source.LongLength; i++)
             {
                 if (predicate(source[i]))
                 {

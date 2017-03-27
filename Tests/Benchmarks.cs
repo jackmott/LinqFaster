@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LinqFaster;
-using System.Diagnostics;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
 
@@ -23,6 +18,7 @@ namespace Tests
         [Benchmark]
         public int[] LongIter()
         {
+            array.OrderBy()
             for (long i = 0; i < array.LongLength; i++)
             {
                 array[i] = 5;
@@ -33,10 +29,11 @@ namespace Tests
         [Benchmark]
         public int[] IntIter()
         {
+            Array.Sort(array);
             for (int i = 0; i < array.Length;i++)
             {
                 array[i] = 5;
-            }
+            }            
             return array;
         }
 
@@ -45,6 +42,7 @@ namespace Tests
         public static void Main(string[] args)
         {
             var summary = BenchmarkRunner.Run<Benchmarks>();
+
         }
         
     }
