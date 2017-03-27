@@ -20,13 +20,61 @@ namespace LinqFaster
                 throw Error.NoElements();
             }
 
-            long sum = 0;            
-            for (long i = 0; i < source.LongLength;i++)
+            long sum = 0;    
+            checked
             {
-                sum += source[i];                
+                for (long i = 0; i < source.LongLength; i++)
+                {
+                    sum += source[i];
+                }
             }
-            return 1.0;
+            return (double)sum / source.LongLength;
+        }
 
+        public static double Average(this long[] source)
+        {
+            if (source == null)
+            {
+                throw Error.ArgumentNull(nameof(source));
+            }
+
+            if (source.Length == 0)
+            {
+                throw Error.NoElements();
+            }
+
+            long sum = 0;
+            checked
+            {
+                for (long i = 0; i < source.LongLength; i++)
+                {
+                    sum += source[i];
+                }
+            }
+            return (double)sum / source.LongLength;
+        }
+
+        public static double Average(this float[] source)
+        {
+            if (source == null)
+            {
+                throw Error.ArgumentNull(nameof(source));
+            }
+
+            if (source.Length == 0)
+            {
+                throw Error.NoElements();
+            }
+
+            long sum = 0;
+            checked
+            {
+                for (long i = 0; i < source.LongLength; i++)
+                {
+                    sum += source[i];
+                }
+            }
+            return sum / source.LongLength;
         }
     }
 }
