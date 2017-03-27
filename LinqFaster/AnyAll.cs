@@ -8,6 +8,15 @@ namespace LinqFaster
 
         // --------------------------  ARRAYS --------------------------------------------
 
+        public static bool Any<T>(this T[] source)
+        {
+            if (source == null)
+            {
+                throw Error.ArgumentNull(nameof(source));
+            }
+            return source.Length > 0;
+        }
+
         public static bool Any<TSource>(this TSource[] source, Func<TSource, bool> predicate)
         {
             if (source == null)
@@ -30,6 +39,16 @@ namespace LinqFaster
 
             return false;
         }
+
+        public static bool Any<T>(this List<T> source)
+        {
+            if (source == null)
+            {
+                throw Error.ArgumentNull(nameof(source));
+            }
+            return source.Count > 0;
+        }
+
 
         public static bool All<TSource>(this TSource[] source, Func<TSource, bool> predicate)
         {
