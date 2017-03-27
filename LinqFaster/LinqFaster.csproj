@@ -31,6 +31,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x64</PlatformTarget>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -47,6 +48,7 @@
     <Compile Include="Average.cs" />
     <Compile Include="Contains.cs" />
     <Compile Include="Error.cs" />
+    <Compile Include="Last.cs.cs" />
     <Compile Include="First.cs" />
     <Compile Include="Max.cs" />
     <Compile Include="Range.cs" />

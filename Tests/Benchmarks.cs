@@ -2,6 +2,8 @@
 using System.Linq;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
+using LinqFaster;
+
 
 namespace Tests
 {
@@ -27,7 +29,7 @@ namespace Tests
 
         [Benchmark]
         public int[] IntIter()
-        {
+        {            
             Array.Sort(array);
             for (int i = 0; i < array.Length;i++)
             {

@@ -1,0 +1,130 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace LinqFaster
+{
+    public static class LastFuncs
+    {        
+        // --------------------------  Arrays --------------------------------------------
+        
+        public static T Last<T>(this T[] source)
+        {
+            if (source == null)
+            {
+                throw Error.ArgumentNull(nameof(source));
+            }
+            if (source.Length == 0)
+            {
+                throw Error.NoElements();
+            }
+            return source[source.Length-1];
+        }
+
+        public static T Last<T>(this T[] source, Func<T, bool> predicate)
+        {
+            if (source == null)
+            {
+                throw Error.ArgumentNull(nameof(source));
+            }
+
+            if (predicate == null)
+            {
+                throw Error.ArgumentNull(nameof(predicate));
+            }
+
+            for (long i = source.LongLength-1; i >=0 ; i--)
+            {
+                if (predicate(source[i]))
+                {
+                    return source[i];
+                }
+            }
+
+            throw Error.NoMatch();
+        }
+
+        public static T LastOrDefault<T>(this T[] source, Func<T, bool> predicate)
+        {
+            if (source == null)
+            {
+                throw Error.ArgumentNull(nameof(source));
+            }
+
+            if (predicate == null)
+            {
+                throw Error.ArgumentNull(nameof(predicate));
+            }
+
+            for (long i = source.LongLength-1; i >= 0; i--)
+            {
+                if (predicate(source[i]))
+                {
+                    return source[i];
+                }
+            }
+
+            return default(T);
+        }
+
+        // --------------------------  Lists --------------------------------------------
+
+        public static T Last<T>(this List<T> source)
+        {
+            if (source == null)
+            {
+                throw Error.ArgumentNull(nameof(source));
+            }
+            if (source.Count == 0)
+            {
+                throw Error.NoElements();
+            }
+            return source[source.Count-1];
+        }
+
+        public static T Last<T>(this List<T> source, Func<T, bool> predicate)
+        {
+            if (source == null)
+            {
+                throw Error.ArgumentNull(nameof(source));
+            }
+
+            if (predicate == null)
+            {
+                throw Error.ArgumentNull(nameof(predicate));
+            }
+
+            for (int i = source.Count-1; i >= 0; i--)
+            {
+                if (predicate(source[i]))
+                {
+                    return source[i];
+                }
+            }
+
+            throw Error.NoMatch();
+        }
+
+        public static T LastOrDefault<T>(this List<T> source, Func<T, bool> predicate)
+        {
+            if (source == null)
+            {
+                throw Error.ArgumentNull(nameof(source));
+            }
+
+            if (predicate == null)
+            {
+                throw Error.ArgumentNull(nameof(predicate));
+            }
+
+            for (int i = source.Count-1; i >= 0; i--)
+            {
+                if (predicate(source[i]))
+                {
+                    return source[i];
+                }
+            }
+
+            return default(T);
+        }
+    }
+}
