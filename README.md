@@ -6,12 +6,14 @@ that are appropriate, and then some. I plan to add SIMD versions where appropria
 
 # Features
 
-* Goes faster
-* Allocates less
-* Saves Battery life
-* Reduces server farm costs
-* Reduces co2 output
-* Reduces electricity bill
+* :arrow_down: Execution time
+* :arrow_down: GC churn
+* :up_arrow: Battery life
+* :arrow_down: Sever farm costs
+* :arrow_down: Co2 output
+* :arrow_down: Electricity bill
+* :arrow_up: L1 cache hits
+* :arrow_up: FPS!
 
 # Use
 
