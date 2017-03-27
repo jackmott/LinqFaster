@@ -340,6 +340,31 @@ namespace LinqFaster
             return r;
         }
 
+        public static int Min<T>(this List<T> a, Func<T, int> selector)
+        {
+            if (a == null)
+            {
+                throw Error.ArgumentNull(nameof(a));
+            }
+            if (a.Count == 0)
+            {
+                throw Error.NoElements();
+            }
+            if (selector == null)
+            {
+                throw Error.ArgumentNull(nameof(selector));
+            }
+
+            int r = int.MaxValue;
+            for (int i = 0; i < a.Count; i++)
+            {
+                var v = selector.Invoke(a[i]);
+                if (v < r) r = v;
+            }
+            return r;
+        }
+
+
         public static long Min(this List<long> a)
         {
             if (a == null)
@@ -357,6 +382,30 @@ namespace LinqFaster
             }
             return r;
         }
+
+        public static long Min<T>(this List<T> a, Func<T, long> selector)
+        {
+            if (a == null)
+            {
+                throw Error.ArgumentNull(nameof(a));
+            }
+            if (a.Count == 0)
+            {
+                throw Error.NoElements();
+            }
+            if (selector == null)
+            {
+                throw Error.ArgumentNull(nameof(a));
+            }
+            long r = long.MaxValue;
+            for (int i = 0; i < a.Count; i++)
+            {
+                var v = selector.Invoke(a[i]);
+                if (v < r) r = v;
+            }
+            return r;
+        }
+
 
         public static float Min(this List<float> a)
         {
@@ -377,6 +426,32 @@ namespace LinqFaster
             return r;
         }
 
+        public static float Min<T>(this List<T> a, Func<T, float> selector)
+        {
+            if (a == null)
+            {
+                throw Error.ArgumentNull(nameof(a));
+            }
+            if (a.Count == 0)
+            {
+                throw Error.NoElements();
+            }
+            if (selector == null)
+            {
+                throw Error.ArgumentNull(nameof(selector));
+            }
+
+            float r = float.MaxValue;
+            for (int i = 0; i < a.Count; i++)
+            {
+                var v = selector.Invoke(a[i]);
+                if (v < r) r = v;
+                else if (float.IsNaN(v)) return v;
+            }
+            return r;
+        }
+
+
         public static double Min(this List<double> a)
         {
             if (a == null)
@@ -392,6 +467,31 @@ namespace LinqFaster
             {
                 if (a[i] < r) r = a[i];
                 else if (double.IsNaN(a[i])) return a[i];
+            }
+            return r;
+        }
+
+        public static double Min<T>(this List<T> a, Func<T,double> selector)
+        {
+            if (a == null)
+            {
+                throw Error.ArgumentNull(nameof(a));
+            }
+            if (a.Count == 0)
+            {
+                throw Error.NoElements();
+            }
+            if (selector == null)
+            {
+                throw Error.ArgumentNull(nameof(selector));
+            }
+
+            double r = double.MaxValue;
+            for (int i = 0; i < a.Count; i++)
+            {
+                var v = selector.Invoke(a[i]);
+                if (v < r) r = v;
+                else if (double.IsNaN(v)) return v;
             }
             return r;
         }
@@ -413,5 +513,25 @@ namespace LinqFaster
             }
             return r;
         }
+
+        public static decimal Min<T>(this List<T> a, Func<T, decimal> selector)
+        {
+            if (a == null)
+            {
+                throw Error.ArgumentNull(nameof(a));
+            }
+            if (a.Count == 0)
+            {
+                throw Error.NoElements();
+            }
+            decimal r = decimal.MaxValue;
+            for (int i = 0; i < a.Count; i++)
+            {
+                var v = selector.Invoke(a[i]);
+                if (v < r) r = v;
+            }
+            return r;
+        }
+
     }
 }

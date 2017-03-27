@@ -89,10 +89,5 @@ namespace LinqFaster
             return r;
         }
 
-
-
-
-
-
     }
 }
