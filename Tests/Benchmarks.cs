@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Linq;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
-using LinqFaster;
 
 
 namespace Tests
