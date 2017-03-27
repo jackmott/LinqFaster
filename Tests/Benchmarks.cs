@@ -24,6 +24,7 @@ namespace Tests
             {
                 array[i] = 5;
             }
+            
             return array;
         }
 
@@ -34,7 +35,7 @@ namespace Tests
             for (int i = 0; i < array.Length;i++)
             {
                 array[i] = 5;
-            }            
+            }                            
             return array;
         }
 

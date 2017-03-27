@@ -52,6 +52,7 @@
     <Compile Include="First.cs" />
     <Compile Include="Max.cs" />
     <Compile Include="Range.cs" />
+    <Compile Include="Reverse.cs" />
     <Compile Include="SelectMany.cs" />
     <Compile Include="Single.cs" />
     <Compile Include="Sum.cs" />
