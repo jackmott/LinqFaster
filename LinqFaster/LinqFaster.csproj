@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Error.cs" />
     <Compile Include="Max.cs" />
+    <Compile Include="Sum.cs" />
     <Compile Include="Min.cs" />
     <Compile Include="Select.cs" />
     <Compile Include="Where.cs" />

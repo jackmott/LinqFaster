@@ -23,12 +23,23 @@ namespace LinqFaster
             }
             Comparer<T> comparer = Comparer<T>.Default;
             T r = default(T);
-            for (int i = 0; i < a.Length; i++)
+            if (r == null)
             {
-                if (a[i] != null && r.CompareTo(a[i]) < 0) r = a[i];
+                for (int i = 0; i < a.Length; i++)
+                {
+                    if (a[i] != null && r.CompareTo(a[i]) < 0) r = a[i];
+                }
+            } else
+            {
+                for (int i = 0; i < a.Length; i++)
+                {
+                    if ( r.CompareTo(a[i]) < 0) r = a[i];
+                }
             }
             return r;
         }
+
+     
 
         public static int Min(this int[] a)
         {
@@ -41,7 +52,7 @@ namespace LinqFaster
                 throw Error.NoElements();
             }
             int r = int.MaxValue;
-            for (int i =0; i < a.Length;i++)
+            for (int i = 0; i < a.Length; i++)
             {
                 if (a[i] < r) r = a[i];
             }
@@ -133,9 +144,19 @@ namespace LinqFaster
             }
             Comparer<T> comparer = Comparer<T>.Default;
             T r = default(T);
-            for (int i = 0; i < a.Count; i++)
+            if (r == null)
             {
-                if (a[i] != null && r.CompareTo(a[i]) < 0) r = a[i];
+                for (int i = 0; i < a.Count; i++)
+                {
+                    if (a[i] != null && r.CompareTo(a[i]) < 0) r = a[i];
+                }
+            }
+            else
+            {
+                for (int i = 0; i < a.Count; i++)
+                {
+                    if (r.CompareTo(a[i]) < 0) r = a[i];
+                }
             }
             return r;
         }
