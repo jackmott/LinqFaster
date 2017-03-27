@@ -8,13 +8,13 @@ namespace LinqFaster
     {
         // --------------------------  ARRAYS  --------------------------------------------
 
-        public static T Min<T>(this T[] a) 
+        public static T Min<T>(this T[] a)
         {
             if (a == null)
             {
                 throw Error.ArgumentNull(nameof(a));
             }
-           
+
             Comparer<T> comparer = Comparer<T>.Default;
             T r = default(T);
             if (r == null)
@@ -23,7 +23,8 @@ namespace LinqFaster
                 {
                     if (a[i] != null && comparer.Compare(a[i], r) < 0) r = a[i];
                 }
-            } else
+            }
+            else
             {
                 if (a.Length == 0)
                 {
@@ -87,6 +88,30 @@ namespace LinqFaster
             return r;
         }
 
+        public static int Min<T>(this T[] a, Func<T, int> selector)
+        {
+            if (a == null)
+            {
+                throw Error.ArgumentNull(nameof(a));
+            }
+            if (a.Length == 0)
+            {
+                throw Error.NoElements();
+            }
+            if (selector == null)
+            {
+                throw Error.ArgumentNull(nameof(selector));
+            }
+
+            int r = int.MinValue;
+            for (int i = 0; i < a.Length; i++)
+            {
+                var v = selector.Invoke(a[i]);
+                if (v < r) r = v;
+            }
+            return r;
+        }
+
         public static long Min(this long[] a)
         {
             if (a == null)
@@ -105,6 +130,31 @@ namespace LinqFaster
             return r;
         }
 
+        public static long Min<T>(this T[] a, Func<T, long> selector)
+        {
+            if (a == null)
+            {
+                throw Error.ArgumentNull(nameof(a));
+            }
+            if (a.Length == 0)
+            {
+                throw Error.NoElements();
+            }
+            if (selector == null)
+            {
+                throw Error.ArgumentNull(nameof(selector));
+            }
+
+            long r = long.MinValue;
+            for (int i = 0; i < a.Length; i++)
+            {
+                var v = selector.Invoke(a[i]);
+                if (v < r) r = v;
+            }
+            return r;
+        }
+
+
         public static float Min(this float[] a)
         {
             if (a == null)
@@ -119,6 +169,8 @@ namespace LinqFaster
             for (int i = 0; i < a.Length; i++)
             {
                 if (a[i] < r) r = a[i];
+                else if (float.IsNaN(a[i])) return a[i];
+                  
             }
             return r;
         }
@@ -137,7 +189,9 @@ namespace LinqFaster
             for (int i = 0; i < a.Length; i++)
             {
                 if (a[i] < r) r = a[i];
+                else if (double.IsNaN(a[i])) return a[i];
             }
+            
             return r;
         }
 
@@ -160,13 +214,13 @@ namespace LinqFaster
         }
 
         // --------------------------  LISTS  --------------------------------------------
-        public static T Min<T>(this List<T> a) 
+        public static T Min<T>(this List<T> a)
         {
             if (a == null)
             {
                 throw Error.ArgumentNull(nameof(a));
             }
-            
+
             Comparer<T> comparer = Comparer<T>.Default;
             T r = default(T);
             if (r == null)
