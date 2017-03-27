@@ -8,6 +8,19 @@ namespace LinqFaster
 
         // --------------------------  Arrays --------------------------------------------
 
+        public static T First<T>(this T[] source)
+        {
+            if (source == null)
+            {
+                throw Error.ArgumentNull(nameof(source));
+            }
+            if (source.Length == 0)
+            {
+                throw Error.NoElements();
+            }
+            return source[0];
+        }
+
         public static T First<T>(this T[] source, Func<T, bool> predicate)
         {
             if (source == null)
@@ -55,6 +68,19 @@ namespace LinqFaster
         }
 
         // --------------------------  Lists --------------------------------------------
+
+        public static T First<T>(this List<T> source)
+        {
+            if (source == null)
+            {
+                throw Error.ArgumentNull(nameof(source));
+            }
+            if (source.Count == 0)
+            {
+                throw Error.NoElements();
+            }
+            return source[0];
+        }
 
         public static T First<T>(this List<T> source, Func<T, bool> predicate)
         {
