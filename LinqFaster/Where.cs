@@ -19,12 +19,12 @@ namespace LinqFaster
                 throw Error.ArgumentNull(nameof(predicate));
             }
 
-            List<T> temp = new List<T>();
-            for (long i = 0; i < a.LongLength;i++)
+            List<T> result = new List<T>();
+            for (int i = 0; i < a.Length; i++)
             {
-                if (predicate(a[i])) temp.Add(a[i]);
+                if (predicate(a[i])) result.Add(a[i]);
             }
-            return temp.ToArray();
+            return result.ToArray();
         }
 
         public static T[] Where<T>(this T[] a, Func<T,int, bool> predicate)
@@ -39,12 +39,12 @@ namespace LinqFaster
                 throw Error.ArgumentNull(nameof(predicate));
             }
 
-            List<T> temp = new List<T>();
+            List<T> result = new List<T>();
             for (int i = 0; i < a.Length; i++)
             {
-                if (predicate(a[i],i)) temp.Add(a[i]);
+                if (predicate(a[i],i)) result.Add(a[i]);
             }
-            return temp.ToArray();
+            return result.ToArray();
         }
 
         // --------------------------  LISTS --------------------------------------------
