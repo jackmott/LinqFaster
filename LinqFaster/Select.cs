@@ -24,7 +24,7 @@ namespace LinqFaster
             var r = new TResult[a.Length];
             for (int i = 0; i < a.Length; i++)
             {
-                r[i] = selector.Invoke(a[i]);
+                r[i] = selector(a[i]);
             }
             return r;
         }
@@ -43,7 +43,7 @@ namespace LinqFaster
             var r = new TResult[a.Length];
             for (int i = 0; i < a.Length; i++)
             {
-                r[i] = selector.Invoke(a[i], i);
+                r[i] = selector(a[i], i);
             }
             return r;
         }
@@ -65,7 +65,7 @@ namespace LinqFaster
             var r = new List<TResult>(a.Count);
             for (int i = 0; i < a.Count; i++)
             {
-                r.Add(selector.Invoke(a[i]));
+                r.Add(selector(a[i]));
             }
             return r;
         }
@@ -85,7 +85,7 @@ namespace LinqFaster
             var r = new List<TResult>(a.Count);
             for (int i = 0; i < a.Count; i++)
             {
-                r.Add(selector.Invoke(a[i], i));
+                r.Add(selector(a[i], i));
             }
             return r;
         }

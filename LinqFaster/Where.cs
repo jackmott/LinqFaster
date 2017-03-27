@@ -22,7 +22,7 @@ namespace LinqFaster
             List<T> temp = new List<T>();
             for (int i = 0; i < a.Length;i++)
             {
-                if (predicate.Invoke(a[i])) temp.Add(a[i]);
+                if (predicate(a[i])) temp.Add(a[i]);
             }
             return temp.ToArray();
         }
@@ -42,7 +42,7 @@ namespace LinqFaster
             List<T> temp = new List<T>();
             for (int i = 0; i < a.Length; i++)
             {
-                if (predicate.Invoke(a[i],i)) temp.Add(a[i]);
+                if (predicate(a[i],i)) temp.Add(a[i]);
             }
             return temp.ToArray();
         }
@@ -64,7 +64,7 @@ namespace LinqFaster
             List<T> r = new List<T>();
             for (int i = 0; i < a.Count ; i++)
             {
-                if (predicate.Invoke(a[i])) r.Add(a[i]);
+                if (predicate(a[i])) r.Add(a[i]);
             }
             return r;
         }
@@ -84,7 +84,7 @@ namespace LinqFaster
             List<T> r = new List<T>();
             for (int i = 0; i < a.Count; i++)
             {
-                if (predicate.Invoke(a[i], i)) r.Add(a[i]);
+                if (predicate(a[i], i)) r.Add(a[i]);
             }
             return r;
         }

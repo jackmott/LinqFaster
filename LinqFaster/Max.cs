@@ -54,7 +54,7 @@ namespace LinqFaster
             {
                 for (int i = 0; i < a.Length; i++)
                 {
-                    var v = selector.Invoke(a[i]);
+                    var v = selector(a[i]);
                     if (v != null && comparer.Compare(v, r) > 0) r = v;
                 }
             }
@@ -66,7 +66,7 @@ namespace LinqFaster
                 }
                 for (int i = 0; i < a.Length; i++)
                 {
-                    var v = selector.Invoke(a[i]);
+                    var v = selector(a[i]);
                     if (comparer.Compare(v, r) > 0) r = v;
                 }
             }
@@ -109,7 +109,7 @@ namespace LinqFaster
             int r = int.MaxValue;
             for (int i = 0; i < a.Length; i++)
             {
-                var v = selector.Invoke(a[i]);
+                var v = selector(a[i]);
                 if (v > r) r = v;
             }
             return r;
@@ -153,7 +153,7 @@ namespace LinqFaster
             long r = long.MinValue;
             for (int i = 0; i < a.Length; i++)
             {
-                var v = selector.Invoke(a[i]);
+                var v = selector(a[i]);
                 if (v > r) r = v;
             }
             return r;
@@ -201,11 +201,11 @@ namespace LinqFaster
                 throw Error.ArgumentNull(nameof(selector));
             }
 
-            float r = selector.Invoke(a[0]);
+            float r = selector(a[0]);
             int startIndex = 0;
             for (; startIndex < a.Length; startIndex++)
             {
-                var v = selector.Invoke(a[startIndex]);
+                var v = selector(a[startIndex]);
                 if (!float.IsNaN(v))
                 {
                     r = v;
@@ -214,7 +214,7 @@ namespace LinqFaster
             }
             for (int i = startIndex; i < a.Length; i++)
             {
-                var v = selector.Invoke(a[i]);
+                var v = selector(a[i]);
                 if (v > r) r = v;
             }
             return r;
@@ -262,11 +262,11 @@ namespace LinqFaster
                 throw Error.ArgumentNull(nameof(selector));
             }
 
-            double r = selector.Invoke(a[0]);
+            double r = selector(a[0]);
             int startIndex = 0;
             for (; startIndex < a.Length; startIndex++)
             {
-                var v = selector.Invoke(a[startIndex]);
+                var v = selector(a[startIndex]);
                 if (!double.IsNaN(v))
                 {
                     r = v;
@@ -275,7 +275,7 @@ namespace LinqFaster
             }
             for (int i = startIndex; i < a.Length; i++)
             {
-                var v = selector.Invoke(a[i]);
+                var v = selector(a[i]);
                 if (v > r) r = v;
             }
             return r;
@@ -317,7 +317,7 @@ namespace LinqFaster
             decimal r = decimal.MaxValue;
             for (int i = 0; i < a.Length; i++)
             {
-                var v = selector.Invoke(a[i]);
+                var v = selector(a[i]);
                 if (v > r) r = v;
             }
             return r;
@@ -372,7 +372,7 @@ namespace LinqFaster
             {
                  for (int i = 0; i < a.Count; i++)
                 {
-                    var v = selector.Invoke(a[i]);
+                    var v = selector(a[i]);
                     if (v != null && comparer.Compare(v, r) > 0) r = v;
                 }
             }
@@ -384,7 +384,7 @@ namespace LinqFaster
                 }
                 for (int i = 0; i < a.Count; i++)
                 {
-                    var v = selector.Invoke(a[i]);
+                    var v = selector(a[i]);
                     if (comparer.Compare(v, r) > 0) r = v;
                 }
             }
@@ -428,7 +428,7 @@ namespace LinqFaster
             int r = int.MaxValue;
             for (int i = 0; i < a.Count; i++)
             {
-                var v = selector.Invoke(a[i]);
+                var v = selector(a[i]);
                 if (v > r) r = v;
             }
             return r;
@@ -469,7 +469,7 @@ namespace LinqFaster
             long r = long.MaxValue;
             for (int i = 0; i < a.Count; i++)
             {
-                var v = selector.Invoke(a[i]);
+                var v = selector(a[i]);
                 if (v > r) r = v;
             }
             return r;
@@ -516,11 +516,11 @@ namespace LinqFaster
             {
                 throw Error.ArgumentNull(nameof(selector));
             }
-            float r = selector.Invoke(a[0]);
+            float r = selector(a[0]);
             int startIndex = 0;
             for (; startIndex < a.Count; startIndex++)
             {
-                var v = selector.Invoke(a[startIndex]);
+                var v = selector(a[startIndex]);
                 if (!float.IsNaN(v))
                 {
                     r = v;
@@ -529,7 +529,7 @@ namespace LinqFaster
             }
             for (int i = startIndex; i < a.Count; i++)
             {
-                var v = selector.Invoke(a[i]);
+                var v = selector(a[i]);
                 if (v > r) r = v;
             }
             return r;
@@ -576,11 +576,11 @@ namespace LinqFaster
             {
                 throw Error.ArgumentNull(nameof(selector));
             }
-            double r = selector.Invoke(a[0]);
+            double r = selector(a[0]);
             int startIndex = 0;
             for (; startIndex < a.Count; startIndex++)
             {
-                var v = selector.Invoke(a[startIndex]);
+                var v = selector(a[startIndex]);
                 if (!double.IsNaN(v))
                 {
                     r = v;
@@ -589,7 +589,7 @@ namespace LinqFaster
             }
             for (int i = startIndex; i < a.Count; i++)
             {
-                var v = selector.Invoke(a[i]);
+                var v = selector(a[i]);
                 if (v > r) r = v;
             }
             return r;
@@ -625,7 +625,7 @@ namespace LinqFaster
             decimal r = decimal.MaxValue;
             for (int i = 0; i < a.Count; i++)
             {
-                var v = selector.Invoke(a[i]);
+                var v = selector(a[i]);
                 if (v > r) r = v;
             }
             return r;
