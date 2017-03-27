@@ -8,7 +8,7 @@ that are appropriate, and then some. I plan to add SIMD versions where appropria
 
 * :arrow_down: Execution time
 * :arrow_down: GC churn
-* :up_arrow: Battery life
+* :arrow_up: Battery life
 * :arrow_down: Sever farm costs
 * :arrow_down: Co2 output
 * :arrow_down: Electricity bill
