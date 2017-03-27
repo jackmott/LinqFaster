@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-//using System.Linq;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LinqFaster;
@@ -12,7 +12,9 @@ namespace Tests
     {
        
         static void Main(string[] args)
-        {            
+        {
+            int[] a = new int[1200];
+            List<int> b = new List<int>();            
         }
     }
 }
