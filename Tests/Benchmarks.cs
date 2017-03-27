@@ -17,8 +17,7 @@ namespace Tests
 
         [Benchmark]
         public int[] LongIter()
-        {
-            array.OrderBy()
+        {            
             for (long i = 0; i < array.LongLength; i++)
             {
                 array[i] = 5;
