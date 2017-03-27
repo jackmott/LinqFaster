@@ -8,7 +8,14 @@ namespace LinqFaster
     public static class SumFuncs
     {
         // --------------------------  ARRAYS  --------------------------------------------
-       
+        int Sum(int[] a)
+        {
+            int r = 0;
+            foreach (var n in a)
+            {
+              
+            }
+        }
         
         // --------------------------  LISTS  --------------------------------------------
         
