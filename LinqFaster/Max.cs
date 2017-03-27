@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LinqFaster
 {
@@ -16,24 +13,57 @@ namespace LinqFaster
             {
                 throw Error.ArgumentNull(nameof(a));
             }
-            if (a.Length == 0)
-            {
-                throw Error.NoElements();
-            }
+            
             Comparer<T> comparer = Comparer<T>.Default;
             T r = default(T);
             if (r == null)
             {
                 for (int i = 0; i < a.Length; i++)
                 {
-                    if (a[i] != null && comparer.Compare(a[i],r) < 0) r = a[i];
+                    if (a[i] != null && comparer.Compare(a[i],r) > 0) r = a[i];
                 }
             }
             else
             {
+                if (a.Length == 0)
+                {
+                    throw Error.NoElements();
+                }
                 for (int i = 0; i < a.Length; i++)
                 {
-                    if (comparer.Compare(a[i], r) < 0) r = a[i];
+                    if (comparer.Compare(a[i], r) > 0) r = a[i];
+                }
+            }
+            return r;
+        }
+
+        public static TResult Max<T,TResult>(this T[] a, Func<T,TResult> selector)
+        {
+            if (a == null)
+            {
+                throw Error.ArgumentNull(nameof(a));
+            }
+            
+            Comparer<TResult> comparer = Comparer<TResult>.Default;
+            TResult r = default(TResult);
+            if (r == null)
+            {
+                for (int i = 0; i < a.Length; i++)
+                {
+                    var v = selector.Invoke(a[i]);
+                    if (v != null && comparer.Compare(v, r) > 0) r = v;
+                }
+            }
+            else
+            {
+                if (a.Length == 0)
+                {
+                    throw Error.NoElements();
+                }
+                for (int i = 0; i < a.Length; i++)
+                {
+                    var v = selector.Invoke(a[i]);
+                    if (comparer.Compare(v, r) > 0) r = v;
                 }
             }
             return r;
@@ -136,10 +166,7 @@ namespace LinqFaster
             {
                 throw Error.ArgumentNull(nameof(a));
             }
-            if (a.Count == 0)
-            {
-                throw Error.NoElements();
-            }
+            
             Comparer<T> comparer = Comparer<T>.Default;
             T r = default(T);
             if (r == null)
@@ -151,6 +178,10 @@ namespace LinqFaster
             }
             else
             {
+                if (a.Count == 0)
+                {
+                    throw Error.NoElements();
+                }
                 for (int i = 0; i < a.Count; i++)
                 {
                     if (comparer.Compare(a[i], r) > 0) r = a[i];
