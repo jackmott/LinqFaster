@@ -43,11 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnyAll.cs" />
     <Compile Include="Average.cs" />
+    <Compile Include="Contains.cs" />
     <Compile Include="Error.cs" />
+    <Compile Include="First.cs" />
     <Compile Include="Max.cs" />
     <Compile Include="Range.cs" />
     <Compile Include="SelectMany.cs" />
+    <Compile Include="Single.cs" />
     <Compile Include="Sum.cs" />
     <Compile Include="Min.cs" />
     <Compile Include="Select.cs" />
