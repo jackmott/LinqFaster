@@ -8,13 +8,17 @@ Frequency=2742188 Hz, Resolution=364.6723 ns, Timer=TSC
 
 
 ```
- |                 Method | TEST_SIZE |       Mean |    StdErr |    StdDev |
- |----------------------- |---------- |----------- |---------- |---------- |
- |      ListSumLinqFaster |  10000000 | 10.8284 ms | 0.0586 ms | 0.2270 ms |
- |            ListSumLinq |  10000000 | 70.9016 ms | 0.7103 ms | 3.0137 ms |
- |  ListAverageLinqFaster |  10000000 | 13.5903 ms | 0.0211 ms | 0.0819 ms |
- |        ListAverageLinq |  10000000 | 71.9013 ms | 0.0853 ms | 0.3193 ms |
- |     ArraySumLinqFaster |  10000000 |  5.9221 ms | 0.0113 ms | 0.0407 ms |
- |           ArraySumLinq |  10000000 | 53.8434 ms | 0.2193 ms | 0.8492 ms |
- | ArrayAverageLinqFaster |  10000000 |  8.4227 ms | 0.0111 ms | 0.0416 ms |
- |       ArrayAverageLinq |  10000000 | 62.3885 ms | 0.1405 ms | 0.5440 ms |
+ |                   Method | TEST_SIZE |       Mean |    StdDev |
+ |------------------------- |---------- |----------- |---------- |
+ |        ListSumLinqFaster |  10000000 | 10.5551 ms | 0.2464 ms |
+ |              ListSumLinq |  10000000 | 68.4477 ms | 0.9946 ms |
+ |    ListAverageLinqFaster |  10000000 | 14.1943 ms | 0.4421 ms |
+ |          ListAverageLinq |  10000000 | 71.5661 ms | 1.0920 ms |
+ |  ListSelectSumLinqFaster |  10000000 | 68.4644 ms | 0.3579 ms |
+ |        ListSelectSumLinq |  10000000 | 98.4447 ms | 1.1807 ms |
+ |       ArraySumLinqFaster |  10000000 |  6.0303 ms | 0.1006 ms |
+ |             ArraySumLinq |  10000000 | 53.8206 ms | 1.9514 ms |
+ |   ArrayAverageLinqFaster |  10000000 |  8.2880 ms | 0.1391 ms |
+ |         ArrayAverageLinq |  10000000 | 61.9419 ms | 1.1031 ms |
+ | ArraySelectSumLinqFaster |  10000000 | 38.2473 ms | 0.5487 ms |
+ |       ArraySelectSumLinq |  10000000 | 69.1699 ms | 2.1079 ms |
