@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="AnyAll.cs" />
     <Compile Include="Average.cs" />
+    <Compile Include="Contains.cs" />
     <Compile Include="Error.cs" />
     <Compile Include="Max.cs" />
     <Compile Include="Range.cs" />
