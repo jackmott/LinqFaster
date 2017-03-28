@@ -1,22 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace LinqFaster
+namespace JM.LinqFaster
 {
-    public static class SelectManyFuncs
+    public static partial class LinqFaster
     {
         // --------------------------  Arrays --------------------------------------------
         public static TResult[] SelectMany<TSource, TResult>(this TSource[] source, Func<TSource, TResult[]> selector)
         {
             var result = new List<TResult>(source.Length);
-            for (int i = 0; i<source.Length; i++)
+            for (int i = 0; i < source.Length; i++)
             {
                 var va = selector(source[i]);
-                for (int j = 0; j<va.Length; j++)
+                for (int j = 0; j < va.Length; j++)
                 {
                     result.Add(va[j]);
                 }
-}
+            }
             return result.ToArray();
         }
 

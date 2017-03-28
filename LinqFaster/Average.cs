@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace LinqFaster
+namespace JM.LinqFaster
 {
-    public static class AverageFuncs
+    public static partial class LinqFaster
     {
         // --------------------------  ARRAYS  --------------------------------------------
         public static double Average(this int[] source)

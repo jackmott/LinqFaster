@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace LinqFaster
+namespace JM.LinqFaster
 {
-    public static class ReverseFuncs
+    public static partial class LinqFaster
     {
         public static T[] Reverse<T>(this T[] source)
         {

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 
 
-namespace LinqFaster
+namespace JM.LinqFaster
 {
-    public static class SelectFuncs
+    public static partial class LinqFaster
     {
 
         // --------------------------  ARRAYS  --------------------------------------------

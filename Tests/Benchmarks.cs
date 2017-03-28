@@ -1,7 +1,7 @@
 ﻿using System;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
-using LinqFaster;
+using JM.LinqFaster;
 using System.Collections.Generic;
 
 namespace Tests
@@ -10,7 +10,7 @@ namespace Tests
     public class Benchmarks
     {
 
-        const int LARGE_TEST_SIZE = 5000000;
+        const int LARGE_TEST_SIZE = 1000000;
         const int SMALL_TEST_SIZE = 100;
 
 
@@ -39,7 +39,7 @@ namespace Tests
         }
 
 
-        
+        /*
         [Benchmark]
         public double ListSumLinqFaster()
         {
@@ -228,7 +228,8 @@ namespace Tests
         [Benchmark]
         public double ArrayRangeAverageLinqFaster()
         {
-            return LinqFasterArray.Range(0, TEST_SIZE).Average();
+            
+            return LinqFaster.RangeArray(0, TEST_SIZE).Average();
         }
 
         [Benchmark]
@@ -240,7 +241,7 @@ namespace Tests
         [Benchmark]
         public double ListRangeAverageLinqFaster()
         {
-            return LinqFasterList.Range(0, TEST_SIZE).Average();
+            return LinqFaster.RangeArray(0, TEST_SIZE).Average();
         }
 
         [Benchmark]
@@ -266,8 +267,48 @@ namespace Tests
         {
             return System.Linq.Enumerable.Aggregate(list, (x, i) => i = i + x / 2);
         }
+        
+
+        [Benchmark]
+        public double ArrayWhereAggregateLinqFaster() {
+            return list.WhereAggregate(x => x % 2 == 0,0,(x,acc) => acc += x,x => x/array.Length);
+        }
+        
+        
+        [Benchmark]
+        public double arrayWhereAggregteLinq()
+        {
+            return
+                    System.Linq.Enumerable.Aggregate(
+                        System.Linq.Enumerable.Where(list,x => x % 2 == 0),0,(x,acc) => acc += x,x => x/array.Length);
+        }
+
+       
+        [Benchmark]
+        public int ArrayDistinctSumLinqFaster()
+        {            
+            return array.Distinct().Sum();
+        }
 
 
+        [Benchmark]
+        public int arrayDistinctSumLinq()
+        {
+            return
+                    System.Linq.Enumerable.Sum(System.Linq.Enumerable.Distinct(array));
+        }*/
+
+        [Benchmark]
+        public bool ArraySequenceEqualLinqFaster()
+        {
+            return LinqFaster.SequenceEqual(list, list);
+        }
+
+        [Benchmark]
+        public bool ArraySequenceEqualLinq()
+        {
+            return System.Linq.Enumerable.SequenceEqual(list, list);
+        }
 
         public static void Main(string[] args)
         {

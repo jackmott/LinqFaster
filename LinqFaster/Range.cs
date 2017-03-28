@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace LinqFaster
+namespace JM.LinqFaster
 {
-    public static partial class LinqFasterArray
+    public static partial class LinqFaster
     {
-        public static int[] Range(int start, int count)
+        public static int[] RangeArray(int start, int count)
         {
             long max = ((long)start) + count - 1;
             if (count < 0 || max > int.MaxValue)
@@ -27,9 +27,9 @@ namespace LinqFaster
         }        
     }
 
-    public static partial class LinqFasterList
+    public static partial class LinqFaster
     {
-        public static List<int> Range(int start, int count)
+        public static List<int> RangeList(int start, int count)
         {
             long max = ((long)start) + count - 1;
             if (count < 0 || max > int.MaxValue)

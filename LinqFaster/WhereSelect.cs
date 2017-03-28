@@ -8,7 +8,8 @@ namespace JM.LinqFaster
     {
         // --------------------------  ARRAYS --------------------------------------------
 
-        public static T[] Where<T>(this T[] a, Func<T, bool> predicate)
+       
+        public static TResult[] WhereSelect<T, TResult>(this T[] a, Func<T, bool> predicate, Func<T, TResult> selector)
         {
             if (a == null)
             {
@@ -20,13 +21,13 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(predicate));
             }
 
-            T[] result = new T[a.Length];
+            var result = new TResult[a.Length];
             int idx = 0;
             for (int i = 0; i < a.Length; i++)
             {
                 if (predicate(a[i]))
                 {
-                    result[idx] = a[i];
+                    result[idx] = selector(a[i]);
                     idx++;
                 }
             }
@@ -34,7 +35,7 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static T[] Where<T>(this T[] a, Func<T, int, bool> predicate)
+        public static TResult[] WhereSelect<T, TResult>(this T[] a, Func<T, int, bool> predicate, Func<T, int, TResult> selector)
         {
             if (a == null)
             {
@@ -46,13 +47,13 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(predicate));
             }
 
-            T[] result = new T[a.Length];
+            var result = new TResult[a.Length];
             int idx = 0;
             for (int i = 0; i < a.Length; i++)
             {
                 if (predicate(a[i], i))
                 {
-                    result[idx] = a[i];
+                    result[idx] = selector(a[i], idx);
                     idx++;
                 }
             }
@@ -62,7 +63,7 @@ namespace JM.LinqFaster
 
         // --------------------------  LISTS --------------------------------------------
 
-        public static List<T> Where<T>(this List<T> a, Func<T, bool> predicate)
+        public static List<TResult> WhereSelect<T, TResult>(this List<T> a, Func<T, bool> predicate, Func<T, TResult> selector)
         {
             if (a == null)
             {
@@ -74,15 +75,15 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(predicate));
             }
 
-            List<T> r = new List<T>();
+            var r = new List<TResult>();
             for (int i = 0; i < a.Count; i++)
             {
-                if (predicate(a[i])) r.Add(a[i]);
+                if (predicate(a[i])) r.Add(selector(a[i]));
             }
             return r;
         }
 
-        public static List<T> Where<T>(this List<T> a, Func<T, int, bool> predicate)
+        public static List<TResult> WhereSelect<T,TResult>(this List<T> a, Func<T, int, bool> predicate, Func<T,int,TResult> selector)
         {
             if (a == null)
             {
@@ -94,10 +95,12 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(predicate));
             }
 
-            List<T> r = new List<T>();
+            var r = new List<TResult>();
+            int idx = 0;
             for (int i = 0; i < a.Count; i++)
             {
-                if (predicate(a[i], i)) r.Add(a[i]);
+                if (predicate(a[i], i)) r.Add(selector(a[i],idx));
+                idx++;
             }
             return r;
         }

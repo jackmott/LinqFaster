@@ -49,18 +49,26 @@
     <Compile Include="Average.cs" />
     <Compile Include="Contains.cs" />
     <Compile Include="Error.cs" />
-    <Compile Include="Last.cs.cs" />
+    <Compile Include="Count.cs" />
+    <Compile Include="FastSet.cs" />
+    <Compile Include="Last.cs" />
     <Compile Include="First.cs" />
     <Compile Include="Max.cs" />
     <Compile Include="Range.cs" />
+    <Compile Include="Repeat.cs" />
     <Compile Include="Reverse.cs" />
+    <Compile Include="Distinct.cs" />
     <Compile Include="SelectMany.cs" />
+    <Compile Include="SelectWhere.cs" />
+    <Compile Include="SequenceEqual.cs" />
     <Compile Include="Single.cs" />
     <Compile Include="Sum.cs" />
     <Compile Include="Min.cs" />
     <Compile Include="Select.cs" />
     <Compile Include="Where.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WhereAggregate.cs" />
+    <Compile Include="WhereSelect.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

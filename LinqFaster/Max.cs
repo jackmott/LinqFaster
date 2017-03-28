@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace LinqFaster
+namespace JM.LinqFaster
 {
     //int, long, float,double, decimal
-    public static class MaxFuncs
+    public static partial class LinqFaster
     {
         // --------------------------  ARRAYS  --------------------------------------------
         public static T Max<T>(this T[] a)

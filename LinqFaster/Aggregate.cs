@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace LinqFaster
+namespace JM.LinqFaster
 {
-    public static class AggregateFuncs
+    public static partial class LinqFaster
     {
 
         // ------------------------------ Arrays --------------------------
@@ -25,9 +25,9 @@ namespace LinqFaster
             }
 
             TSource result = source[0];
-            foreach (var v in source)
-            {
-                result = func(result, v);
+            for (int i = 1; i < source.Length;i++)
+            {                
+                result = func(result, source[i]);
             }
             return result;
         }

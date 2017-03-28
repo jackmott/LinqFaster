@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 
 
-namespace LinqFaster
+namespace JM.LinqFaster
 {    
-    public static class SumFuncs
+    public static partial class LinqFaster
     {
         // --------------------------  ARRAYS  --------------------------------------------
         public static int Sum(this int[] a)

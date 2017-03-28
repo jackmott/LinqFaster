@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace LinqFaster
+namespace JM.LinqFaster
 {
-    public static class LastFuncs
+    public static partial class LinqFaster
     {        
         // --------------------------  Arrays --------------------------------------------
         
