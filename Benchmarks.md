@@ -22,3 +22,7 @@ Frequency=2742188 Hz, Resolution=364.6723 ns, Timer=TSC
  |         ArrayAverageLinq |  10000000 | 61.9419 ms | 1.1031 ms |
  | ArraySelectSumLinqFaster |  10000000 | 38.2473 ms | 0.5487 ms |
  |       ArraySelectSumLinq |  10000000 | 69.1699 ms | 2.1079 ms |
+ | ArrayWhereSumLinqFaster |  10000000 |  89.7150 ms | 1.0154 ms |
+ |       ArrayWhereSumLinq |  10000000 | 104.4176 ms | 1.2041 ms |
+ |  ListWhereSumLinqFaster |  10000000 | 119.5052 ms | 0.7478 ms |
+ |        ListWhereSumLinq |  10000000 | 131.6459 ms | 1.5655 ms |
