@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace LinqFaster
 {
@@ -7,7 +8,7 @@ namespace LinqFaster
     {
         // --------------------------  ARRAYS --------------------------------------------
 
-        public static T[] Where<T>(this T[] a, Func<T,bool> predicate)
+        public static T[] Where<T>(this T[] a, Func<T, bool> predicate)
         {
             if (a == null)
             {
@@ -19,15 +20,21 @@ namespace LinqFaster
                 throw Error.ArgumentNull(nameof(predicate));
             }
 
-            List<T> result = new List<T>();
+            T[] result = new T[a.Length];
+            int idx = 0;
             for (int i = 0; i < a.Length; i++)
             {
-                if (predicate(a[i])) result.Add(a[i]);
+                if (predicate(a[i]))
+                {
+                    result[idx] = a[i];
+                    idx++;
+                }
             }
-            return result.ToArray();
+            Array.Resize(ref result, idx);
+            return result;
         }
 
-        public static T[] Where<T>(this T[] a, Func<T,int, bool> predicate)
+        public static T[] Where<T>(this T[] a, Func<T, int, bool> predicate)
         {
             if (a == null)
             {
@@ -39,12 +46,18 @@ namespace LinqFaster
                 throw Error.ArgumentNull(nameof(predicate));
             }
 
-            List<T> result = new List<T>();
+            T[] result = new T[a.Length];
+            int idx = 0;
             for (int i = 0; i < a.Length; i++)
             {
-                if (predicate(a[i],i)) result.Add(a[i]);
+                if (predicate(a[i],i))
+                {
+                    result[idx] = a[i];
+                    idx++;
+                }
             }
-            return result.ToArray();
+            Array.Resize(ref result, idx);
+            return result;
         }
 
         // --------------------------  LISTS --------------------------------------------
@@ -62,7 +75,7 @@ namespace LinqFaster
             }
 
             List<T> r = new List<T>();
-            for (int i = 0; i < a.Count ; i++)
+            for (int i = 0; i < a.Count; i++)
             {
                 if (predicate(a[i])) r.Add(a[i]);
             }
@@ -80,7 +93,7 @@ namespace LinqFaster
             {
                 throw Error.ArgumentNull(nameof(predicate));
             }
-
+           
             List<T> r = new List<T>();
             for (int i = 0; i < a.Count; i++)
             {

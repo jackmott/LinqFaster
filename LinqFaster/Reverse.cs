@@ -15,7 +15,7 @@ namespace LinqFaster
             return result;
         }
 
-        public static List<T> Reverse<T>(this List<T> source)
+        public static List<T> ReverseList<T>(this List<T> source)
         {
             var result = new List<T>(source.Count);                        
             for (int i = result.Count-1; i >= 0; i--)

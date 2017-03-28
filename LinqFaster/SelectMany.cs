@@ -8,28 +8,28 @@ namespace LinqFaster
         // --------------------------  Arrays --------------------------------------------
         public static TResult[] SelectMany<TSource, TResult>(this TSource[] source, Func<TSource, TResult[]> selector)
         {
-            var result = new List<TResult>();            
-            for (long i = 0; i < source.LongLength; i++)
+            var result = new List<TResult>(source.Length);
+            for (int i = 0; i<source.Length; i++)
             {
                 var va = selector(source[i]);
-                for (long j = 0; j < va.LongLength; j++)
+                for (int j = 0; j<va.Length; j++)
                 {
                     result.Add(va[j]);
-                }         
-            }
+                }
+}
             return result.ToArray();
         }
 
-         public static TResult[] SelectMany<TSource, TResult>(this TSource[] source, Func<TSource,int, TResult[]> selector)
+        public static TResult[] SelectMany<TSource, TResult>(this TSource[] source, Func<TSource, int, TResult[]> selector)
         {
-            var result = new List<TResult>();            
-            for (int i = 0; i < source.LongLength; i++)
+            var result = new List<TResult>(source.Length);
+            for (int i = 0; i < source.Length; i++)
             {
-                var va = selector(source[i],i);
-                for (long j = 0; j < va.LongLength; j++)
+                var va = selector(source[i], i);
+                for (int j = 0; j < va.Length; j++)
                 {
                     result.Add(va[j]);
-                }         
+                }
             }
             return result.ToArray();
         }
@@ -37,7 +37,7 @@ namespace LinqFaster
         // --------------------------  LISTS --------------------------------------------
         public static List<TResult> SelectMany<TSource, TResult>(this List<TSource> source, Func<TSource, List<TResult>> selector)
         {
-            var result = new List<TResult>();
+            var result = new List<TResult>(source.Count);
             for (int i = 0; i < source.Count; i++)
             {
                 var va = selector(source[i]);
@@ -49,12 +49,12 @@ namespace LinqFaster
             return result;
         }
 
-        public static List<TResult> SelectMany<TSource, TResult>(this List<TSource> source, Func<TSource,int, List<TResult>> selector)
+        public static List<TResult> SelectMany<TSource, TResult>(this List<TSource> source, Func<TSource, int, List<TResult>> selector)
         {
-            var result = new List<TResult>();
+            var result = new List<TResult>(source.Count);
             for (int i = 0; i < source.Count; i++)
             {
-                var va = selector(source[i],i);
+                var va = selector(source[i], i);
                 for (int j = 0; j < va.Count; j++)
                 {
                     result.Add(va[j]);
