@@ -10,10 +10,27 @@ namespace JM.LinqFaster
     public static partial class LinqFaster
     {
         public static TSource[] OrderByF<TSource, TKey>(this TSource[] source, Func<TSource, TKey> keySelector)
-        {
-            return null;
+        { 
+            return OrderByF(source, keySelector, Comparer<TKey>.Default);
         }
 
+        public static TSource[] OrderByF<TSource, TKey>(this TSource[] source, Func<TSource, TKey> keySelector,Comparer<TKey> comparer)
+        {
+            if (source == null)
+            {
+                throw Error.ArgumentNull(nameof(source));
+            }
+
+            if (keySelector == null)
+            {
+                throw Error.ArgumentNull(nameof(keySelector));
+            }
+
+            var lambdaComparer = new LambdaComparer<TSource, TKey>(keySelector,comparer);
+            var result = (TSource[])source.Clone();
+            Array.Sort(result, lambdaComparer);
+            return result;
+        }
 
 
 
@@ -37,10 +54,7 @@ namespace JM.LinqFaster
 
             public int Compare(T x, T y)
             {
-                var xS = selector(x);
-                var yS = selector(y);
-
-                return comparer.Compare(xS, yS);
+                return comparer.Compare(selector(x), selector(y));
             }
         }
     }
