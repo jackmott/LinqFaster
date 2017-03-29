@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnyAllTests.cs" />
     <Compile Include="AggregateTests.cs" />
     <Compile Include="MaxTests.cs" />
     <Compile Include="MinTests.cs" />
