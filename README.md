@@ -8,6 +8,7 @@ that are appropriate, and then some. I plan to add SIMD versions where appropria
 
 # Please Contribute
 This is a work in progress, PRs would be appreciated. Lots of easy grunt work to do here to cover all the Linq extension methods. Feel free to contact me I can give guidance if you are not sure what to do or how to use github / git.
+We need tests and I would love input on performance tweaks.
 
 # Features
 
@@ -22,12 +23,40 @@ This is a work in progress, PRs would be appreciated. Lots of easy grunt work to
 
 # Use
 
-```
-someArray.Where(x => x % 2  ==).Select(x => x*x)
+```c#
+someArray.WhereSelect(x => x % 2 == 0, x=> x*x);
 someList.Min();
 ```
 
-Just like Linq! But it will go faster!
+# Limitations
+
+These are purely imperative implementations of the same higher order functions that
+Linq provides, but unlike Linq they are not lazily evaluated.  This means that when chaining
+functions together such as:
+
+```c#
+
+data.Where(predicate).Select(transform).Sum();
+
+```
+Linq would not do any work until the call to `Sum()`, and thus iterate over the collection only once and
+allocate very little. LinqFaster used this way would iterate over the collection 3 times and allocate
+much more.  Sometimes the net result will still be faster overall but the better approach is to
+use the combined LinqFaster operations such as `SelectWhere`, `WhereSelect, and `WhereAggregate`.
+For example the expression above would become
+
+```c#
+
+data.WhereAggregate(predicate,transform,sum);
+
+```
+
+This gets you the best of both worlds.  The speed of memory locality and no allocations at all.
+In short, think about how you are transforming your data. In some cases normal Linq may be the better choice.
+
+
+
+
 
 
 
