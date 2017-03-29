@@ -6,7 +6,7 @@ namespace JM.LinqFaster
     public static partial class LinqFaster
     {
         // --------------------------  Arrays --------------------------------------------
-        public static TResult[] SelectMany<TSource, TResult>(this TSource[] source, Func<TSource, TResult[]> selector)
+        public static TResult[] SelectManyF<TSource, TResult>(this TSource[] source, Func<TSource, TResult[]> selector)
         {
             var result = new List<TResult>(source.Length);
             for (int i = 0; i < source.Length; i++)
@@ -20,7 +20,7 @@ namespace JM.LinqFaster
             return result.ToArray();
         }
 
-        public static TResult[] SelectMany<TSource, TResult>(this TSource[] source, Func<TSource, int, TResult[]> selector)
+        public static TResult[] SelectManyF<TSource, TResult>(this TSource[] source, Func<TSource, int, TResult[]> selector)
         {
             var result = new List<TResult>(source.Length);
             for (int i = 0; i < source.Length; i++)
@@ -35,7 +35,7 @@ namespace JM.LinqFaster
         }
 
         // --------------------------  LISTS --------------------------------------------
-        public static List<TResult> SelectMany<TSource, TResult>(this List<TSource> source, Func<TSource, List<TResult>> selector)
+        public static List<TResult> SelectManyF<TSource, TResult>(this List<TSource> source, Func<TSource, List<TResult>> selector)
         {
             var result = new List<TResult>(source.Count);
             for (int i = 0; i < source.Count; i++)
@@ -49,7 +49,7 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static List<TResult> SelectMany<TSource, TResult>(this List<TSource> source, Func<TSource, int, List<TResult>> selector)
+        public static List<TResult> SelectManyF<TSource, TResult>(this List<TSource> source, Func<TSource, int, List<TResult>> selector)
         {
             var result = new List<TResult>(source.Count);
             for (int i = 0; i < source.Count; i++)

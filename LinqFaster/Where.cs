@@ -8,7 +8,7 @@ namespace JM.LinqFaster
     {
         // --------------------------  ARRAYS --------------------------------------------
 
-        public static T[] Where<T>(this T[] a, Func<T, bool> predicate)
+        public static T[] WhereF<T>(this T[] a, Func<T, bool> predicate)
         {
             if (a == null)
             {
@@ -34,7 +34,7 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static T[] Where<T>(this T[] a, Func<T, int, bool> predicate)
+        public static T[] WhereF<T>(this T[] a, Func<T, int, bool> predicate)
         {
             if (a == null)
             {
@@ -62,7 +62,7 @@ namespace JM.LinqFaster
 
         // --------------------------  LISTS --------------------------------------------
 
-        public static List<T> Where<T>(this List<T> a, Func<T, bool> predicate)
+        public static List<T> WhereF<T>(this List<T> a, Func<T, bool> predicate)
         {
             if (a == null)
             {
@@ -82,7 +82,7 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static List<T> Where<T>(this List<T> a, Func<T, int, bool> predicate)
+        public static List<T> WhereF<T>(this List<T> a, Func<T, int, bool> predicate)
         {
             if (a == null)
             {

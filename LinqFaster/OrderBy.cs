@@ -9,7 +9,7 @@ namespace JM.LinqFaster
 {
     public static partial class LinqFaster
     {
-        public static TSource[] OrderBy<TSource, TKey>(this TSource[] source, Func<TSource, TKey> keySelector)
+        public static TSource[] OrderByF<TSource, TKey>(this TSource[] source, Func<TSource, TKey> keySelector)
         {
             return null;
         }

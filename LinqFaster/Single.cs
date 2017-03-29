@@ -6,7 +6,7 @@ namespace JM.LinqFaster
     public static partial class LinqFaster
     {
         // --------------------------- Arrays ----------------------------
-        public static T Single<T>(this T[] source)
+        public static T SingleF<T>(this T[] source)
         {
             if (source == null)
             {
@@ -21,7 +21,7 @@ namespace JM.LinqFaster
             return source[0];
         }
 
-        public static T SingleOrDefault<T>(this T[] source)
+        public static T SingleOrDefaultF<T>(this T[] source)
         {
             if (source == null)
             {
@@ -37,7 +37,7 @@ namespace JM.LinqFaster
         }
 
 
-        public static T Single<T>(this T[] source, Func<T, bool> predicate)
+        public static T SingleF<T>(this T[] source, Func<T, bool> predicate)
         {
             if (source == null)
             {
@@ -75,7 +75,7 @@ namespace JM.LinqFaster
             }
         }
 
-        public static T SingleOrDefault<T>(this T[] source, Func<T, bool> predicate)
+        public static T SingleOrDefaultF<T>(this T[] source, Func<T, bool> predicate)
         {
             if (source == null)
             {
@@ -108,7 +108,7 @@ namespace JM.LinqFaster
 
 
         // --------------------------- Lists ----------------------------
-        public static T Single<T>(this List<T> source)
+        public static T SingleF<T>(this List<T> source)
         {
             if (source == null)
             {
@@ -123,7 +123,7 @@ namespace JM.LinqFaster
             return source[0];
         }
 
-        public static T SingleOrDefault<T>(this List<T> source)
+        public static T SingleOrDefaultF<T>(this List<T> source)
         {
             if (source == null)
             {
@@ -139,7 +139,7 @@ namespace JM.LinqFaster
         }
 
 
-        public static T Single<T>(this List<T> source, Func<T, bool> predicate)
+        public static T SingleF<T>(this List<T> source, Func<T, bool> predicate)
         {
             if (source == null)
             {
@@ -177,7 +177,7 @@ namespace JM.LinqFaster
             }
         }
 
-        public static T SingleOrDefault<T>(this List<T> source, Func<T, bool> predicate)
+        public static T SingleOrDefaultF<T>(this List<T> source, Func<T, bool> predicate)
         {
             if (source == null)
             {

@@ -5,7 +5,7 @@ namespace JM.LinqFaster
 {
     public static partial class LinqFaster
     {
-        public static T[] Skip<T>(this T[] a, int count)
+        public static T[] SkipF<T>(this T[] a, int count)
         {
             if (a == null)
             {
@@ -25,7 +25,7 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static T[] SkipWhile<T>(this T[] a, Func<T, bool> predicate)
+        public static T[] SkipWhileF<T>(this T[] a, Func<T, bool> predicate)
         {
             if (a == null)
             {
@@ -46,7 +46,7 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static T[] SkipLast<T>(this T[] a, int count)
+        public static T[] SkipLastF<T>(this T[] a, int count)
         {
 
             if (a == null)
@@ -70,7 +70,7 @@ namespace JM.LinqFaster
 
         // ------------- Lists ----------------
 
-        public static List<T> Skip<T>(this List<T> a, int count)
+        public static List<T> SkipF<T>(this List<T> a, int count)
         {
             if (a == null)
             {
@@ -93,7 +93,7 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static List<T> SkipWhile<T>(this List<T> a, Func<T, bool> predicate)
+        public static List<T> SkipWhileF<T>(this List<T> a, Func<T, bool> predicate)
         {
             if (a == null)
             {
@@ -117,7 +117,7 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static List<T> SkipLast<T>(this List<T> a, int count)
+        public static List<T> SkipLastF<T>(this List<T> a, int count)
         {
 
             if (a == null)

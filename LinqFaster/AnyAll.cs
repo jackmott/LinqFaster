@@ -8,7 +8,7 @@ namespace JM.LinqFaster
 
         // --------------------------  ARRAYS --------------------------------------------
 
-        public static bool Any<T>(this T[] source)
+        public static bool Anyf<T>(this T[] source)
         {
             if (source == null)
             {
@@ -17,7 +17,7 @@ namespace JM.LinqFaster
             return source.Length > 0;
         }
 
-        public static bool Any<TSource>(this TSource[] source, Func<TSource, bool> predicate)
+        public static bool Anyf<TSource>(this TSource[] source, Func<TSource, bool> predicate)
         {
             if (source == null)
             {
@@ -40,7 +40,7 @@ namespace JM.LinqFaster
             return false;
         }
 
-        public static bool Any<T>(this List<T> source)
+        public static bool Anyf<T>(this List<T> source)
         {
             if (source == null)
             {
@@ -50,7 +50,7 @@ namespace JM.LinqFaster
         }
 
 
-        public static bool All<TSource>(this TSource[] source, Func<TSource, bool> predicate)
+        public static bool AllF<TSource>(this TSource[] source, Func<TSource, bool> predicate)
         {
             if (source == null)
             {
@@ -75,7 +75,7 @@ namespace JM.LinqFaster
 
         // --------------------------  Lists --------------------------------------------
 
-        public static bool Any<TSource>(this List<TSource> source, Func<TSource, bool> predicate)
+        public static bool Anyf<TSource>(this List<TSource> source, Func<TSource, bool> predicate)
         {
             if (source == null)
             {
@@ -98,7 +98,7 @@ namespace JM.LinqFaster
             return false;
         }
 
-        public static bool All<TSource>(this List<TSource> source, Func<TSource, bool> predicate)
+        public static bool AllF<TSource>(this List<TSource> source, Func<TSource, bool> predicate)
         {
             if (source == null)
             {

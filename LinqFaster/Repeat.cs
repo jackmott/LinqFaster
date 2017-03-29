@@ -7,7 +7,7 @@ namespace JM.LinqFaster
     public static partial class LinqFaster
     {
         // ------------------------ Arrays ---------------------------
-        public static T[] RepeatArray<T>(T element, int count)
+        public static T[] RepeatArrayF<T>(T element, int count)
         {
             var result = new T[count];
             for (int i = 0; i < result.Length; i++)
@@ -18,10 +18,10 @@ namespace JM.LinqFaster
         }
 
         // ------------------------ Lists ---------------------------
-        public static List<T> RepeatList<T>(T element, int count)
+        public static List<T> RepeatListF<T>(T element, int count)
         {
             var result = new List<T>(count);
-            for (int i = 0; i < result.Count; i++)
+            for (int i = 0; i < count; i++)
             {
                 result.Add(element);
             }

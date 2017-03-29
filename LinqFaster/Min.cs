@@ -8,29 +8,31 @@ namespace JM.LinqFaster
     {
         // --------------------------  ARRAYS  --------------------------------------------
 
-        public static T Min<T>(this T[] a)
+        public static T MinF<T>(this T[] a)
         {
             if (a == null)
             {
                 throw Error.ArgumentNull(nameof(a));
+            }
+            if (a.Length == 0)
+            {
+                throw Error.NoElements();
             }
 
             Comparer<T> comparer = Comparer<T>.Default;
             T r = default(T);
             if (r == null)
             {
-                for (long i = 0; i < a.LongLength; i++)
+                r = a[0];
+                for (long i = 1; i < a.LongLength; i++)
                 {
                     if (a[i] != null && comparer.Compare(a[i], r) < 0) r = a[i];
                 }
             }
             else
             {
-                if (a.Length == 0)
-                {
-                    throw Error.NoElements();
-                }
-                for (long i = 0; i < a.LongLength; i++)
+                r = a[0];
+                for (long i = 1; i < a.LongLength; i++)
                 {
                     if (comparer.Compare(a[i], r) < 0) r = a[i];
                 }
@@ -38,7 +40,7 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static TResult Min<T, TResult>(this T[] a, Func<T, TResult> selector)
+        public static TResult MinF<T, TResult>(this T[] a, Func<T, TResult> selector)
         {
             if (a == null)
             {
@@ -49,12 +51,17 @@ namespace JM.LinqFaster
             {
                 throw Error.ArgumentNull(nameof(selector));
             }
+            if (a.Length == 0)
+            {
+                throw Error.NoElements();
+            }
 
             Comparer<TResult> comparer = Comparer<TResult>.Default;
             TResult r = default(TResult);
             if (r == null)
             {
-                for (long i = 0; i < a.LongLength; i++)
+                r = selector(a[0]);
+                for (long i = 1; i < a.LongLength; i++)
                 {
                     var v = selector(a[i]);
                     if (v != null && comparer.Compare(v, r) < 0) r = v;
@@ -62,11 +69,8 @@ namespace JM.LinqFaster
             }
             else
             {
-                if (a.Length == 0)
-                {
-                    throw Error.NoElements();
-                }
-                for (long i = 0; i < a.LongLength; i++)
+                r = selector(a[0]);
+                for (long i = 1; i < a.LongLength; i++)
                 {
                     var v = selector(a[i]);
                     if (comparer.Compare(v, r) < 0) r = v;
@@ -75,7 +79,7 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static int Min(this int[] a)
+        public static int MinF(this int[] a)
         {
             if (a == null)
             {
@@ -93,7 +97,7 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static int Min<T>(this T[] a, Func<T, int> selector)
+        public static int MinF<T>(this T[] a, Func<T, int> selector)
         {
             if (a == null)
             {
@@ -117,7 +121,7 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static long Min(this long[] a)
+        public static long MinF(this long[] a)
         {
             if (a == null)
             {
@@ -135,7 +139,7 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static long Min<T>(this T[] a, Func<T, long> selector)
+        public static long MinF<T>(this T[] a, Func<T, long> selector)
         {
             if (a == null)
             {
@@ -160,7 +164,7 @@ namespace JM.LinqFaster
         }
 
 
-        public static float Min(this float[] a)
+        public static float MinF(this float[] a)
         {
             if (a == null)
             {
@@ -180,7 +184,7 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static float Min<T>(this T[] a, Func<T, float> selector)
+        public static float MinF<T>(this T[] a, Func<T, float> selector)
         {
             if (a == null)
             {
@@ -205,7 +209,7 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static double Min(this double[] a)
+        public static double MinF(this double[] a)
         {
             if (a == null)
             {
@@ -225,7 +229,7 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static double Min<T>(this T[] a, Func<T, double> selector)
+        public static double MinF<T>(this T[] a, Func<T, double> selector)
         {
             if (a == null)
             {
@@ -250,7 +254,7 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static decimal Min(this decimal[] a)
+        public static decimal MinF(this decimal[] a)
         {
             if (a == null)
             {
@@ -268,7 +272,7 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static decimal Min<T>(this T[] a, Func<T, decimal> selector)
+        public static decimal MinF<T>(this T[] a, Func<T, decimal> selector)
         {
             if (a == null)
             {
@@ -292,29 +296,31 @@ namespace JM.LinqFaster
         }
 
         // --------------------------  LISTS  --------------------------------------------
-        public static T Min<T>(this List<T> a)
+        public static T MinF<T>(this List<T> a)
         {
             if (a == null)
             {
                 throw Error.ArgumentNull(nameof(a));
+            }
+            if (a.Count == 0)
+            {
+                throw Error.NoElements();
             }
 
             Comparer<T> comparer = Comparer<T>.Default;
             T r = default(T);
             if (r == null)
             {
-                for (int i = 0; i < a.Count; i++)
+                r = a[0];
+                for (int i = 1; i < a.Count; i++)
                 {
                     if (a[i] != null && comparer.Compare(a[i], r) < 0) r = a[i];
                 }
             }
             else
             {
-                if (a.Count == 0)
-                {
-                    throw Error.NoElements();
-                }
-                for (int i = 0; i < a.Count; i++)
+                r = a[0];     
+                for (int i = 1; i < a.Count; i++)
                 {
                     if (comparer.Compare(a[i], r) < 0) r = a[i];
                 }
@@ -322,7 +328,7 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static int Min(this List<int> a)
+        public static int MinF(this List<int> a)
         {
             if (a == null)
             {
@@ -340,7 +346,7 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static int Min<T>(this List<T> a, Func<T, int> selector)
+        public static int MinF<T>(this List<T> a, Func<T, int> selector)
         {
             if (a == null)
             {
@@ -365,7 +371,7 @@ namespace JM.LinqFaster
         }
 
 
-        public static long Min(this List<long> a)
+        public static long MinF(this List<long> a)
         {
             if (a == null)
             {
@@ -383,7 +389,7 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static long Min<T>(this List<T> a, Func<T, long> selector)
+        public static long MinF<T>(this List<T> a, Func<T, long> selector)
         {
             if (a == null)
             {
@@ -407,7 +413,7 @@ namespace JM.LinqFaster
         }
 
 
-        public static float Min(this List<float> a)
+        public static float MinF(this List<float> a)
         {
             if (a == null)
             {
@@ -426,7 +432,7 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static float Min<T>(this List<T> a, Func<T, float> selector)
+        public static float MinF<T>(this List<T> a, Func<T, float> selector)
         {
             if (a == null)
             {
@@ -452,7 +458,7 @@ namespace JM.LinqFaster
         }
 
 
-        public static double Min(this List<double> a)
+        public static double MinF(this List<double> a)
         {
             if (a == null)
             {
@@ -471,7 +477,7 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static double Min<T>(this List<T> a, Func<T, double> selector)
+        public static double MinF<T>(this List<T> a, Func<T, double> selector)
         {
             if (a == null)
             {
@@ -496,7 +502,7 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static decimal Min(this List<decimal> a)
+        public static decimal MinF(this List<decimal> a)
         {
             if (a == null)
             {
@@ -514,7 +520,7 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static decimal Min<T>(this List<T> a, Func<T, decimal> selector)
+        public static decimal MinF<T>(this List<T> a, Func<T, decimal> selector)
         {
             if (a == null)
             {
@@ -529,6 +535,46 @@ namespace JM.LinqFaster
             {
                 var v = selector(a[i]);
                 if (v < r) r = v;
+            }
+            return r;
+        }
+
+        public static TResult MinF<T, TResult>(this List<T> a, Func<T, TResult> selector)
+        {
+            if (a == null)
+            {
+                throw Error.ArgumentNull(nameof(a));
+            }
+
+            if (selector == null)
+            {
+                throw Error.ArgumentNull(nameof(selector));
+            }
+
+            if (a.Count == 0)
+            {
+                throw Error.NoElements();
+            }
+
+            Comparer<TResult> comparer = Comparer<TResult>.Default;
+            TResult r = default(TResult);
+            if (r == null)
+            {
+                r = selector(a[0]);
+                for (int i = 1; i < a.Count; i++)
+                {
+                    var v = selector(a[i]);
+                    if (v != null && comparer.Compare(v, r) < 0) r = v;
+                }
+            }
+            else
+            {
+                r = selector(a[0]);
+                for (int i = 1; i < a.Count; i++)
+                {
+                    var v = selector(a[i]);
+                    if (comparer.Compare(v, r) < 0) r = v;
+                }
             }
             return r;
         }

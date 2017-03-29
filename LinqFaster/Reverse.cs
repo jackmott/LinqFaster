@@ -4,7 +4,7 @@ namespace JM.LinqFaster
 {
     public static partial class LinqFaster
     {
-        public static T[] Reverse<T>(this T[] source)
+        public static T[] ReverseF<T>(this T[] source)
         {
             var result = new T[source.Length];
             long lenLessOne = source.Length - 1;
@@ -15,7 +15,7 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static List<T> ReverseList<T>(this List<T> source)
+        public static List<T> ReverseListF<T>(this List<T> source)
         {
             var result = new List<T>(source.Count);
             for (int i = result.Count - 1; i >= 0; i--)

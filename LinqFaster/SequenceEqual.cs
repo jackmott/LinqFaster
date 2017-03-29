@@ -5,7 +5,7 @@ namespace JM.LinqFaster
 
     public static partial class LinqFaster
     {
-        public static bool SequenceEqual<T>(T[] first, T[] second, IEqualityComparer<T> comparer = null)
+        public static bool SequenceEqualF<T>(T[] first, T[] second, IEqualityComparer<T> comparer = null)
         {
             if (comparer == null)
             {
@@ -33,7 +33,7 @@ namespace JM.LinqFaster
         }
 
 
-        public static bool SequenceEqual<T>(List<T> first, List<T> second, IEqualityComparer<T> comparer = null)
+        public static bool SequenceEqualF<T>(List<T> first, List<T> second, IEqualityComparer<T> comparer = null)
         {
             if (comparer == null)
             {
@@ -60,7 +60,7 @@ namespace JM.LinqFaster
             return true;
         }
 
-        public static bool SequenceEqual<T>(T[] first, List<T> second, IEqualityComparer<T> comparer = null)
+        public static bool SequenceEqualF<T>(T[] first, List<T> second, IEqualityComparer<T> comparer = null)
         {
             if (comparer == null)
             {
@@ -87,7 +87,7 @@ namespace JM.LinqFaster
             return true;
         }
 
-        public static bool SequenceEqual<T>(List<T> first, T[] second, IEqualityComparer<T> comparer = null)
+        public static bool SequenceEqualF<T>(List<T> first, T[] second, IEqualityComparer<T> comparer = null)
         {
             if (comparer == null)
             {

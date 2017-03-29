@@ -4,7 +4,7 @@ namespace JM.LinqFaster
 {
     public static partial class LinqFaster
     {
-        public static int[] RangeArray(int start, int count)
+        public static int[] RangeArrayF(int start, int count)
         {
             long max = ((long)start) + count - 1;
             if (count < 0 || max > int.MaxValue)
@@ -29,7 +29,7 @@ namespace JM.LinqFaster
 
     public static partial class LinqFaster
     {
-        public static List<int> RangeList(int start, int count)
+        public static List<int> RangeListF(int start, int count)
         {
             long max = ((long)start) + count - 1;
             if (count < 0 || max > int.MaxValue)
@@ -45,7 +45,7 @@ namespace JM.LinqFaster
             var result = new List<int>(count);
             for (int i = 0; i < count; i++)
             {
-                result.Add(i + count);
+                result.Add(i + start);
             }
             return result;
         }

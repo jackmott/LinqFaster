@@ -7,7 +7,7 @@ namespace JM.LinqFaster
     {
 
         // --------------------------  ARRAYS  --------------------------------------------
-        public static bool Contains<TSource>(this TSource[] source, Func<TSource, bool> predicate)
+        public static bool ContainsF<TSource>(this TSource[] source, Func<TSource, bool> predicate)
         {
             if (source == null)
             {
@@ -31,7 +31,7 @@ namespace JM.LinqFaster
         }
 
         // --------------------------  Lists --------------------------------------------
-        public static bool Contains<TSource>(this List<TSource> source, Func<TSource, bool> predicate)
+        public static bool ContainsF<TSource>(this List<TSource> source, Func<TSource, bool> predicate)
         {
             if (source == null)
             {

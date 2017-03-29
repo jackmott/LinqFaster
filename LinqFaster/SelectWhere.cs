@@ -8,7 +8,7 @@ namespace JM.LinqFaster
     {
         // --------------------------  ARRAYS --------------------------------------------
 
-        public static TResult[] SelectWhere<T, TResult>(this T[] a, Func<T, TResult> selector, Func<TResult, bool> predicate)
+        public static TResult[] SelectWhereF<T, TResult>(this T[] a, Func<T, TResult> selector, Func<TResult, bool> predicate)
         {
             if (a == null)
             {
@@ -35,7 +35,7 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static TResult[] SelectWhere<T, TResult>(this T[] a, Func<T, int, TResult> selector, Func<TResult, int, bool> predicate)
+        public static TResult[] SelectWhereF<T, TResult>(this T[] a, Func<T, int, TResult> selector, Func<TResult, int, bool> predicate)
         {
             if (a == null)
             {
@@ -64,7 +64,7 @@ namespace JM.LinqFaster
 
         // --------------------------  LISTS --------------------------------------------
 
-        public static List<TResult> SelectWhere<T, TResult>(this List<T> a, Func<T, TResult> selector, Func<TResult, bool> predicate)
+        public static List<TResult> SelectWhereF<T, TResult>(this List<T> a, Func<T, TResult> selector, Func<TResult, bool> predicate)
         {
             if (a == null)
             {
@@ -85,7 +85,7 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static List<TResult> SelectWhere<T, TResult>(this List<T> a, Func<T, int, TResult> selector, Func<TResult, int, bool> predicate)
+        public static List<TResult> SelectWhereF<T, TResult>(this List<T> a, Func<T, int, TResult> selector, Func<TResult, int, bool> predicate)
         {
             if (a == null)
             {

@@ -6,7 +6,7 @@ namespace JM.LinqFaster
     public static partial class LinqFaster
     {
         // --------------------------  ARRAYS  --------------------------------------------
-        public static double Average(this int[] source)
+        public static double AverageF(this int[] source)
         {
             if (source == null)
             {
@@ -29,7 +29,7 @@ namespace JM.LinqFaster
             return (double)sum / source.LongLength;
         }
 
-        public static double Average<T>(this T[] source, Func<T, int> selector)
+        public static double AverageF<T>(this T[] source, Func<T, int> selector)
         {
             if (source == null)
             {
@@ -57,7 +57,7 @@ namespace JM.LinqFaster
             return (double)sum / source.LongLength;
         }
 
-        public static double Average<T>(this T[] source, Func<T, long> selector)
+        public static double AverageF<T>(this T[] source, Func<T, long> selector)
         {
             if (source == null)
             {
@@ -85,7 +85,7 @@ namespace JM.LinqFaster
             return (double)sum / source.LongLength;
         }
 
-        public static double Average(this float[] source)
+        public static double AverageF(this float[] source)
         {
             if (source == null)
             {
@@ -107,7 +107,7 @@ namespace JM.LinqFaster
             return sum / source.LongLength;
         }
 
-        public static double Average<T>(this T[] source, Func<T, float> selector)
+        public static double AverageF<T>(this T[] source, Func<T, float> selector)
         {
             if (source == null)
             {
@@ -134,7 +134,7 @@ namespace JM.LinqFaster
             return sum / source.LongLength;
         }
 
-        public static double Average(this double[] source)
+        public static double AverageF(this double[] source)
         {
             if (source == null)
             {
@@ -156,7 +156,7 @@ namespace JM.LinqFaster
             return sum / source.LongLength;
         }
 
-        public static double Average<T>(this T[] source, Func<T, double> selector)
+        public static double AverageF<T>(this T[] source, Func<T, double> selector)
         {
             if (source == null)
             {
@@ -183,7 +183,7 @@ namespace JM.LinqFaster
             return sum / source.LongLength;
         }
 
-        public static decimal Average(this decimal[] source)
+        public static decimal AverageF(this decimal[] source)
         {
             if (source == null)
             {
@@ -205,7 +205,7 @@ namespace JM.LinqFaster
             return sum / source.LongLength;
         }
 
-        public static decimal Average<T>(this T[] source, Func<T, decimal> selector)
+        public static decimal AverageF<T>(this T[] source, Func<T, decimal> selector)
         {
             if (source == null)
             {
@@ -234,7 +234,7 @@ namespace JM.LinqFaster
         }
 
         // --------------------------  Lists  --------------------------------------------
-        public static double Average(this List<int> source)
+        public static double AverageF(this List<int> source)
         {
             if (source == null)
             {
@@ -257,7 +257,7 @@ namespace JM.LinqFaster
             return (double)sum / source.Count;
         }
 
-        public static double Average<T>(this List<T> source, Func<T, int> selector)
+        public static double AverageF<T>(this List<T> source, Func<T, int> selector)
         {
             if (source == null)
             {
@@ -285,7 +285,7 @@ namespace JM.LinqFaster
             return (double)sum / source.Count;
         }
 
-        public static double Average<T>(this List<T> source, Func<T, long> selector)
+        public static double AverageF<T>(this List<T> source, Func<T, long> selector)
         {
             if (source == null)
             {
@@ -313,7 +313,7 @@ namespace JM.LinqFaster
             return (double)sum / source.Count;
         }
 
-        public static double Average(this List<float> source)
+        public static double AverageF(this List<float> source)
         {
             if (source == null)
             {
@@ -335,7 +335,7 @@ namespace JM.LinqFaster
             return sum / source.Count;
         }
 
-        public static double Average<T>(this List<T> source, Func<T, float> selector)
+        public static double AverageF<T>(this List<T> source, Func<T, float> selector)
         {
             if (source == null)
             {
@@ -362,7 +362,7 @@ namespace JM.LinqFaster
             return sum / source.Count;
         }
 
-        public static double Average(this List<double> source)
+        public static double AverageF(this List<double> source)
         {
             if (source == null)
             {
@@ -384,7 +384,7 @@ namespace JM.LinqFaster
             return sum / source.Count;
         }
 
-        public static double Average<T>(this List<T> source, Func<T, double> selector)
+        public static double AverageF<T>(this List<T> source, Func<T, double> selector)
         {
             if (source == null)
             {
@@ -411,7 +411,7 @@ namespace JM.LinqFaster
             return sum / source.Count;
         }
 
-        public static decimal Average(this List<decimal> source)
+        public static decimal AverageF(this List<decimal> source)
         {
             if (source == null)
             {
@@ -433,7 +433,7 @@ namespace JM.LinqFaster
             return sum / source.Count;
         }
 
-        public static decimal Average<T>(this List<T> source, Func<T, decimal> selector)
+        public static decimal AverageF<T>(this List<T> source, Func<T, decimal> selector)
         {
             if (source == null)
             {

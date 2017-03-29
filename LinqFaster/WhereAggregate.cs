@@ -7,7 +7,7 @@ namespace JM.LinqFaster
     public static partial class LinqFaster
     {
         // ----------------------------- Arrays ------------------
-        public static T WhereAggregate<T>(this T[] a, Func<T, bool> predicate, Func<T, T, T> func)
+        public static T WhereAggregateF<T>(this T[] a, Func<T, bool> predicate, Func<T, T, T> func)
         {
             if (a == null)
             {
@@ -41,7 +41,7 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static T WhereAggregate<T>(this T[] a, Func<T, int, bool> predicate, Func<T, T, int, T> func)
+        public static T WhereAggregateF<T>(this T[] a, Func<T, int, bool> predicate, Func<T, T, int, T> func)
         {
             if (a == null)
             {
@@ -77,7 +77,7 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static TAccumulate WhereAggregate<TSource, TAccumulate>(this TSource[] source, Func<TSource, bool> predicate, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func)
+        public static TAccumulate WhereAggregateF<TSource, TAccumulate>(this TSource[] source, Func<TSource, bool> predicate, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func)
         {
             if (source == null)
             {
@@ -103,7 +103,7 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static TResult WhereAggregate<TSource, TAccumulate, TResult>(this TSource[] source, Func<TSource, bool> predicate, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func, Func<TAccumulate, TResult> resultSelector)
+        public static TResult WhereAggregateF<TSource, TAccumulate, TResult>(this TSource[] source, Func<TSource, bool> predicate, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func, Func<TAccumulate, TResult> resultSelector)
         {
             if (source == null)
             {
@@ -130,7 +130,7 @@ namespace JM.LinqFaster
         }
 
         // --------------------------- Lists -------------------------
-        public static T WhereAggregate<T>(this List<T> a, Func<T, bool> predicate, Func<T, T, T> func)
+        public static T WhereAggregateF<T>(this List<T> a, Func<T, bool> predicate, Func<T, T, T> func)
         {
             if (a == null)
             {
@@ -164,7 +164,7 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static T WhereAggregate<T>(this List<T> a, Func<T, int, bool> predicate, Func<T, T, int, T> func)
+        public static T WhereAggregateF<T>(this List<T> a, Func<T, int, bool> predicate, Func<T, T, int, T> func)
         {
             if (a == null)
             {
@@ -200,7 +200,7 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static TAccumulate WhereAggregate<TSource, TAccumulate>(this List<TSource> source, Func<TSource, bool> predicate, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func)
+        public static TAccumulate WhereAggregateF<TSource, TAccumulate>(this List<TSource> source, Func<TSource, bool> predicate, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func)
         {
             if (source == null)
             {
@@ -227,7 +227,7 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static TResult WhereAggregate<TSource, TAccumulate, TResult>(this List<TSource> source, Func<TSource, bool> predicate, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func, Func<TAccumulate, TResult> resultSelector)
+        public static TResult WhereAggregateF<TSource, TAccumulate, TResult>(this List<TSource> source, Func<TSource, bool> predicate, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func, Func<TAccumulate, TResult> resultSelector)
         {
             if (source == null)
             {

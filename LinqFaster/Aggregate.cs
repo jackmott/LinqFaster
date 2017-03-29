@@ -7,7 +7,7 @@ namespace JM.LinqFaster
     {
 
         // ------------------------------ Arrays --------------------------
-        public static TSource Aggregate<TSource>(this TSource[] source, Func<TSource, TSource, TSource> func)
+        public static TSource AggregateF<TSource>(this TSource[] source, Func<TSource, TSource, TSource> func)
         {
             if (source == null)
             {
@@ -32,7 +32,7 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static TAccumulate Aggregate<TSource, TAccumulate>(this TSource[] source, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func)
+        public static TAccumulate AggregateF<TSource, TAccumulate>(this TSource[] source, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func)
         {
             if (source == null)
             {
@@ -52,7 +52,7 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static TResult Aggregate<TSource, TAccumulate, TResult>(this TSource[] source, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func, Func<TAccumulate, TResult> resultSelector)
+        public static TResult AggregateF<TSource, TAccumulate, TResult>(this TSource[] source, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func, Func<TAccumulate, TResult> resultSelector)
         {
             if (source == null)
             {
@@ -78,7 +78,7 @@ namespace JM.LinqFaster
         }
 
         // ------------------------------ Lists --------------------------
-        public static TSource Aggregate<TSource>(this List<TSource> source, Func<TSource, TSource, TSource> func)
+        public static TSource AggregateF<TSource>(this List<TSource> source, Func<TSource, TSource, TSource> func)
         {
             if (source == null)
             {
@@ -103,7 +103,7 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static TAccumulate Aggregate<TSource, TAccumulate>(this List<TSource> source, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func)
+        public static TAccumulate AggregateF<TSource, TAccumulate>(this List<TSource> source, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func)
         {
             if (source == null)
             {
@@ -123,7 +123,7 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static TResult Aggregate<TSource, TAccumulate, TResult>(this List<TSource> source, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func, Func<TAccumulate, TResult> resultSelector)
+        public static TResult AggregateF<TSource, TAccumulate, TResult>(this List<TSource> source, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func, Func<TAccumulate, TResult> resultSelector)
         {
             if (source == null)
             {

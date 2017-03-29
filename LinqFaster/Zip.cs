@@ -5,7 +5,7 @@ namespace JM.LinqFaster
 {
     public static partial class LinqFaster
     {
-        public static R[] Zip<T, U, R>(this T[] first, U[] second, Func<T, U, R> selector)
+        public static R[] ZipF<T, U, R>(this T[] first, U[] second, Func<T, U, R> selector)
         {
             if (first == null)
             {
@@ -43,7 +43,7 @@ namespace JM.LinqFaster
 
         }
 
-        public static List<R> Zip<T, U, R>(this List<T> first, List<U> second, Func<T, U, R> selector)
+        public static List<R> ZipF<T, U, R>(this List<T> first, List<U> second, Func<T, U, R> selector)
         {
             if (first == null)
             {

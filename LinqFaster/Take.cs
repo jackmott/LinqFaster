@@ -5,7 +5,7 @@ namespace JM.LinqFaster
 {
     public static partial class LinqFaster
     {
-        public static T[] Take<T>(this T[] a, int count)
+        public static T[] TakeF<T>(this T[] a, int count)
         {
             if (a == null)
             {
@@ -25,7 +25,7 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static T[] TakeWhile<T>(this T[] a, Func<T, bool> predicate)
+        public static T[] TakeWhileF<T>(this T[] a, Func<T, bool> predicate)
         {
             if (a == null)
             {
@@ -47,7 +47,7 @@ namespace JM.LinqFaster
             return result.ToArray();
         }
 
-        public static T[] TakeLast<T>(this T[] a, int count)
+        public static T[] TakeLastF<T>(this T[] a, int count)
         {
 
             if (a == null)
@@ -71,7 +71,7 @@ namespace JM.LinqFaster
 
         // ------------- Lists ----------------
 
-        public static List<T> Take<T>(this List<T> a, int count)
+        public static List<T> TakeF<T>(this List<T> a, int count)
         {
             if (a == null)
             {
@@ -94,7 +94,7 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static List<T> TakeWhile<T>(this List<T> a, Func<T, bool> predicate)
+        public static List<T> TakeWhileF<T>(this List<T> a, Func<T, bool> predicate)
         {
             if (a == null)
             {
@@ -121,7 +121,7 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static List<T> TakeLast<T>(this List<T> a, int count)
+        public static List<T> TakeLastF<T>(this List<T> a, int count)
         {
 
             if (a == null)

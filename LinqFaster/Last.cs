@@ -7,7 +7,7 @@ namespace JM.LinqFaster
     {
         // --------------------------  Arrays --------------------------------------------
 
-        public static T Last<T>(this T[] source)
+        public static T LastF<T>(this T[] source)
         {
             if (source == null)
             {
@@ -20,7 +20,7 @@ namespace JM.LinqFaster
             return source[source.Length - 1];
         }
 
-        public static T Last<T>(this T[] source, Func<T, bool> predicate)
+        public static T LastF<T>(this T[] source, Func<T, bool> predicate)
         {
             if (source == null)
             {
@@ -43,7 +43,7 @@ namespace JM.LinqFaster
             throw Error.NoMatch();
         }
 
-        public static T LastOrDefault<T>(this T[] source, Func<T, bool> predicate)
+        public static T LastFOrDefault<T>(this T[] source, Func<T, bool> predicate)
         {
             if (source == null)
             {
@@ -68,7 +68,7 @@ namespace JM.LinqFaster
 
         // --------------------------  Lists --------------------------------------------
 
-        public static T Last<T>(this List<T> source)
+        public static T LastF<T>(this List<T> source)
         {
             if (source == null)
             {
@@ -81,7 +81,7 @@ namespace JM.LinqFaster
             return source[source.Count - 1];
         }
 
-        public static T Last<T>(this List<T> source, Func<T, bool> predicate)
+        public static T LastF<T>(this List<T> source, Func<T, bool> predicate)
         {
             if (source == null)
             {
@@ -104,7 +104,7 @@ namespace JM.LinqFaster
             throw Error.NoMatch();
         }
 
-        public static T LastOrDefault<T>(this List<T> source, Func<T, bool> predicate)
+        public static T LastFOrDefault<T>(this List<T> source, Func<T, bool> predicate)
         {
             if (source == null)
             {

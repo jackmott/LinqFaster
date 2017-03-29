@@ -7,7 +7,7 @@ namespace JM.LinqFaster
     {
 
         // --------------------------  ARRAYS  --------------------------------------------
-        public static TSource[] Distinct<TSource>(this TSource[] source, IEqualityComparer<TSource> comparer)
+        public static TSource[] DistinctF<TSource>(this TSource[] source, IEqualityComparer<TSource> comparer)
         {
             if (source == null)
             {
@@ -25,14 +25,14 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static TSource[] Distinct<TSource>(this TSource[] source)
+        public static TSource[] DistinctF<TSource>(this TSource[] source)
         {
-            return Distinct(source, EqualityComparer<TSource>.Default);
+            return DistinctF(source, EqualityComparer<TSource>.Default);
         }
 
 
         // --------------------------  LISTS --------------------------------------------
-        public static List<TSource> Distinct<TSource>(this List<TSource> source, IEqualityComparer<TSource> comparer)
+        public static List<TSource> DistinctF<TSource>(this List<TSource> source, IEqualityComparer<TSource> comparer)
         {
             if (source == null)
             {
@@ -57,9 +57,9 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static List<TSource> Distinct<TSource>(this List<TSource> source)
+        public static List<TSource> DistinctF<TSource>(this List<TSource> source)
         {
-            return Distinct(source, EqualityComparer<TSource>.Default);
+            return DistinctF(source, EqualityComparer<TSource>.Default);
         }
 
 

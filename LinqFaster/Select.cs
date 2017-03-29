@@ -9,7 +9,7 @@ namespace JM.LinqFaster
 
         // --------------------------  ARRAYS  --------------------------------------------
 
-        public static TResult[] Select<T, TResult>(this T[] a, Func<T, TResult> selector)
+        public static TResult[] SelectF<T, TResult>(this T[] a, Func<T, TResult> selector)
         {
             if (a == null)
             {
@@ -29,7 +29,7 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static TResult[] Select<T, TResult>(this T[] a, Func<T, int, TResult> selector)
+        public static TResult[] SelectF<T, TResult>(this T[] a, Func<T, int, TResult> selector)
         {
             if (a == null)
             {
@@ -50,7 +50,7 @@ namespace JM.LinqFaster
 
         // --------------------------  LISTS --------------------------------------------
 
-        public static List<TResult> Select<T, TResult>(this List<T> a, Func<T, TResult> selector)
+        public static List<TResult> SelectF<T, TResult>(this List<T> a, Func<T, TResult> selector)
         {
             if (a == null)
             {
@@ -70,7 +70,7 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static List<TResult> Select<T, TResult>(this List<T> a, Func<T, int, TResult> selector)
+        public static List<TResult> SelectF<T, TResult>(this List<T> a, Func<T, int, TResult> selector)
         {
             if (a == null)
             {

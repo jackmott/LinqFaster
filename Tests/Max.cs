@@ -1,6 +1,0 @@
-﻿namespace Tests
-{
-    class Max
-    {
-    }
-}

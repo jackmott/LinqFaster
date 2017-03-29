@@ -8,7 +8,7 @@ namespace JM.LinqFaster
 
         // --------------------------  Arrays --------------------------------------------
 
-        public static int Count<T>(this T[] source, Func<T, bool> predicate)
+        public static int CountF<T>(this T[] source, Func<T, bool> predicate)
         {
             if (source == null)
             {
@@ -63,7 +63,7 @@ namespace JM.LinqFaster
         }
 
         // ------------------------------ Lists ---------------------
-        public static int Count<T>(this List<T> source, Func<T, bool> predicate)
+        public static int CountF<T>(this List<T> source, Func<T, bool> predicate)
         {
             if (source == null)
             {
