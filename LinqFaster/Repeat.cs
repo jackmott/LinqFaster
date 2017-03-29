@@ -7,10 +7,10 @@ namespace JM.LinqFaster
     public static partial class LinqFaster
     {
         // ------------------------ Arrays ---------------------------
-        public static T[] RepeatArray<T>(T element,int count)
+        public static T[] RepeatArray<T>(T element, int count)
         {
             var result = new T[count];
-            for (int i = 0; i < result.Length;i++)
+            for (int i = 0; i < result.Length; i++)
             {
                 result[i] = element;
             }

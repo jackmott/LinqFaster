@@ -76,13 +76,13 @@ namespace JM.LinqFaster
             int index = _count;
             _count++;
             int bucket = hashCode % _buckets.Length;
-            _slots[index]._hashCode = hashCode;            
+            _slots[index]._hashCode = hashCode;
             _slots[index]._next = _buckets[bucket] - 1;
             _values[index] = value;
-            _buckets[bucket] = index + 1;            
+            _buckets[bucket] = index + 1;
         }
 
-      
+
         /// <summary>
         /// Expands the capacity of this set to double the current capacity, plus one.
         /// </summary>
@@ -97,7 +97,7 @@ namespace JM.LinqFaster
             for (int i = 0; i < _count; i++)
             {
                 int bucket = newSlots[i]._hashCode % newSize;
-                newSlots[i]._next = newBuckets[bucket] - 1;                
+                newSlots[i]._next = newBuckets[bucket] - 1;
                 newBuckets[bucket] = i + 1;
             }
             _values = newValues;
@@ -119,14 +119,14 @@ namespace JM.LinqFaster
             return _values;
         }
 
-       
+
 
         /// <summary>
         /// The number of items in this set.
         /// </summary>
         public int Count => _count;
 
-      
+
 
         /// <summary>
         /// Gets the hash code of the provided value with its sign bit zeroed out, so that modulo has a positive result.
@@ -152,7 +152,7 @@ namespace JM.LinqFaster
             /// <summary>
             /// In the case of a hash collision, the index of the next slot to probe.
             /// </summary>
-            internal int _next;            
+            internal int _next;
         }
     }
 }

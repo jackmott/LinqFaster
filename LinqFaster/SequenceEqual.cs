@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace JM.LinqFaster
 {
@@ -25,7 +24,7 @@ namespace JM.LinqFaster
 
             if (first.Length != second.Length) return false;
 
-            for (int i = 0; i < first.Length;i++)
+            for (int i = 0; i < first.Length; i++)
             {
                 if (!comparer.Equals(first[i], second[i])) return false;
             }
@@ -78,7 +77,7 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(second));
             }
 
-            if (first.Length!= second.Count) return false;
+            if (first.Length != second.Count) return false;
 
             for (int i = 0; i < first.Length; i++)
             {

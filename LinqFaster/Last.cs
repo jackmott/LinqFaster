@@ -4,9 +4,9 @@ using System.Collections.Generic;
 namespace JM.LinqFaster
 {
     public static partial class LinqFaster
-    {        
+    {
         // --------------------------  Arrays --------------------------------------------
-        
+
         public static T Last<T>(this T[] source)
         {
             if (source == null)
@@ -17,7 +17,7 @@ namespace JM.LinqFaster
             {
                 throw Error.NoElements();
             }
-            return source[source.Length-1];
+            return source[source.Length - 1];
         }
 
         public static T Last<T>(this T[] source, Func<T, bool> predicate)
@@ -32,7 +32,7 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(predicate));
             }
 
-            for (long i = source.LongLength-1; i >=0 ; i--)
+            for (long i = source.LongLength - 1; i >= 0; i--)
             {
                 if (predicate(source[i]))
                 {
@@ -55,7 +55,7 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(predicate));
             }
 
-            for (long i = source.LongLength-1; i >= 0; i--)
+            for (long i = source.LongLength - 1; i >= 0; i--)
             {
                 if (predicate(source[i]))
                 {
@@ -78,7 +78,7 @@ namespace JM.LinqFaster
             {
                 throw Error.NoElements();
             }
-            return source[source.Count-1];
+            return source[source.Count - 1];
         }
 
         public static T Last<T>(this List<T> source, Func<T, bool> predicate)
@@ -93,7 +93,7 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(predicate));
             }
 
-            for (int i = source.Count-1; i >= 0; i--)
+            for (int i = source.Count - 1; i >= 0; i--)
             {
                 if (predicate(source[i]))
                 {
@@ -116,7 +116,7 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(predicate));
             }
 
-            for (int i = source.Count-1; i >= 0; i--)
+            for (int i = source.Count - 1; i >= 0; i--)
             {
                 if (predicate(source[i]))
                 {

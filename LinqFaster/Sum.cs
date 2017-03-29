@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 
 namespace JM.LinqFaster
-{    
+{
     public static partial class LinqFaster
     {
         // --------------------------  ARRAYS  --------------------------------------------
@@ -200,7 +200,7 @@ namespace JM.LinqFaster
         }
 
         // --------------------------  LISTS  --------------------------------------------
-        
+
         public static int Sum(this List<int> a)
         {
             if (a == null)

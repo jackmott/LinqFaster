@@ -8,7 +8,7 @@ namespace JM.LinqFaster
     {
         // --------------------------  ARRAYS --------------------------------------------
 
-       
+
         public static TResult[] WhereSelect<T, TResult>(this T[] a, Func<T, bool> predicate, Func<T, TResult> selector)
         {
             if (a == null)
@@ -83,7 +83,7 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static List<TResult> WhereSelect<T,TResult>(this List<T> a, Func<T, int, bool> predicate, Func<T,int,TResult> selector)
+        public static List<TResult> WhereSelect<T, TResult>(this List<T> a, Func<T, int, bool> predicate, Func<T, int, TResult> selector)
         {
             if (a == null)
             {
@@ -99,7 +99,7 @@ namespace JM.LinqFaster
             int idx = 0;
             for (int i = 0; i < a.Count; i++)
             {
-                if (predicate(a[i], i)) r.Add(selector(a[i],idx));
+                if (predicate(a[i], i)) r.Add(selector(a[i], idx));
                 idx++;
             }
             return r;

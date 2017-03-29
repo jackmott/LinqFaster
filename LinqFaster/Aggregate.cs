@@ -25,8 +25,8 @@ namespace JM.LinqFaster
             }
 
             TSource result = source[0];
-            for (int i = 1; i < source.Length;i++)
-            {                
+            for (int i = 1; i < source.Length; i++)
+            {
                 result = func(result, source[i]);
             }
             return result;
@@ -141,7 +141,7 @@ namespace JM.LinqFaster
             }
 
             TAccumulate result = seed;
-            for (int i = 0; i < source.Count;i++)
+            for (int i = 0; i < source.Count; i++)
             {
                 result = func(result, source[i]);
             }

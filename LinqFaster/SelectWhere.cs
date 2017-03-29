@@ -51,8 +51,8 @@ namespace JM.LinqFaster
             int idx = 0;
             for (int i = 0; i < a.Length; i++)
             {
-                var s = selector(a[i],i);
-                if (predicate(s,i))
+                var s = selector(a[i], i);
+                if (predicate(s, i))
                 {
                     result[idx] = s;
                     idx++;
@@ -85,7 +85,7 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static List<TResult> SelectWhere<T, TResult>(this List<T> a, Func<T, int, TResult> selector,Func<TResult, int, bool> predicate)
+        public static List<TResult> SelectWhere<T, TResult>(this List<T> a, Func<T, int, TResult> selector, Func<TResult, int, bool> predicate)
         {
             if (a == null)
             {
@@ -100,8 +100,8 @@ namespace JM.LinqFaster
             var r = new List<TResult>();
             for (int i = 0; i < a.Count; i++)
             {
-                var s = selector(a[i],i);
-                if (predicate(s,i)) r.Add(s);
+                var s = selector(a[i], i);
+                if (predicate(s, i)) r.Add(s);
             }
             return r;
         }

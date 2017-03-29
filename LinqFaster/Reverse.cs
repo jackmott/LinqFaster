@@ -8,7 +8,7 @@ namespace JM.LinqFaster
         {
             var result = new T[source.Length];
             long lenLessOne = source.Length - 1;
-            for (long i = 0; i < result.LongLength;i++)
+            for (long i = 0; i < result.LongLength; i++)
             {
                 result[i] = source[lenLessOne - i];
             }
@@ -17,8 +17,8 @@ namespace JM.LinqFaster
 
         public static List<T> ReverseList<T>(this List<T> source)
         {
-            var result = new List<T>(source.Count);                        
-            for (int i = result.Count-1; i >= 0; i--)
+            var result = new List<T>(source.Count);
+            for (int i = result.Count - 1; i >= 0; i--)
             {
                 result.Add(source[i]);
             }

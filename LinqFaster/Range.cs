@@ -18,13 +18,13 @@ namespace JM.LinqFaster
             }
 
             int[] result = new int[count];
-            for (int i = 0; i < result.Length;i++)
+            for (int i = 0; i < result.Length; i++)
             {
                 result[i] = i + start;
             }
             return result;
 
-        }        
+        }
     }
 
     public static partial class LinqFaster
@@ -43,7 +43,7 @@ namespace JM.LinqFaster
             }
 
             var result = new List<int>(count);
-            for (int i = 0; i < count;i++)
+            for (int i = 0; i < count; i++)
             {
                 result.Add(i + count);
             }

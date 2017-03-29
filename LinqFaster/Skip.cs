@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JM.LinqFaster
 {
@@ -49,7 +46,7 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static T[] SkipLast<T>(this T[] a,int count)
+        public static T[] SkipLast<T>(this T[] a, int count)
         {
 
             if (a == null)
@@ -89,7 +86,7 @@ namespace JM.LinqFaster
             }
 
             var result = new List<T>(a.Count - count);
-            for (int i = count; i < a.Count;i++)
+            for (int i = count; i < a.Count; i++)
             {
                 result.Add(a[i]);
             }
@@ -113,7 +110,7 @@ namespace JM.LinqFaster
                 if (predicate(a[i])) break;
             }
             var result = new List<T>(a.Count - i);
-            for (;i < a.Count;i++)
+            for (; i < a.Count; i++)
             {
                 result.Add(a[i]);
             }

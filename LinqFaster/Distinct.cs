@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 
 namespace JM.LinqFaster
@@ -42,7 +40,7 @@ namespace JM.LinqFaster
             }
 
             var dict = new Dictionary<TSource, byte>(comparer);
-            
+
             for (int i = 0; i < source.Count; i++)
             {
                 if (!dict.ContainsKey(source[i]))

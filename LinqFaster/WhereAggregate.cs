@@ -33,7 +33,7 @@ namespace JM.LinqFaster
             }
             for (; i < a.Length; i++)
             {
-                if (predicate(a[i]) )
+                if (predicate(a[i]))
                 {
                     result = func(result, a[i]);
                 }
@@ -41,7 +41,7 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static T WhereAggregate<T>(this T[] a, Func<T, int, bool> predicate, Func<T, T,int, T> func)
+        public static T WhereAggregate<T>(this T[] a, Func<T, int, bool> predicate, Func<T, T, int, T> func)
         {
             if (a == null)
             {
@@ -58,7 +58,7 @@ namespace JM.LinqFaster
             int i = 0;
             for (; i < a.Length; i++)
             {
-                if (predicate(a[i],i))
+                if (predicate(a[i], i))
                 {
                     result = a[i];
                     i++;
@@ -68,12 +68,12 @@ namespace JM.LinqFaster
             int idx = 0;
             for (; i < a.Length; i++)
             {
-                if (predicate(a[i],i))
+                if (predicate(a[i], i))
                 {
-                    result = func(result,a[i],idx);
-                idx++;
+                    result = func(result, a[i], idx);
+                    idx++;
                 }
-            }            
+            }
             return result;
         }
 
@@ -103,7 +103,7 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static TResult WhereAggregate<TSource, TAccumulate, TResult>(this TSource[] source,Func<TSource,bool> predicate, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func, Func<TAccumulate, TResult> resultSelector)
+        public static TResult WhereAggregate<TSource, TAccumulate, TResult>(this TSource[] source, Func<TSource, bool> predicate, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func, Func<TAccumulate, TResult> resultSelector)
         {
             if (source == null)
             {
@@ -218,7 +218,7 @@ namespace JM.LinqFaster
             }
 
             TAccumulate result = seed;
-            for (int i = 0; i < source.Count;i++)
+            for (int i = 0; i < source.Count; i++)
             {
                 var v = source[i];
                 if (predicate(v))

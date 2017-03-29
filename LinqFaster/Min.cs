@@ -159,7 +159,7 @@ namespace JM.LinqFaster
             return r;
         }
 
-     
+
         public static float Min(this float[] a)
         {
             if (a == null)
@@ -175,12 +175,12 @@ namespace JM.LinqFaster
             {
                 if (a[i] < r) r = a[i];
                 else if (float.IsNaN(a[i])) return a[i];
-                  
+
             }
             return r;
         }
 
-        public static float Min<T>(this T[] a, Func<T,float> selector)
+        public static float Min<T>(this T[] a, Func<T, float> selector)
         {
             if (a == null)
             {
@@ -221,7 +221,7 @@ namespace JM.LinqFaster
                 if (a[i] < r) r = a[i];
                 else if (double.IsNaN(a[i])) return a[i];
             }
-            
+
             return r;
         }
 
@@ -268,7 +268,7 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static decimal Min<T>(this T[] a, Func<T,decimal> selector)
+        public static decimal Min<T>(this T[] a, Func<T, decimal> selector)
         {
             if (a == null)
             {
@@ -471,7 +471,7 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static double Min<T>(this List<T> a, Func<T,double> selector)
+        public static double Min<T>(this List<T> a, Func<T, double> selector)
         {
             if (a == null)
             {

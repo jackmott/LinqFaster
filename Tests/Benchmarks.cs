@@ -319,11 +319,12 @@ namespace Tests
         [Benchmark]
         public int ArraySequenceEqualLinq()
         {
-            return System.Linq.Enumerable.Sum(System.Linq.Enumerable.SkipWhile(array,x => x != 0));
+            return System.Linq.Enumerable.Sum(System.Linq.Enumerable.SkipWhile(array, x => x != 0));
         }
 
         public static void Main(string[] args)
         {
+
             var summary = BenchmarkRunner.Run<Benchmarks>();
 
         }

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JM.LinqFaster
 {
@@ -40,7 +37,7 @@ namespace JM.LinqFaster
             }
 
             var result = new List<T>();
-            for (int i=0; i < a.Length; i++)
+            for (int i = 0; i < a.Length; i++)
             {
                 if (predicate(a[i]))
                     result.Add(a[i]);
@@ -50,7 +47,7 @@ namespace JM.LinqFaster
             return result.ToArray();
         }
 
-        public static T[] TakeLast<T>(this T[] a,int count)
+        public static T[] TakeLast<T>(this T[] a, int count)
         {
 
             if (a == null)
@@ -67,7 +64,7 @@ namespace JM.LinqFaster
             }
 
             var result = new T[count];
-            Array.Copy(a, a.Length-count, result, 0, count);
+            Array.Copy(a, a.Length - count, result, 0, count);
             return result;
 
         }
@@ -90,7 +87,7 @@ namespace JM.LinqFaster
             }
 
             var result = new List<T>(count);
-            for (int i = 0; i < count;i++)
+            for (int i = 0; i < count; i++)
             {
                 result.Add(a[i]);
             }
@@ -114,12 +111,13 @@ namespace JM.LinqFaster
                 if (predicate(a[i]))
                 {
                     result.Add(a[i]);
-                } else
+                }
+                else
                 {
                     return result;
                 }
             }
-            
+
             return result;
         }
 
@@ -140,7 +138,7 @@ namespace JM.LinqFaster
             }
 
             var result = new List<T>(count);
-            for (int i = a.Count-count; i < count; i++)
+            for (int i = a.Count - count; i < count; i++)
             {
                 result.Add(a[i]);
             }

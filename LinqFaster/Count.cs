@@ -7,7 +7,7 @@ namespace JM.LinqFaster
     {
 
         // --------------------------  Arrays --------------------------------------------
-        
+
         public static int Count<T>(this T[] source, Func<T, bool> predicate)
         {
             if (source == null)
@@ -89,7 +89,7 @@ namespace JM.LinqFaster
 
             return count;
         }
-     
+
 
     }
 }
