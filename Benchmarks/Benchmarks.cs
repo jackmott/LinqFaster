@@ -23,6 +23,8 @@ namespace Tests
 
         public Benchmarks()
         {
+
+            
         }
 
         [Setup]
