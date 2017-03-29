@@ -50,7 +50,6 @@
     <Compile Include="Contains.cs" />
     <Compile Include="Error.cs" />
     <Compile Include="Count.cs" />
-    <Compile Include="FastSet.cs" />
     <Compile Include="Last.cs" />
     <Compile Include="First.cs" />
     <Compile Include="Max.cs" />

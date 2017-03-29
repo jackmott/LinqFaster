@@ -83,7 +83,7 @@ namespace JM.LinqFaster
             {
                 throw Error.NoElements();
             }
-            int r = int.MaxValue;
+            int r = int.MinValue;
             for (long i = 0; i < a.LongLength; i++)
             {
                 if (a[i] > r) r = a[i];
@@ -106,7 +106,7 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(selector));
             }
 
-            int r = int.MaxValue;
+            int r = int.MinValue;
             for (long i = 0; i < a.LongLength; i++)
             {
                 var v = selector(a[i]);
@@ -125,7 +125,7 @@ namespace JM.LinqFaster
             {
                 throw Error.NoElements();
             }
-            long r = long.MaxValue;
+            long r = long.MinValue;
             for (long i = 0; i < a.LongLength; i++)
             {
                 if (a[i] > r) r = a[i];
@@ -402,7 +402,7 @@ namespace JM.LinqFaster
             {
                 throw Error.NoElements();
             }
-            int r = int.MaxValue;
+            int r = int.MinValue;
             for (int i = 0; i < a.Count; i++)
             {
                 if (a[i] > r) r = a[i];
@@ -425,7 +425,7 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(selector));
             }
 
-            int r = int.MaxValue;
+            int r = int.MinValue;
             for (int i = 0; i < a.Count; i++)
             {
                 var v = selector(a[i]);
@@ -444,7 +444,7 @@ namespace JM.LinqFaster
             {
                 throw Error.NoElements();
             }
-            long r = long.MaxValue;
+            long r = long.MinValue;
             for (int i = 0; i < a.Count; i++)
             {
                 if (a[i] > r) r = a[i];
@@ -466,7 +466,7 @@ namespace JM.LinqFaster
             {
                 throw Error.ArgumentNull(nameof(a));
             }
-            long r = long.MaxValue;
+            long r = long.MinValue;
             for (int i = 0; i < a.Count; i++)
             {
                 var v = selector(a[i]);

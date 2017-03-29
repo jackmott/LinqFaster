@@ -108,7 +108,7 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(selector));
             }
 
-            int r = int.MinValue;
+            int r = int.MaxValue;
             for (long i = 0; i < a.LongLength; i++)
             {
                 var v = selector(a[i]);
@@ -150,7 +150,7 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(selector));
             }
 
-            long r = long.MinValue;
+            long r = long.MaxValue;
             for (long i = 0; i < a.LongLength; i++)
             {
                 var v = selector(a[i]);
