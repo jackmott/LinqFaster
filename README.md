@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jackmott/LinqFaster.svg?branch=master)](https://travis-ci.org/jackmott/LinqFaster)
+
 # LinqFaster
 A set of extension methods for array and `List<T>` that are faster and allocate less, making them more appropriate for mobile, big data, science, gamedev, and everything because wasting cpu cycles is a sin, and hateful.
 
