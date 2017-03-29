@@ -62,6 +62,8 @@
     <Compile Include="SelectWhere.cs" />
     <Compile Include="SequenceEqual.cs" />
     <Compile Include="Single.cs" />
+    <Compile Include="Take.cs" />
+    <Compile Include="Skip.cs" />
     <Compile Include="Sum.cs" />
     <Compile Include="Min.cs" />
     <Compile Include="Select.cs" />

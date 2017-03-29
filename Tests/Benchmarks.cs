@@ -296,7 +296,7 @@ namespace Tests
         {
             return
                     System.Linq.Enumerable.Sum(System.Linq.Enumerable.Distinct(array));
-        }*/
+        }
 
         [Benchmark]
         public bool ArraySequenceEqualLinqFaster()
@@ -308,6 +308,18 @@ namespace Tests
         public bool ArraySequenceEqualLinq()
         {
             return System.Linq.Enumerable.SequenceEqual(list, list);
+        }*/
+
+        [Benchmark]
+        public int ArraySkipWhileSumLinqFaster()
+        {
+            return array.SkipWhile(x => x != 0).Sum();
+        }
+
+        [Benchmark]
+        public int ArraySequenceEqualLinq()
+        {
+            return System.Linq.Enumerable.Sum(System.Linq.Enumerable.SkipWhile(array,x => x != 0));
         }
 
         public static void Main(string[] args)
