@@ -1,5 +1,7 @@
 ![Build Status](https://ci.appveyor.com/api/projects/status/github/jackmott/LinqFaster "Build Status")
 
+[<img src="https://liberapay.com/assets/widgets/donate.svg">](https://liberapay.com/jackmott/donate)
+
 # LinqFaster
 A set of extension methods for array and `List<T>` that are faster and allocate less, making them more appropriate for mobile, big data, science, gamedev, and everything because wasting cpu cycles is a sin, and hateful.
 
