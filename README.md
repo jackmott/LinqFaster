@@ -40,18 +40,22 @@ functions together such as:
 
 ```c#
 
-data.Where(predicate).Select(transform).Sum();
+data.Where(predicate).Select(transform).Aggregate(foo);
+//or
+data.Select(selector).Sum();
 
 ```
-Linq would not do any work until the call to `Sum()`, and thus iterate over the collection only once and
-allocate very little. LinqFaster used this way would iterate over the collection 3 times and allocate
+Linq would not do any work until the calls to `Sum()` or `Aggregate()`, and thus iterate over the collection only once and
+allocate very little. LinqFaster used this way would iterate over the collection each time and allocate
 much more.  Sometimes the net result will still be faster overall but the better approach is to
 use the combined LinqFaster operations such as `SelectWhere`, `WhereSelect, and `WhereAggregate`.
-For example the expression above would become
+For example the expressions above would become:
 
 ```c#
 
-data.WhereAggregate(predicate,transform,sum);
+data.WhereAggregate(predicate,transform,foo);
+// and
+data.Sum(selector);
 
 ```
 
