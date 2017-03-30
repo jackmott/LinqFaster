@@ -48,7 +48,7 @@ data.Select(selector).Sum();
 Linq would not do any work until the calls to `Sum()` or `Aggregate()`, and thus iterate over the collection only once and
 allocate very little. LinqFaster used this way would iterate over the collection each time and allocate
 much more.  Sometimes the net result will still be faster overall but the better approach is to
-use the combined LinqFaster operations such as `SelectWhere`, `WhereSelect, and `WhereAggregate`.
+use the combined LinqFaster operations such as `SelectWhere`, `WhereSelect`, and `WhereAggregate`.
 For example the expressions above would become:
 
 ```c#
