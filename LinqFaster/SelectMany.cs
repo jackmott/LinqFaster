@@ -8,6 +8,16 @@ namespace JM.LinqFaster
         // --------------------------  Arrays --------------------------------------------
         public static TResult[] SelectManyF<TSource, TResult>(this TSource[] source, Func<TSource, TResult[]> selector)
         {
+            if (source == null)
+            {
+                throw Error.ArgumentNull(nameof(source));
+            }
+
+            if (selector == null)
+            {
+                throw Error.ArgumentNull(nameof(selector));
+            }
+
             var result = new List<TResult>(source.Length);
             for (int i = 0; i < source.Length; i++)
             {
@@ -22,6 +32,16 @@ namespace JM.LinqFaster
 
         public static TResult[] SelectManyF<TSource, TResult>(this TSource[] source, Func<TSource, int, TResult[]> selector)
         {
+            if (source == null)
+            {
+                throw Error.ArgumentNull(nameof(source));
+            }
+
+            if (selector == null)
+            {
+                throw Error.ArgumentNull(nameof(selector));
+            }
+
             var result = new List<TResult>(source.Length);
             for (int i = 0; i < source.Length; i++)
             {
@@ -37,6 +57,16 @@ namespace JM.LinqFaster
         // --------------------------  LISTS --------------------------------------------
         public static List<TResult> SelectManyF<TSource, TResult>(this List<TSource> source, Func<TSource, List<TResult>> selector)
         {
+            if (source == null)
+            {
+                throw Error.ArgumentNull(nameof(source));
+            }
+
+            if (selector == null)
+            {
+                throw Error.ArgumentNull(nameof(selector));
+            }
+
             var result = new List<TResult>(source.Count);
             for (int i = 0; i < source.Count; i++)
             {
@@ -51,6 +81,16 @@ namespace JM.LinqFaster
 
         public static List<TResult> SelectManyF<TSource, TResult>(this List<TSource> source, Func<TSource, int, List<TResult>> selector)
         {
+            if (source == null)
+            {
+                throw Error.ArgumentNull(nameof(source));
+            }
+
+            if (selector == null)
+            {
+                throw Error.ArgumentNull(nameof(selector));
+            }
+
             var result = new List<TResult>(source.Count);
             for (int i = 0; i < source.Count; i++)
             {

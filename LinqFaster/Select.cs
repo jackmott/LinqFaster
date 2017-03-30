@@ -63,12 +63,15 @@ namespace JM.LinqFaster
             }
 
             var r = new List<TResult>(a.Count);
+
             for (int i = 0; i < a.Count; i++)
             {
                 r.Add(selector(a[i]));
             }
+
             return r;
         }
+
 
         public static List<TResult> SelectF<T, TResult>(this List<T> a, Func<T, int, TResult> selector)
         {
@@ -83,10 +86,12 @@ namespace JM.LinqFaster
             }
 
             var r = new List<TResult>(a.Count);
+
             for (int i = 0; i < a.Count; i++)
             {
-                r.Add(selector(a[i], i));
+                r.Add(selector(a[i],i));
             }
+
             return r;
         }
 

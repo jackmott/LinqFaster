@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AverageTests.cs" />
     <Compile Include="AnyAllTests.cs" />
     <Compile Include="AggregateTests.cs" />
     <Compile Include="MaxTests.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="SelectTests.cs" />
     <Compile Include="SelectManyTests.cs" />
     <Compile Include="SumTests.cs" />
+    <Compile Include="OrderByTests.cs" />
     <Compile Include="WhereTests.cs" />
   </ItemGroup>
   <ItemGroup>

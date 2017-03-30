@@ -37,17 +37,25 @@ namespace Tests
             stringList = new List<string>(TEST_SIZE);
             decimalArray = new decimal[TEST_SIZE];
             decimalList = new List<decimal>(TEST_SIZE);
+            doubleArray = new double[TEST_SIZE];
+            doubleList = new List<double>(TEST_SIZE);
+            longArray = new long[TEST_SIZE];
+            longList = new List<long>(TEST_SIZE);
             Random rand = new Random();
             for (int i = 0; i < intArray.Length;i++)
             {
                 intArray[i] = rand.Next(-100, 100);
                 intList.Add(intArray[i]);
+                longArray[i] = intArray[i];
+                longList.Add(intArray[i]);
                 floatArray[i] = (float)rand.NextDouble() * 100.0f - 50f;
                 floatList.Add(intArray[i]);
                 stringArray[i] = floatArray[i].ToString();
                 stringList.Add(stringArray[i]);
                 decimalArray[i] = (decimal)floatArray[i];
                 decimalList.Add(decimalArray[i]);
+                doubleArray[i] = rand.NextDouble() * 10000.0 - 5000.0;
+                doubleList.Add(doubleArray[i]);
             }
         }
 

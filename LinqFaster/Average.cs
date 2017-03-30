@@ -57,6 +57,29 @@ namespace JM.LinqFaster
             return (double)sum / source.LongLength;
         }
 
+        public static double AverageF(this long[] source)
+        {
+            if (source == null)
+            {
+                throw Error.ArgumentNull(nameof(source));
+            }
+
+            if (source.Length == 0)
+            {
+                throw Error.NoElements();
+            }
+
+            long sum = 0;
+            checked
+            {
+                for (long i = 0; i < source.LongLength; i++)
+                {
+                    sum += source[i];
+                }
+            }
+            return (double)sum / source.LongLength;
+        }
+
         public static double AverageF<T>(this T[] source, Func<T, long> selector)
         {
             if (source == null)
@@ -85,7 +108,7 @@ namespace JM.LinqFaster
             return (double)sum / source.LongLength;
         }
 
-        public static double AverageF(this float[] source)
+        public static float AverageF(this float[] source)
         {
             if (source == null)
             {
@@ -104,10 +127,10 @@ namespace JM.LinqFaster
                 sum += source[i];
             }
 
-            return sum / source.LongLength;
+            return (float)(sum / source.LongLength);
         }
 
-        public static double AverageF<T>(this T[] source, Func<T, float> selector)
+        public static float AverageF<T>(this T[] source, Func<T, float> selector)
         {
             if (source == null)
             {
@@ -131,7 +154,7 @@ namespace JM.LinqFaster
                 sum += selector(source[i]);
             }
 
-            return sum / source.LongLength;
+            return (float)(sum / source.LongLength);
         }
 
         public static double AverageF(this double[] source)

@@ -23,8 +23,6 @@ namespace JM.LinqFaster
                 result.Add(source[i]);
             }
             return result;
-        }
-
-
+        }        
     }
 }

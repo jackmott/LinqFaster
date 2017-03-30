@@ -41,15 +41,35 @@ namespace Tests
             }
         }
 
+        /*
+        [Benchmark]
+        public List<int> OrderByFancyLambda()
+        {
+            return list.OrderByF(x => x*x);
+        }
+        */
+        [Benchmark]
+        public List<int> SelectSillyArrays()
+        {
+            return list.SelectF(x => x * x);
+        }
 
-        
-      
+        [Benchmark]
+        public List<int> Select()
+        {
+            return list.SelectF(x => x * x);
+        }
 
-       
+        /*  [Benchmark]
+          public double OrderBy()
+          {
+              return array.OrderBy(x => x * x).Average();
+          }*/
+
 
         public static void Main(string[] args)
         {
-
+                       
             var summary = BenchmarkRunner.Run<Benchmarks>();
 
         }
