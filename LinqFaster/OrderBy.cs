@@ -30,7 +30,11 @@ namespace JM.LinqFaster
                 comparer = Comparer<TKey>.Default;
             }
 
-            var keys = source.SelectF(keySelector);
+            var keys = new TKey[source.Length];
+            for (long i = 0; i < keys.LongLength; i++)
+            {
+                keys[i] = keySelector(source[i]);
+            }            
             var result = (TSource[])source.Clone();
             Array.Sort(keys,result,comparer);
             return result;
@@ -57,7 +61,6 @@ namespace JM.LinqFaster
             }
 
             var result = new List<TSource>(source);
-
             var lambdaComparer = new LambdaComparer<TSource, TKey>(keySelector, comparer);          
             result.Sort(lambdaComparer);
             return result;
@@ -70,15 +73,8 @@ namespace JM.LinqFaster
             Func<T, U> selector;
 
             public LambdaComparer(Func<T, U> selector, Comparer<U> comparer)
-            {
-                if (comparer == null)
-                {
-                    this.comparer = Comparer<U>.Default;
-                }
-                else
-                {
-                    this.comparer = comparer;
-                }
+            {               
+                this.comparer = comparer;               
                 this.selector = selector;
             }
 

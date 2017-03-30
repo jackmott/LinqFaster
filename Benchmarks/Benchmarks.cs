@@ -11,7 +11,7 @@ namespace Tests
     public class Benchmarks
     {
 
-        const int LARGE_TEST_SIZE = 1000000;
+        const int LARGE_TEST_SIZE = 100000;
         const int SMALL_TEST_SIZE = 100;
 
 
@@ -41,30 +41,67 @@ namespace Tests
             }
         }
 
-        /*
+        
         [Benchmark]
-        public List<int> OrderByFancyLambda()
+        public int OrderByFast()
         {
-            return list.OrderByF(x => x*x);
-        }
-        */
-        [Benchmark]
-        public List<int> SelectSillyArrays()
-        {
-            return list.SelectF(x => x * x);
+            return array.OrderByF((x => x -1)).Sum();
         }
 
         [Benchmark]
-        public List<int> Select()
+        public int OrderByLinq()
         {
-            return list.SelectF(x => x * x);
+            return array.OrderBy((x => x -1)).Sum();
         }
 
-        /*  [Benchmark]
-          public double OrderBy()
-          {
-              return array.OrderBy(x => x * x).Average();
-          }*/
+        [Benchmark]
+        public int MinFast()
+        {
+            return array.MinF();
+        }
+
+        [Benchmark]
+        public int MinLinq()
+        {
+            return array.Min();
+        }
+
+        [Benchmark]
+        public int SumFast()
+        {
+            return array.SumF();
+        }
+
+        [Benchmark]
+        public int SumLinq()
+        {
+            return array.Sum();
+        }
+
+        [Benchmark]
+        public int SumWithSelectFast()
+        {
+            return array.SumF(x => x/2);
+        }
+
+        [Benchmark]
+        public int SumWithSelectLinq()
+        {
+            return array.Sum(x => x/2);
+        }
+
+        [Benchmark]
+        public double WhereSelectAverageFast()
+        {
+            return array.WhereSelectAverageF(x => x % 2 == 0, x=> x*x);
+        }
+
+        [Benchmark]
+        public double WhereSelectAverageLinq()
+        {
+            return array.Where(x => x % 2 == 0).Average(x => x * x);
+        }
+
 
 
         public static void Main(string[] args)

@@ -18,6 +18,10 @@ namespace JM.LinqFaster
             {
                 throw Error.ArgumentNull(nameof(predicate));
             }
+            if (func == null)
+            {
+                throw Error.ArgumentNull(nameof(func));
+            }
 
             var result = default(T);
 
@@ -115,6 +119,11 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(func));
             }
 
+            if (predicate == null)
+            {
+                throw Error.ArgumentNull(nameof(predicate));
+            }
+
             if (resultSelector == null)
             {
                 throw Error.ArgumentNull(nameof(resultSelector));
@@ -129,6 +138,7 @@ namespace JM.LinqFaster
             return resultSelector(result);
         }
 
+        
         // --------------------------- Lists -------------------------
         public static T WhereAggregateF<T>(this List<T> a, Func<T, bool> predicate, Func<T, T, T> func)
         {
@@ -140,6 +150,11 @@ namespace JM.LinqFaster
             if (predicate == null)
             {
                 throw Error.ArgumentNull(nameof(predicate));
+            }
+
+            if (func == null)
+            {
+                throw Error.ArgumentNull(nameof(func));
             }
 
             var result = default(T);

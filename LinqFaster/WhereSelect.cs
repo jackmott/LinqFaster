@@ -8,6 +8,7 @@ namespace JM.LinqFaster
     {
         // --------------------------  ARRAYS --------------------------------------------
 
+        
 
         public static TResult[] WhereSelectF<T, TResult>(this T[] a, Func<T, bool> predicate, Func<T, TResult> selector)
         {
@@ -17,6 +18,11 @@ namespace JM.LinqFaster
             }
 
             if (predicate == null)
+            {
+                throw Error.ArgumentNull(nameof(predicate));
+            }
+
+            if (selector == null)
             {
                 throw Error.ArgumentNull(nameof(predicate));
             }
@@ -35,6 +41,39 @@ namespace JM.LinqFaster
             return result;
         }
 
+        public static double WhereSelectAverageF<T>(this T[] a, Func<T, bool> predicate, Func<T,int> selector)
+        {
+            if (a == null)
+            {
+                throw Error.ArgumentNull(nameof(a));
+            }
+
+            if (predicate == null)
+            {
+                throw Error.ArgumentNull(nameof(predicate));
+            }
+
+            if (selector == null)
+            {
+                throw Error.ArgumentNull(nameof(predicate));
+            }
+
+            long sum = 0;
+            int count = 0;
+            checked
+            {
+                for (int i = 0; i < a.Length; i++)
+                {
+                    if (predicate(a[i]))
+                    {
+                        sum += selector(a[i]);
+                        count++;
+                    }
+                }
+            }
+            return (double)sum / count;
+        }
+
         public static TResult[] WhereSelectF<T, TResult>(this T[] a, Func<T, int, bool> predicate, Func<T, int, TResult> selector)
         {
             if (a == null)
@@ -43,6 +82,11 @@ namespace JM.LinqFaster
             }
 
             if (predicate == null)
+            {
+                throw Error.ArgumentNull(nameof(predicate));
+            }
+
+            if (selector == null)
             {
                 throw Error.ArgumentNull(nameof(predicate));
             }
@@ -60,6 +104,7 @@ namespace JM.LinqFaster
             Array.Resize(ref result, idx);
             return result;
         }
+        
 
         // --------------------------  LISTS --------------------------------------------
 
@@ -71,6 +116,11 @@ namespace JM.LinqFaster
             }
 
             if (predicate == null)
+            {
+                throw Error.ArgumentNull(nameof(predicate));
+            }
+
+            if (selector == null)
             {
                 throw Error.ArgumentNull(nameof(predicate));
             }
@@ -91,6 +141,11 @@ namespace JM.LinqFaster
             }
 
             if (predicate == null)
+            {
+                throw Error.ArgumentNull(nameof(predicate));
+            }
+
+            if (selector == null)
             {
                 throw Error.ArgumentNull(nameof(predicate));
             }
