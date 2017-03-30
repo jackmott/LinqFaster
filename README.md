@@ -62,6 +62,8 @@ data.Sum(selector);
 This gets you the best of both worlds.  The speed of memory locality and no allocations at all.
 In short, think about how you are transforming your data. In some cases normal Linq may be the better choice.
 
+While most of the functions strive to provide indentical results to Linq, the OrderBy methods are not a stable sort, while in Linq they are.
+
 
 
 
