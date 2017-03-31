@@ -5,6 +5,22 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
+/*
+
+    C# has no way to constrain a generic to only primitive types.
+    You can only constrain them to value types via:
+        where T : struct
+    All primitives are value types but not all value types are
+    primitives. Thus, when you try to do operations like + > < ==
+    on generic value types, you get a compiler error.  These methods
+    work around that by checking the type, casting, and performing the 
+    operation.  The JIT elides all of the non relevant bits of the If statement
+    for each generic type, so this is remarkably still fast.  Since these are
+    only used for the SIMD specific operations, and the SIMD library
+    works exactly this way as well, it does not add any problems that
+    don't already exist when you use .NET SIMD.  Which is, if you create a 
+    Vector<T> where T is a non primitive value type, you will get a runtime error.
+ */
 namespace JM.LinqFaster.Utils
 {
     public static class GenericOperators
