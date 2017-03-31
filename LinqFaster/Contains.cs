@@ -7,21 +7,22 @@ namespace JM.LinqFaster
     {
 
         // --------------------------  ARRAYS  --------------------------------------------
-        public static bool ContainsF<TSource>(this TSource[] source, Func<TSource, bool> predicate)
+        public static bool ContainsF<TSource>(this TSource[] source, TSource value, IEqualityComparer<TSource> comparer = null)
         {
             if (source == null)
             {
                 throw Error.ArgumentNull(nameof(source));
             }
 
-            if (predicate == null)
+            if (comparer == null)
             {
-                throw Error.ArgumentNull(nameof(predicate));
+                comparer = EqualityComparer<TSource>.Default;
             }
+
 
             for (long i = 0; i < source.LongLength; i++)
             {
-                if (predicate(source[i]))
+                if (comparer.Equals(source[i], value))
                 {
                     return true;
                 }
@@ -31,21 +32,22 @@ namespace JM.LinqFaster
         }
 
         // --------------------------  Lists --------------------------------------------
-        public static bool ContainsF<TSource>(this List<TSource> source, Func<TSource, bool> predicate)
+        public static bool ContainsF<TSource>(this List<TSource> source, TSource value, IEqualityComparer<TSource> comparer = null)
         {
             if (source == null)
             {
                 throw Error.ArgumentNull(nameof(source));
             }
 
-            if (predicate == null)
+            if (comparer == null)
             {
-                throw Error.ArgumentNull(nameof(predicate));
+                comparer = EqualityComparer<TSource>.Default;
             }
+
 
             for (int i = 0; i < source.Count; i++)
             {
-                if (predicate(source[i]))
+                if (comparer.Equals(source[i], value))
                 {
                     return true;
                 }

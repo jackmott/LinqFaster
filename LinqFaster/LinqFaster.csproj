@@ -67,6 +67,7 @@
     <Compile Include="SelectMany.cs" />
     <Compile Include="SelectWhere.cs" />
     <Compile Include="SequenceEqual.cs" />
+    <Compile Include="SIMD\Contains.cs" />
     <Compile Include="SIMD\MinSIMD.cs" />
     <Compile Include="SIMD\MaxSIMD.cs" />
     <Compile Include="SIMD\RepeatSIMD.cs" />
