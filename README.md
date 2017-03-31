@@ -3,19 +3,20 @@
 [<img src="https://liberapay.com/assets/widgets/donate.svg">](https://liberapay.com/jackmott/donate)
 
 # LinqFaster
-A set of extension methods for array and `List<T>` that are faster and allocate less, making them more appropriate for mobile, big data, science, gamedev, and everything because wasting cpu cycles is a sin, and hateful.
+A set of extension methods for array and `List<T>` that are faster and allocate less.
 
-This eventually will cover all the Linq extension methods
-that are appropriate, and then some. I plan to add SIMD versions where appropriate, in place array Select, minBy and maxBy etc.
+LinqFaster now includes all relevant Linq extension methods, and **SIMD** enhanced extension methods are
+being worked on now as well. See the **[Benchmarks](Benchmarks.md)** for data on how big the performance
+differences can be.
 
-# [Benchmarks](Benchmarks.md)
 
 # Please Contribute
 This is a work in progress, PRs would be appreciated. Lots of easy grunt work to do here to cover all the Linq extension methods. Feel free to contact me I can give guidance if you are not sure what to do or how to use github / git.
-We need tests and I would love input on performance tweaks.
+We need more tests and I would love input on performance tweaks.
 
 # Features
 
+* **SIMD** enhanced array operations
 * :arrow_down: Execution time
 * :arrow_down: GC churn
 * :arrow_up: Battery life
@@ -26,10 +27,19 @@ We need tests and I would love input on performance tweaks.
 * :arrow_up: FPS!
 
 # Use
+All LinqFaster extenions methods replicate the Linq names and function signatures, but we
+append an "F" to avoid name collisions, so that you can use regular Linq alongside
+LinqFaster.  SIMD enhanced functions have an S appended.
 
 ```c#
-someArray.WhereSelect(x => x % 2 == 0, x=> x*x);
-someList.Min();
+using JM.LinqFaster;
+using JM.LinqFaster.SIMD;  // for SIMD
+
+someArray.WhereSelectF(x => x % 2 == 0, x=> x*x);
+someList.MinF();
+someList.SumF();
+
+someArray.SumS(); //SIMD enhanced Sum
 ```
 
 # Limitations

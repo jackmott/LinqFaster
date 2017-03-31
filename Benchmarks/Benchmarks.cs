@@ -2,8 +2,12 @@
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
 using JM.LinqFaster;
+using JM.LinqFaster.SIMD;
 using System.Linq;
 using System.Collections.Generic;
+using BenchmarkDotNet.Configs;
+using BenchmarkDotNet.Jobs;
+using System.Numerics;
 
 namespace Tests
 {
@@ -18,6 +22,7 @@ namespace Tests
 
         public List<int> list;
         public int[] array;
+        
 
         [Params(LARGE_TEST_SIZE)]
         public int TEST_SIZE { get; set; }
@@ -34,6 +39,8 @@ namespace Tests
             Random r = new Random();
             array = new int[TEST_SIZE];
             list = new List<int>(TEST_SIZE);
+        
+                                    
             for (int i = 0; i < TEST_SIZE; i++)
             {
                 array[i] = r.Next(-100, 100);
@@ -41,17 +48,25 @@ namespace Tests
             }
         }
 
-        
-        [Benchmark]
-        public int OrderByFast()
-        {
-            return array.OrderByF((x => x -1)).Sum();
-        }
+                
 
         [Benchmark]
         public int OrderByLinq()
         {
             return array.OrderBy((x => x -1)).Sum();
+        }
+
+        [Benchmark]
+        public int OrderByFast()
+        {
+            return array.OrderByF((x => x - 1)).Sum();
+        }
+        
+
+        [Benchmark]
+        public int MinLinq()
+        {
+            return array.Min();
         }
 
         [Benchmark]
@@ -61,9 +76,9 @@ namespace Tests
         }
 
         [Benchmark]
-        public int MinLinq()
+        public int SumLinq()
         {
-            return array.Min();
+            return array.Sum();
         }
 
         [Benchmark]
@@ -73,9 +88,33 @@ namespace Tests
         }
 
         [Benchmark]
-        public int SumLinq()
+        public int SumFastSIMD()
         {
-            return array.Sum();
+            return array.SumS();
+        }
+
+        [Benchmark]
+        public double AverageLinq()
+        {
+            return array.Average();
+        }
+
+        [Benchmark]
+        public double AverageFast()
+        {
+            return array.AverageF();
+        }
+
+        [Benchmark]
+        public double AverageFastSIMD()
+        {
+            return array.AverageS();
+        }
+
+        [Benchmark]
+        public int SumWithSelectLinq()
+        {
+            return array.Sum(x => x / 2);
         }
 
         [Benchmark]
@@ -84,30 +123,38 @@ namespace Tests
             return array.SumF(x => x/2);
         }
 
+        
         [Benchmark]
-        public int SumWithSelectLinq()
-        {
-            return array.Sum(x => x/2);
+        public double WhereAggregateLinq()
+        {        
+            return array.Where(x => x % 2 == 0).Aggregate(0.0, (acc, x) => acc += x * x, acc => acc / array.Length);
         }
 
         [Benchmark]
-        public double WhereSelectAverageFast()
+        public double WhereAggregateFast()
         {
-            return array.WhereSelectAverageF(x => x % 2 == 0, x=> x*x);
+            return array.WhereAggregateF(x => x % 2 == 0,0.0,(acc,x)=> acc += x*x,acc => acc/array.Length);
         }
 
         [Benchmark]
-        public double WhereSelectAverageLinq()
+        public int[] SelectFast()
         {
-            return array.Where(x => x % 2 == 0).Average(x => x * x);
+            return array.SelectF(x => x * x);
         }
+
+        [Benchmark]
+        public int[] SelectFastSIMD()
+        {
+            return array.SelectS(x => x * x, x=>x*x);
+        }
+
 
 
 
         public static void Main(string[] args)
         {
-                       
-            var summary = BenchmarkRunner.Run<Benchmarks>();
+
+            var summary = BenchmarkRunner.Run<Benchmarks>(ManualConfig.Create(DefaultConfig.Instance).With(Job.RyuJitX64));
 
         }
 
