@@ -35,11 +35,11 @@ LinqFaster.  SIMD enhanced functions have an S appended.
 using JM.LinqFaster;
 using JM.LinqFaster.SIMD;  // for SIMD
 
-someArray.WhereSelectF(x => x % 2 == 0, x=> x*x);
-someList.MinF();
-someList.SumF();
+var a = someArray.WhereSelectF(x => x % 2 == 0, x=> x*x);
+var b = someList.MinF();
+var c = someList.SumF();
 
-someArray.SumS(); //SIMD enhanced Sum
+var d = someArray.SumS(); //SIMD enhanced Sum
 ```
 
 # Limitations
@@ -50,9 +50,9 @@ functions together such as:
 
 ```c#
 
-data.Where(predicate).Select(transform).Aggregate(foo);
+var a = data.Where(predicate).Select(transform).Aggregate(foo);
 //or
-data.Select(selector).Sum();
+var b = data.Select(selector).Sum();
 
 ```
 Linq would not do any work until the calls to `Sum()` or `Aggregate()`, and thus iterate over the collection only once and
@@ -63,9 +63,9 @@ For example the expressions above would become:
 
 ```c#
 
-data.WhereAggregate(predicate,transform,foo);
+var a = data.WhereAggregate(predicate,transform,foo);
 // and
-data.Sum(selector);
+var b = data.Sum(selector);
 
 ```
 
