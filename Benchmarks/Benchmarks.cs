@@ -48,8 +48,8 @@ namespace Tests
             }
         }
 
-                
 
+        /*
         [Benchmark]
         public int OrderByLinq()
         {
@@ -63,17 +63,7 @@ namespace Tests
         }
         
 
-        [Benchmark]
-        public int MinLinq()
-        {
-            return array.Min();
-        }
-
-        [Benchmark]
-        public int MinFast()
-        {
-            return array.MinF();
-        }
+        
 
         [Benchmark]
         public int SumLinq()
@@ -148,8 +138,50 @@ namespace Tests
             return array.SelectS(x => x * x, x=>x*x);
         }
 
+        
+
+        [Benchmark]
+        public int[] RepeatLinq()
+        {
+            return Enumerable.Repeat(5, TEST_SIZE).ToArray();
+        }
+
+        [Benchmark]
+        public int[] RepeastFast()
+        {
+            return LinqFaster.RepeatArrayF(5, TEST_SIZE);
+        }
 
 
+        [Benchmark]
+        public int[] RepeastFastSIMD()
+        {
+            return LinqFasterSIMD.RepeatS(5, TEST_SIZE);
+        }
+
+        [Benchmark]
+        public int[] RepeastFastSIMDB()
+        {
+            return LinqFasterSIMD.RepeatSB(5, TEST_SIZE);
+        }
+        */
+        [Benchmark]
+        public int MinLinq()
+        {
+            return array.Min();
+        }
+
+        [Benchmark]
+        public int MinFast()
+        {
+            return array.MinF();
+        }
+
+        [Benchmark]
+        public int MinFastSIMD()
+        {            
+            return array.MinS();
+        }
 
         public static void Main(string[] args)
         {

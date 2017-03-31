@@ -67,9 +67,12 @@
     <Compile Include="SelectMany.cs" />
     <Compile Include="SelectWhere.cs" />
     <Compile Include="SequenceEqual.cs" />
-    <Compile Include="SIMD\Select.cs" />
-    <Compile Include="SIMD\Average.cs" />
-    <Compile Include="SIMD\Sum.cs" />
+    <Compile Include="SIMD\MinSIMD.cs" />
+    <Compile Include="SIMD\MaxSIMD.cs" />
+    <Compile Include="SIMD\RepeatSIMD.cs" />
+    <Compile Include="SIMD\SelectSIMD.cs" />
+    <Compile Include="SIMD\AverageSIMD.cs" />
+    <Compile Include="SIMD\SumSIMD.cs" />
     <Compile Include="Single.cs" />
     <Compile Include="Take.cs" />
     <Compile Include="Skip.cs" />

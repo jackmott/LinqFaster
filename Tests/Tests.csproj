@@ -66,6 +66,8 @@
     <Compile Include="RepeatTests.cs" />
     <Compile Include="SelectTests.cs" />
     <Compile Include="SelectManyTests.cs" />
+    <Compile Include="SIMDTests\MaxSIMDTests - Copy.cs" />
+    <Compile Include="SIMDTests\MinSIMDTests.cs" />
     <Compile Include="SumTests.cs" />
     <Compile Include="OrderByTests.cs" />
     <Compile Include="WhereTests.cs" />

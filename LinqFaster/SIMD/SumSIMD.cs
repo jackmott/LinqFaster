@@ -40,13 +40,17 @@ namespace JM.LinqFaster.SIMD
             return result;
         }
 
-        public static U SumS<T,U>(this T[] a, Func<Vector<T>,Vector<U>> selectorSIMD, Func<T,U> selector)
+        public static U SumS<T,U>(this T[] a, Func<Vector<T>,Vector<U>> selectorSIMD, Func<T,U> selector = null)
             where T : struct
             where U : struct
         {
             if (a == null)
             {
                 throw Error.ArgumentNull(nameof(a));
+            }
+            if (selectorSIMD == null)
+            {
+                throw Error.ArgumentNull(nameof(selectorSIMD));
             }
 
             var state = Vector<U>.Zero;
@@ -59,9 +63,12 @@ namespace JM.LinqFaster.SIMD
 
             var result = default(U);
 
-            for (int i = a.Length - a.Length % count; i < a.Length; i++)
+            if (selector != null)
             {
-                result = Add(result, selector(a[i]));
+                for (int i = a.Length - a.Length % count; i < a.Length; i++)
+                {
+                    result = Add(result, selector(a[i]));
+                }
             }
 
             for (int i = 0; i < count; i++)
