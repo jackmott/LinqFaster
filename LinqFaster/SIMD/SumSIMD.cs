@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using static JM.LinqFaster.Utils.GenericOperators;
+using static JM.LinqFaster.Utils.ParallelUtils;
 
 namespace JM.LinqFaster.SIMD
 {
@@ -76,6 +77,31 @@ namespace JM.LinqFaster.SIMD
                 result = Add(result, state[i]);
             }
 
+            return result;
+        }
+
+        public static Vector<T> AddVectors<T>(Vector<T> a, Vector<T> b)
+            where T : struct
+        {
+            return a + b;
+        }
+        public static T SumPS<T>(this T[] a) where T : struct
+        {
+            var state = Vector<T>.Zero;
+            int count = Vector<T>.Count;
+
+            state = ForStrideAggregate(0, a.Length, count, state, (i, acc) => acc + (new Vector<T>(a, i)), AddVectors);
+
+            T result = default(T);
+            for (int i = a.Length-a.Length%count;i < a.Length;i++)
+            {
+                result = Add(result, a[i]);
+            }
+
+            for (int i = 0; i < count; i++)
+            {
+                result = Add(result, state[i]);
+            }
             return result;
         }
 

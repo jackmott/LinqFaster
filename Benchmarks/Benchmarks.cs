@@ -164,7 +164,7 @@ namespace Tests
         {
             return LinqFasterSIMD.RepeatSB(5, TEST_SIZE);
         }
-        */
+        
         [Benchmark]
         public int MinLinq()
         {
@@ -179,8 +179,32 @@ namespace Tests
 
         [Benchmark]
         public int MinFastSIMD()
-        {            
+        {                        
             return array.MinS();
+        }
+        */
+        [Benchmark]
+        public int SumLinq()
+        {
+            return array.Sum();
+        }
+
+        [Benchmark]
+        public int SumFast()
+        {
+            return array.SumF();
+        }
+
+        [Benchmark]
+        public int SumFastSIMD()
+        {
+            return array.SumS();
+        }
+
+        [Benchmark]
+        public int SumFastSIMDParallel()
+        {
+            return array.SumPS();
         }
 
         public static void Main(string[] args)
