@@ -5,10 +5,12 @@
 # LinqFaster
 A set of extension methods for `arrays[]` and `List<T>` that are faster and allocate less.
 
-LinqFaster now includes all relevant Linq extension methods, and **SIMD** enhanced extension methods are
+LinqFaster now includes all relevant Linq extension methods, and **SIMD** and **parallel** enhanced extension methods are
 being worked on now as well.
 
 # Benchmarks
+
+64bit Win 10, 2 Core I7 Mobile
 
  |             Method | TEST_SIZE |           Mean | Allocated |
  |------------------- |---------- |--------------- |---------- |
@@ -20,7 +22,9 @@ being worked on now as well.
  |            SumLinq |    100000 |    541.3823 us |      48 B |
  |            SumFast |    100000 |     53.8166 us |       0 B |
  |        SumFastSIMD |    100000 |      9.7636 us |       0 B |
- 
+ |SumFastSIMDParallel |    100000 |      3.7074 us |   1.11 kB |
+
+
 More detailed info and benchmarks available in the **[benchmarks](Benchmarks.md)**  file which
 will be continually updated.
 
