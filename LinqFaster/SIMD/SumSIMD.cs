@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Numerics;
-using System.Runtime.CompilerServices;
 using static JM.LinqFaster.Utils.GenericOperators;
 using static JM.LinqFaster.Utils.ParallelUtils;
 
 namespace JM.LinqFaster.SIMD
 {
-    
+
     public static partial class LinqFasterSIMD
     {
                           

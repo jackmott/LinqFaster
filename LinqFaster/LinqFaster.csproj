@@ -54,6 +54,7 @@
     <Compile Include="AnyAll.cs" />
     <Compile Include="Average.cs" />
     <Compile Include="Contains.cs" />
+    <Compile Include="SIMD\Parallel\SumSIMDParallel.cs" />
     <Compile Include="Utils\Error.cs" />
     <Compile Include="Count.cs" />
     <Compile Include="Last.cs" />

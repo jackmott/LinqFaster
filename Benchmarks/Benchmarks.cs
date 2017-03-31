@@ -7,7 +7,6 @@ using System.Linq;
 using System.Collections.Generic;
 using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Jobs;
-using System.Numerics;
 
 namespace Tests
 {

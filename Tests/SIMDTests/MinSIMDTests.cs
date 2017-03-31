@@ -1,9 +1,6 @@
 ﻿using NUnit.Framework;
-using JM.LinqFaster;
 using JM.LinqFaster.SIMD;
 using System.Linq;
-using System.Collections.Generic;
-using System;
 
 namespace Tests
 {
