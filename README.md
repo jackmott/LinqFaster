@@ -3,11 +3,26 @@
 [<img src="https://liberapay.com/assets/widgets/donate.svg">](https://liberapay.com/jackmott/donate)
 
 # LinqFaster
-A set of extension methods for array and `List<T>` that are faster and allocate less.
+A set of extension methods for `arrays[]` and `List<T>` that are faster and allocate less.
 
 LinqFaster now includes all relevant Linq extension methods, and **SIMD** enhanced extension methods are
-being worked on now as well. See the **[Benchmarks](Benchmarks.md)** for data on how big the performance
-differences can be.
+being worked on now as well.
+
+# Benchmarks
+
+ |             Method | TEST_SIZE |           Mean | Allocated |
+ |------------------- |---------- |--------------- |---------- |
+ |        OrderByLinq |    100000 | 24,436.0135 us |    1.2 MB |
+ |        OrderByFast |    100000 |  5,612.7712 us |  802.1 kB |
+ |            MinLinq |    100000 |    548.9181 us |      48 B |
+ |            MinFast |    100000 |     69.2122 us |       0 B |
+ |        MinFastSIMD |    100000 |     14.5291 us |       0 B |
+ |            SumLinq |    100000 |    541.3823 us |      48 B |
+ |            SumFast |    100000 |     53.8166 us |       0 B |
+ |        SumFastSIMD |    100000 |      9.7636 us |       0 B |
+ 
+More detailed info and benchmarks available in the **[benchmarks](Benchmarks.md)**  file which
+will be continually updated.
 
 
 # Please Contribute
