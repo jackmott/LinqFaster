@@ -47,14 +47,16 @@ namespace JM.LinqFaster.Utils
                     remainderStrides--;
                     toExc = index + elementsPerTask + stride;
                 }
-                tasks[i] = Task<T>.Factory.StartNew(() => ApplyTaskAggregate(index, toExc, stride, acc, f));
+                int fromClosure = index;
+                tasks[i] = Task<T>.Factory.StartNew(() => ApplyTaskAggregate(fromClosure, toExc, stride, acc, f));
                 index = toExc;
             }
+            var result = acc;
             for (int i = 0; i < tasks.Length; i++)
             {
-                acc = combiner(acc, tasks[i].Result);
+                result = combiner(result, tasks[i].Result);
             }
-            return acc;
+            return result;
 
         }
     }

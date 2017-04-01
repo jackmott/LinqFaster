@@ -7,7 +7,8 @@ namespace JM.LinqFaster.SIMD.Parallel
 
     public static partial class LinqFasterSIMDParallel
     {
-                                        
+                     
+                       
         public static T SumSP<T>(this T[] a) where T : struct
         {
             var state = Vector<T>.Zero;
