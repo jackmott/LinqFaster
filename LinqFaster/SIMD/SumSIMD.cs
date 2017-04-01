@@ -19,7 +19,7 @@ namespace JM.LinqFaster.SIMD
             var state = Vector<T>.Zero;
             var count = Vector<T>.Count;
 
-            for (int i = 0; i < a.Length; i+=count)
+            for (int i = 0; i <= a.Length - count; i+=count)
             {
                 state = state + new Vector<T>(a, i);
             }
@@ -55,7 +55,7 @@ namespace JM.LinqFaster.SIMD
             var state = Vector<U>.Zero;
             var count = Vector<U>.Count;
 
-            for (int i = 0; i < a.Length; i += count)
+            for (int i = 0; i <= a.Length-count; i += count)
             {
                 state = state + selectorSIMD(new Vector<T>(a, i));
             }

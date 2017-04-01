@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using System;
+using System.Numerics;
 using static JM.LinqFaster.Utils.GenericOperators;
 using static JM.LinqFaster.Utils.ParallelUtils;
 
@@ -7,28 +8,49 @@ namespace JM.LinqFaster.SIMD.Parallel
 
     public static partial class LinqFasterSIMDParallel
     {
-                     
-                       
-        public static T SumSP<T>(this T[] a) where T : struct
+        
+        //assumes evenly divisible by vector Width             
+        private static T SumSPHelper<T>(T[] a, int start, int end)
+            where T : struct
         {
+         
             var state = Vector<T>.Zero;
-            int count = Vector<T>.Count;
+            var count = Vector<T>.Count;
 
-            var vectorLen = a.Length - a.Length % count;
-
-            state = ForVectorAggregate(a,0, vectorLen, count, state, AddVectors);
-
-            T result = default(T);
-            for (int i = vectorLen;i < a.Length;i++)
+            for (int i = start; i < end; i += count)
             {
-                result = Add(result, a[i]);
+                state = state + new Vector<T>(a, i);
             }
+
+            var result = default(T);
 
             for (int i = 0; i < count; i++)
             {
                 result = Add(result, state[i]);
             }
+
             return result;
+        }   
+             
+        public static T SumSP<T>(this T[] a) where T : struct
+        {
+            if (a == null)
+            {
+                throw Error.ArgumentNull(nameof(a));
+            }
+
+            
+            T acc = default(T);
+            acc = ForVectorAggregate(a,acc,SumSPHelper,(x,y) => Add(x,y));
+            int count = Vector<T>.Count;
+            
+            for (int i = a.Length-a.Length%count;i < a.Length;i++)
+            {
+                acc = Add(acc, a[i]);
+            }
+
+          
+            return acc;
         }
 
     }

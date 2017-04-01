@@ -18,7 +18,7 @@ namespace JM.LinqFaster.SIMD
             var vCount = Vector<T>.Count;
 
             int i = 0;
-            for (; i < result.Length; i += vCount)
+            for (; i <= result.Length-count; i += vCount)
             {
                 v.CopyTo(result, i);
             }

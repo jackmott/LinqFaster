@@ -30,7 +30,7 @@ namespace JM.LinqFaster.SIMD
             var result = new U[a.Length];
 
             int i = 0;
-            for (; i < a.Length;i+=count)
+            for (; i <= a.Length-count;i+=count)
             {
                 slectorSIMD(new Vector<T>(a, i)).CopyTo(result, i);
             }

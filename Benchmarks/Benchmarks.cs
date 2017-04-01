@@ -15,7 +15,7 @@ namespace Tests
     public class Benchmarks
     {
 
-        const int LARGE_TEST_SIZE = 1000000;
+        const int LARGE_TEST_SIZE = 100000;
         const int SMALL_TEST_SIZE = 100;
 
 
@@ -181,8 +181,8 @@ namespace Tests
         public int MinFastSIMD()
         {                        
             return array.MinS();
-        }*/
-        
+        }
+        */
         [Benchmark]
         public int SumLinq()
         {
@@ -201,12 +201,12 @@ namespace Tests
             return array.SumS();
         }
 
-        [Benchmark]
+       /* [Benchmark]
         public int SumFastSIMDParallel()
         {
             return array.SumSP();
         }
-
+        */
         public static void Main(string[] args)
         {
             

@@ -25,7 +25,7 @@ namespace JM.LinqFaster.SIMD
             if (count <= a.Length)
             {
                 var vMax = new Vector<T>(a, 0);
-                for (int i = count; i < a.Length; i+=count)
+                for (int i = count; i <= a.Length-count; i+=count)
                 {
                     var v = new Vector<T>(a, i);
                     vMax = Vector.Max(v, vMax);
