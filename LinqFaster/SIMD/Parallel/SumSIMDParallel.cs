@@ -14,10 +14,12 @@ namespace JM.LinqFaster.SIMD.Parallel
             var state = Vector<T>.Zero;
             int count = Vector<T>.Count;
 
-            state = ForStrideAggregate(0, a.Length, count, state, (i, acc) => acc + (new Vector<T>(a, i)), AddVectors);
+            var vectorLen = a.Length - a.Length % count;
+
+            state = ForVectorAggregate(a,0, vectorLen, count, state, AddVectors);
 
             T result = default(T);
-            for (int i = a.Length-a.Length%count;i < a.Length;i++)
+            for (int i = vectorLen;i < a.Length;i++)
             {
                 result = Add(result, a[i]);
             }

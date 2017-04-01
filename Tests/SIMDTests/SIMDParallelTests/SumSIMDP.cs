@@ -20,9 +20,7 @@ namespace Tests
 
 //            Assert.That(c, Is.EqualTo(d));
 
-            var e = Program.decimalArray.SumSP();
-            var f = Program.decimalArray.Sum();
-
+         
   //          Assert.That(e, Is.EqualTo(f));
         }
       
