@@ -25,7 +25,7 @@ namespace Tests
         public int[] array;
         
 
-        [Params(LARGE_TEST_SIZE)]
+        [Params(10000,100000,1000000)]
         public int TEST_SIZE { get; set; }
 
         public Benchmarks()
@@ -182,7 +182,7 @@ namespace Tests
         public int MinFastSIMD()
         {                        
             return array.MinS();
-        }
+        }*/
         
         [Benchmark]
         public int SumLinq()
@@ -203,24 +203,23 @@ namespace Tests
         }
 
         [Benchmark]
-        public int SumFastSIMD()
-        {
-            return array.SumS();
-        }*/
-
-        [Benchmark]
-        public int SumFastParallelA()
-        {
+        public int SumFastParallel() {
             return array.SumP();
         }
 
+
         [Benchmark]
-        public int SumFastParallelB()
+        public int SumFastSIMD()
         {
-            return array.SumPB();
+            return array.SumS();
         }
 
-        
+        [Benchmark]
+        public int SumFastParallelSIMD()
+        {
+            return array.SumSP();
+        }
+
 
         
         public static void Main(string[] args)

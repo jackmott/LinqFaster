@@ -36,33 +36,7 @@ namespace JM.LinqFaster.Parallel
 
             return sum;
         }
-
-        public static int SumPB(this int[] a)
-        {
-            if (a == null)
-            {
-                throw Error.ArgumentNull(nameof(a));
-            }
-            int sum = 0;
-            var rangePartitioner = Partitioner.Create(0, a.Length,a.Length/4);
-            System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
-                () => 0,
-                (range, s, acc) =>
-                {
-                    checked
-                    {
-                        for (int i = range.Item1; i < range.Item2; i++)
-                        {
-                            acc += a[i];
-                        }
-                    }
-                    return acc;
-                },
-                 acc => Interlocked.Add(ref sum, acc));
-
-            return sum;
-        }
-
+       
 
         public static int SumP<T>(this T[] a, Func<T, int> selector)
         {

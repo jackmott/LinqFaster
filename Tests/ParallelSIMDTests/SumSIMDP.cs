@@ -13,7 +13,7 @@ namespace Tests
             var a = Program.intArray.SumSP();
             var b = Program.intArray.Sum();
 
-           // Assert.That(a, Is.EqualTo(b));
+            Assert.That(a, Is.EqualTo(b));
 
             var c = Program.floatArray.SumSP();
             var d = Program.floatArray.Sum();
