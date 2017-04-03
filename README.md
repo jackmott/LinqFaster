@@ -1,6 +1,6 @@
 ![Build Status](https://ci.appveyor.com/api/projects/status/github/jackmott/LinqFaster "Build Status")
 
-[<img src="https://liberapay.com/assets/widgets/donate.svg">](https://liberapay.com/jackmott/donate)
+### If you enjoy this, please [support me on Patreon](https://www.patreon.com/jackmott)
 
 # LinqFaster
 A set of extension methods for `arrays[]` and `List<T>` that are faster and allocate less.
