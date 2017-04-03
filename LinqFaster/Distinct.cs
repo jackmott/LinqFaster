@@ -7,12 +7,17 @@ namespace JM.LinqFaster
     {
 
         // --------------------------  ARRAYS  --------------------------------------------
-        public static TSource[] DistinctF<TSource>(this TSource[] source, IEqualityComparer<TSource> comparer)
+        public static TSource[] DistinctF<TSource>(this TSource[] source, IEqualityComparer<TSource> comparer = null)
         {
             if (source == null)
             {
                 throw Error.ArgumentNull(nameof(source));
             }
+
+            if (comparer == null) {
+                comparer = EqualityComparer<TSource>.Default;
+            }
+
 
             var dict = new Dictionary<TSource, byte>(comparer);
             for (int i = 0; i < source.Length; i++)
@@ -25,18 +30,18 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static TSource[] DistinctF<TSource>(this TSource[] source)
-        {
-            return DistinctF(source, EqualityComparer<TSource>.Default);
-        }
-
+      
 
         // --------------------------  LISTS --------------------------------------------
-        public static List<TSource> DistinctF<TSource>(this List<TSource> source, IEqualityComparer<TSource> comparer)
+        public static List<TSource> DistinctF<TSource>(this List<TSource> source, IEqualityComparer<TSource> comparer = null)
         {
             if (source == null)
             {
                 throw Error.ArgumentNull(nameof(source));
+            }
+
+            if (comparer == null) {
+                comparer = EqualityComparer<TSource>.Default;
             }
 
             var dict = new Dictionary<TSource, byte>(comparer);
@@ -56,12 +61,6 @@ namespace JM.LinqFaster
             }
             return result;
         }
-
-        public static List<TSource> DistinctF<TSource>(this List<TSource> source)
-        {
-            return DistinctF(source, EqualityComparer<TSource>.Default);
-        }
-
-
+     
     }
 }

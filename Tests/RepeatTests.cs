@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using JM.LinqFaster;
 using NUnit.Framework;
+using static Tests.Test;
 
 namespace Tests
 {

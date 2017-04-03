@@ -1,6 +1,9 @@
 ﻿using NUnit.Framework;
 using JM.LinqFaster;
 using System;
+using static Tests.Test;
+using System.Diagnostics;
+using System.Linq;
 
 namespace Tests
 {
@@ -11,7 +14,7 @@ namespace Tests
         public void OrderByArray()
         {
             Func<int,int> lambda1 = (x => x*x);
-            var a = Program.intArray.OrderByF(lambda1);
+            var a = intArray.OrderByF(lambda1);
             for (int i = 0; i < a.Length-1;i++)
             {
                 Assert.That(lambda1(a[i]), Is.LessThanOrEqualTo(lambda1(a[i+1])));
@@ -20,10 +23,39 @@ namespace Tests
         }
 
         [Test]
-        public void OrderByList()
-        {
+        public void OrderByDescendingArray() {
+            Func<int, int> lambda1 = (x => x * x);
+            var a = intArray.OrderByDescendingF(lambda1);
+          
+            for (int i = 0; i < a.Length - 1; i++) {                
+                Assert.That(lambda1(a[i]), Is.GreaterThanOrEqualTo(lambda1(a[i + 1])));
+            }
             
+
         }
+
+        [Test]
+        public void OrderByList() {
+            Func<int, int> lambda1 = (x => x * x);
+            var a = intList.OrderByF(lambda1);
+            for (int i = 0; i < a.Count - 1; i++) {
+                Assert.That(lambda1(a[i]), Is.LessThanOrEqualTo(lambda1(a[i + 1])));
+            }
+
+        }
+
+        [Test]
+        public void OrderByDescendingList() {
+            Func<int, int> lambda1 = (x => x * x);
+            var a = intList.OrderByDescendingF(lambda1);
+            for (int i = 0; i < a.Count - 1; i++) {
+                Assert.That(lambda1(a[i]), Is.GreaterThanOrEqualTo(lambda1(a[i + 1])));
+            }
+
+        }
+
+
+
 
     }
 }

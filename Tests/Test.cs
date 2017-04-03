@@ -5,7 +5,7 @@ using NUnit.Framework;
 namespace Tests
 {
     [SetUpFixture]
-    public class Program
+    public class Test
     {
         const int TEST_SIZE = 1000;
         public static int[] intArray;
@@ -22,10 +22,24 @@ namespace Tests
         public static List<decimal> decimalList;
         public static List<string> stringList;
 
+        public static Func<int, bool> onlyEvenInts;
+        public static Func<int, int> squaredInts;
+        public static Func<int, int, int> addXInts;
+
+        public static Func<float, bool> onlyPositiveFloats;
+        public static Func<float, float> squaredFloats;
+
+
 
         [OneTimeSetUp]
         public void Setup()
         {
+            onlyPositiveFloats = (x => x > 0.0f);
+            squaredFloats = (x => x * x);
+            onlyEvenInts = (x => x % 2 == 0);
+            squaredInts = (x => x * x);
+            addXInts = (x, acc) => acc += x;
+
             intArray = new int[TEST_SIZE];
             floatArray = new float[TEST_SIZE];
             intList = new List<int>(TEST_SIZE);
@@ -47,7 +61,7 @@ namespace Tests
                 longList.Add(intArray[i]);
                 floatArray[i] = (float)rand.NextDouble() * 100.0f - 50f;
                 floatList.Add(intArray[i]);
-                stringArray[i] = floatArray[i].ToString();
+                stringArray[i] = intArray[i].ToString();
                 stringList.Add(stringArray[i]);
                 decimalArray[i] = (decimal)floatArray[i];
                 decimalList.Add(decimalArray[i]);
@@ -56,7 +70,7 @@ namespace Tests
             }
         }
 
-        public Program()
+        public Test()
         {
 
         }

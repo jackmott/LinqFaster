@@ -11,8 +11,8 @@ namespace Tests
         [Test]
         public void MaxSIMDInts()
         {
-            var a = Program.intArray.MaxS();
-            var b = Program.intArray.Max();
+            var a = Test.intArray.MaxS();
+            var b = Test.intArray.Max();
 
             Assert.That(a, Is.EqualTo(b));
         }
@@ -20,8 +20,8 @@ namespace Tests
         [Test]
         public void MaxSIMDLongs()
         {
-            var a = Program.longArray.MaxS();
-            var b = Program.longArray.Max();
+            var a = Test.longArray.MaxS();
+            var b = Test.longArray.Max();
 
             Assert.That(a, Is.EqualTo(b));
         }
@@ -29,8 +29,8 @@ namespace Tests
         [Test]
         public void MaxSIMDDoubles()
         {
-            var a = Program.doubleArray.MaxS();
-            var b = Program.doubleArray.Max();
+            var a = Test.doubleArray.MaxS();
+            var b = Test.doubleArray.Max();
 
             Assert.That(a, Is.EqualTo(b));
         }

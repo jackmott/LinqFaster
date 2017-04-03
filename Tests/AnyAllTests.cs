@@ -2,6 +2,7 @@
 using JM.LinqFaster;
 using System.Linq;
 using System;
+using static Tests.Test;
 
 namespace Tests
 {
@@ -11,22 +12,19 @@ namespace Tests
        
         [Test]
         public void AllArray()
-        {
-            Func<int, bool> lambda = (x => x % 2 == 0);
-            var a = Program.intArray.AllF(lambda);
-            var b = Program.intArray.All(lambda);
+        {            
+            var a = intArray.AllF(onlyEvenInts);
+            var b = intArray.All(onlyEvenInts);
 
-            Assert.That(a, Is.EqualTo(b));
-            
+            Assert.That(a, Is.EqualTo(b));            
         }
 
 
         [Test]
         public void AllList()
-        {
-            Func<int, bool> lambda = (x => x % 2 == 0);
-            var a = Program.intList.AllF(lambda);
-            var b = Program.intList.All(lambda);
+        {            
+            var a = intList.AllF(onlyEvenInts);
+            var b = intList.All(onlyEvenInts);
 
             Assert.That(a, Is.EqualTo(b));
         }
@@ -34,27 +32,27 @@ namespace Tests
         [Test]
         public void AnyArray()
         {
-            Func<int, bool> lambda = (x => x % 2 == 0);
-            Func<int, bool> lambda2 = (x => x == 999999);
+            
+            Func<int, bool> nines = (x => x == 999999);
 
-            var a = Program.intArray.AnyF();
-            var b = Program.intArray.Any();
+            var a = intArray.AnyF();
+            var b = intArray.Any();
 
             Assert.That(a, Is.EqualTo(b));
 
             
-            a = Program.intArray.AnyF();
-            b = Program.intArray.Any();
+            a = intArray.AnyF();
+            b = intArray.Any();
 
             Assert.That(a, Is.EqualTo(b));
 
-            a = Program.intArray.AnyF(lambda);
-            b = Program.intArray.Any(lambda);
+            a = intArray.AnyF(onlyEvenInts);
+            b = intArray.Any(onlyEvenInts);
 
             Assert.That(a, Is.EqualTo(b));
 
-            a = Program.intArray.AnyF(lambda2);
-            b = Program.intArray.Any(lambda2);
+            a = intArray.AnyF(nines);
+            b = intArray.Any(nines);
 
             Assert.That(a, Is.EqualTo(b));
 
@@ -63,27 +61,27 @@ namespace Tests
         [Test]
         public void AnyList()
         {
-            Func<int, bool> lambda = (x => x % 2 == 0);
-            Func<int, bool> lambda2 = (x => x == 999999);
+            
+            Func<int, bool> nines = (x => x == 999999);
 
-            var a = Program.intList.AnyF();
-            var b = Program.intList.Any();
-
-            Assert.That(a, Is.EqualTo(b));
-
-
-            a = Program.intList.AnyF();
-            b = Program.intList.Any();
+            var a = intList.AnyF();
+            var b = intList.Any();
 
             Assert.That(a, Is.EqualTo(b));
 
-            a = Program.intList.AnyF(lambda);
-            b = Program.intList.Any(lambda);
+
+            a = intList.AnyF();
+            b = intList.Any();
 
             Assert.That(a, Is.EqualTo(b));
 
-            a = Program.intList.AnyF(lambda2);
-            b = Program.intList.Any(lambda2);
+            a = intList.AnyF(onlyEvenInts);
+            b = intList.Any(onlyEvenInts);
+
+            Assert.That(a, Is.EqualTo(b));
+
+            a = intList.AnyF(nines);
+            b = intList.Any(nines);
 
             Assert.That(a, Is.EqualTo(b));
 

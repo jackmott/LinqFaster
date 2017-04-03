@@ -3,6 +3,7 @@ using JM.LinqFaster;
 using System.Linq;
 using System.Collections.Generic;
 using System;
+using static Tests.Test;
 
 namespace Tests
 {
@@ -44,24 +45,24 @@ namespace Tests
         [Test]
         public void MinArray()
         {
-            HelperMin(Program.intArray);
-            HelperMin(Program.floatArray);
-            HelperMin(Program.intArray, x => x.ToString());
-            HelperMin(Program.floatArray, x => x.ToString());
-            HelperMin(Program.stringArray);
-            HelperMin(Program.stringArray, x => (string)null);
-            HelperMin(Program.stringArray, x => float.Parse(x));
+            HelperMin(intArray);
+            HelperMin(floatArray);
+            HelperMin(intArray, x => x.ToString());
+            HelperMin(floatArray, x => x.ToString());
+            HelperMin(stringArray);
+            HelperMin(stringArray, x => (string)null);
+            HelperMin(stringArray, x => int.Parse(x));
         }
 
         [Test]
         public void MinList()
         {
-            HelperMin(Program.intList);
-            HelperMin(Program.floatList);
-            HelperMin(Program.intList, x => x.ToString());
-            HelperMin(Program.floatList, x => x.ToString());
-            HelperMin(Program.stringList, x => (string)null);
-            HelperMin(Program.stringList, x => float.Parse(x));
+            HelperMin(intList);
+            HelperMin(floatList);
+            HelperMin(intList, x => x.ToString());
+            HelperMin(floatList, x => x.ToString());
+            HelperMin(stringList, x => (string)null);
+            HelperMin(stringList, x => int.Parse(x));
         }
     }
 }

@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using JM.LinqFaster.Utils;
 
 namespace JM.LinqFaster
 {
     public static partial class LinqFaster
     {
         
-        public static TSource[] OrderByF<TSource, TKey>(this TSource[] source, Func<TSource, TKey> keySelector,Comparer<TKey> comparer = null)
+        public static TSource[] OrderByF<TSource, TKey>(this TSource[] source, Func<TSource, TKey> keySelector,IComparer<TKey> comparer = null)
         {
             if (source == null)
             {
@@ -30,14 +31,36 @@ namespace JM.LinqFaster
                 keys[i] = keySelector(source[i]);
             }            
             var result = (TSource[])source.Clone();
-            Array.Sort(keys,result,comparer);
+            Array.Sort(keys,result,comparer);            
             return result;
         }
-     
+
+        public static TSource[] OrderByDescendingF<TSource, TKey>(this TSource[] source, Func<TSource, TKey> keySelector, IComparer<TKey> comparer = null) {
+            if (source == null) {
+                throw Error.ArgumentNull(nameof(source));
+            }
+
+            if (keySelector == null) {
+                throw Error.ArgumentNull(nameof(keySelector));
+            }
+
+            if (comparer == null) {
+                comparer = Comparer<TKey>.Default;
+            }
+
+            var keys = new TKey[source.Length];
+            for (long i = 0; i < keys.LongLength; i++) {
+                keys[i] = keySelector(source[i]);
+            }
+            var result = (TSource[])source.Clone();
+            Array.Sort(keys, result, comparer.Reverse());
+            return result;
+        }
+
 
         // ---------------------- Lists
 
-        public static List<TSource> OrderByF<TSource, TKey>(this List<TSource> source, Func<TSource, TKey> keySelector, Comparer<TKey> comparer = null)
+        public static List<TSource> OrderByF<TSource, TKey>(this List<TSource> source, Func<TSource, TKey> keySelector, IComparer<TKey> comparer = null)
         {
             if (source == null)
             {
@@ -60,24 +83,27 @@ namespace JM.LinqFaster
             return result;
         }
 
-     
-        private class LambdaComparer<T, U> : IComparer<T>
-        {
-            Comparer<U> comparer;
-            Func<T, U> selector;
-
-            public LambdaComparer(Func<T, U> selector, Comparer<U> comparer)
-            {               
-                this.comparer = comparer;               
-                this.selector = selector;
+        public static List<TSource> OrderByDescendingF<TSource, TKey>(this List<TSource> source, Func<TSource, TKey> keySelector, IComparer<TKey> comparer = null) {
+            if (source == null) {
+                throw Error.ArgumentNull(nameof(source));
             }
 
-            [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            public int Compare(T x, T y)
-            {                
-                return comparer.Compare(selector(x), selector(y));
+            if (keySelector == null) {
+                throw Error.ArgumentNull(nameof(keySelector));
             }
+
+            if (comparer == null) {
+                comparer = Comparer<TKey>.Default;
+            }
+
+            var result = new List<TSource>(source);
+            var lambdaComparer = new ReverseLambdaComparer<TSource, TKey>(keySelector, comparer);
+            result.Sort(lambdaComparer);
+            return result;
         }
+
+
+
     }
 }
 

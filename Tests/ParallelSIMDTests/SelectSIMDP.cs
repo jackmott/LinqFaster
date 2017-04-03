@@ -11,8 +11,8 @@ namespace Tests
         [Test]
         public  void SelectSIMDP()
         {
-            var a = Program.intArray.SelectSP(x => x * x, x => x*x);
-            var b = Program.intArray.Select(x => x * x);
+            var a = Test.intArray.SelectSP(x => x * x, x => x*x);
+            var b = Test.intArray.Select(x => x * x);
 
             Assert.That(a, Is.EqualTo(b));
 

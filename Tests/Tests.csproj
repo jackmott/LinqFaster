@@ -62,10 +62,15 @@
     <Compile Include="AverageTests.cs" />
     <Compile Include="AnyAllTests.cs" />
     <Compile Include="AggregateTests.cs" />
+    <Compile Include="ContainsTests.cs" />
+    <Compile Include="DistinctTests.cs" />
+    <Compile Include="CountTests.cs" />
+    <Compile Include="LastTests.cs" />
+    <Compile Include="FirstTests.cs" />
     <Compile Include="MaxTests.cs" />
     <Compile Include="MinTests.cs" />
     <Compile Include="ParallelSIMDTests\SelectSIMDP.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RangeTests.cs" />
     <Compile Include="RepeatTests.cs" />

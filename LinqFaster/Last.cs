@@ -43,7 +43,7 @@ namespace JM.LinqFaster
             throw Error.NoMatch();
         }
 
-        public static T LastFOrDefault<T>(this T[] source, Func<T, bool> predicate)
+        public static T LastOrDefaultF<T>(this T[] source, Func<T, bool> predicate)
         {
             if (source == null)
             {
@@ -104,7 +104,7 @@ namespace JM.LinqFaster
             throw Error.NoMatch();
         }
 
-        public static T LastFOrDefault<T>(this List<T> source, Func<T, bool> predicate)
+        public static T LastOrDefaultF<T>(this List<T> source, Func<T, bool> predicate)
         {
             if (source == null)
             {

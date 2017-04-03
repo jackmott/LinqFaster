@@ -35,7 +35,7 @@ namespace JM.LinqFaster
             return count;
         }
 
-        public static long LongCount<T>(this T[] source, Func<T, bool> predicate)
+        public static long LongCountF<T>(this T[] source, Func<T, bool> predicate)
         {
             if (source == null)
             {

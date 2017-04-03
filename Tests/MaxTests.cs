@@ -3,6 +3,7 @@ using JM.LinqFaster;
 using System.Linq;
 using System.Collections.Generic;
 using System;
+using static Tests.Test;
 
 namespace Tests
 {
@@ -44,25 +45,25 @@ namespace Tests
         [Test]
         public void MaxArray()
         {
-            HelperMax(Program.intArray);
-            HelperMax(Program.floatArray);
-            HelperMax(Program.intArray, x => x.ToString());
-            HelperMax(Program.floatArray, x => x.ToString());
-            HelperMax(Program.stringArray);
-            HelperMax(Program.stringArray, x => (string)null);
-            HelperMax(Program.stringArray, x => float.Parse(x));
+            HelperMax(intArray);
+            HelperMax(floatArray);
+            HelperMax(intArray, x => x.ToString());
+            HelperMax(floatArray, x => x.ToString());
+            HelperMax(stringArray);
+            HelperMax(stringArray, x => (string)null);
+            HelperMax(stringArray, x => int.Parse(x));
         }
 
         [Test]
         public void MaxList()
         {
-            HelperMax(Program.intList);
-            HelperMax(Program.floatList);
-            HelperMax(Program.intList, x => x.ToString());
-            HelperMax(Program.floatList, x => x.ToString());
-            HelperMax(Program.stringList);
-            HelperMax(Program.stringList, x => (string)null);
-            HelperMax(Program.stringList, x => float.Parse(x));
+            HelperMax(intList);
+            HelperMax(floatList);
+            HelperMax(intList, x => x.ToString());
+            HelperMax(floatList, x => x.ToString());
+            HelperMax(stringList);
+            HelperMax(stringList, x => (string)null);
+            HelperMax(stringList, x => int.Parse(x));
         }
     }
 }

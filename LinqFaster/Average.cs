@@ -359,7 +359,7 @@ namespace JM.LinqFaster
             return (double)sum / source.Count;
         }
 
-        public static double AverageF(this List<float> source)
+        public static float AverageF(this List<float> source)
         {
             if (source == null)
             {
@@ -378,10 +378,10 @@ namespace JM.LinqFaster
                 sum += source[i];
             }
 
-            return sum / source.Count;
+            return (float)(sum / source.Count);
         }
 
-        public static double AverageF<T>(this List<T> source, Func<T, float> selector)
+        public static float AverageF<T>(this List<T> source, Func<T, float> selector)
         {
             if (source == null)
             {
@@ -405,7 +405,7 @@ namespace JM.LinqFaster
                 sum += selector(source[i]);
             }
 
-            return sum / source.Count;
+            return (float)(sum / source.Count);
         }
 
         public static double AverageF(this List<double> source)

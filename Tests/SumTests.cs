@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using JM.LinqFaster;
 using System.Linq;
+using static Tests.Test;
 
 namespace Tests
 {
@@ -10,18 +11,18 @@ namespace Tests
         [Test]
         public  void SumArray()
         {
-            var a = Program.intArray.SumF();
-            var b = Program.intArray.Sum();
+            var a = intArray.SumF();
+            var b = intArray.Sum();
 
             Assert.That(a, Is.EqualTo(b));
 
-            var c = Program.floatArray.SumF();
-            var d = Program.floatArray.Sum();
+            var c = floatArray.SumF();
+            var d = floatArray.Sum();
 
             Assert.That(c, Is.EqualTo(d));
 
-            var e = Program.decimalArray.SumF();
-            var f = Program.decimalArray.Sum();
+            var e = decimalArray.SumF();
+            var f = decimalArray.Sum();
 
             Assert.That(e, Is.EqualTo(f));
         }
@@ -29,18 +30,18 @@ namespace Tests
         [Test]
         public void SumList()
         {
-            var a = Program.intList.SumF();
-            var b = Program.intList.Sum();
+            var a = intList.SumF();
+            var b = intList.Sum();
 
             Assert.That(a, Is.EqualTo(b));
 
-            var c = Program.floatList.SumF();
-            var d = Program.floatList.Sum();
+            var c = floatList.SumF();
+            var d = floatList.Sum();
 
             Assert.That(c, Is.EqualTo(d));
 
-            var e = Program.decimalList.SumF();
-            var f = Program.decimalList.Sum();
+            var e = decimalList.SumF();
+            var f = decimalList.Sum();
 
             Assert.That(e, Is.EqualTo(f));
         }

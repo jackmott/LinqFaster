@@ -11,8 +11,8 @@ namespace Tests
         [Test]
         public void MinSIMDLongs()
         { 
-            var a = Program.longArray.MinS();
-            var b = Program.longArray.Min();
+            var a = Test.longArray.MinS();
+            var b = Test.longArray.Min();
 
             Assert.That(a, Is.EqualTo(b));
         }
@@ -20,8 +20,8 @@ namespace Tests
         [Test]
         public void MinSIMDFloats()
         {
-            var a = Program.floatArray.MinS();
-            var b = Program.floatArray.Min();
+            var a = Test.floatArray.MinS();
+            var b = Test.floatArray.Min();
 
             Assert.That(a, Is.EqualTo(b));
         }

@@ -60,6 +60,7 @@
     <Compile Include="Parallel\AverageParallel.cs" />
     <Compile Include="Parallel\Select.Parallel.cs" />
     <Compile Include="Parallel\SumParallel.cs" />
+    <Compile Include="Utils\ComparerMagic.cs" />
     <Compile Include="Utils\Error.cs" />
     <Compile Include="Count.cs" />
     <Compile Include="Last.cs" />

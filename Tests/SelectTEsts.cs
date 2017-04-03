@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using JM.LinqFaster;
 using System.Linq;
+using static Tests.Test;
 
 namespace Tests
 {
@@ -10,13 +11,13 @@ namespace Tests
         [Test]
         public void SelectArray()
         {
-            var a = Program.intArray.SelectF(x => x * x);
-            var b = Program.intArray.Select(x => x * x);
+            var a = intArray.SelectF(x => x * x);
+            var b = intArray.Select(x => x * x);
 
             Assert.That(a, Is.EqualTo(b));
 
-            a = Program.intArray.SelectF((x, i) => x + i);
-            b = Program.intArray.Select((x, i) => x + i);
+            a = intArray.SelectF((x, i) => x + i);
+            b = intArray.Select((x, i) => x + i);
 
             Assert.That(a, Is.EqualTo(b));
         }
@@ -24,7 +25,7 @@ namespace Tests
         [Test]
         public void SelectList()
         {
-            var a = Program.intList.SelectF(x => x * x);
+            var a = intList.SelectF(x => x * x);
           //  var b = Program.intList.Select(x => x * x).ToList();
             Assert.That(a.Count, Is.Not.EqualTo(0));
          //   Assert.That(a, Is.EqualTo(b));

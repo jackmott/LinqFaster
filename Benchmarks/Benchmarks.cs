@@ -224,9 +224,10 @@ namespace Tests
         
         public static void Main(string[] args)
         {
-            /* int[] test = { 1, 1, 1, 1, 1, 1, 1, 1 };
-            int x = test.SumSP();
-            */
+            int[] test = { -5,5,0,2,3,-2,1};
+            var x = test.OrderByF(a => a*a);
+            var y = test.OrderByDescendingF(a => a*a);
+            
            
             var summary = BenchmarkRunner.Run<Benchmarks>(ManualConfig.Create(DefaultConfig.Instance).With(Job.RyuJitX64));
 
