@@ -4,6 +4,7 @@ using BenchmarkDotNet.Running;
 using JM.LinqFaster;
 using JM.LinqFaster.SIMD;
 using JM.LinqFaster.SIMD.Parallel;
+using JM.LinqFaster.Parallel;
 using System.Linq;
 using System.Collections.Generic;
 using BenchmarkDotNet.Configs;
@@ -182,11 +183,17 @@ namespace Tests
         {                        
             return array.MinS();
         }
-        */
+        
         [Benchmark]
         public int SumLinq()
         {
             return array.Sum();
+        }
+
+        [Benchmark]
+        public int SumPLinq()
+        {
+            return array.AsParallel().Sum();
         }
 
         [Benchmark]
@@ -199,17 +206,29 @@ namespace Tests
         public int SumFastSIMD()
         {
             return array.SumS();
+        }*/
+
+        [Benchmark]
+        public int SumFastParallelA()
+        {
+            return array.SumP();
         }
 
-       /* [Benchmark]
-        public int SumFastSIMDParallel()
+        [Benchmark]
+        public int SumFastParallelB()
         {
-            return array.SumSP();
+            return array.SumPB();
         }
-        */
+
+        
+
+        
         public static void Main(string[] args)
         {
-            
+            /* int[] test = { 1, 1, 1, 1, 1, 1, 1, 1 };
+            int x = test.SumSP();
+            */
+           
             var summary = BenchmarkRunner.Run<Benchmarks>(ManualConfig.Create(DefaultConfig.Instance).With(Job.RyuJitX64));
 
         }

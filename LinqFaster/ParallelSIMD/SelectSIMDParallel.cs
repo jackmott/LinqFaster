@@ -25,7 +25,7 @@ namespace JM.LinqFaster.SIMD.Parallel
         
         }   
              
-        public static U[] SelectSP<T,U>(this T[] a, Func<Vector<T>,Vector<U>> selector, Func<T,U> combiner) 
+        public static U[] SelectSP<T,U>(this T[] a, Func<Vector<T>,Vector<U>> selectorSIMD, Func<T,U> selector = null) 
             where T : struct
             where U : struct
         {
@@ -35,12 +35,15 @@ namespace JM.LinqFaster.SIMD.Parallel
             }
 
             var result = new U[a.Length];
-            ForVector(a,result,selector,SelectSPHelper);
-            int count = Vector<T>.Count;
-            
-            for (int i = a.Length-a.Length%count;i < a.Length;i++)
+            ForVector(a,result,selectorSIMD,SelectSPHelper);
+
+            if (selector != null)
             {
-                result[i] = combiner(a[i]);
+                int count = Vector<T>.Count;
+                for (int i = a.Length - a.Length % count; i < a.Length; i++)
+                {
+                    result[i] = selector(a[i]);
+                }
             }
 
 

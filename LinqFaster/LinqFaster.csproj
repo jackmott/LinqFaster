@@ -57,6 +57,8 @@
     <Compile Include="ParallelSIMD\SelectSIMDParallel.cs" />
     <Compile Include="ParallelSIMD\SumSIMDParallel.cs" />
     <Compile Include="ParallelSIMD\AverageSIMDParallel.cs" />
+    <Compile Include="Parallel\AverageParallel.cs" />
+    <Compile Include="Parallel\SumParallel.cs" />
     <Compile Include="Utils\Error.cs" />
     <Compile Include="Count.cs" />
     <Compile Include="Last.cs" />

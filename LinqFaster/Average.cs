@@ -308,6 +308,29 @@ namespace JM.LinqFaster
             return (double)sum / source.Count;
         }
 
+        public static double AverageF(this List<long> source)
+        {
+            if (source == null)
+            {
+                throw Error.ArgumentNull(nameof(source));
+            }
+
+            if (source.Count == 0)
+            {
+                throw Error.NoElements();
+            }
+
+            long sum = 0;
+            checked
+            {
+                for (int i = 0; i < source.Count; i++)
+                {
+                    sum += source[i];
+                }
+            }
+            return (double)sum / source.Count;
+        }
+
         public static double AverageF<T>(this List<T> source, Func<T, long> selector)
         {
             if (source == null)

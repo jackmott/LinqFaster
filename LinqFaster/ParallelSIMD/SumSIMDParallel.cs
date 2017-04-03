@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Numerics;
+using System.Threading;
 using static JM.LinqFaster.Utils.GenericOperators;
 using static JM.LinqFaster.Utils.ParallelUtils;
 
@@ -16,7 +18,7 @@ namespace JM.LinqFaster.SIMD.Parallel
          
             var state = Vector<T>.Zero;
             var count = Vector<T>.Count;
-
+            
             for (int i = start; i < end; i += count)
             {
                 state = state + new Vector<T>(a, i);
@@ -52,6 +54,8 @@ namespace JM.LinqFaster.SIMD.Parallel
           
             return acc;
         }
+
+      
 
     }
 }
