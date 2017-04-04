@@ -1,6 +1,6 @@
 ![Build Status](https://ci.appveyor.com/api/projects/status/github/jackmott/LinqFaster "Build Status")
 
-![Patreon](https://jackmott.github.io/images/patreon.png "Patreon")
+
 
 
 # LinqFaster  
