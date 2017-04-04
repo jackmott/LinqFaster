@@ -21,7 +21,7 @@ namespace JM.LinqFaster
             }
 
             var result = new T[a.Length - count];
-            Array.Copy(a, count, result, 0, count);
+            Array.Copy(a, count, result, 0, result.Length);
             return result;
         }
 
@@ -39,34 +39,14 @@ namespace JM.LinqFaster
             int i = 0;
             for (; i < a.Length; i++)
             {
-                if (predicate(a[i])) break;
+                if (!predicate(a[i])) break;
             }
             var result = new T[a.Length - i];
             Array.Copy(a, i, result, 0, result.Length);
             return result;
         }
 
-        public static T[] SkipLastF<T>(this T[] a, int count)
-        {
-
-            if (a == null)
-            {
-                throw Error.ArgumentNull(nameof(a));
-            }
-            if (count < 0)
-            {
-                count = 0;
-            }
-            else if (count > a.Length)
-            {
-                count = a.Length;
-            }
-
-            var result = new T[count];
-            Array.Copy(a, 0, result, 0, count);
-            return result;
-
-        }
+     
 
         // ------------- Lists ----------------
 
@@ -107,8 +87,11 @@ namespace JM.LinqFaster
             int i = 0;
             for (; i < a.Count; i++)
             {
-                if (predicate(a[i])) break;
+                if (!predicate(a[i])) {
+                    break;
+                }
             }
+
             var result = new List<T>(a.Count - i);
             for (; i < a.Count; i++)
             {
@@ -117,29 +100,6 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static List<T> SkipLastF<T>(this List<T> a, int count)
-        {
-
-            if (a == null)
-            {
-                throw Error.ArgumentNull(nameof(a));
-            }
-            if (count < 0)
-            {
-                count = 0;
-            }
-            else if (count > a.Count)
-            {
-                count = a.Count;
-            }
-
-            var result = new List<T>(count);
-            for (int i = 0; i < count; i++)
-            {
-                result.Add(a[i]);
-            }
-            return result;
-
-        }
+      
     }
 }

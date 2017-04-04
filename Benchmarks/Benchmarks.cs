@@ -9,6 +9,7 @@ using System.Linq;
 using System.Collections.Generic;
 using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Jobs;
+using System.Threading.Tasks;
 
 namespace Tests
 {
@@ -228,7 +229,7 @@ namespace Tests
             var x = test.OrderByF(a => a*a);
             var y = test.OrderByDescendingF(a => a*a);
             
-           
+            
             var summary = BenchmarkRunner.Run<Benchmarks>(ManualConfig.Create(DefaultConfig.Instance).With(Job.RyuJitX64));
 
         }

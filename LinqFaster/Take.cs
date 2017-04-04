@@ -47,27 +47,7 @@ namespace JM.LinqFaster
             return result.ToArray();
         }
 
-        public static T[] TakeLastF<T>(this T[] a, int count)
-        {
-
-            if (a == null)
-            {
-                throw Error.ArgumentNull(nameof(a));
-            }
-            if (count < 0)
-            {
-                count = 0;
-            }
-            else if (count > a.Length)
-            {
-                count = a.Length;
-            }
-
-            var result = new T[count];
-            Array.Copy(a, a.Length - count, result, 0, count);
-            return result;
-
-        }
+       
 
         // ------------- Lists ----------------
 
@@ -121,29 +101,6 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static List<T> TakeLastF<T>(this List<T> a, int count)
-        {
-
-            if (a == null)
-            {
-                throw Error.ArgumentNull(nameof(a));
-            }
-            if (count < 0)
-            {
-                count = 0;
-            }
-            else if (count > a.Count)
-            {
-                count = a.Count;
-            }
-
-            var result = new List<T>(count);
-            for (int i = a.Count - count; i < count; i++)
-            {
-                result.Add(a[i]);
-            }
-            return result;
-
-        }
+       
     }
 }

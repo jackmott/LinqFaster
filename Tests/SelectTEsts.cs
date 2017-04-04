@@ -26,14 +26,14 @@ namespace Tests
         public void SelectList()
         {
             var a = intList.SelectF(x => x * x);
-          //  var b = Program.intList.Select(x => x * x).ToList();
+            var b = intList.Select(x => x * x).ToList();
             Assert.That(a.Count, Is.Not.EqualTo(0));
-         //   Assert.That(a, Is.EqualTo(b));
+            Assert.That(a, Is.EqualTo(b));
 
-           // a = Program.intList.SelectF((x, i) => x + i);
-            //b = Program.intList.Select((x, i) => x + i);
+            a = intList.SelectF((x, i) => x + i);
+            b = intList.Select((x, i) => x + i).ToList();
 
-            //Assert.That(a, Is.EqualTo(b));
+            Assert.That(a, Is.EqualTo(b));
         }
     }
 }

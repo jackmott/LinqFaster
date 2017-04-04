@@ -7,7 +7,7 @@ namespace Tests
     [SetUpFixture]
     public class Test
     {
-        const int TEST_SIZE = 1000;
+        public const int TEST_SIZE = 1000;
         public static int[] intArray;
         public static long[] longArray;
         public static float[] floatArray;

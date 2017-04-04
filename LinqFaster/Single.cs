@@ -18,6 +18,10 @@ namespace JM.LinqFaster
                 throw Error.NoElements();
             }
 
+            if (source.Length > 1) {
+                throw Error.MoreThanOneElement();
+            }
+
             return source[0];
         }
 
@@ -31,6 +35,10 @@ namespace JM.LinqFaster
             if (source.Length == 0)
             {
                 return default(T);
+            }
+
+            if (source.Length > 1) {
+                throw Error.MoreThanOneElement();
             }
 
             return source[0];
@@ -86,6 +94,7 @@ namespace JM.LinqFaster
             {
                 throw Error.ArgumentNull(nameof(predicate));
             }
+          
 
             T result = default(T);
             bool foundMatch = false;
@@ -120,6 +129,10 @@ namespace JM.LinqFaster
                 throw Error.NoElements();
             }
 
+            if (source.Count > 1) {
+                throw Error.MoreThanOneElement();
+            }
+
             return source[0];
         }
 
@@ -133,6 +146,10 @@ namespace JM.LinqFaster
             if (source.Count == 0)
             {
                 return default(T);
+            }
+
+            if (source.Count > 1) {
+                throw Error.MoreThanOneElement();
             }
 
             return source[0];

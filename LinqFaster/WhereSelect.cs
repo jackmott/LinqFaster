@@ -119,9 +119,13 @@ namespace JM.LinqFaster
             int idx = 0;
             for (int i = 0; i < a.Count; i++)
             {
-                if (predicate(a[i], i)) r.Add(selector(a[i], idx));
-                idx++;
+                if (predicate(a[i], i)) {
+                    r.Add(selector(a[i], idx));
+                    idx++;
+                }
             }
+
+
             return r;
         }
 

@@ -130,10 +130,13 @@ namespace JM.LinqFaster
             }
 
             TAccumulate result = seed;
+            int count = 0;
             foreach (var v in source)
             {
-                if (predicate(v))
+                if (predicate(v)) {
                     result = func(result, v);
+                    count++;
+                } 
             }
             return resultSelector(result);
         }

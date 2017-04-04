@@ -58,8 +58,9 @@
     <Compile Include="ParallelSIMD\SumSIMDParallel.cs" />
     <Compile Include="ParallelSIMD\AverageSIMDParallel.cs" />
     <Compile Include="Parallel\AverageParallel.cs" />
-    <Compile Include="Parallel\Select.Parallel.cs" />
+    <Compile Include="Parallel\SelectParallel.cs" />
     <Compile Include="Parallel\SumParallel.cs" />
+    <Compile Include="SIMD\RangeSIMD.cs" />
     <Compile Include="Utils\ComparerMagic.cs" />
     <Compile Include="Utils\Error.cs" />
     <Compile Include="Count.cs" />
@@ -74,7 +75,7 @@
     <Compile Include="SelectMany.cs" />
     <Compile Include="SelectWhere.cs" />
     <Compile Include="SequenceEqual.cs" />
-    <Compile Include="SIMD\Contains.cs" />
+    <Compile Include="SIMD\ContainsSIMD.cs" />
     <Compile Include="SIMD\MinSIMD.cs" />
     <Compile Include="SIMD\MaxSIMD.cs" />
     <Compile Include="SIMD\RepeatSIMD.cs" />

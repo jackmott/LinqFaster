@@ -5,7 +5,7 @@ namespace JM.LinqFaster.SIMD
 
     public static partial class LinqFasterSIMD
     {
-        public static bool Contains<T>(T[] source, T value)
+        public static bool ContainsS<T>(this T[] source, T value)
             where T : struct
         {
             if (source == null)

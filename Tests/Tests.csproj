@@ -70,6 +70,12 @@
     <Compile Include="MaxTests.cs" />
     <Compile Include="MinTests.cs" />
     <Compile Include="ParallelSIMDTests\SelectSIMDP.cs" />
+    <Compile Include="ReverseTests.cs" />
+    <Compile Include="SelectWhereTests.cs" />
+    <Compile Include="SequenceEqualsTests.cs" />
+    <Compile Include="TakeTests.cs" />
+    <Compile Include="SkipTests.cs" />
+    <Compile Include="SingleTests.cs" />
     <Compile Include="Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RangeTests.cs" />
@@ -81,6 +87,8 @@
     <Compile Include="ParallelSIMDTests\SumSIMDP.cs" />
     <Compile Include="SumTests.cs" />
     <Compile Include="OrderByTests.cs" />
+    <Compile Include="WhereAggregateTests.cs" />
+    <Compile Include="WhereSelectTests.cs" />
     <Compile Include="WhereTests.cs" />
   </ItemGroup>
   <ItemGroup>
