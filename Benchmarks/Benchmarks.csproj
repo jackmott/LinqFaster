@@ -150,6 +150,18 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LinqFasterParallelSIMD\LinqFasterParallelSIMD.csproj">
+      <Project>{351e4681-fae7-4ee2-b6c7-8e8dfbad0d72}</Project>
+      <Name>LinqFasterParallelSIMD</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LinqFasterParallel\LinqFasterParallel.csproj">
+      <Project>{eab5abd7-a908-462f-889a-40d7acc367d2}</Project>
+      <Name>LinqFasterParallel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LinqFasterSIMD\LinqFasterSIMD.csproj">
+      <Project>{c68d1198-4015-4c61-bdce-b1f7a1a0d0aa}</Project>
+      <Name>LinqFasterSIMD</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LinqFaster\LinqFaster.csproj">
       <Project>{84e891a8-1948-46fa-b896-832b03f71e87}</Project>
       <Name>LinqFaster</Name>

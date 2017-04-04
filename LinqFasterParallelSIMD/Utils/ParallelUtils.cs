@@ -5,14 +5,11 @@ using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Collections.Concurrent;
 
-namespace JM.LinqFaster.Utils
-{
-    public static class ParallelUtils
-    {
-     
-        public static T ForVectorAggregate<T>(T[] a,T acc, Func<T[], int, int, T> f, Func<T,T,T> combiner)
-         where T : struct
-        {
+namespace JM.LinqFaster.Utils {
+    public static class ParallelUtils {
+
+        public static T ForVectorAggregate<T>(T[] a, T acc, Func<T[], int, int, T> f, Func<T, T, T> combiner)
+         where T : struct {
             int stride = Vector<T>.Count;
 
             int vectorLen = a.Length - a.Length % stride;
@@ -50,10 +47,9 @@ namespace JM.LinqFaster.Utils
 
         }
 
-        public static void ForVector<T,U>(T[] a,U[] result,Func<Vector<T>,Vector<U>> selector,Action<T[],U[],Func<Vector<T>,Vector<U>>,int,int> f)
+        public static void ForVector<T, U>(T[] a, U[] result, Func<Vector<T>, Vector<U>> selector, Action<T[], U[], Func<Vector<T>, Vector<U>>, int, int> f)
             where T : struct
-            where U : struct
-        {
+            where U : struct {
             int stride = Vector<T>.Count;
 
             int vectorLen = a.Length - a.Length % stride;

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Numerics;
 using static JM.LinqFaster.Utils.GenericOperators;
-using static JM.LinqFaster.Utils.ParallelUtils;
+
 
 namespace JM.LinqFaster.SIMD
 {
