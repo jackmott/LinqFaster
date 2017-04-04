@@ -1,7 +1,7 @@
 ![Build Status](https://ci.appveyor.com/api/projects/status/github/jackmott/LinqFaster "Build Status")
 
 
-
+![Patreon](https://jackmott.github.io/images/patreonsmall.png "Patreon")
 
 # LinqFaster  
 
@@ -11,6 +11,8 @@ A set of extension methods for `arrays[]` and `List<T>` that are faster and allo
 
 LinqFaster now includes all relevant Linq extension methods, and **SIMD** and **parallel** enhanced extension methods are
 being worked on now as well.
+
+## [Beta now available on Nuget](https://www.nuget.org/packages/LinqFaster/)
 
 # Benchmarks
 
