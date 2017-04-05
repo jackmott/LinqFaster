@@ -14,16 +14,10 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Version>0.9.0</Version>
     <PackageProjectUrl>https://github.com/jackmott/LinqFaster</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/jackmott/LinqFaster</RepositoryUrl>
-    <IconUrl>https://jackmott.github.io/images/LinqFaster.png</IconUrl>
+    <RepositoryUrl>https://github.com/jackmott/LinqFaster</RepositoryUrl>    
     <RepositoryType>Github</RepositoryType>
     <PackageIconUrl>https://jackmott.github.io/images/LinqFaster.png</PackageIconUrl>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Update="LinqFaster.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
+  
 </Project>
