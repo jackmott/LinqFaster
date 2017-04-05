@@ -13,7 +13,7 @@ namespace JM.LinqFaster
         /// </summary>        
         /// <param name="source">A sequence to filter.</param>
         /// <param name="predicate">A function to test each element for a condition.</param>
-        /// <returns>A sequence that contains elements from the input sequence that satisfy the condition.</returns>
+        /// <returns>A sequence that contains elements from the input sequence that satisfy the condition.</returns>        
         public static T[] WhereF<T>(this T[] source, Func<T, bool> predicate)
         {
             if (source == null)
@@ -57,7 +57,8 @@ namespace JM.LinqFaster
             {
                 throw Error.ArgumentNull(nameof(predicate));
             }
-
+            
+            
             T[] result = new T[source.Length];
             int idx = 0;
             for (int i = 0; i < source.Length; i++)
@@ -80,25 +81,21 @@ namespace JM.LinqFaster
         /// <param name="source">A sequence to filter.</param>
         /// <param name="predicate">A function to test each element for a condition.</param>
         /// <returns>A sequence that contains elements from the input sequence that satisfy the condition.</returns>
-        public static List<T> WhereF<T>(this List<T> a, Func<T, bool> predicate)
+        public static List<T> WhereF<T>(this List<T> source, Predicate<T> predicate)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (predicate == null)
             {
                 throw Error.ArgumentNull(nameof(predicate));
-            }
+            }            
 
-            List<T> r = new List<T>();
-            for (int i = 0; i < a.Count; i++)
-            {
-                if (predicate(a[i])) r.Add(a[i]);
-            }
-            return r;
+            return source.FindAll(predicate);            
         }
+
 
         /// <summary>
         /// Filters a sequence of values based on a predicate that includes the index in it's logic.

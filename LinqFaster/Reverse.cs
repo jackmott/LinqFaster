@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace JM.LinqFaster
 {
@@ -20,6 +21,16 @@ namespace JM.LinqFaster
             return result;
         }
 
+       
+        /// <summary>
+        /// Inverts the order of the elements in a sequence in place.
+        /// </summary>        
+        /// <param name="source">A sequence of values to reverse.</param>        
+        public static void ReverseInPlace<T>(this T[] source)
+        {
+            Array.Reverse(source);
+        }
+
         /// <summary>
         /// Inverts the order of the elements in a sequence.
         /// </summary>        
@@ -33,6 +44,15 @@ namespace JM.LinqFaster
                 result.Add(source[i]);
             }
             return result;
-        }        
+        }
+
+        /// <summary>
+        /// Inverts the order of the elements in a sequence in place.
+        /// </summary>        
+        /// <param name="source">A sequence of values to reverse.</param>        
+        public static void ReverseInPlace<T>(this List<T> source)
+        {
+            source.Reverse();            
+        }
     }
 }

@@ -12,15 +12,13 @@ namespace Tests
         [Test]
         public void WhereArray()
         {
-            Func<int,int, bool> lambda1 = ((x,i) => x+i % 2 == 0);
+            Func<int, int, bool> lambda1 = ((x, i) => x + i % 2 == 0);
             var a = intArray.WhereF(lambda1);
             var b = intArray.Where(lambda1);
             Assert.That(a, Is.EqualTo(b));
-
-            Func<string, bool>  lambda2 = (x => x == "no matches");
-
-            var c = stringArray.WhereF(lambda2);
-            var d = stringArray.Where(lambda2);
+            
+            var c = stringArray.WhereF(x => x == "no matches");
+            var d = stringArray.Where(x => x == "no matches");
 
         }
 
@@ -32,10 +30,9 @@ namespace Tests
             var b = intList.Where(lambda1);
             Assert.That(a, Is.EqualTo(b));
 
-            Func<string, bool> lambda2 = (x => x == "no matches");
-
-            var c = stringList.WhereF(lambda2);
-            var d = stringList.Where(lambda2);
+            
+            var c = stringList.WhereF(x => x == "no matches");
+            var d = stringList.Where(x => x == "no matches");
 
         }
 

@@ -1,10 +1,10 @@
 ﻿using NUnit.Framework;
 using JM.LinqFaster;
-using System.Linq;
 using static Tests.Test;
 using System.Collections.Generic;
 
-namespace Tests {
+namespace Tests
+{
     [TestFixture]
     class SingleTests {
 

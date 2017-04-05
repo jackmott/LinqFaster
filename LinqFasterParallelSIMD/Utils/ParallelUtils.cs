@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Numerics;
-using System.Runtime.CompilerServices;
-using System.Collections.Concurrent;
 
-namespace JM.LinqFaster.Utils {
+namespace JM.LinqFaster.Utils
+{
     public static class ParallelUtils {
 
         public static T ForVectorAggregate<T>(T[] a, T acc, Func<T[], int, int, T> f, Func<T, T, T> combiner)

@@ -1,7 +1,6 @@
 ﻿using NUnit.Framework;
 using JM.LinqFaster.SIMD.Parallel;
 using System.Linq;
-using System.Numerics;
 
 namespace Tests
 {

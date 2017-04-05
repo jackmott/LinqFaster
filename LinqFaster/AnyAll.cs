@@ -22,13 +22,15 @@ namespace JM.LinqFaster
             return source.Length > 0;
         }
 
+    
+
         /// <summary>
         /// Determines whether any element of an array satifies a condition.
         /// </summary>        
         /// <param name="source">An array whose elements to apply the predicate to.</param>
         /// <param name="predicate">A function to test each element for a condition.</param>
         /// <returns>true if any elements in the source array pass the test in the specified predicate; otherwise, false.</returns>
-        public static bool AnyF<TSource>(this TSource[] source, Func<TSource, bool> predicate)
+        public static bool AnyF<TSource>(this TSource[] source, Predicate<TSource> predicate)
         {
             if (source == null)
             {
@@ -40,19 +42,10 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(predicate));
             }
 
-            for (int i = 0; i < source.Length; i++)
-            {
-                if (predicate(source[i]))
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return Array.Exists(source, predicate);
         }
 
-       
-
+     
         /// <summary>
         /// Determines whether all elements of an array satisfy a condition.
         /// </summary>        
@@ -60,7 +53,7 @@ namespace JM.LinqFaster
         /// <param name="predicate">A function to test each element for a condition.</param>
         /// <returns>true if every element of the source array passes the test in the specified
         /// predicate, or if the array is empty; otherwise, false</returns>
-        public static bool AllF<TSource>(this TSource[] source, Func<TSource, bool> predicate)
+        public static bool AllF<TSource>(this TSource[] source, Predicate<TSource> predicate)
         {
             if (source == null)
             {
@@ -72,16 +65,12 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(predicate));
             }
 
-            for (int i = 0; i < source.Length; i++)
-            {
-                if (!predicate(source[i]))
-                {
-                    return false;
-                }
-            }
-
-            return true;
+            return Array.TrueForAll(source, predicate);
         }
+
+  
+
+
 
         // --------------------------  Lists --------------------------------------------
         /// <summary>
@@ -104,7 +93,7 @@ namespace JM.LinqFaster
         /// <param name="source">An array whose elements to apply the predicate to.</param>
         /// <param name="predicate">A function to test each element for a condition.</param>
         /// <returns>true if any elements in the source array pass the test in the specified predicate; otherwise, false.</returns>
-        public static bool AnyF<TSource>(this List<TSource> source, Func<TSource, bool> predicate)
+        public static bool AnyF<TSource>(this List<TSource> source, Predicate<TSource> predicate)
         {
             if (source == null)
             {
@@ -116,15 +105,7 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(predicate));
             }
 
-            for (int i = 0; i < source.Count; i++)
-            {
-                if (predicate(source[i]))
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return source.Exists(predicate);
         }
 
         /// <summary>
@@ -134,7 +115,7 @@ namespace JM.LinqFaster
         /// <param name="predicate">A function to test each element for a condition.</param>
         /// <returns>true if every element of the source array passes the test in the specified
         /// predicate, or if the list is empty; otherwise, false</returns>
-        public static bool AllF<TSource>(this List<TSource> source, Func<TSource, bool> predicate)
+        public static bool AllF<TSource>(this List<TSource> source, Predicate<TSource> predicate)
         {
             if (source == null)
             {
@@ -146,15 +127,7 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(predicate));
             }
 
-            for (int i = 0; i < source.Count; i++)
-            {
-                if (!predicate(source[i]))
-                {
-                    return false;
-                }
-            }
-
-            return true;
+            return source.TrueForAll(predicate);
         }
     }
 }

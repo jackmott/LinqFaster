@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace JM.LinqFaster
 {
@@ -9,7 +10,7 @@ namespace JM.LinqFaster
 
         /// <summary>
         /// Determines whether an array contains a specified element by using the 
-        /// provided IEqualityComparer or the default comparer if none is provided.
+        /// provided IEqualityComparer.
         /// </summary>        
         /// <param name="source">An array in which to locate a value.</param>
         /// <param name="value">The value to locate.</param>
@@ -24,13 +25,13 @@ namespace JM.LinqFaster
 
             if (comparer == null)
             {
-                comparer = EqualityComparer<TSource>.Default;
+                return Array.IndexOf(source, value) != -1;
             }
 
 
-            for (int i = 0; i < source.Length; i++)
+            foreach (TSource e in source)
             {
-                if (comparer.Equals(source[i], value))
+                if (comparer.Equals(e, value))
                 {
                     return true;
                 }
@@ -43,14 +44,14 @@ namespace JM.LinqFaster
 
         /// <summary>
         /// Determines whether a list contains a specified element by using the 
-        /// provided IEqualityComparer or the default comparer if none is provided.
+        /// provided IEqualityComparer.
         /// </summary>        
         /// <param name="source">A list in which to locate a value.</param>
         /// <param name="value">The value to locate.</param>
         /// <param name="comparer">An equality comparer to compare values.</param>
         /// <returns>true if the source sequence contains an element that has the specified value; otherwise, false.</returns>
         public static bool ContainsF<TSource>(this List<TSource> source, TSource value, IEqualityComparer<TSource> comparer = null)
-        {
+        {            
             if (source == null)
             {
                 throw Error.ArgumentNull(nameof(source));
@@ -58,7 +59,7 @@ namespace JM.LinqFaster
 
             if (comparer == null)
             {
-                comparer = EqualityComparer<TSource>.Default;
+                return source.IndexOf(value) != -1;
             }
 
 

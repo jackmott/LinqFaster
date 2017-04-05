@@ -47,6 +47,7 @@ namespace JM.LinqFaster
             return result;
         }
        
+
         public static TResult[] WhereSelectF<T, TResult>(this T[] a, Func<T, int, bool> predicate, Func<T, int, TResult> selector)
         {
             if (a == null)
@@ -81,11 +82,11 @@ namespace JM.LinqFaster
 
         // --------------------------  LISTS --------------------------------------------
 
-        public static List<TResult> WhereSelectF<T, TResult>(this List<T> a, Func<T, bool> predicate, Func<T, TResult> selector)
+        public static List<TResult> WhereSelectF<T, TResult>(this List<T> source, Func<T, bool> predicate, Func<T, TResult> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (predicate == null)
@@ -99,18 +100,18 @@ namespace JM.LinqFaster
             }
 
             var r = new List<TResult>();
-            for (int i = 0; i < a.Count; i++)
+            for (int i = 0; i < source.Count; i++)
             {
-                if (predicate(a[i])) r.Add(selector(a[i]));
+                if (predicate(source[i])) r.Add(selector(source[i]));
             }
             return r;
         }
-
-        public static List<TResult> WhereSelectF<T, TResult>(this List<T> a, Func<T, int, bool> predicate, Func<T, int, TResult> selector)
+        
+        public static List<TResult> WhereSelectF<T, TResult>(this List<T> source, Func<T, int, bool> predicate, Func<T, int, TResult> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (predicate == null)
@@ -125,10 +126,10 @@ namespace JM.LinqFaster
 
             var r = new List<TResult>();
             int idx = 0;
-            for (int i = 0; i < a.Count; i++)
+            for (int i = 0; i < source.Count; i++)
             {
-                if (predicate(a[i], i)) {
-                    r.Add(selector(a[i], idx));
+                if (predicate(source[i], i)) {
+                    r.Add(selector(source[i], idx));
                     idx++;
                 }
             }

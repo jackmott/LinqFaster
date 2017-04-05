@@ -150,6 +150,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\LinqFasterParallelSIMD\LinqFasterParallelSIMD.csproj">
       <Project>{f13bac10-bcbe-4440-b9f0-3a2778ca9221}</Project>
       <Name>LinqFasterParallelSIMD</Name>
@@ -166,10 +170,6 @@
       <Project>{5b2f0f9f-6dda-4f06-a999-26e43ae04f86}</Project>
       <Name>LinqFaster</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
-    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,19 +1,24 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
+using static JM.LinqFaster.Utils.CustomPartition;
 
-namespace JM.LinqFaster.Parallel {
+namespace JM.LinqFaster.Parallel
+{
     public static partial class LinqFasterParallel {
 
         // --------------------------  ARRAYS  --------------------------------------------
 
-        public static TResult[] SelectP<T, TResult>(this T[] a, Func<T, TResult> selector)
+        /// <summary>
+        ///  Projects each element of a sequence into a new form in place using multiple Tasks / Threads.
+        /// </summary>        
+        /// <param name="source">A sequence of values to invoke a transform function on (map).</param>
+        /// <param name="selector">A transform function to apply (map) to each element.</param>       
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        public static void SelectInPlaceP<T>(this T[] source, Func<T, T> selector, int? batchSize = null)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
@@ -21,36 +26,103 @@ namespace JM.LinqFaster.Parallel {
                 throw Error.ArgumentNull(nameof(selector));
             }
 
-            var r = new TResult[a.Length];
+            
+            var rangePartitioner = MakePartition(source.Length, batchSize);
+            System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
+                (range, s) => {
+                    for (int i = range.Item1; i < range.Item2; i++)
+                    {
+                        source[i] = selector(source[i]);
+                    }
+                });
+            
+        }
 
-            var rangePartitioner = Partitioner.Create(0, a.Length);
+        /// <summary>
+        ///  Projects each element of a sequence into a new form, in place, by incorporating the element's index using multiple Tasks / Threads.
+        /// </summary>        
+        /// <param name="source">A sequence of values to invoke a transform function on.</param>
+        /// <param name="selector">A transform function to apply to each source element; the second parameter of the function represents the index of the source element.</param>        
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        public static void SelectInPlaceP<T>(this T[] source, Func<T,int, T> selector, int? batchSize = null)
+        {
+            if (source == null)
+            {
+                throw Error.ArgumentNull(nameof(source));
+            }
+
+            if (selector == null)
+            {
+                throw Error.ArgumentNull(nameof(selector));
+            }
+
+
+            var rangePartitioner = MakePartition(source.Length, batchSize);
+            System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
+                (range, s) => {
+                    for (int i = range.Item1; i < range.Item2; i++)
+                    {
+                        source[i] = selector(source[i],i);
+                    }
+                });
+
+        }
+
+        /// <summary>
+        ///  Projects each element of a sequence into a new form using multiple Tasks / Threads.
+        /// </summary>        
+        /// <param name="source">A sequence of values to invoke a transform function on.</param>
+        /// <param name="selector">A transform function to apply to each source element.</param>        
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        public static TResult[] SelectP<T, TResult>(this T[] source, Func<T, TResult> selector, int? batchSize = null)
+        {
+            if (source == null)
+            {
+                throw Error.ArgumentNull(nameof(source));
+            }
+
+            if (selector == null)
+            {
+                throw Error.ArgumentNull(nameof(selector));
+            }
+
+            var r = new TResult[source.Length];
+
+            var rangePartitioner = MakePartition(source.Length, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 (range, s) => {
                     for (int i = range.Item1; i < range.Item2; i++) {
-                        r[i] = selector(a[i]);
+                        r[i] = selector(source[i]);
                     }
                 });
             
             return r;
         }
 
-        public static TResult[] SelectP<T, TResult>(this T[] a, Func<T, int, TResult> selector)
+        /// <summary>
+        ///  Projects each element of a sequence into a new form by incorporating the element's index using multiple Tasks / Threads.
+        /// </summary>        
+        /// <param name="source">A sequence of values to invoke a transform function on.</param>
+        /// <param name="selector">A transform function to apply to each source element; the second parameter of the function represents the index of the source element.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>A sequence whose elements are the result of invoking the transform function on each element of source.</returns>
+        public static TResult[] SelectP<T, TResult>(this T[] source, Func<T, int, TResult> selector, int? batchSize = null)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
             {
                 throw Error.ArgumentNull(nameof(selector));
             }
-            var r = new TResult[a.Length];
-            var rangePartitioner = Partitioner.Create(0, a.Length);
+            var r = new TResult[source.Length];
+            var rangePartitioner = MakePartition(source.Length, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 (range, s) => {
                     for (int i = range.Item1; i < range.Item2; i++) {
-                        r[i] = selector(a[i],i);
+                        r[i] = selector(source[i],i);
                     }
                 });
 
@@ -59,11 +131,17 @@ namespace JM.LinqFaster.Parallel {
 
         // --------------------------  LISTS --------------------------------------------
 
-        public static List<TResult> SelectP<T, TResult>(this List<T> a, Func<T, TResult> selector)
+        /// <summary>
+        ///  Projects each element of a sequence into a new form in place using multiple Tasks / Threads.
+        /// </summary>        
+        /// <param name="source">A sequence of values to invoke a transform function on (map).</param>
+        /// <param name="selector">A transform function to apply (map) to each element.</param>        
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        public static void SelectInPlaceP<T>(this List<T> source, Func<T, T> selector, int? batchSize = null)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
@@ -71,13 +149,73 @@ namespace JM.LinqFaster.Parallel {
                 throw Error.ArgumentNull(nameof(selector));
             }
 
-            var r = new List<TResult>(a.Count);
 
-            var rangePartitioner = Partitioner.Create(0, a.Count);
+            var rangePartitioner = MakePartition(source.Count, batchSize);
+            System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
+                (range, s) => {
+                    for (int i = range.Item1; i < range.Item2; i++)
+                    {
+                        source[i] = selector(source[i]);
+                    }
+                });
+
+        }
+
+        /// <summary>
+        ///  Projects each element of a sequence into a new form, in place, by incorporating the element's index using multiple Tasks / Threads.
+        /// </summary>        
+        /// <param name="source">A sequence of values to invoke a transform function on.</param>
+        /// <param name="selector">A transform function to apply to each source element; the second parameter of the function represents the index of the source element.</param>        
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        public static void SelectInPlaceP<T>(this List<T> source, Func<T, int, T> selector, int? batchSize = null)
+        {
+            if (source == null)
+            {
+                throw Error.ArgumentNull(nameof(source));
+            }
+
+            if (selector == null)
+            {
+                throw Error.ArgumentNull(nameof(selector));
+            }
+
+
+            var rangePartitioner = MakePartition(source.Count, batchSize);
+            System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
+                (range, s) => {
+                    for (int i = range.Item1; i < range.Item2; i++)
+                    {
+                        source[i] = selector(source[i], i);
+                    }
+                });
+
+        }
+
+        /// <summary>
+        ///  Projects each element of a sequence into a new form, in place, by incorporating the element's index using multiple Tasks / Threads.
+        /// </summary>        
+        /// <param name="source">A sequence of values to invoke a transform function on.</param>
+        /// <param name="selector">A transform function to apply to each source element; the second parameter of the function represents the index of the source element.</param>        
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        public static List<TResult> SelectP<T, TResult>(this List<T> source, Func<T, TResult> selector, int? batchSize = null)
+        {
+            if (source == null)
+            {
+                throw Error.ArgumentNull(nameof(source));
+            }
+
+            if (selector == null)
+            {
+                throw Error.ArgumentNull(nameof(selector));
+            }
+
+            var r = new List<TResult>(source.Count);
+
+            var rangePartitioner = MakePartition(source.Count, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 (range, s) => {
                     for (int i = range.Item1; i < range.Item2; i++) {
-                        r[i] = selector(a[i]);
+                        r[i] = selector(source[i]);
                     }
                 });
 
@@ -85,12 +223,18 @@ namespace JM.LinqFaster.Parallel {
             return r;
         }
 
-
-        public static List<TResult> SelectP<T, TResult>(this List<T> a, Func<T, int, TResult> selector)
+        /// <summary>
+        ///  Projects each element of a sequence into a new form by incorporating the element's index using multiple Tasks / Threads.
+        /// </summary>        
+        /// <param name="source">A sequence of values to invoke a transform function on.</param>
+        /// <param name="selector">A transform function to apply to each source element; the second parameter of the function represents the index of the source element.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>A sequence whose elements are the result of invoking the transform function on each element of source.</returns>
+        public static List<TResult> SelectP<T, TResult>(this List<T> source, Func<T, int, TResult> selector, int? batchSize = null)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
@@ -98,13 +242,13 @@ namespace JM.LinqFaster.Parallel {
                 throw Error.ArgumentNull(nameof(selector));
             }
 
-            var r = new List<TResult>(a.Count);
+            var r = new List<TResult>(source.Count);
 
-            var rangePartitioner = Partitioner.Create(0, a.Count);
+            var rangePartitioner = MakePartition(source.Count, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 (range, s) => {
                     for (int i = range.Item1; i < range.Item2; i++) {
-                        r[i] = selector(a[i],i);
+                        r[i] = selector(source[i],i);
                     }
                 });
 

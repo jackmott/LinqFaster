@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading;
-using System.Threading.Tasks;
+using static JM.LinqFaster.Utils.CustomPartition;
 
 
 namespace JM.LinqFaster.Parallel
@@ -10,7 +9,14 @@ namespace JM.LinqFaster.Parallel
     public static partial class LinqFasterParallel
     {
         // --------------------------  ARRAYS  --------------------------------------------
-        public static double AverageP(this int[] source)
+
+        /// <summary>
+        /// Computes the average of a sequence in parallel.
+        /// </summary>
+        /// <param name="source">The array to calculate the average of.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The average of the array.</returns>
+        public static double AverageP(this int[] source, int? batchSize = null)
         {
             if (source == null)
             {
@@ -23,7 +29,7 @@ namespace JM.LinqFaster.Parallel
             }
 
             long sum = 0;
-            var rangePartitioner = Partitioner.Create(0, source.Length);
+            var rangePartitioner = MakePartition(source.Length, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0L,
                 (range, s, acc) =>
@@ -42,7 +48,15 @@ namespace JM.LinqFaster.Parallel
             return (double)sum / source.Length;
         }
 
-        public static double AverageP<T>(this T[] source, Func<T, int> selector)
+        /// <summary>
+        /// Computes the average of values obtained by invoking a transform function on
+        /// each element of the input array in parallel.
+        /// </summary>
+        /// <param name="source">The array to calculate the transformed average of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The average of the array.</returns>
+        public static double AverageP<T>(this T[] source, Func<T, int> selector, int? batchSize = null)
         {
             if (source == null)
             {
@@ -60,7 +74,7 @@ namespace JM.LinqFaster.Parallel
             }
 
             long sum = 0;
-            var rangePartitioner = Partitioner.Create(0, source.Length);
+            var rangePartitioner = MakePartition(source.Length, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0L,
                 (range, s, acc) =>
@@ -79,7 +93,13 @@ namespace JM.LinqFaster.Parallel
             return (double)sum / source.Length;
         }
 
-        public static double AverageP(this long[] source)
+        /// <summary>
+        /// Computes the average of a sequence in parallel.
+        /// </summary>
+        /// <param name="source">The array to calculate the average of.</param
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The average of the array.</returns>
+        public static double AverageP(this long[] source, int? batchSize = null)
         {
             if (source == null)
             {
@@ -92,7 +112,7 @@ namespace JM.LinqFaster.Parallel
             }
 
             long sum = 0;
-            var rangePartitioner = Partitioner.Create(0, source.Length);
+            var rangePartitioner = MakePartition(source.Length, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0L,
                 (range, s, acc) =>
@@ -111,7 +131,15 @@ namespace JM.LinqFaster.Parallel
             return (double)sum / source.Length;
         }
 
-        public static double AverageP<T>(this T[] source, Func<T, long> selector)
+        /// <summary>
+        /// Computes the average of values obtained by invoking a transform function on
+        /// each element of the input array in parallel.
+        /// </summary>
+        /// <param name="source">The array to calculate the transformed average of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The average of the array.</returns>
+        public static double AverageP<T>(this T[] source, Func<T, long> selector, int? batchSize = null)
         {
             if (source == null)
             {
@@ -129,7 +157,7 @@ namespace JM.LinqFaster.Parallel
             }
 
             long sum = 0;
-            var rangePartitioner = Partitioner.Create(0, source.Length);
+            var rangePartitioner = MakePartition(source.Length, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0L,
                 (range, s, acc) =>
@@ -148,7 +176,13 @@ namespace JM.LinqFaster.Parallel
             return (double)sum / source.Length;
         }
 
-        public static float AverageP(this float[] source)
+        /// <summary>
+        /// Computes the average of a sequence in parallel.
+        /// </summary>
+        /// <param name="source">The array to calculate the average of.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The average of the array.</returns>
+        public static float AverageP(this float[] source, int? batchSize = null)
         {
             if (source == null)
             {
@@ -162,7 +196,7 @@ namespace JM.LinqFaster.Parallel
 
             double sum = 0;
             object LOCK = new object();
-            var rangePartitioner = Partitioner.Create(0, source.Length);
+            var rangePartitioner = MakePartition(source.Length, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0.0,
                 (range, s, acc) =>
@@ -178,7 +212,15 @@ namespace JM.LinqFaster.Parallel
             return (float)(sum / source.Length);
         }
 
-        public static float AverageP<T>(this T[] source, Func<T, float> selector)
+        /// <summary>
+        /// Computes the average of values obtained by invoking a transform function on
+        /// each element of the input array in parallel.
+        /// </summary>
+        /// <param name="source">The array to calculate the transformed average of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The average of the array.</returns>
+        public static float AverageP<T>(this T[] source, Func<T, float> selector, int? batchSize = null)
         {
             if (source == null)
             {
@@ -198,7 +240,7 @@ namespace JM.LinqFaster.Parallel
             double sum = 0;
 
             object LOCK = new object();
-            var rangePartitioner = Partitioner.Create(0, source.Length);
+            var rangePartitioner = MakePartition(source.Length, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0.0,
                 (range, s, acc) =>
@@ -214,7 +256,13 @@ namespace JM.LinqFaster.Parallel
             return (float)(sum / source.Length);
         }
 
-        public static double AverageP(this double[] source)
+        /// <summary>
+        /// Computes the average of a sequence in parallel.
+        /// </summary>
+        /// <param name="source">The array to calculate the average of.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The average of the array.</returns>
+        public static double AverageP(this double[] source, int? batchSize = null)
         {
             if (source == null)
             {
@@ -229,7 +277,7 @@ namespace JM.LinqFaster.Parallel
             double sum = 0;
 
             object LOCK = new object();
-            var rangePartitioner = Partitioner.Create(0, source.Length);
+            var rangePartitioner = MakePartition(source.Length, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0.0,
                 (range, s, acc) =>
@@ -245,7 +293,15 @@ namespace JM.LinqFaster.Parallel
             return sum / source.Length;
         }
 
-        public static double AverageP<T>(this T[] source, Func<T, double> selector)
+        /// <summary>
+        /// Computes the average of values obtained by invoking a transform function on
+        /// each element of the input array in parallel.
+        /// </summary>
+        /// <param name="source">The array to calculate the transformed average of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The average of the array.</returns>
+        public static double AverageP<T>(this T[] source, Func<T, double> selector, int? batchSize = null)
         {
             if (source == null)
             {
@@ -265,7 +321,7 @@ namespace JM.LinqFaster.Parallel
             double sum = 0;
 
             object LOCK = new object();
-            var rangePartitioner = Partitioner.Create(0, source.Length);
+            var rangePartitioner = MakePartition(source.Length, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0.0,
                 (range, s, acc) =>
@@ -281,7 +337,13 @@ namespace JM.LinqFaster.Parallel
             return sum / source.Length;
         }
 
-        public static decimal AverageP(this decimal[] source)
+        /// <summary>
+        /// Computes the average of a sequence in parallel.
+        /// </summary>
+        /// <param name="source">The array to calculate the average of.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The average of the array.</returns>
+        public static decimal AverageP(this decimal[] source, int? batchSize = null)
         {
             if (source == null)
             {
@@ -296,7 +358,7 @@ namespace JM.LinqFaster.Parallel
             decimal sum = 0;
 
             object LOCK = new object();
-            var rangePartitioner = Partitioner.Create(0, source.Length);
+            var rangePartitioner = MakePartition(source.Length, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => (decimal)0.0,
                 (range, s, acc) =>
@@ -313,7 +375,15 @@ namespace JM.LinqFaster.Parallel
             return sum / source.Length;
         }
 
-        public static decimal AverageP<T>(this T[] source, Func<T, decimal> selector)
+        /// <summary>
+        /// Computes the average of values obtained by invoking a transform function on
+        /// each element of the input array in parallel.
+        /// </summary>
+        /// <param name="source">The array to calculate the transformed average of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The average of the array.</returns>
+        public static decimal AverageP<T>(this T[] source, Func<T, decimal> selector, int? batchSize = null)
         {
             if (source == null)
             {
@@ -334,7 +404,7 @@ namespace JM.LinqFaster.Parallel
             decimal sum = 0;
 
             object LOCK = new object();
-            var rangePartitioner = Partitioner.Create(0, source.Length);
+            var rangePartitioner = MakePartition(source.Length, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => (decimal)0.0,
                 (range, s, acc) =>
@@ -352,7 +422,14 @@ namespace JM.LinqFaster.Parallel
         }
 
         // --------------------------  Lists  --------------------------------------------
-        public static double AverageP(this List<int> source)
+
+        /// <summary>
+        /// Computes the average of a sequence in parallel.
+        /// </summary>
+        /// <param name="source">The array to calculate the average of.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The average of the array.</returns>
+        public static double AverageP(this List<int> source, int? batchSize = null)
         {
             if (source == null)
             {
@@ -365,7 +442,7 @@ namespace JM.LinqFaster.Parallel
             }
 
             long sum = 0;            
-            var rangePartitioner = Partitioner.Create(0, source.Count);
+            var rangePartitioner = MakePartition(source.Count, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0L,
                 (range, s, acc) =>
@@ -384,7 +461,16 @@ namespace JM.LinqFaster.Parallel
             return (double)sum / source.Count;
         }
 
-        public static double AverageP<T>(this List<T> source, Func<T, int> selector)
+        /// <summary>
+        /// Computes the average of values obtained by invoking a transform function on
+        /// each element of the input array in parallel.
+        /// </summary>
+        /// <param name="source">The array to calculate the transformed average of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The average of the array.</returns>
+        public static double AverageP<T>(this List<T> source, Func<T, int> selector, int? batchSize = null)
         {
             if (source == null)
             {
@@ -402,7 +488,7 @@ namespace JM.LinqFaster.Parallel
             }
 
             long sum = 0;
-            var rangePartitioner = Partitioner.Create(0, source.Count);
+            var rangePartitioner = MakePartition(source.Count, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0L,
                 (range, s, acc) =>
@@ -420,7 +506,13 @@ namespace JM.LinqFaster.Parallel
             return (double)sum / source.Count;
         }
 
-        public static double AverageP(this List<long> source)
+        /// <summary>
+        /// Computes the average of a sequence in parallel.
+        /// </summary>
+        /// <param name="source">The array to calculate the average of.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The average of the array.</returns>
+        public static double AverageP(this List<long> source, int? batchSize = null)
         {
             if (source == null)
             {
@@ -433,7 +525,7 @@ namespace JM.LinqFaster.Parallel
             }
 
             long sum = 0;
-            var rangePartitioner = Partitioner.Create(0, source.Count);
+            var rangePartitioner = MakePartition(source.Count, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0L,
                 (range, s, acc) =>
@@ -452,7 +544,15 @@ namespace JM.LinqFaster.Parallel
             return (double)sum / source.Count;
         }
 
-        public static double AverageP<T>(this List<T> source, Func<T, long> selector)
+        /// <summary>
+        /// Computes the average of values obtained by invoking a transform function on
+        /// each element of the input array in parallel.
+        /// </summary>
+        /// <param name="source">The array to calculate the transformed average of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The average of the array.</returns>
+        public static double AverageP<T>(this List<T> source, Func<T, long> selector, int? batchSize = null)
         {
             if (source == null)
             {
@@ -470,7 +570,7 @@ namespace JM.LinqFaster.Parallel
             }
 
             long sum = 0;
-            var rangePartitioner = Partitioner.Create(0, source.Count);
+            var rangePartitioner = MakePartition(source.Count, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0L,
                 (range, s, acc) =>
@@ -488,7 +588,13 @@ namespace JM.LinqFaster.Parallel
             return (double)sum / source.Count;
         }
 
-        public static double AverageP(this List<float> source)
+        /// <summary>
+        /// Computes the average of a sequence in parallel.
+        /// </summary>
+        /// <param name="source">The array to calculate the average of.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The average of the array.</returns>
+        public static double AverageP(this List<float> source, int? batchSize = null)
         {
             if (source == null)
             {
@@ -503,7 +609,7 @@ namespace JM.LinqFaster.Parallel
             double sum = 0;
 
             object LOCK = new object();
-            var rangePartitioner = Partitioner.Create(0, source.Count);
+            var rangePartitioner = MakePartition(source.Count, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0.0,
                 (range, s, acc) =>
@@ -518,7 +624,15 @@ namespace JM.LinqFaster.Parallel
             return sum / source.Count;
         }
 
-        public static double AverageP<T>(this List<T> source, Func<T, float> selector)
+        /// <summary>
+        /// Computes the average of values obtained by invoking a transform function on
+        /// each element of the input array in parallel.
+        /// </summary>
+        /// <param name="source">The array to calculate the transformed average of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The average of the array.</returns>
+        public static double AverageP<T>(this List<T> source, Func<T, float> selector, int? batchSize = null)
         {
             if (source == null)
             {
@@ -538,7 +652,7 @@ namespace JM.LinqFaster.Parallel
             double sum = 0;
 
             object LOCK = new object();
-            var rangePartitioner = Partitioner.Create(0, source.Count);
+            var rangePartitioner = MakePartition(source.Count, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0.0,
                 (range, s, acc) =>
@@ -554,7 +668,13 @@ namespace JM.LinqFaster.Parallel
             return sum / source.Count;
         }
 
-        public static double AverageP(this List<double> source)
+        /// <summary>
+        /// Computes the average of a sequence in parallel.
+        /// </summary>
+        /// <param name="source">The array to calculate the average of.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The average of the array.</returns>
+        public static double AverageP(this List<double> source, int? batchSize = null)
         {
             if (source == null)
             {
@@ -569,7 +689,7 @@ namespace JM.LinqFaster.Parallel
             double sum = 0;
 
             object LOCK = new object();
-            var rangePartitioner = Partitioner.Create(0, source.Count);
+            var rangePartitioner = MakePartition(source.Count, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0.0,
                 (range, s, acc) =>
@@ -585,7 +705,15 @@ namespace JM.LinqFaster.Parallel
             return sum / source.Count;
         }
 
-        public static double AverageP<T>(this List<T> source, Func<T, double> selector)
+        /// <summary>
+        /// Computes the average of values obtained by invoking a transform function on
+        /// each element of the input array in parallel.
+        /// </summary>
+        /// <param name="source">The array to calculate the transformed average of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The average of the array.</returns>
+        public static double AverageP<T>(this List<T> source, Func<T, double> selector, int? batchSize = null)
         {
             if (source == null)
             {
@@ -605,7 +733,7 @@ namespace JM.LinqFaster.Parallel
             double sum = 0;
 
             object LOCK = new object();
-            var rangePartitioner = Partitioner.Create(0, source.Count);
+            var rangePartitioner = MakePartition(source.Count, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0.0,
                 (range, s, acc) =>
@@ -621,7 +749,13 @@ namespace JM.LinqFaster.Parallel
             return sum / source.Count;
         }
 
-        public static decimal AverageP(this List<decimal> source)
+        /// <summary>
+        /// Computes the average of a sequence in parallel.
+        /// </summary>
+        /// <param name="source">The array to calculate the average of.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The average of the array.</returns>
+        public static decimal AverageP(this List<decimal> source, int? batchSize = null)
         {
             if (source == null)
             {
@@ -636,7 +770,7 @@ namespace JM.LinqFaster.Parallel
             decimal sum = 0;
 
             object LOCK = new object();
-            var rangePartitioner = Partitioner.Create(0, source.Count);
+            var rangePartitioner = MakePartition(source.Count, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => (decimal)0.0,
                 (range, s, acc) =>
@@ -652,7 +786,15 @@ namespace JM.LinqFaster.Parallel
             return sum / source.Count;
         }
 
-        public static decimal AverageP<T>(this List<T> source, Func<T, decimal> selector)
+        /// <summary>
+        /// Computes the average of values obtained by invoking a transform function on
+        /// each element of the input array in parallel.
+        /// </summary>
+        /// <param name="source">The array to calculate the transformed average of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The average of the array.</returns>
+        public static decimal AverageP<T>(this List<T> source, Func<T, decimal> selector, int? batchSize = null)
         {
             if (source == null)
             {
@@ -673,7 +815,7 @@ namespace JM.LinqFaster.Parallel
             decimal sum = 0;
 
             object LOCK = new object();
-            var rangePartitioner = Partitioner.Create(0, source.Count);
+            var rangePartitioner = MakePartition(source.Count, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => (decimal)0.0,
                 (range, s, acc) =>

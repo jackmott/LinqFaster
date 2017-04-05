@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading;
-using System.Threading.Tasks;
-
+using static JM.LinqFaster.Utils.CustomPartition;
 
 namespace JM.LinqFaster.Parallel
 {
@@ -11,14 +9,20 @@ namespace JM.LinqFaster.Parallel
     {
         // --------------------------  ARRAYS  --------------------------------------------
 
-        public static int SumP(this int[] a)
+        /// <summary>
+        ///  Adds a sequence of values using multiple Tasks / Threads.
+        /// </summary>
+        /// <param name="source">The sequence to add.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The sum of the sequence.</returns>
+        public static int SumP(this int[] source, int? batchSize = null)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
             int sum = 0;
-            var rangePartitioner = Partitioner.Create(0, a.Length);
+            var rangePartitioner = MakePartition(source.Length,batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0,
                 (range, s, acc) =>
@@ -27,28 +31,7 @@ namespace JM.LinqFaster.Parallel
                     {
                         for (int i = range.Item1; i < range.Item2; i++)
                         {
-                            acc += a[i];
-                        }
-                    }
-                    return acc;
-                },
-                 acc => Interlocked.Add(ref sum, acc));
-
-            return sum;
-        }
-
-        public static int SumPA(this int[] a) {
-            if (a == null) {
-                throw Error.ArgumentNull(nameof(a));
-            }
-            int sum = 0;
-            var rangePartitioner = Partitioner.Create(0, a.Length);
-            System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
-                () => 0,
-                (range, s, acc) => {
-                    checked {
-                        for (int i = range.Item1; i < range.Item2; i++) {
-                            acc += a[i];
+                            acc += source[i];
                         }
                     }
                     return acc;
@@ -59,11 +42,18 @@ namespace JM.LinqFaster.Parallel
         }
 
 
-        public static int SumP<T>(this T[] a, Func<T, int> selector)
+        /// <summary>
+        /// Adds the transformed sequence of elements using multiple Tasks / Threads.
+        /// </summary>        
+        /// <param name="source">The sequence of values to transform then sum.</param>
+        /// <param name="selector">A transformation function.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The sum of the transformed elements.</returns>
+        public static int SumP<T>(this T[] source, Func<T, int> selector, int? batchSize = null)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
@@ -72,7 +62,7 @@ namespace JM.LinqFaster.Parallel
             }
 
             int sum = 0;
-            var rangePartitioner = Partitioner.Create(0, a.Length);
+            var rangePartitioner = MakePartition(source.Length,batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0,
                 (range, s, acc) =>
@@ -81,7 +71,7 @@ namespace JM.LinqFaster.Parallel
                     {
                         for (int i = range.Item1; i < range.Item2; i++)
                         {
-                            acc += selector(a[i]);
+                            acc += selector(source[i]);
                         }
                     }
                     return acc;
@@ -91,14 +81,20 @@ namespace JM.LinqFaster.Parallel
             return sum;
         }
 
-        public static long SumP(this long[] a)
+        /// <summary>
+        ///  Adds a sequence of values using multiple Tasks / Threads.
+        /// </summary>
+        /// <param name="source">The sequence to add.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The sum of the sequence.</returns>
+        public static long SumP(this long[] source, int? batchSize = null)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
             long sum = 0;
-            var rangePartitioner = Partitioner.Create(0, a.Length);
+            var rangePartitioner = MakePartition(source.Length,batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0L,
                 (range, s, acc) =>
@@ -107,7 +103,7 @@ namespace JM.LinqFaster.Parallel
                     {
                         for (int i = range.Item1; i < range.Item2; i++)
                         {
-                            acc += a[i];
+                            acc += source[i];
                         }
                     }
                     return acc;
@@ -117,11 +113,18 @@ namespace JM.LinqFaster.Parallel
             return sum;
         }
 
-        public static long SumP<T>(this T[] a, Func<T, long> selector)
+        /// <summary>
+        /// Adds the transformed sequence of elements using multiple Tasks / Threads.
+        /// </summary>        
+        /// <param name="source">The sequence of values to transform then sum.</param>
+        /// <param name="selector">A transformation function.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The sum of the transformed elements.</returns>
+        public static long SumP<T>(this T[] source, Func<T, long> selector, int? batchSize = null)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
@@ -130,7 +133,7 @@ namespace JM.LinqFaster.Parallel
             }
 
             long sum = 0;
-            var rangePartitioner = Partitioner.Create(0, a.Length);
+            var rangePartitioner = MakePartition(source.Length,batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0L,
                 (range, s, acc) =>
@@ -139,7 +142,7 @@ namespace JM.LinqFaster.Parallel
                     {
                         for (int i = range.Item1; i < range.Item2; i++)
                         {
-                            acc += selector(a[i]);
+                            acc += selector(source[i]);
                         }
                     }
                     return acc;
@@ -149,16 +152,21 @@ namespace JM.LinqFaster.Parallel
             return sum;
         }
 
-
-        public static float SumP(this float[] a)
+        /// <summary>
+        ///  Adds a sequence of values using multiple Tasks / Threads.
+        /// </summary>
+        /// <param name="source">The sequence to add.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The sum of the sequence.</returns>
+        public static float SumP(this float[] source, int? batchSize)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
             double sum = 0;
             object LOCK = new object();
-            var rangePartitioner = Partitioner.Create(0, a.Length);
+            var rangePartitioner = MakePartition(source.Length,batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0.0,
                 (range, s, acc) =>
@@ -166,7 +174,7 @@ namespace JM.LinqFaster.Parallel
 
                     for (int i = range.Item1; i < range.Item2; i++)
                     {
-                        acc += a[i];
+                        acc += source[i];
                     }
 
                     return acc;
@@ -182,11 +190,18 @@ namespace JM.LinqFaster.Parallel
             return (float)sum;
         }
 
-        public static float SumP<T>(this T[] a, Func<T, float> selector)
+        /// <summary>
+        /// Adds the transformed sequence of elements using multiple Tasks / Threads.
+        /// </summary>        
+        /// <param name="source">The sequence of values to transform then sum.</param>
+        /// <param name="selector">A transformation function.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The sum of the transformed elements.</returns>
+        public static float SumP<T>(this T[] source, Func<T, float> selector, int? batchSize = null)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
@@ -196,14 +211,14 @@ namespace JM.LinqFaster.Parallel
 
             double sum = 0;
             object LOCK = new object();
-            var rangePartitioner = Partitioner.Create(0, a.Length);
+            var rangePartitioner = MakePartition(source.Length,batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0.0,
                 (range, s, acc) =>
                 {
                     for (int i = range.Item1; i < range.Item2; i++)
                     {
-                        acc += selector(a[i]);
+                        acc += selector(source[i]);
                     }
 
                     return acc;
@@ -220,23 +235,28 @@ namespace JM.LinqFaster.Parallel
             return (float)sum;
         }
 
-
-        public static double SumP(this double[] a)
+        /// <summary>
+        ///  Adds a sequence of values using multiple Tasks / Threads.
+        /// </summary>
+        /// <param name="source">The sequence to add.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The sum of the sequence.</returns>
+        public static double SumP(this double[] source, int? batchSize = null)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
             double sum = 0;
             object LOCK = new object();
-            var rangePartitioner = Partitioner.Create(0, a.Length);
+            var rangePartitioner = MakePartition(source.Length,batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0.0,
                 (range, s, acc) =>
                 {
                     for (int i = range.Item1; i < range.Item2; i++)
                     {
-                        acc += a[i];
+                        acc += source[i];
                     }
                     return acc;
                 },
@@ -252,11 +272,18 @@ namespace JM.LinqFaster.Parallel
             return sum;
         }
 
-        public static double SumP<T>(this T[] a, Func<T, double> selector)
+        /// <summary>
+        /// Adds the transformed sequence of elements using multiple Tasks / Threads.
+        /// </summary>        
+        /// <param name="source">The sequence of values to transform then sum.</param>
+        /// <param name="selector">A transformation function.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The sum of the transformed elements.</returns>
+        public static double SumP<T>(this T[] source, Func<T, double> selector, int? batchSize = null)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
@@ -265,14 +292,14 @@ namespace JM.LinqFaster.Parallel
             }
             double sum = 0;
             object LOCK = new object();
-            var rangePartitioner = Partitioner.Create(0, a.Length);
+            var rangePartitioner = MakePartition(source.Length,batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0.0,
                 (range, s, acc) =>
                 {
                     for (int i = range.Item1; i < range.Item2; i++)
                     {
-                        acc += selector(a[i]);
+                        acc += selector(source[i]);
                     }
                     return acc;
                 },
@@ -289,22 +316,28 @@ namespace JM.LinqFaster.Parallel
         }
 
 
-        public static decimal SumP(this decimal[] a)
+        /// <summary>
+        ///  Adds a sequence of values using multiple Tasks / Threads.
+        /// </summary>
+        /// <param name="source">The sequence to add.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The sum of the sequence.</returns>
+        public static decimal SumP(this decimal[] source, int? batchSize = null)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
             decimal sum = 0;
             object LOCK = new object();
-            var rangePartitioner = Partitioner.Create(0, a.Length);
+            var rangePartitioner = MakePartition(source.Length,batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => (decimal)0.0,
                 (range, s, acc) =>
                 {
                     for (int i = range.Item1; i < range.Item2; i++)
                     {
-                        acc += a[i];
+                        acc += source[i];
                     }
                     return acc;
                 },
@@ -320,11 +353,18 @@ namespace JM.LinqFaster.Parallel
             return sum;
         }
 
-        public static decimal SumP<T>(this T[] a, Func<T, decimal> selector)
+        /// <summary>
+        /// Adds the transformed sequence of elements using multiple Tasks / Threads.
+        /// </summary>        
+        /// <param name="source">The sequence of values to transform then sum.</param>
+        /// <param name="selector">A transformation function.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The sum of the transformed elements.</returns>
+        public static decimal SumP<T>(this T[] source, Func<T, decimal> selector, int? batchSize = null)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
@@ -334,14 +374,14 @@ namespace JM.LinqFaster.Parallel
 
             decimal sum = 0;
             object LOCK = new object();
-            var rangePartitioner = Partitioner.Create(0, a.Length);
+            var rangePartitioner = MakePartition(source.Length,batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => (decimal)0.0,
                 (range, s, acc) =>
                 {
                     for (int i = range.Item1; i < range.Item2; i++)
                     {
-                        acc += selector(a[i]);
+                        acc += selector(source[i]);
                     }
                     return acc;
                 },
@@ -358,14 +398,20 @@ namespace JM.LinqFaster.Parallel
 
         // --------------------------  LISTS  --------------------------------------------
 
-        public static int SumP(this List<int> a)
+        /// <summary>
+        ///  Adds a sequence of values using multiple Tasks / Threads.
+        /// </summary>
+        /// <param name="source">The sequence to add.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The sum of the sequence.</returns>
+        public static int SumP(this List<int> source, int? batchSize = null)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
             int sum = 0;
-            var rangePartitioner = Partitioner.Create(0, a.Count);
+            var rangePartitioner = MakePartition(source.Count,batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0,
                 (range, s, acc) =>
@@ -374,7 +420,7 @@ namespace JM.LinqFaster.Parallel
                     {
                         for (int i = range.Item1; i < range.Item2; i++)
                         {
-                            acc += a[i];
+                            acc += source[i];
                         }
                     }
                     return acc;
@@ -384,11 +430,18 @@ namespace JM.LinqFaster.Parallel
             return sum;
         }
 
-        public static int SumP<T>(this List<T> a, Func<T, int> selector)
+        /// <summary>
+        /// Adds the transformed sequence of elements using multiple Tasks / Threads.
+        /// </summary>        
+        /// <param name="source">The sequence of values to transform then sum.</param>
+        /// <param name="selector">A transformation function.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The sum of the transformed elements.</returns>
+        public static int SumP<T>(this List<T> source, Func<T, int> selector, int? batchSize = null)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
@@ -397,7 +450,7 @@ namespace JM.LinqFaster.Parallel
             }
 
             int sum = 0;
-            var rangePartitioner = Partitioner.Create(0, a.Count);
+            var rangePartitioner = MakePartition(source.Count,batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0,
                 (range, s, acc) =>
@@ -406,7 +459,7 @@ namespace JM.LinqFaster.Parallel
                     {
                         for (int i = range.Item1; i < range.Item2; i++)
                         {
-                            acc += selector(a[i]);
+                            acc += selector(source[i]);
                         }
                     }
                     return acc;
@@ -416,14 +469,19 @@ namespace JM.LinqFaster.Parallel
             return sum;
         }
 
-        public static long SumP(this List<long> a)
+        /// <summary>
+        ///  Adds a sequence of values using multiple Tasks / Threads.
+        /// </summary>
+        /// <param name="source">The sequence to add.</param>
+        /// <returns>The sum of the sequence.</returns>
+        public static long SumP(this List<long> source, int? batchSize = null)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
             long sum = 0;
-            var rangePartitioner = Partitioner.Create(0, a.Count);
+            var rangePartitioner = MakePartition(source.Count,batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0L,
                 (range, s, acc) =>
@@ -432,7 +490,7 @@ namespace JM.LinqFaster.Parallel
                     {
                         for (int i = range.Item1; i < range.Item2; i++)
                         {
-                            acc += a[i];
+                            acc += source[i];
                         }
                     }
                     return acc;
@@ -442,11 +500,18 @@ namespace JM.LinqFaster.Parallel
             return sum;
         }
 
-        public static long SumP<T>(this List<T> a, Func<T, long> selector)
+        /// <summary>
+        /// Adds the transformed sequence of elements using multiple Tasks / Threads.
+        /// </summary>        
+        /// <param name="source">The sequence of values to transform then sum.</param>
+        /// <param name="selector">A transformation function.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The sum of the transformed elements.</returns>
+        public static long SumP<T>(this List<T> source, Func<T, long> selector, int? batchSize = null)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
@@ -455,7 +520,7 @@ namespace JM.LinqFaster.Parallel
             }
 
             long sum = 0;
-            var rangePartitioner = Partitioner.Create(0, a.Count);
+            var rangePartitioner = MakePartition(source.Count,batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0L,
                 (range, s, acc) =>
@@ -464,7 +529,7 @@ namespace JM.LinqFaster.Parallel
                     {
                         for (int i = range.Item1; i < range.Item2; i++)
                         {
-                            acc += selector(a[i]);
+                            acc += selector(source[i]);
                         }
                     }
                     return acc;
@@ -474,23 +539,28 @@ namespace JM.LinqFaster.Parallel
             return sum;
         }
 
-
-        public static float SumP(this List<float> a)
+        /// <summary>
+        ///  Adds a sequence of values using multiple Tasks / Threads.
+        /// </summary>
+        /// <param name="source">The sequence to add.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The sum of the sequence.</returns>
+        public static float SumP(this List<float> source, int? batchSize = null)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
             double sum = 0;
             object LOCK = new object();
-            var rangePartitioner = Partitioner.Create(0, a.Count);
+            var rangePartitioner = MakePartition(source.Count,batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0.0,
                 (range, s, acc) =>
                 {
                     for (int i = range.Item1; i < range.Item2; i++)
                     {
-                        acc += a[i];
+                        acc += source[i];
                     }
                     return acc;
                 },
@@ -499,11 +569,18 @@ namespace JM.LinqFaster.Parallel
             return (float)sum;
         }
 
-        public static float SumP<T>(this List<T> a, Func<T, float> selector)
+        /// <summary>
+        /// Adds the transformed sequence of elements using multiple Tasks / Threads.
+        /// </summary>        
+        /// <param name="source">The sequence of values to transform then sum.</param>
+        /// <param name="selector">A transformation function.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The sum of the transformed elements.</returns>
+        public static float SumP<T>(this List<T> source, Func<T, float> selector, int? batchSize = null)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
@@ -513,14 +590,14 @@ namespace JM.LinqFaster.Parallel
 
             double sum = 0;
             object LOCK = new object();
-            var rangePartitioner = Partitioner.Create(0, a.Count);
+            var rangePartitioner = MakePartition(source.Count,batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0.0,
                 (range, s, acc) =>
                 {
                     for (int i = range.Item1; i < range.Item2; i++)
                     {
-                        acc += selector(a[i]);
+                        acc += selector(source[i]);
                     }
                     return acc;
                 },
@@ -530,22 +607,28 @@ namespace JM.LinqFaster.Parallel
         }
 
 
-        public static double SumP(this List<double> a)
+        /// <summary>
+        ///  Adds a sequence of values using multiple Tasks / Threads.
+        /// </summary>
+        /// <param name="source">The sequence to add.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The sum of the sequence.</returns>
+        public static double SumP(this List<double> source, int? batchSize = null)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
             double sum = 0;
             object LOCK = new object();
-            var rangePartitioner = Partitioner.Create(0, a.Count);
+            var rangePartitioner = MakePartition(source.Count,batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0.0,
                 (range, s, acc) =>
                 {
                     for (int i = range.Item1; i < range.Item2; i++)
                     {
-                        acc += a[i];
+                        acc += source[i];
                     }
                     return acc;
                 },
@@ -554,11 +637,18 @@ namespace JM.LinqFaster.Parallel
             return sum;
         }
 
-        public static double SumP<T>(this List<T> a, Func<T, double> selector)
+        /// <summary>
+        /// Adds the transformed sequence of elements using multiple Tasks / Threads.
+        /// </summary>        
+        /// <param name="source">The sequence of values to transform then sum.</param>
+        /// <param name="selector">A transformation function.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The sum of the transformed elements.</returns>
+        public static double SumP<T>(this List<T> source, Func<T, double> selector, int? batchSize = null)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
@@ -568,7 +658,7 @@ namespace JM.LinqFaster.Parallel
 
             double sum = 0;
             object LOCK = new object();
-            var rangePartitioner = Partitioner.Create(0, a.Count);
+            var rangePartitioner = MakePartition(source.Count,batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0.0,
                 (range, s, acc) =>
@@ -577,7 +667,7 @@ namespace JM.LinqFaster.Parallel
                     {
                         for (int i = range.Item1; i < range.Item2; i++)
                         {
-                            acc += selector(a[i]);
+                            acc += selector(source[i]);
                         }
                     }
                     return acc;
@@ -587,16 +677,22 @@ namespace JM.LinqFaster.Parallel
             return sum;
         }
 
-        public static decimal SumP(this List<decimal> a)
+        /// <summary>
+        ///  Adds a sequence of values using multiple Tasks / Threads.
+        /// </summary>
+        /// <param name="source">The sequence to add.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The sum of the sequence.</returns>
+        public static decimal SumP(this List<decimal> source, int? batchSize = null)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
             decimal sum = 0;
 
             object LOCK = new object();
-            var rangePartitioner = Partitioner.Create(0, a.Count);
+            var rangePartitioner = MakePartition(source.Count,batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => (decimal)0.0,
                 (range, s, acc) =>
@@ -604,7 +700,7 @@ namespace JM.LinqFaster.Parallel
 
                     for (int i = range.Item1; i < range.Item2; i++)
                     {
-                        acc += a[i];
+                        acc += source[i];
                     }
 
                     return acc;
@@ -615,11 +711,18 @@ namespace JM.LinqFaster.Parallel
             return sum;
         }
 
-        public static decimal SumP<T>(this List<T> a, Func<T, decimal> selector)
+        /// <summary>
+        /// Adds the transformed sequence of elements using multiple Tasks / Threads.
+        /// </summary>        
+        /// <param name="source">The sequence of values to transform then sum.</param>
+        /// <param name="selector">A transformation function.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>The sum of the transformed elements.</returns>
+        public static decimal SumP<T>(this List<T> source, Func<T, decimal> selector, int? batchSize = null)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
@@ -629,7 +732,7 @@ namespace JM.LinqFaster.Parallel
 
             decimal sum = 0;
             object LOCK = new object();
-            var rangePartitioner = Partitioner.Create(0, a.Count);
+            var rangePartitioner = MakePartition(source.Count,batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => (decimal)0.0,
                 (range, s, acc) =>
@@ -637,7 +740,7 @@ namespace JM.LinqFaster.Parallel
 
                     for (int i = range.Item1; i < range.Item2; i++)
                     {
-                        acc += selector(a[i]);
+                        acc += selector(source[i]);
                     }
 
                     return acc;

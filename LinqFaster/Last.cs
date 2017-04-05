@@ -30,8 +30,8 @@ namespace JM.LinqFaster
         /// </summary>        
         /// <param name="source">A sequence to return an element from.</param>
         /// <param name="predicate">A function to test each element for a condition.</param>
-        /// <returns></returns>
-        public static T LastF<T>(this T[] source, Func<T, bool> predicate)
+        /// <returns></returns>       
+        public static T LastF<T>(this T[] source, Predicate<T> predicate)
         {
             if (source == null)
             {
@@ -43,15 +43,12 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(predicate));
             }
 
-            for (long i = source.Length - 1; i >= 0; i--)
-            {
-                if (predicate(source[i]))
-                {
-                    return source[i];
-                }
-            }
+            var lastIndex = Array.FindLastIndex(source, predicate);
 
-            throw Error.NoMatch();
+            if (lastIndex == -1)
+                throw Error.NoMatch();
+            else
+                return source[lastIndex];
         }
 
         /// <summary>
@@ -81,7 +78,7 @@ namespace JM.LinqFaster
         /// <returns>default value if the sequence is empty or if no elements pass the test 
         /// in the predicate function; otherwise, the last element that passes the test in the 
         /// predicate function.</returns>
-        public static T LastOrDefaultF<T>(this T[] source, Func<T, bool> predicate)
+        public static T LastOrDefaultF<T>(this T[] source, Predicate<T> predicate)
         {
             if (source == null)
             {
@@ -93,15 +90,12 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(predicate));
             }
 
-            for (long i = source.Length - 1; i >= 0; i--)
-            {
-                if (predicate(source[i]))
-                {
-                    return source[i];
-                }
-            }
+            var lastIndex = Array.FindLastIndex(source, predicate);
 
-            return default(T);
+            if (lastIndex == -1)
+                return default(T);
+            else
+                return source[lastIndex];
         }
 
         // --------------------------  Lists --------------------------------------------
@@ -130,7 +124,7 @@ namespace JM.LinqFaster
         /// <param name="source">A sequence to return an element from.</param>
         /// <param name="predicate">A function to test each element for a condition.</param>
         /// <returns></returns>
-        public static T LastF<T>(this List<T> source, Func<T, bool> predicate)
+        public static T LastF<T>(this List<T> source, Predicate<T> predicate)
         {
             if (source == null)
             {
@@ -142,15 +136,12 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(predicate));
             }
 
-            for (int i = source.Count - 1; i >= 0; i--)
-            {
-                if (predicate(source[i]))
-                {
-                    return source[i];
-                }
-            }
+            var lastIndex = source.FindLastIndex(predicate);
 
-            throw Error.NoMatch();
+            if (lastIndex == -1)
+                throw Error.NoMatch();
+            else
+                return source[lastIndex];
         }
 
         /// <summary>
@@ -180,7 +171,7 @@ namespace JM.LinqFaster
         /// <returns>default value if the sequence is empty or if no elements pass the test 
         /// in the predicate function; otherwise, the last element that passes the test in the 
         /// predicate function.</returns>
-        public static T LastOrDefaultF<T>(this List<T> source, Func<T, bool> predicate)
+        public static T LastOrDefaultF<T>(this List<T> source, Predicate<T> predicate)
         {
             if (source == null)
             {
@@ -192,15 +183,12 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(predicate));
             }
 
-            for (int i = source.Count - 1; i >= 0; i--)
-            {
-                if (predicate(source[i]))
-                {
-                    return source[i];
-                }
-            }
+            var lastIndex = source.FindLastIndex(predicate);
 
-            return default(T);
+            if (lastIndex == -1)
+                return default(T);
+            else
+                return source[lastIndex];
         }
     }
 }

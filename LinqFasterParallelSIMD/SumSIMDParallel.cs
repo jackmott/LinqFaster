@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Numerics;
-using System.Threading;
+﻿using System.Numerics;
 using static JM.LinqFaster.Utils.GenericOperators;
 using static JM.LinqFaster.Utils.ParallelUtils;
 

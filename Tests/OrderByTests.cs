@@ -2,8 +2,6 @@
 using JM.LinqFaster;
 using System;
 using static Tests.Test;
-using System.Diagnostics;
-using System.Linq;
 
 namespace Tests
 {

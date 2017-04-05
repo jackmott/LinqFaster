@@ -8,6 +8,7 @@ namespace JM.LinqFaster
     {
         /// <summary>
         /// Sorts the elements of a sequence in ascending order according to a key.
+        /// Unlike standard Linq NOT a stable sort.
         /// </summary>        
         /// <param name="source">A sequence of values to order.</param>
         /// <param name="keySelector">A function to extract a key from an element.</param>
@@ -36,12 +37,13 @@ namespace JM.LinqFaster
                 keys[i] = keySelector(source[i]);
             }            
             var result = (TSource[])source.Clone();
-            Array.Sort(keys,result,comparer);            
+            Array.Sort(keys,result,comparer);                        
             return result;
         }
 
         /// <summary>
         /// Sorts the elements of a sequence in descending order according to a key.
+        /// Unlike standard Linq NOT a stable sort.
         /// </summary>        
         /// <param name="source">A sequence of values to order.</param>
         /// <param name="keySelector">A function to extract a key from an element.</param>
@@ -74,6 +76,7 @@ namespace JM.LinqFaster
 
         /// <summary>
         /// Sorts the elements of a sequence in ascending order according to a key.
+        /// Unlike standard Linq NOT a stable sort.
         /// </summary>        
         /// <param name="source">A sequence of values to order.</param>
         /// <param name="keySelector">A function to extract a key from an element.</param>
@@ -104,6 +107,7 @@ namespace JM.LinqFaster
 
         /// <summary>
         /// Sorts the elements of a sequence in descending order according to a key.
+        /// Unlike standard Linq NOT a stable sort.
         /// </summary>        
         /// <param name="source">A sequence of values to order.</param>
         /// <param name="keySelector">A function to extract a key from an element.</param>

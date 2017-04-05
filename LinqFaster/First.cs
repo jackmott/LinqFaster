@@ -55,6 +55,9 @@ namespace JM.LinqFaster
             throw Error.NoMatch();
         }
 
+       
+
+
         /// <summary>
         /// Returns the first element of an array, or a default value if the
         /// array contains no elements.
@@ -130,8 +133,8 @@ namespace JM.LinqFaster
         /// </summary>        
         /// <param name="source">An list to return an element from.</param>
         /// <param name="predicate">A function to teast each element for a condition.</param>
-        /// <returns>The first element in the list that satisfies the condition.</returns>
-        public static T FirstF<T>(this List<T> source, Func<T, bool> predicate)
+        /// <returns>The first element in the list that satisfies the condition.</returns>       
+        public static T FirstF<T>(this List<T> source, Predicate<T> predicate)
         {
             if (source == null)
             {
@@ -143,15 +146,11 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(predicate));
             }
 
-            for (int i = 0; i < source.Count; i++)
-            {
-                if (predicate(source[i]))
-                {
-                    return source[i];
-                }
-            }
-
-            throw Error.NoMatch();
+            var firstIndex = source.FindIndex(predicate);
+            if (firstIndex == -1)
+                throw Error.NoMatch();
+            else
+                return source[firstIndex];
         }
 
         /// <summary>
@@ -181,7 +180,7 @@ namespace JM.LinqFaster
         /// <param name="source">An IEnumerable to return an element from.</param>
         /// <param name="predicate">A function to test each element for a condition.</param>
         /// <returns></returns>
-        public static T FirstOrDefaultF<T>(this List<T> source, Func<T, bool> predicate)
+        public static T FirstOrDefaultF<T>(this List<T> source, Predicate<T> predicate)
         {
             if (source == null)
             {
@@ -193,15 +192,11 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(predicate));
             }
 
-            for (int i = 0; i < source.Count; i++)
-            {
-                if (predicate(source[i]))
-                {
-                    return source[i];
-                }
-            }
-
-            return default(T);
+            var firstIndex = source.FindIndex(predicate);
+            if (firstIndex == -1)
+                return default(T);
+            else
+                return source[firstIndex];
         }
     }
 }

@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace JM.LinqFaster.Utils {
+namespace JM.LinqFaster.Utils
+{
 
     //Takes a comparer, and creates a reverse comparer, for Descending sorts
     public sealed class ComparerReverser<T> : IComparer<T> {

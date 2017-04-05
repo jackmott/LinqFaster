@@ -2,14 +2,11 @@
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
 using JM.LinqFaster;
-using JM.LinqFaster.SIMD;
-using JM.LinqFaster.SIMD.Parallel;
 using JM.LinqFaster.Parallel;
 using System.Linq;
 using System.Collections.Generic;
 using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Jobs;
-using System.Threading.Tasks;
 
 namespace Tests
 {
@@ -24,9 +21,10 @@ namespace Tests
 
         public List<int> list;
         public int[] array;
+        public string[] strarray;
         
 
-        [Params(10000,100000,1000000)]
+        [Params(100000)]
         public int TEST_SIZE { get; set; }
 
         public Benchmarks()
@@ -41,12 +39,13 @@ namespace Tests
             Random r = new Random();
             array = new int[TEST_SIZE];
             list = new List<int>(TEST_SIZE);
-        
+            strarray = new string[TEST_SIZE];
                                     
             for (int i = 0; i < TEST_SIZE; i++)
             {
-                array[i] = r.Next(-100, 100);
+                array[i] = i - (TEST_SIZE)/2;
                 list.Add(array[i]);
+                strarray[i] = array[i].ToString();
             }
         }
 
@@ -185,52 +184,39 @@ namespace Tests
             return array.MinS();
         }*/
         
-        [Benchmark]
-        public int SumLinq()
-        {
-            return array.Sum();
-        }
-
-        [Benchmark]
-        public int SumPLinq()
-        {
-            return array.AsParallel().Sum();
-        }
-
-        [Benchmark]
-        public int SumFast()
-        {
-            return array.SumF();
-        }
-
-        [Benchmark]
-        public int SumFastParallel() {
-            return array.SumP();
-        }
-
-
-        [Benchmark]
-        public int SumFastSIMD()
-        {
-            return array.SumS();
-        }
-
-        [Benchmark]
-        public int SumFastParallelSIMD()
-        {
-            return array.SumSP();
-        }
-
-
+            
         
+
+        [Benchmark]
+        public List<int> WhereScalar()
+        {
+            return list.WhereF(x => x % 2 == 0);
+        }
+
+        [Benchmark]
+        public List<int> WherePLinq()
+        {
+            return list.AsParallel().Where(x => x % 2 == 0).ToList();
+        }
+
+        [Benchmark]
+        public List<int> WhereP()
+        {
+            return list.WhereP(x => x % 2 == 0);
+        }
+
+     
+
+
+
+
+
+
         public static void Main(string[] args)
         {
-            int[] test = { -5,5,0,2,3,-2,1};
-            var x = test.OrderByF(a => a*a);
-            var y = test.OrderByDescendingF(a => a*a);            
             
             
-            var summary = BenchmarkRunner.Run<Benchmarks>(ManualConfig.Create(DefaultConfig.Instance).With(Job.RyuJitX64));
+           var summary = BenchmarkRunner.Run<Benchmarks>(ManualConfig.Create(DefaultConfig.Instance).With(Job.RyuJitX64));
 
         }
 

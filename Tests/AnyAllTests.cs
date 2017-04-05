@@ -1,7 +1,6 @@
 ﻿using NUnit.Framework;
 using JM.LinqFaster;
 using System.Linq;
-using System;
 using static Tests.Test;
 
 namespace Tests
@@ -13,8 +12,8 @@ namespace Tests
         [Test]
         public void AllArray()
         {            
-            var a = intArray.AllF(onlyEvenInts);
-            var b = intArray.All(onlyEvenInts);
+            var a = intArray.AllF(x => x % 2 == 0);
+            var b = intArray.All(x => x % 2 == 0);
 
             Assert.That(a, Is.EqualTo(b));            
         }
@@ -23,8 +22,8 @@ namespace Tests
         [Test]
         public void AllList()
         {            
-            var a = intList.AllF(onlyEvenInts);
-            var b = intList.All(onlyEvenInts);
+            var a = intList.AllF(x => x % 2 == 0);
+            var b = intList.All(x => x % 2 == 0);
 
             Assert.That(a, Is.EqualTo(b));
         }
@@ -32,9 +31,7 @@ namespace Tests
         [Test]
         public void AnyArray()
         {
-            
-            Func<int, bool> nines = (x => x == 999999);
-
+                        
             var a = intArray.AnyF();
             var b = intArray.Any();
 
@@ -46,13 +43,13 @@ namespace Tests
 
             Assert.That(a, Is.EqualTo(b));
 
-            a = intArray.AnyF(onlyEvenInts);
-            b = intArray.Any(onlyEvenInts);
+            a = intArray.AnyF(x => x % 2 == 0);
+            b = intArray.Any(x => x % 2 == 0);
 
             Assert.That(a, Is.EqualTo(b));
 
-            a = intArray.AnyF(nines);
-            b = intArray.Any(nines);
+            a = intArray.AnyF(x => x == 999999);
+            b = intArray.Any(x => x == 999999);
 
             Assert.That(a, Is.EqualTo(b));
 
@@ -60,9 +57,7 @@ namespace Tests
 
         [Test]
         public void AnyList()
-        {
-            
-            Func<int, bool> nines = (x => x == 999999);
+        {                        
 
             var a = intList.AnyF();
             var b = intList.Any();
@@ -75,13 +70,13 @@ namespace Tests
 
             Assert.That(a, Is.EqualTo(b));
 
-            a = intList.AnyF(onlyEvenInts);
-            b = intList.Any(onlyEvenInts);
+            a = intList.AnyF(x => x % 2 == 0);
+            b = intList.Any(x => x % 2 == 0);
 
             Assert.That(a, Is.EqualTo(b));
 
-            a = intList.AnyF(nines);
-            b = intList.Any(nines);
+            a = intList.AnyF(x => x == 999999);
+            b = intList.Any(x => x == 999999);
 
             Assert.That(a, Is.EqualTo(b));
 
