@@ -15,14 +15,7 @@ namespace Tests {
 
             Assert.That(a, Is.EqualTo(b));            
         }
-
-        [Test]
-        public void LongCountArray() {
-            var a = intArray.LongCountF(onlyEvenInts);
-            var b = intArray.LongCount(onlyEvenInts);
-
-            Assert.That(a, Is.EqualTo(b));
-        }
+      
 
         [Test]
         public void CountList() {

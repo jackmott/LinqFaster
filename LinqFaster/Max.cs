@@ -7,13 +7,19 @@ namespace JM.LinqFaster
     public static partial class LinqFaster
     {
         // --------------------------  ARRAYS  --------------------------------------------
-        public static T MaxF<T>(this T[] a)
+
+        /// <summary>
+        /// Returns the maximum value in a sequence of values.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum of.</param>
+        /// <returns>The maximum value in the sequence</returns>
+        public static T MaxF<T>(this T[] source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Length == 0)
+            if (source.Length == 0)
             {
                 throw Error.NoElements();
             }
@@ -22,34 +28,40 @@ namespace JM.LinqFaster
             T r = default(T);
             if (r == null)
             {
-                r = a[0];
-                for (long i = 1; i < a.LongLength; i++)
+                r = source[0];
+                for (long i = 1; i < source.Length; i++)
                 {
-                    if (a[i] != null && comparer.Compare(a[i], r) > 0) r = a[i];
+                    if (source[i] != null && comparer.Compare(source[i], r) > 0) r = source[i];
                 }
             }
             else
             {
-                r = a[0];
-                for (long i = 1; i < a.LongLength; i++)
+                r = source[0];
+                for (long i = 1; i < source.Length; i++)
                 {
-                    if (comparer.Compare(a[i], r) > 0) r = a[i];
+                    if (comparer.Compare(source[i], r) > 0) r = source[i];
                 }
             }
             return r;
         }
 
-        public static TResult MaxF<T, TResult>(this T[] a, Func<T, TResult> selector)
+        /// <summary>
+        /// Invokes a transform function on each element of a sequence and returns the maximum value.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum value of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <returns>The maximum value in the transform of the sequence.</returns>
+        public static TResult MaxF<T, TResult>(this T[] source, Func<T, TResult> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Length == 0)
+            if (source.Length == 0)
             {
                 throw Error.NoElements();
             }
@@ -58,50 +70,61 @@ namespace JM.LinqFaster
             TResult r = default(TResult);
             if (r == null)
             {
-                r = selector(a[0]);
-                for (long i = 1; i < a.LongLength; i++)
+                r = selector(source[0]);
+                for (long i = 1; i < source.Length; i++)
                 {
-                    var v = selector(a[i]);
+                    var v = selector(source[i]);
                     if (v != null && comparer.Compare(v, r) > 0) r = v;
                 }
             }
             else
             {
-                r = selector(a[0]);                
-                for (long i = 1; i < a.LongLength; i++)
+                r = selector(source[0]);                
+                for (long i = 1; i < source.Length; i++)
                 {
-                    var v = selector(a[i]);
+                    var v = selector(source[i]);
                     if (comparer.Compare(v, r) > 0) r = v;
                 }
             }
             return r;
         }
 
-        public static int MaxF(this int[] a)
+        /// <summary>
+        /// Returns the maximum value in a sequence of values.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum of.</param>
+        /// <returns>The maximum value in the sequence</returns>
+        public static int MaxF(this int[] source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Length == 0)
+            if (source.Length == 0)
             {
                 throw Error.NoElements();
             }
             int r = int.MinValue;
-            for (long i = 0; i < a.LongLength; i++)
+            for (int i = 0; i < source.Length; i++)
             {
-                if (a[i] > r) r = a[i];
+                if (source[i] > r) r = source[i];
             }
             return r;
         }
 
-        public static int MaxF<T>(this T[] a, Func<T, int> selector)
+        /// <summary>
+        /// Invokes a transform function on each element of a sequence and returns the maximum value.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum value of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <returns>The maximum value in the transform of the sequence.</returns>
+        public static int MaxF<T>(this T[] source, Func<T, int> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Length == 0)
+            if (source.Length == 0)
             {
                 throw Error.NoElements();
             }
@@ -111,41 +134,51 @@ namespace JM.LinqFaster
             }
 
             int r = int.MinValue;
-            for (long i = 0; i < a.LongLength; i++)
+            for (int i = 0; i < source.Length; i++)
             {
-                var v = selector(a[i]);
+                var v = selector(source[i]);
                 if (v > r) r = v;
             }
             return r;
         }
 
-        public static long MaxF(this long[] a)
+        /// <summary>
+        /// Returns the maximum value in a sequence of values.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum of.</param>
+        /// <returns>The maximum value in the sequence</returns>
+        public static long MaxF(this long[] source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Length == 0)
+            if (source.Length == 0)
             {
                 throw Error.NoElements();
             }
             long r = long.MinValue;
-            for (long i = 0; i < a.LongLength; i++)
+            for (int i = 0; i < source.Length; i++)
             {
-                if (a[i] > r) r = a[i];
+                if (source[i] > r) r = source[i];
             }
             return r;
         }
 
 
-
-        public static long MaxF<T>(this T[] a, Func<T, long> selector)
+        /// <summary>
+        /// Invokes a transform function on each element of a sequence and returns the maximum value.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum value of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <returns>The maximum value in the transform of the sequence.</returns>
+        public static long MaxF<T>(this T[] source, Func<T, long> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Length == 0)
+            if (source.Length == 0)
             {
                 throw Error.NoElements();
             }
@@ -155,48 +188,59 @@ namespace JM.LinqFaster
             }
 
             long r = long.MinValue;
-            for (long i = 0; i < a.LongLength; i++)
+            for (int i = 0; i < source.Length; i++)
             {
-                var v = selector(a[i]);
+                var v = selector(source[i]);
                 if (v > r) r = v;
             }
             return r;
         }
 
-        public static float MaxF(this float[] a)
+        /// <summary>
+        /// Returns the maximum value in a sequence of values.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum of.</param>
+        /// <returns>The maximum value in the sequence</returns>
+        public static float MaxF(this float[] source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Length == 0)
+            if (source.Length == 0)
             {
                 throw Error.NoElements();
             }
-            float r = a[0];
+            float r = source[0];
             int startIndex = 0;
-            for (; startIndex < a.Length; startIndex++)
+            for (; startIndex < source.Length; startIndex++)
             {
-                if (!float.IsNaN(a[startIndex]))
+                if (!float.IsNaN(source[startIndex]))
                 {
-                    r = a[startIndex];
+                    r = source[startIndex];
                     break;
                 }
             }
-            for (long i = startIndex; i < a.Length; i++)
+            for (long i = startIndex; i < source.Length; i++)
             {
-                if (a[i] > r) r = a[i];
+                if (source[i] > r) r = source[i];
             }
             return r;
         }
 
-        public static float MaxF<T>(this T[] a, Func<T, float> selector)
+        /// <summary>
+        /// Invokes a transform function on each element of a sequence and returns the maximum value.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum value of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <returns>The maximum value in the transform of the sequence.</returns>
+        public static float MaxF<T>(this T[] source, Func<T, float> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Length == 0)
+            if (source.Length == 0)
             {
                 throw Error.NoElements();
             }
@@ -205,59 +249,70 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(selector));
             }
 
-            float r = selector(a[0]);
+            float r = selector(source[0]);
             int startIndex = 0;
-            for (; startIndex < a.Length; startIndex++)
+            for (; startIndex < source.Length; startIndex++)
             {
-                var v = selector(a[startIndex]);
+                var v = selector(source[startIndex]);
                 if (!float.IsNaN(v))
                 {
                     r = v;
                     break;
                 }
             }
-            for (long i = startIndex; i < a.Length; i++)
+            for (long i = startIndex; i < source.Length; i++)
             {
-                var v = selector(a[i]);
+                var v = selector(source[i]);
                 if (v > r) r = v;
             }
             return r;
         }
 
-        public static double MaxF(this double[] a)
+        /// <summary>
+        /// Returns the maximum value in a sequence of values.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum of.</param>
+        /// <returns>The maximum value in the sequence</returns>
+        public static double MaxF(this double[] source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Length == 0)
+            if (source.Length == 0)
             {
                 throw Error.NoElements();
             }
-            double r = a[0];
+            double r = source[0];
             int startIndex = 0;
-            for (; startIndex < a.Length; startIndex++)
+            for (; startIndex < source.Length; startIndex++)
             {
-                if (!double.IsNaN(a[startIndex]))
+                if (!double.IsNaN(source[startIndex]))
                 {
-                    r = a[startIndex];
+                    r = source[startIndex];
                     break;
                 }
             }
-            for (long i = startIndex; i < a.Length; i++)
+            for (long i = startIndex; i < source.Length; i++)
             {
-                if (a[i] > r) r = a[i];
+                if (source[i] > r) r = source[i];
             }
             return r;
         }
 
-        public static double MaxF<T>(this T[] a, Func<T, double> selector)
+        /// <summary>
+        /// Invokes a transform function on each element of a sequence and returns the maximum value.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum value of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <returns>The maximum value in the transform of the sequence.</returns>
+        public static double MaxF<T>(this T[] source, Func<T, double> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Length == 0)
+            if (source.Length == 0)
             {
                 throw Error.NoElements();
             }
@@ -266,51 +321,62 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(selector));
             }
 
-            double r = selector(a[0]);
+            double r = selector(source[0]);
             int startIndex = 0;
-            for (; startIndex < a.Length; startIndex++)
+            for (; startIndex < source.Length; startIndex++)
             {
-                var v = selector(a[startIndex]);
+                var v = selector(source[startIndex]);
                 if (!double.IsNaN(v))
                 {
                     r = v;
                     break;
                 }
             }
-            for (long i = startIndex; i < a.Length; i++)
+            for (long i = startIndex; i < source.Length; i++)
             {
-                var v = selector(a[i]);
+                var v = selector(source[i]);
                 if (v > r) r = v;
             }
             return r;
         }
 
 
-        public static decimal MaxF(this decimal[] a)
+        /// <summary>
+        /// Returns the maximum value in a sequence of values.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum of.</param>
+        /// <returns>The maximum value in the sequence</returns>
+        public static decimal MaxF(this decimal[] source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Length == 0)
+            if (source.Length == 0)
             {
                 throw Error.NoElements();
             }
             decimal r = decimal.MinValue;
-            for (long i = 0; i < a.LongLength; i++)
+            for (int i = 0; i < source.Length; i++)
             {
-                if (a[i] > r) r = a[i];
+                if (source[i] > r) r = source[i];
             }
             return r;
         }
 
-        public static decimal MaxF<T>(this T[] a, Func<T, decimal> selector)
+        /// <summary>
+        /// Invokes a transform function on each element of a sequence and returns the maximum value.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum value of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <returns>The maximum value in the transform of the sequence.</returns>
+        public static decimal MaxF<T>(this T[] source, Func<T, decimal> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Length == 0)
+            if (source.Length == 0)
             {
                 throw Error.NoElements();
             }
@@ -319,22 +385,28 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(selector));
             }
             decimal r = decimal.MinValue;
-            for (long i = 0; i < a.LongLength; i++)
+            for (int i = 0; i < source.Length; i++)
             {
-                var v = selector(a[i]);
+                var v = selector(source[i]);
                 if (v > r) r = v;
             }
             return r;
         }
 
         // --------------------------  LISTS  --------------------------------------------
-        public static T MaxF<T>(this List<T> a)
+
+        /// <summary>
+        /// Returns the maximum value in a sequence of values.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum of.</param>
+        /// <returns>The maximum value in the sequence</returns>
+        public static T MaxF<T>(this List<T> source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Count == 0)
+            if (source.Count == 0)
             {
                 throw Error.NoElements();
             }
@@ -343,28 +415,34 @@ namespace JM.LinqFaster
             T r = default(T);
             if (r == null)
             {
-                r = a[0];
-                for (int i = 1; i < a.Count; i++)
+                r = source[0];
+                for (int i = 1; i < source.Count; i++)
                 {
-                    if (a[i] != null && comparer.Compare(a[i], r) > 0) r = a[i];
+                    if (source[i] != null && comparer.Compare(source[i], r) > 0) r = source[i];
                 }
             }
             else
             {
-                r = a[0];
-                for (int i = 1; i < a.Count; i++)
+                r = source[0];
+                for (int i = 1; i < source.Count; i++)
                 {
-                    if (comparer.Compare(a[i], r) > 0) r = a[i];
+                    if (comparer.Compare(source[i], r) > 0) r = source[i];
                 }
             }
             return r;
         }
 
-        public static TResult MaxF<T, TResult>(this List<T> a, Func<T, TResult> selector)
+        /// <summary>
+        /// Invokes a transform function on each element of a sequence and returns the maximum value.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum value of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <returns>The maximum value in the transform of the sequence.</returns>
+        public static TResult MaxF<T, TResult>(this List<T> source, Func<T, TResult> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
@@ -372,7 +450,7 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(selector));
             }
 
-            if (a.Count == 0)
+            if (source.Count == 0)
             {
                 throw Error.NoElements();
             }
@@ -381,19 +459,19 @@ namespace JM.LinqFaster
             TResult r = default(TResult);
             if (r == null)
             {
-                r = selector(a[0]);
-                for (int i = 1; i < a.Count; i++)
+                r = selector(source[0]);
+                for (int i = 1; i < source.Count; i++)
                 {
-                    var v = selector(a[i]);
+                    var v = selector(source[i]);
                     if (v != null && comparer.Compare(v, r) > 0) r = v;
                 }
             }
             else
             {
-                r = selector(a[0]);
-                for (int i = 1; i < a.Count; i++)
+                r = selector(source[0]);
+                for (int i = 1; i < source.Count; i++)
                 {
-                    var v = selector(a[i]);
+                    var v = selector(source[i]);
                     if (comparer.Compare(v, r) > 0) r = v;
                 }
             }
@@ -401,31 +479,42 @@ namespace JM.LinqFaster
         }
 
 
-        public static int MaxF(this List<int> a)
+        /// <summary>
+        /// Returns the maximum value in a sequence of values.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum of.</param>
+        /// <returns>The maximum value in the sequence</returns>
+        public static int MaxF(this List<int> source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Count == 0)
+            if (source.Count == 0)
             {
                 throw Error.NoElements();
             }
             int r = int.MinValue;
-            for (int i = 0; i < a.Count; i++)
+            for (int i = 0; i < source.Count; i++)
             {
-                if (a[i] > r) r = a[i];
+                if (source[i] > r) r = source[i];
             }
             return r;
         }
 
-        public static int MaxF<T>(this List<T> a, Func<T, int> selector)
+        /// <summary>
+        /// Invokes a transform function on each element of a sequence and returns the maximum value.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum value of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <returns>The maximum value in the transform of the sequence.</returns>
+        public static int MaxF<T>(this List<T> source, Func<T, int> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Count == 0)
+            if (source.Count == 0)
             {
                 throw Error.NoElements();
             }
@@ -435,89 +524,111 @@ namespace JM.LinqFaster
             }
 
             int r = int.MinValue;
-            for (int i = 0; i < a.Count; i++)
+            for (int i = 0; i < source.Count; i++)
             {
-                var v = selector(a[i]);
+                var v = selector(source[i]);
                 if (v > r) r = v;
             }
             return r;
         }
 
-        public static long MaxF(this List<long> a)
+        /// <summary>
+        /// Returns the maximum value in a sequence of values.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum of.</param>
+        /// <returns>The maximum value in the sequence</returns>
+        public static long MaxF(this List<long> source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Count == 0)
+            if (source.Count == 0)
             {
                 throw Error.NoElements();
             }
             long r = long.MinValue;
-            for (int i = 0; i < a.Count; i++)
+            for (int i = 0; i < source.Count; i++)
             {
-                if (a[i] > r) r = a[i];
+                if (source[i] > r) r = source[i];
             }
             return r;
         }
 
-        public static long MaxF<T>(this List<T> a, Func<T, long> selector)
+        /// <summary>
+        /// Invokes a transform function on each element of a sequence and returns the maximum value.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum value of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <returns>The maximum value in the transform of the sequence.</returns>
+        public static long MaxF<T>(this List<T> source, Func<T, long> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Count == 0)
+            if (source.Count == 0)
             {
                 throw Error.NoElements();
             }
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
             long r = long.MinValue;
-            for (int i = 0; i < a.Count; i++)
+            for (int i = 0; i < source.Count; i++)
             {
-                var v = selector(a[i]);
+                var v = selector(source[i]);
                 if (v > r) r = v;
             }
             return r;
         }
 
-        public static float MaxF(this List<float> a)
+        /// <summary>
+        /// Returns the maximum value in a sequence of values.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum of.</param>
+        /// <returns>The maximum value in the sequence</returns>
+        public static float MaxF(this List<float> source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Count == 0)
+            if (source.Count == 0)
             {
                 throw Error.NoElements();
             }
-            float r = a[0];
+            float r = source[0];
             int startIndex = 0;
-            for (; startIndex < a.Count; startIndex++)
+            for (; startIndex < source.Count; startIndex++)
             {
-                if (!float.IsNaN(a[startIndex]))
+                if (!float.IsNaN(source[startIndex]))
                 {
-                    r = a[startIndex];
+                    r = source[startIndex];
                     break;
                 }
             }
-            for (int i = startIndex; i < a.Count; i++)
+            for (int i = startIndex; i < source.Count; i++)
             {
-                if (a[i] > r) r = a[i];
+                if (source[i] > r) r = source[i];
             }
             return r;
         }
 
-        public static float MaxF<T>(this List<T> a, Func<T, float> selector)
+        /// <summary>
+        /// Invokes a transform function on each element of a sequence and returns the maximum value.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum value of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <returns>The maximum value in the transform of the sequence.</returns>
+        public static float MaxF<T>(this List<T> source, Func<T, float> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Count == 0)
+            if (source.Count == 0)
             {
                 throw Error.NoElements();
             }
@@ -525,59 +636,70 @@ namespace JM.LinqFaster
             {
                 throw Error.ArgumentNull(nameof(selector));
             }
-            float r = selector(a[0]);
+            float r = selector(source[0]);
             int startIndex = 0;
-            for (; startIndex < a.Count; startIndex++)
+            for (; startIndex < source.Count; startIndex++)
             {
-                var v = selector(a[startIndex]);
+                var v = selector(source[startIndex]);
                 if (!float.IsNaN(v))
                 {
                     r = v;
                     break;
                 }
             }
-            for (int i = startIndex; i < a.Count; i++)
+            for (int i = startIndex; i < source.Count; i++)
             {
-                var v = selector(a[i]);
+                var v = selector(source[i]);
                 if (v > r) r = v;
             }
             return r;
         }
 
-        public static double MaxF(this List<double> a)
+        /// <summary>
+        /// Returns the maximum value in a sequence of values.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum of.</param>
+        /// <returns>The maximum value in the sequence</returns>
+        public static double MaxF(this List<double> source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Count == 0)
+            if (source.Count == 0)
             {
                 throw Error.NoElements();
             }
-            double r = a[0];
+            double r = source[0];
             int startIndex = 0;
-            for (; startIndex < a.Count; startIndex++)
+            for (; startIndex < source.Count; startIndex++)
             {
-                if (!double.IsNaN(a[startIndex]))
+                if (!double.IsNaN(source[startIndex]))
                 {
-                    r = a[startIndex];
+                    r = source[startIndex];
                     break;
                 }
             }
-            for (int i = startIndex; i < a.Count; i++)
+            for (int i = startIndex; i < source.Count; i++)
             {
-                if (a[i] > r) r = a[i];
+                if (source[i] > r) r = source[i];
             }
             return r;
         }
 
-        public static double MaxF<T>(this List<T> a, Func<T, double> selector)
+        /// <summary>
+        /// Invokes a transform function on each element of a sequence and returns the maximum value.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum value of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <returns>The maximum value in the transform of the sequence.</returns>
+        public static double MaxF<T>(this List<T> source, Func<T, double> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Count == 0)
+            if (source.Count == 0)
             {
                 throw Error.NoElements();
             }
@@ -585,56 +707,68 @@ namespace JM.LinqFaster
             {
                 throw Error.ArgumentNull(nameof(selector));
             }
-            double r = selector(a[0]);
+            double r = selector(source[0]);
             int startIndex = 0;
-            for (; startIndex < a.Count; startIndex++)
+            for (; startIndex < source.Count; startIndex++)
             {
-                var v = selector(a[startIndex]);
+                var v = selector(source[startIndex]);
                 if (!double.IsNaN(v))
                 {
                     r = v;
                     break;
                 }
             }
-            for (int i = startIndex; i < a.Count; i++)
+            for (int i = startIndex; i < source.Count; i++)
             {
-                var v = selector(a[i]);
+                var v = selector(source[i]);
                 if (v > r) r = v;
             }
             return r;
         }
-        public static decimal MaxF(this List<decimal> a)
+
+        /// <summary>
+        /// Returns the maximum value in a sequence of values.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum of.</param>
+        /// <returns>The maximum value in the sequence</returns>
+        public static decimal MaxF(this List<decimal> source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Count == 0)
+            if (source.Count == 0)
             {
                 throw Error.NoElements();
             }
             decimal r = decimal.MinValue;
-            for (int i = 0; i < a.Count; i++)
+            for (int i = 0; i < source.Count; i++)
             {
-                if (a[i] > r) r = a[i];
+                if (source[i] > r) r = source[i];
             }
             return r;
         }
 
-        public static decimal MaxF<T>(this List<T> a, Func<T, decimal> selector)
+        /// <summary>
+        /// Invokes a transform function on each element of a sequence and returns the maximum value.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum value of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <returns>The maximum value in the transform of the sequence.</returns>
+        public static decimal MaxF<T>(this List<T> source, Func<T, decimal> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Count == 0)
+            if (source.Count == 0)
             {
                 throw Error.NoElements();
             }
             decimal r = decimal.MinValue;
-            for (int i = 0; i < a.Count; i++)
+            for (int i = 0; i < source.Count; i++)
             {
-                var v = selector(a[i]);
+                var v = selector(source[i]);
                 if (v > r) r = v;
             }
             return r;

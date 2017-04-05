@@ -25,7 +25,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -150,6 +150,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LinqFaster\LinqFaster.csproj">
+      <Project>{5b2f0f9f-6dda-4f06-a999-26e43ae04f86}</Project>
+      <Name>LinqFaster</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LinqFasterParallelSIMD\LinqFasterParallelSIMD.csproj">
       <Project>{351e4681-fae7-4ee2-b6c7-8e8dfbad0d72}</Project>
       <Name>LinqFasterParallelSIMD</Name>
@@ -161,10 +165,6 @@
     <ProjectReference Include="..\LinqFasterSIMD\LinqFasterSIMD.csproj">
       <Project>{c68d1198-4015-4c61-bdce-b1f7a1a0d0aa}</Project>
       <Name>LinqFasterSIMD</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LinqFaster\LinqFaster.csproj">
-      <Project>{84e891a8-1948-46fa-b896-832b03f71e87}</Project>
-      <Name>LinqFaster</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

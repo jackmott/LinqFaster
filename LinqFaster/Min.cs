@@ -8,13 +8,18 @@ namespace JM.LinqFaster
     {
         // --------------------------  ARRAYS  --------------------------------------------
 
-        public static T MinF<T>(this T[] a)
+        /// <summary>
+        /// Returns the minimum value in a sequence of values.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the minimum of.</param>
+        /// <returns>The minimum value in the sequence</returns>
+        public static T MinF<T>(this T[] source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Length == 0)
+            if (source.Length == 0)
             {
                 throw Error.NoElements();
             }
@@ -23,35 +28,41 @@ namespace JM.LinqFaster
             T r = default(T);
             if (r == null)
             {
-                r = a[0];
-                for (long i = 1; i < a.LongLength; i++)
+                r = source[0];
+                for (long i = 1; i < source.Length; i++)
                 {
-                    if (a[i] != null && comparer.Compare(a[i], r) < 0) r = a[i];
+                    if (source[i] != null && comparer.Compare(source[i], r) < 0) r = source[i];
                 }
             }
             else
             {
-                r = a[0];
-                for (long i = 1; i < a.LongLength; i++)
+                r = source[0];
+                for (long i = 1; i < source.Length; i++)
                 {
-                    if (comparer.Compare(a[i], r) < 0) r = a[i];
+                    if (comparer.Compare(source[i], r) < 0) r = source[i];
                 }
             }
             return r;
         }
 
-        public static TResult MinF<T, TResult>(this T[] a, Func<T, TResult> selector)
+        /// <summary>
+        /// Invokes a transform function on each element of a sequence and returns the maximum value.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum value of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <returns>The maximum value in the transform of the sequence.</returns>
+        public static TResult MinF<T, TResult>(this T[] source, Func<T, TResult> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
             {
                 throw Error.ArgumentNull(nameof(selector));
             }
-            if (a.Length == 0)
+            if (source.Length == 0)
             {
                 throw Error.NoElements();
             }
@@ -60,50 +71,61 @@ namespace JM.LinqFaster
             TResult r = default(TResult);
             if (r == null)
             {
-                r = selector(a[0]);
-                for (long i = 1; i < a.LongLength; i++)
+                r = selector(source[0]);
+                for (long i = 1; i < source.Length; i++)
                 {
-                    var v = selector(a[i]);
+                    var v = selector(source[i]);
                     if (v != null && comparer.Compare(v, r) < 0) r = v;
                 }
             }
             else
             {
-                r = selector(a[0]);
-                for (long i = 1; i < a.LongLength; i++)
+                r = selector(source[0]);
+                for (long i = 1; i < source.Length; i++)
                 {
-                    var v = selector(a[i]);
+                    var v = selector(source[i]);
                     if (comparer.Compare(v, r) < 0) r = v;
                 }
             }
             return r;
         }
 
-        public static int MinF(this int[] a)
+        /// <summary>
+        /// Returns the minimum value in a sequence of values.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the minimum of.</param>
+        /// <returns>The minimum value in the sequence</returns>
+        public static int MinF(this int[] source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Length == 0)
+            if (source.Length == 0)
             {
                 throw Error.NoElements();
             }
             int r = int.MaxValue;
-            for (long i = 0; i < a.LongLength; i++)
+            for (int i = 0; i < source.Length; i++)
             {
-                if (a[i] < r) r = a[i];
+                if (source[i] < r) r = source[i];
             }
             return r;
         }
 
-        public static int MinF<T>(this T[] a, Func<T, int> selector)
+        /// <summary>
+        /// Invokes a transform function on each element of a sequence and returns the maximum value.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum value of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <returns>The maximum value in the transform of the sequence.</returns>
+        public static int MinF<T>(this T[] source, Func<T, int> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Length == 0)
+            if (source.Length == 0)
             {
                 throw Error.NoElements();
             }
@@ -113,39 +135,50 @@ namespace JM.LinqFaster
             }
 
             int r = int.MaxValue;
-            for (long i = 0; i < a.LongLength; i++)
+            for (int i = 0; i < source.Length; i++)
             {
-                var v = selector(a[i]);
+                var v = selector(source[i]);
                 if (v < r) r = v;
             }
             return r;
         }
 
-        public static long MinF(this long[] a)
+        /// <summary>
+        /// Returns the minimum value in a sequence of values.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the minimum of.</param>
+        /// <returns>The minimum value in the sequence</returns>
+        public static long MinF(this long[] source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Length == 0)
+            if (source.Length == 0)
             {
                 throw Error.NoElements();
             }
             long r = long.MaxValue;
-            for (long i = 0; i < a.LongLength; i++)
+            for (int i = 0; i < source.Length; i++)
             {
-                if (a[i] < r) r = a[i];
+                if (source[i] < r) r = source[i];
             }
             return r;
         }
 
-        public static long MinF<T>(this T[] a, Func<T, long> selector)
+        /// <summary>
+        /// Invokes a transform function on each element of a sequence and returns the maximum value.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum value of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <returns>The maximum value in the transform of the sequence.</returns>
+        public static long MinF<T>(this T[] source, Func<T, long> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Length == 0)
+            if (source.Length == 0)
             {
                 throw Error.NoElements();
             }
@@ -155,42 +188,52 @@ namespace JM.LinqFaster
             }
 
             long r = long.MaxValue;
-            for (long i = 0; i < a.LongLength; i++)
+            for (int i = 0; i < source.Length; i++)
             {
-                var v = selector(a[i]);
+                var v = selector(source[i]);
                 if (v < r) r = v;
             }
             return r;
         }
 
-
-        public static float MinF(this float[] a)
+        /// <summary>
+        /// Returns the minimum value in a sequence of values.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the minimum of.</param>
+        /// <returns>The minimum value in the sequence</returns>
+        public static float MinF(this float[] source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Length == 0)
+            if (source.Length == 0)
             {
                 throw Error.NoElements();
             }
             float r = float.MaxValue;
-            for (long i = 0; i < a.LongLength; i++)
+            for (int i = 0; i < source.Length; i++)
             {
-                if (a[i] < r) r = a[i];
-                else if (float.IsNaN(a[i])) return a[i];
+                if (source[i] < r) r = source[i];
+                else if (float.IsNaN(source[i])) return source[i];
 
             }
             return r;
         }
 
-        public static float MinF<T>(this T[] a, Func<T, float> selector)
+        /// <summary>
+        /// Invokes a transform function on each element of a sequence and returns the maximum value.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum value of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <returns>The maximum value in the transform of the sequence.</returns>
+        public static float MinF<T>(this T[] source, Func<T, float> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Length == 0)
+            if (source.Length == 0)
             {
                 throw Error.NoElements();
             }
@@ -199,9 +242,9 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(selector));
             }
             float r = float.MaxValue;
-            for (long i = 0; i < a.LongLength; i++)
+            for (int i = 0; i < source.Length; i++)
             {
-                var v = selector(a[i]);
+                var v = selector(source[i]);
                 if (v < r) r = v;
                 else if (float.IsNaN(v)) return v;
 
@@ -209,33 +252,44 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static double MinF(this double[] a)
+        /// <summary>
+        /// Returns the minimum value in a sequence of values.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the minimum of.</param>
+        /// <returns>The minimum value in the sequence</returns>
+        public static double MinF(this double[] source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Length == 0)
+            if (source.Length == 0)
             {
                 throw Error.NoElements();
             }
             double r = double.MaxValue;
-            for (long i = 0; i < a.LongLength; i++)
+            for (int i = 0; i < source.Length; i++)
             {
-                if (a[i] < r) r = a[i];
-                else if (double.IsNaN(a[i])) return a[i];
+                if (source[i] < r) r = source[i];
+                else if (double.IsNaN(source[i])) return source[i];
             }
 
             return r;
         }
 
-        public static double MinF<T>(this T[] a, Func<T, double> selector)
+        /// <summary>
+        /// Invokes a transform function on each element of a sequence and returns the maximum value.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum value of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <returns>The maximum value in the transform of the sequence.</returns>
+        public static double MinF<T>(this T[] source, Func<T, double> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Length == 0)
+            if (source.Length == 0)
             {
                 throw Error.NoElements();
             }
@@ -244,9 +298,9 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(selector));
             }
             double r = double.MaxValue;
-            for (long i = 0; i < a.LongLength; i++)
+            for (int i = 0; i < source.Length; i++)
             {
-                var v = selector(a[i]);
+                var v = selector(source[i]);
                 if (v < r) r = v;
                 else if (double.IsNaN(v)) return v;
 
@@ -254,31 +308,41 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static decimal MinF(this decimal[] a)
+        /// <summary>
+        /// Returns the minimum value in a sequence of values.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the minimum of.</param>
+        /// <returns>The minimum value in the sequence</returns>
+        public static decimal MinF(this decimal[] source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Length == 0)
+            if (source.Length == 0)
             {
                 throw Error.NoElements();
             }
             decimal r = decimal.MaxValue;
-            for (long i = 0; i < a.LongLength; i++)
+            for (int i = 0; i < source.Length; i++)
             {
-                if (a[i] < r) r = a[i];
+                if (source[i] < r) r = source[i];
             }
             return r;
         }
-
-        public static decimal MinF<T>(this T[] a, Func<T, decimal> selector)
+        /// <summary>
+        /// Invokes a transform function on each element of a sequence and returns the maximum value.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum value of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <returns>The maximum value in the transform of the sequence.</returns>
+        public static decimal MinF<T>(this T[] source, Func<T, decimal> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Length == 0)
+            if (source.Length == 0)
             {
                 throw Error.NoElements();
             }
@@ -287,22 +351,28 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(selector));
             }
             decimal r = decimal.MaxValue;
-            for (long i = 0; i < a.LongLength; i++)
+            for (int i = 0; i < source.Length; i++)
             {
-                var v = selector(a[i]);
+                var v = selector(source[i]);
                 if (v < r) r = v;
             }
             return r;
         }
 
         // --------------------------  LISTS  --------------------------------------------
-        public static T MinF<T>(this List<T> a)
+
+        /// <summary>
+        /// Returns the minimum value in a sequence of values.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the minimum of.</param>
+        /// <returns>The minimum value in the sequence</returns>
+        public static T MinF<T>(this List<T> source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Count == 0)
+            if (source.Count == 0)
             {
                 throw Error.NoElements();
             }
@@ -311,48 +381,59 @@ namespace JM.LinqFaster
             T r = default(T);
             if (r == null)
             {
-                r = a[0];
-                for (int i = 1; i < a.Count; i++)
+                r = source[0];
+                for (int i = 1; i < source.Count; i++)
                 {
-                    if (a[i] != null && comparer.Compare(a[i], r) < 0) r = a[i];
+                    if (source[i] != null && comparer.Compare(source[i], r) < 0) r = source[i];
                 }
             }
             else
             {
-                r = a[0];     
-                for (int i = 1; i < a.Count; i++)
+                r = source[0];     
+                for (int i = 1; i < source.Count; i++)
                 {
-                    if (comparer.Compare(a[i], r) < 0) r = a[i];
+                    if (comparer.Compare(source[i], r) < 0) r = source[i];
                 }
             }
             return r;
         }
 
-        public static int MinF(this List<int> a)
+        /// <summary>
+        /// Returns the minimum value in a sequence of values.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the minimum of.</param>
+        /// <returns>The minimum value in the sequence</returns>
+        public static int MinF(this List<int>source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Count == 0)
+            if (source.Count == 0)
             {
                 throw Error.NoElements();
             }
             int r = int.MaxValue;
-            for (int i = 0; i < a.Count; i++)
+            for (int i = 0; i < source.Count; i++)
             {
-                if (a[i] < r) r = a[i];
+                if (source[i] < r) r = source[i];
             }
             return r;
         }
 
-        public static int MinF<T>(this List<T> a, Func<T, int> selector)
+        /// <summary>
+        /// Invokes a transform function on each element of a sequence and returns the maximum value.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum value of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <returns>The maximum value in the transform of the sequence.</returns>
+        public static int MinF<T>(this List<T> source, Func<T, int> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Count == 0)
+            if (source.Count == 0)
             {
                 throw Error.NoElements();
             }
@@ -362,83 +443,103 @@ namespace JM.LinqFaster
             }
 
             int r = int.MaxValue;
-            for (int i = 0; i < a.Count; i++)
+            for (int i = 0; i < source.Count; i++)
             {
-                var v = selector(a[i]);
+                var v = selector(source[i]);
                 if (v < r) r = v;
             }
             return r;
         }
 
-
-        public static long MinF(this List<long> a)
+        /// <summary>
+        /// Returns the minimum value in a sequence of values.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the minimum of.</param>
+        /// <returns>The minimum value in the sequence</returns>
+        public static long MinF(this List<long> source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Count == 0)
+            if (source.Count == 0)
             {
                 throw Error.NoElements();
             }
             long r = long.MaxValue;
-            for (int i = 0; i < a.Count; i++)
+            for (int i = 0; i < source.Count; i++)
             {
-                if (a[i] < r) r = a[i];
+                if (source[i] < r) r = source[i];
             }
             return r;
         }
 
-        public static long MinF<T>(this List<T> a, Func<T, long> selector)
+        /// <summary>
+        /// Invokes a transform function on each element of a sequence and returns the maximum value.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum value of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <returns>The maximum value in the transform of the sequence.</returns>
+        public static long MinF<T>(this List<T> source, Func<T, long> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Count == 0)
+            if (source.Count == 0)
             {
                 throw Error.NoElements();
             }
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
             long r = long.MaxValue;
-            for (int i = 0; i < a.Count; i++)
+            for (int i = 0; i < source.Count; i++)
             {
-                var v = selector(a[i]);
+                var v = selector(source[i]);
                 if (v < r) r = v;
             }
             return r;
         }
 
-
-        public static float MinF(this List<float> a)
+        /// <summary>
+        /// Returns the minimum value in a sequence of values.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the minimum of.</param>
+        /// <returns>The minimum value in the sequence</returns>
+        public static float MinF(this List<float> source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Count == 0)
+            if (source.Count == 0)
             {
                 throw Error.NoElements();
             }
             float r = float.MaxValue;
-            for (int i = 0; i < a.Count; i++)
+            for (int i = 0; i < source.Count; i++)
             {
-                if (a[i] < r) r = a[i];
-                else if (float.IsNaN(a[i])) return a[i];
+                if (source[i] < r) r = source[i];
+                else if (float.IsNaN(source[i])) return source[i];
             }
             return r;
         }
 
-        public static float MinF<T>(this List<T> a, Func<T, float> selector)
+        /// <summary>
+        /// Invokes a transform function on each element of a sequence and returns the maximum value.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum value of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <returns>The maximum value in the transform of the sequence.</returns>
+        public static float MinF<T>(this List<T> source, Func<T, float> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Count == 0)
+            if (source.Count == 0)
             {
                 throw Error.NoElements();
             }
@@ -448,31 +549,35 @@ namespace JM.LinqFaster
             }
 
             float r = float.MaxValue;
-            for (int i = 0; i < a.Count; i++)
+            for (int i = 0; i < source.Count; i++)
             {
-                var v = selector(a[i]);
+                var v = selector(source[i]);
                 if (v < r) r = v;
                 else if (float.IsNaN(v)) return v;
             }
             return r;
         }
 
-
-        public static double MinF(this List<double> a)
+        /// <summary>
+        /// Returns the minimum value in a sequence of values.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the minimum of.</param>
+        /// <returns>The minimum value in the sequence</returns>
+        public static double MinF(this List<double> source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Count == 0)
+            if (source.Count == 0)
             {
                 throw Error.NoElements();
             }
             double r = double.MaxValue;
-            for (int i = 0; i < a.Count; i++)
+            for (int i = 0; i < source.Count; i++)
             {
-                if (a[i] < r) r = a[i];
-                else if (double.IsNaN(a[i])) return a[i];
+                if (source[i] < r) r = source[i];
+                else if (double.IsNaN(source[i])) return source[i];
             }
             return r;
         }
@@ -502,48 +607,65 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static decimal MinF(this List<decimal> a)
+        /// <summary>
+        /// Returns the minimum value in a sequence of values.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the minimum of.</param>
+        /// <returns>The minimum value in the sequence</returns>
+        public static decimal MinF(this List<decimal> source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Count == 0)
+            if (source.Count == 0)
             {
                 throw Error.NoElements();
             }
             decimal r = decimal.MaxValue;
-            for (int i = 0; i < a.Count; i++)
+            for (int i = 0; i < source.Count; i++)
             {
-                if (a[i] < r) r = a[i];
+                if (source[i] < r) r = source[i];
             }
             return r;
         }
 
-        public static decimal MinF<T>(this List<T> a, Func<T, decimal> selector)
+        /// <summary>
+        /// Invokes a transform function on each element of a sequence and returns the maximum value.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum value of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <returns>The maximum value in the transform of the sequence.</returns>
+        public static decimal MinF<T>(this List<T> source, Func<T, decimal> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
-            if (a.Count == 0)
+            if (source.Count == 0)
             {
                 throw Error.NoElements();
             }
             decimal r = decimal.MaxValue;
-            for (int i = 0; i < a.Count; i++)
+            for (int i = 0; i < source.Count; i++)
             {
-                var v = selector(a[i]);
+                var v = selector(source[i]);
                 if (v < r) r = v;
             }
             return r;
         }
 
-        public static TResult MinF<T, TResult>(this List<T> a, Func<T, TResult> selector)
+        /// <summary>
+        /// Invokes a transform function on each element of a sequence and returns the maximum value.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum value of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <returns>The maximum value in the transform of the sequence.</returns>
+        public static TResult MinF<T, TResult>(this List<T> source, Func<T, TResult> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
@@ -551,7 +673,7 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(selector));
             }
 
-            if (a.Count == 0)
+            if (source.Count == 0)
             {
                 throw Error.NoElements();
             }
@@ -560,19 +682,19 @@ namespace JM.LinqFaster
             TResult r = default(TResult);
             if (r == null)
             {
-                r = selector(a[0]);
-                for (int i = 1; i < a.Count; i++)
+                r = selector(source[0]);
+                for (int i = 1; i < source.Count; i++)
                 {
-                    var v = selector(a[i]);
+                    var v = selector(source[i]);
                     if (v != null && comparer.Compare(v, r) < 0) r = v;
                 }
             }
             else
             {
-                r = selector(a[0]);
-                for (int i = 1; i < a.Count; i++)
+                r = selector(source[0]);
+                for (int i = 1; i < source.Count; i++)
                 {
-                    var v = selector(a[i]);
+                    var v = selector(source[i]);
                     if (comparer.Compare(v, r) < 0) r = v;
                 }
             }

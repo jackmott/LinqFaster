@@ -9,11 +9,18 @@ namespace JM.LinqFaster
 
         // --------------------------  ARRAYS  --------------------------------------------
 
-        public static TResult[] SelectF<T, TResult>(this T[] a, Func<T, TResult> selector)
+
+        /// <summary>
+        ///  Projects each element of a sequence into a new form. (map in every other language)
+        /// </summary>        
+        /// <param name="source">A sequence of values to invoke a transform function on (map).</param>
+        /// <param name="selector">A transform function to apply (map) to each element.</param>
+        /// <returns>A sequence whose elements are the result of invoking the transform function on each element (mapping) of source.</returns>
+        public static TResult[] SelectF<T, TResult>(this T[] source, Func<T, TResult> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
@@ -21,40 +28,52 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(selector));
             }
 
-            var r = new TResult[a.Length];
-            for (long i = 0; i < a.LongLength; i++)
+            var r = new TResult[source.Length];
+            for (int i = 0; i < source.Length; i++)
             {
-                r[i] = selector(a[i]);
+                r[i] = selector(source[i]);
             }
             return r;
         }
 
-        public static TResult[] SelectF<T, TResult>(this T[] a, Func<T, int, TResult> selector)
+        /// <summary>
+        ///  Projects each element of a sequence into a new form by incorporating the element's index.
+        /// </summary>        
+        /// <param name="source">A sequence of values to invoke a transform function on.</param>
+        /// <param name="selector">A transform function to apply to each source element; the second parameter of the function represents the index of the source element.</param>
+        /// <returns>A sequence whose elements are the result of invoking the transform function on each element of source.</returns>
+        public static TResult[] SelectF<T, TResult>(this T[] source, Func<T, int, TResult> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
             {
                 throw Error.ArgumentNull(nameof(selector));
             }
-            var r = new TResult[a.Length];
-            for (int i = 0; i < a.Length; i++)
+            var r = new TResult[source.Length];
+            for (int i = 0; i < source.Length; i++)
             {
-                r[i] = selector(a[i], i);
+                r[i] = selector(source[i], i);
             }
             return r;
         }
 
         // --------------------------  LISTS --------------------------------------------
 
-        public static List<TResult> SelectF<T, TResult>(this List<T> a, Func<T, TResult> selector)
+        /// <summary>
+        ///  Projects each element of a sequence into a new form. (map in every other language)
+        /// </summary>        
+        /// <param name="source">A sequence of values to invoke a transform function on (map).</param>
+        /// <param name="selector">A transform function to apply (map) to each element.</param>
+        /// <returns>A sequence whose elements are the result of invoking the transform function on each element (mapping) of source.</returns>
+        public static List<TResult> SelectF<T, TResult>(this List<T> source, Func<T, TResult> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
@@ -62,22 +81,28 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(selector));
             }
 
-            var r = new List<TResult>(a.Count);
+            var r = new List<TResult>(source.Count);
 
-            for (int i = 0; i < a.Count; i++)
+            for (int i = 0; i < source.Count; i++)
             {
-                r.Add(selector(a[i]));
+                r.Add(selector(source[i]));
             }
 
             return r;
         }
 
 
-        public static List<TResult> SelectF<T, TResult>(this List<T> a, Func<T, int, TResult> selector)
+        /// <summary>
+        ///  Projects each element of a sequence into a new form by incorporating the element's index.
+        /// </summary>        
+        /// <param name="source">A sequence of values to invoke a transform function on.</param>
+        /// <param name="selector">A transform function to apply to each source element; the second parameter of the function represents the index of the source element.</param>
+        /// <returns>A sequence whose elements are the result of invoking the transform function on each element of source.</returns>
+        public static List<TResult> SelectF<T, TResult>(this List<T> source, Func<T, int, TResult> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
@@ -85,20 +110,15 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(selector));
             }
 
-            var r = new List<TResult>(a.Count);
+            var r = new List<TResult>(source.Count);
 
-            for (int i = 0; i < a.Count; i++)
+            for (int i = 0; i < source.Count; i++)
             {
-                r.Add(selector(a[i],i));
+                r.Add(selector(source[i],i));
             }
 
             return r;
         }
-
-
-
-
-
 
     }
 }

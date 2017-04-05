@@ -227,7 +227,7 @@ namespace Tests
         {
             int[] test = { -5,5,0,2,3,-2,1};
             var x = test.OrderByF(a => a*a);
-            var y = test.OrderByDescendingF(a => a*a);
+            var y = test.OrderByDescendingF(a => a*a);            
             
             
             var summary = BenchmarkRunner.Run<Benchmarks>(ManualConfig.Create(DefaultConfig.Instance).With(Job.RyuJitX64));
