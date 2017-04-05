@@ -7,16 +7,22 @@ namespace JM.LinqFaster
     public static partial class LinqFaster
     {
         // --------------------------  ARRAYS  --------------------------------------------
-        public static int SumF(this int[] a)
+
+        /// <summary>
+        ///  Adds a sequence of values.
+        /// </summary>
+        /// <param name="source">The sequence to add.</param>
+        /// <returns>The sum of the sequence.</returns>
+        public static int SumF(this int[] source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
             int sum = 0;
             checked
             {
-                foreach (var v in a)
+                foreach (var v in source)
                 {
                     sum += v;
                 }
@@ -24,11 +30,17 @@ namespace JM.LinqFaster
             return sum;
         }
 
-        public static int SumF<T>(this T[] a, Func<T, int> selector)
+        /// <summary>
+        /// Adds the transformed sequence of elements.
+        /// </summary>        
+        /// <param name="source">The sequence of values to transform then sum.</param>
+        /// <param name="selector">A transformation function.</param>
+        /// <returns>The sum of the transformed elements.</returns>
+        public static int SumF<T>(this T[] source, Func<T, int> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
@@ -39,7 +51,7 @@ namespace JM.LinqFaster
             int sum = 0;
             checked
             {
-                foreach (var v in a)
+                foreach (var v in source)
                 {
                     sum += selector(v);
                 }
@@ -47,16 +59,21 @@ namespace JM.LinqFaster
             return sum;
         }
 
-        public static long SumF(this long[] a)
+        /// <summary>
+        ///  Adds a sequence of values.
+        /// </summary>
+        /// <param name="source">The sequence to add.</param>
+        /// <returns>The sum of the sequence.</returns>
+        public static long SumF(this long[] source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
             long sum = 0;
             checked
             {
-                foreach (var v in a)
+                foreach (var v in source)
                 {
                     sum += v;
                 }
@@ -64,11 +81,17 @@ namespace JM.LinqFaster
             return sum;
         }
 
-        public static long SumF<T>(this T[] a, Func<T, long> selector)
+        /// <summary>
+        /// Adds the transformed sequence of elements.
+        /// </summary>        
+        /// <param name="source">The sequence of values to transform then sum.</param>
+        /// <param name="selector">A transformation function.</param>
+        /// <returns>The sum of the transformed elements.</returns>
+        public static long SumF<T>(this T[] source, Func<T, long> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
@@ -79,7 +102,7 @@ namespace JM.LinqFaster
             long sum = 0;
             checked
             {
-                foreach (var v in a)
+                foreach (var v in source)
                 {
                     sum += selector(v);
                 }
@@ -87,16 +110,20 @@ namespace JM.LinqFaster
             return sum;
         }
 
-
-        public static float SumF(this float[] a)
+        /// <summary>
+        ///  Adds a sequence of values.
+        /// </summary>
+        /// <param name="source">The sequence to add.</param>
+        /// <returns>The sum of the sequence.</returns>
+        public static float SumF(this float[] source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
             double sum = 0;
 
-            foreach (var v in a)
+            foreach (var v in source)
             {
                 sum += v;
             }
@@ -104,11 +131,17 @@ namespace JM.LinqFaster
             return (float)sum;
         }
 
-        public static float SumF<T>(this T[] a, Func<T, float> selector)
+        /// <summary>
+        /// Adds the transformed sequence of elements.
+        /// </summary>        
+        /// <param name="source">The sequence of values to transform then sum.</param>
+        /// <param name="selector">A transformation function.</param>
+        /// <returns>The sum of the transformed elements.</returns>
+        public static float SumF<T>(this T[] source, Func<T, float> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
@@ -117,7 +150,7 @@ namespace JM.LinqFaster
             }
 
             double sum = 0;
-            foreach (var v in a)
+            foreach (var v in source)
             {
                 sum += selector(v);
             }
@@ -125,15 +158,19 @@ namespace JM.LinqFaster
             return (float)sum;
         }
 
-
-        public static double SumF(this double[] a)
+        /// <summary>
+        ///  Adds a sequence of values.
+        /// </summary>
+        /// <param name="source">The sequence to add.</param>
+        /// <returns>The sum of the sequence.</returns>
+        public static double SumF(this double[] source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
             double sum = 0;
-            foreach (var v in a)
+            foreach (var v in source)
             {
                 sum += v;
             }
@@ -141,11 +178,17 @@ namespace JM.LinqFaster
             return sum;
         }
 
-        public static double SumF<T>(this T[] a, Func<T, double> selector)
+        /// <summary>
+        /// Adds the transformed sequence of elements.
+        /// </summary>        
+        /// <param name="source">The sequence of values to transform then sum.</param>
+        /// <param name="selector">A transformation function.</param>
+        /// <returns>The sum of the transformed elements.</returns>
+        public static double SumF<T>(this T[] source, Func<T, double> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
@@ -154,7 +197,7 @@ namespace JM.LinqFaster
             }
 
             double sum = 0;
-            foreach (var v in a)
+            foreach (var v in source)
             {
                 sum += selector(v);
             }
@@ -162,15 +205,20 @@ namespace JM.LinqFaster
             return sum;
         }
 
-        public static decimal SumF(this decimal[] a)
+        /// <summary>
+        ///  Adds a sequence of values.
+        /// </summary>
+        /// <param name="source">The sequence to add.</param>
+        /// <returns>The sum of the sequence.</returns>
+        public static decimal SumF(this decimal[] source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
             decimal sum = 0;
 
-            foreach (var v in a)
+            foreach (var v in source)
             {
                 sum += v;
             }
@@ -178,11 +226,17 @@ namespace JM.LinqFaster
             return sum;
         }
 
-        public static decimal SumF<T>(this T[] a, Func<T, decimal> selector)
+        /// <summary>
+        /// Adds the transformed sequence of elements.
+        /// </summary>        
+        /// <param name="source">The sequence of values to transform then sum.</param>
+        /// <param name="selector">A transformation function.</param>
+        /// <returns>The sum of the transformed elements.</returns>
+        public static decimal SumF<T>(this T[] source, Func<T, decimal> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
@@ -191,7 +245,7 @@ namespace JM.LinqFaster
             }
 
             decimal sum = 0;
-            foreach (var v in a)
+            foreach (var v in source)
             {
                 sum += selector(v);
             }
@@ -201,28 +255,39 @@ namespace JM.LinqFaster
 
         // --------------------------  LISTS  --------------------------------------------
 
-        public static int SumF(this List<int> a)
+        /// <summary>
+        ///  Adds a sequence of values.
+        /// </summary>
+        /// <param name="source">The sequence to add.</param>
+        /// <returns>The sum of the sequence.</returns>
+        public static int SumF(this List<int> source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
             int sum = 0;
             checked
             {
-                for (int i = 0; i < a.Count; i++)
+                for (int i = 0; i < source.Count; i++)
                 {
-                    sum += a[i];
+                    sum += source[i];
                 }
             }
             return sum;
         }
 
-        public static int SumF<T>(this List<T> a, Func<T, int> selector)
+        /// <summary>
+        /// Adds the transformed sequence of elements.
+        /// </summary>        
+        /// <param name="source">The sequence of values to transform then sum.</param>
+        /// <param name="selector">A transformation function.</param>
+        /// <returns>The sum of the transformed elements.</returns>
+        public static int SumF<T>(this List<T> source, Func<T, int> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
@@ -233,36 +298,47 @@ namespace JM.LinqFaster
             int sum = 0;
             checked
             {
-                for (int i = 0; i < a.Count; i++)
+                for (int i = 0; i < source.Count; i++)
                 {
-                    sum += selector(a[i]);
+                    sum += selector(source[i]);
                 }
             }
             return sum;
         }
 
-        public static long SumF(this List<long> a)
+        /// <summary>
+        ///  Adds a sequence of values.
+        /// </summary>
+        /// <param name="source">The sequence to add.</param>
+        /// <returns>The sum of the sequence.</returns>
+        public static long SumF(this List<long> source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
             long sum = 0;
             checked
             {
-                for (int i = 0; i < a.Count; i++)
+                for (int i = 0; i < source.Count; i++)
                 {
-                    sum += a[i];
+                    sum += source[i];
                 }
             }
             return sum;
         }
 
-        public static long SumF<T>(this List<T> a, Func<T, long> selector)
+        /// <summary>
+        /// Adds the transformed sequence of elements.
+        /// </summary>        
+        /// <param name="source">The sequence of values to transform then sum.</param>
+        /// <param name="selector">A transformation function.</param>
+        /// <returns>The sum of the transformed elements.</returns>
+        public static long SumF<T>(this List<T> source, Func<T, long> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
@@ -273,36 +349,46 @@ namespace JM.LinqFaster
             long sum = 0;
             checked
             {
-                for (int i = 0; i < a.Count; i++)
+                for (int i = 0; i < source.Count; i++)
                 {
-                    sum += selector(a[i]);
+                    sum += selector(source[i]);
                 }
             }
             return sum;
         }
 
-
-        public static float SumF(this List<float> a)
+        /// <summary>
+        ///  Adds a sequence of values.
+        /// </summary>
+        /// <param name="source">The sequence to add.</param>
+        /// <returns>The sum of the sequence.</returns>
+        public static float SumF(this List<float> source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
             double sum = 0;
 
-            for (int i = 0; i < a.Count; i++)
+            for (int i = 0; i < source.Count; i++)
             {
-                sum += a[i];
+                sum += source[i];
             }
 
             return (float)sum;
         }
 
-        public static float SumF<T>(this List<T> a, Func<T, float> selector)
+        /// <summary>
+        /// Adds the transformed sequence of elements.
+        /// </summary>        
+        /// <param name="source">The sequence of values to transform then sum.</param>
+        /// <param name="selector">A transformation function.</param>
+        /// <returns>The sum of the transformed elements.</returns>
+        public static float SumF<T>(this List<T> source, Func<T, float> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
@@ -311,35 +397,45 @@ namespace JM.LinqFaster
             }
 
             double sum = 0;
-            for (int i = 0; i < a.Count; i++)
+            for (int i = 0; i < source.Count; i++)
             {
-                sum += selector(a[i]);
+                sum += selector(source[i]);
             }
 
             return (float)sum;
         }
 
-
-        public static double SumF(this List<double> a)
+        /// <summary>
+        ///  Adds a sequence of values.
+        /// </summary>
+        /// <param name="source">The sequence to add.</param>
+        /// <returns>The sum of the sequence.</returns>
+        public static double SumF(this List<double> source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
             double sum = 0;
-            for (int i = 0; i < a.Count; i++)
+            for (int i = 0; i < source.Count; i++)
             {
-                sum += a[i];
+                sum += source[i];
             }
 
             return sum;
         }
 
-        public static double SumF<T>(this List<T> a, Func<T, double> selector)
+        /// <summary>
+        /// Adds the transformed sequence of elements.
+        /// </summary>        
+        /// <param name="source">The sequence of values to transform then sum.</param>
+        /// <param name="selector">A transformation function.</param>
+        /// <returns>The sum of the transformed elements.</returns>
+        public static double SumF<T>(this List<T> source, Func<T, double> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
@@ -348,35 +444,46 @@ namespace JM.LinqFaster
             }
 
             double sum = 0;
-            for (int i = 0; i < a.Count; i++)
+            for (int i = 0; i < source.Count; i++)
             {
-                sum += selector(a[i]);
+                sum += selector(source[i]);
             }
 
             return sum;
         }
 
-        public static decimal SumF(this List<decimal> a)
+        /// <summary>
+        ///  Adds a sequence of values.
+        /// </summary>
+        /// <param name="source">The sequence to add.</param>
+        /// <returns>The sum of the sequence.</returns>
+        public static decimal SumF(this List<decimal> source)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
             decimal sum = 0;
 
-            for (int i = 0; i < a.Count; i++)
+            for (int i = 0; i < source.Count; i++)
             {
-                sum += a[i];
+                sum += source[i];
             }
 
             return sum;
         }
 
-        public static decimal SumF<T>(this List<T> a, Func<T, decimal> selector)
+        /// <summary>
+        /// Adds the transformed sequence of elements.
+        /// </summary>        
+        /// <param name="source">The sequence of values to transform then sum.</param>
+        /// <param name="selector">A transformation function.</param>
+        /// <returns>The sum of the transformed elements.</returns>
+        public static decimal SumF<T>(this List<T> source, Func<T, decimal> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
@@ -385,9 +492,9 @@ namespace JM.LinqFaster
             }
 
             decimal sum = 0;
-            for (int i = 0; i < a.Count; i++)
+            for (int i = 0; i < source.Count; i++)
             {
-                sum += selector(a[i]);
+                sum += selector(source[i]);
             }
 
             return sum;

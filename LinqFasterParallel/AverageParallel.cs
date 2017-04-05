@@ -39,7 +39,7 @@ namespace JM.LinqFaster.Parallel
                 },
                  acc => Interlocked.Add(ref sum, acc));
 
-            return (double)sum / source.LongLength;
+            return (double)sum / source.Length;
         }
 
         public static double AverageP<T>(this T[] source, Func<T, int> selector)
@@ -76,7 +76,7 @@ namespace JM.LinqFaster.Parallel
                 },
                  acc => Interlocked.Add(ref sum, acc));
 
-            return (double)sum / source.LongLength;
+            return (double)sum / source.Length;
         }
 
         public static double AverageP(this long[] source)
@@ -108,7 +108,7 @@ namespace JM.LinqFaster.Parallel
                 },
                  acc => Interlocked.Add(ref sum, acc));
 
-            return (double)sum / source.LongLength;
+            return (double)sum / source.Length;
         }
 
         public static double AverageP<T>(this T[] source, Func<T, long> selector)
@@ -145,7 +145,7 @@ namespace JM.LinqFaster.Parallel
                 },
                  acc => Interlocked.Add(ref sum, acc));
 
-            return (double)sum / source.LongLength;
+            return (double)sum / source.Length;
         }
 
         public static float AverageP(this float[] source)
@@ -175,7 +175,7 @@ namespace JM.LinqFaster.Parallel
                 },
                  acc => { lock (LOCK) { sum += acc; } });
 
-            return (float)(sum / source.LongLength);
+            return (float)(sum / source.Length);
         }
 
         public static float AverageP<T>(this T[] source, Func<T, float> selector)
@@ -211,7 +211,7 @@ namespace JM.LinqFaster.Parallel
                 },
                  acc => { lock (LOCK) { sum += acc; } });
 
-            return (float)(sum / source.LongLength);
+            return (float)(sum / source.Length);
         }
 
         public static double AverageP(this double[] source)
@@ -242,7 +242,7 @@ namespace JM.LinqFaster.Parallel
                 },
                  acc => { lock (LOCK) { sum += acc; } });
 
-            return sum / source.LongLength;
+            return sum / source.Length;
         }
 
         public static double AverageP<T>(this T[] source, Func<T, double> selector)
@@ -278,7 +278,7 @@ namespace JM.LinqFaster.Parallel
                 },
                  acc => { lock (LOCK) { sum += acc; } });
 
-            return sum / source.LongLength;
+            return sum / source.Length;
         }
 
         public static decimal AverageP(this decimal[] source)
@@ -310,7 +310,7 @@ namespace JM.LinqFaster.Parallel
                  acc => { lock (LOCK) { sum += acc; } });
 
 
-            return sum / source.LongLength;
+            return sum / source.Length;
         }
 
         public static decimal AverageP<T>(this T[] source, Func<T, decimal> selector)
@@ -348,7 +348,7 @@ namespace JM.LinqFaster.Parallel
                  acc => { lock (LOCK) { sum += acc; } });
 
 
-            return sum / source.LongLength;
+            return sum / source.Length;
         }
 
         // --------------------------  Lists  --------------------------------------------

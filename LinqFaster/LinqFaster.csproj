@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.3</TargetFramework>
+    <TargetFrameworks>netstandard1.3;net461</TargetFrameworks>
     <PackageId>LinqFaster</PackageId>
     <PackageVersion>0.9.1</PackageVersion>
     <Title>LinqFaster</Title>

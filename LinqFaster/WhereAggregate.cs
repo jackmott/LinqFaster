@@ -7,11 +7,19 @@ namespace JM.LinqFaster
     public static partial class LinqFaster
     {
         // ----------------------------- Arrays ------------------
-        public static T WhereAggregateF<T>(this T[] a, Func<T, bool> predicate, Func<T, T, T> func)
+
+        /// <summary>
+        /// Combines Where and Aggregate for optimal performance
+        /// </summary>        
+        /// <param name="source">The input to filter then aggregate.</param>
+        /// <param name="predicate">The function to filter the input sequence with.</param>
+        /// <param name="func">The function to aggregate the filtered seqeuence.</param>
+        /// <returns>The filtered then aggregated sequence.</returns>
+        public static T WhereAggregateF<T>(this T[] source, Func<T, bool> predicate, Func<T, T, T> func)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (predicate == null)
@@ -26,30 +34,37 @@ namespace JM.LinqFaster
             var result = default(T);
 
             int i = 0;
-            for (; i < a.Length; i++)
+            for (; i < source.Length; i++)
             {
-                if (predicate(a[i]))
+                if (predicate(source[i]))
                 {
-                    result = a[i];
+                    result = source[i];
                     i++;
                     break;
                 }
             }
-            for (; i < a.Length; i++)
+            for (; i < source.Length; i++)
             {
-                if (predicate(a[i]))
+                if (predicate(source[i]))
                 {
-                    result = func(result, a[i]);
+                    result = func(result, source[i]);
                 }
             }
             return result;
         }
 
-        public static T WhereAggregateF<T>(this T[] a, Func<T, int, bool> predicate, Func<T, T, int, T> func)
+        /// <summary>
+        /// Combines Where and Aggregate with index for optimal performance
+        /// </summary>        
+        /// <param name="source">The input to filter then aggregate.</param>
+        /// <param name="predicate">The function to filter the input sequence and it's index with.</param>
+        /// <param name="func">The function to aggregate the filtered seqeuence.</param>
+        /// <returns>The filtered then aggregated sequence.</returns>
+        public static T WhereAggregateF<T>(this T[] source, Func<T, int, bool> predicate, Func<T, T, int, T> func)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (predicate == null)
@@ -60,27 +75,35 @@ namespace JM.LinqFaster
             var result = default(T);
 
             int i = 0;
-            for (; i < a.Length; i++)
+            for (; i < source.Length; i++)
             {
-                if (predicate(a[i], i))
+                if (predicate(source[i], i))
                 {
-                    result = a[i];
+                    result = source[i];
                     i++;
                     break;
                 }
             }
             int idx = 0;
-            for (; i < a.Length; i++)
+            for (; i < source.Length; i++)
             {
-                if (predicate(a[i], i))
+                if (predicate(source[i], i))
                 {
-                    result = func(result, a[i], idx);
+                    result = func(result, source[i], idx);
                     idx++;
                 }
             }
             return result;
         }
 
+        /// <summary>
+        /// Combines Where and Aggregate for optimal performance with a starting seed.
+        /// </summary>        
+        /// <param name="source">The input to filter then aggregate.</param>
+        /// <param name="predicate">The function to filter the input sequence with.</param>
+        /// <param name="seed">The initial value to aggregate on.</param>
+        /// <param name="func">The function to aggregate the filtered seqeuence.</param>
+        /// <returns>The filtered then aggregated sequence.</returns>
         public static TAccumulate WhereAggregateF<TSource, TAccumulate>(this TSource[] source, Func<TSource, bool> predicate, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func)
         {
             if (source == null)
@@ -107,6 +130,15 @@ namespace JM.LinqFaster
             return result;
         }
 
+        /// <summary>
+        /// Combines Where and Aggregate for optimal performance with a starting seed and a result transformation.
+        /// </summary>        
+        /// <param name="source">The input to filter then aggregate.</param>
+        /// <param name="predicate">The function to filter the input sequence with.</param>
+        /// <param name="seed">The initial value to aggregate on.</param>
+        /// <param name="func">The function to aggregate the filtered seqeuence.</param>
+        /// <param name="resultSelector">A function to transform the final result.</param>
+        /// <returns>The filtered then aggregated then transformed sequence.</returns>
         public static TResult WhereAggregateF<TSource, TAccumulate, TResult>(this TSource[] source, Func<TSource, bool> predicate, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func, Func<TAccumulate, TResult> resultSelector)
         {
             if (source == null)
@@ -141,13 +173,21 @@ namespace JM.LinqFaster
             return resultSelector(result);
         }
 
-        
+
         // --------------------------- Lists -------------------------
-        public static T WhereAggregateF<T>(this List<T> a, Func<T, bool> predicate, Func<T, T, T> func)
+
+        /// <summary>
+        /// Combines Where and Aggregate for optimal performance
+        /// </summary>        
+        /// <param name="source">The input to filter then aggregate.</param>
+        /// <param name="predicate">The function to filter the input sequence with.</param>
+        /// <param name="func">The function to aggregate the filtered seqeuence.</param>
+        /// <returns>The filtered then aggregated sequence.</returns>
+        public static T WhereAggregateF<T>(this List<T> source, Func<T, bool> predicate, Func<T, T, T> func)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (predicate == null)
@@ -163,25 +203,32 @@ namespace JM.LinqFaster
             var result = default(T);
 
             int i = 0;
-            for (; i < a.Count; i++)
+            for (; i < source.Count; i++)
             {
-                if (predicate(a[i]))
+                if (predicate(source[i]))
                 {
-                    result = a[i];
+                    result = source[i];
                     i++;
                     break;
                 }
             }
-            for (; i < a.Count; i++)
+            for (; i < source.Count; i++)
             {
-                if (predicate(a[i]))
+                if (predicate(source[i]))
                 {
-                    result = func(result, a[i]);
+                    result = func(result, source[i]);
                 }
             }
             return result;
         }
 
+        /// <summary>
+        /// Combines Where and Aggregate with index for optimal performance
+        /// </summary>        
+        /// <param name="source">The input to filter then aggregate.</param>
+        /// <param name="predicate">The function to filter the input sequence and it's index with.</param>
+        /// <param name="func">The function to aggregate the filtered seqeuence.</param>
+        /// <returns>The filtered then aggregated sequence.</returns>
         public static T WhereAggregateF<T>(this List<T> a, Func<T, int, bool> predicate, Func<T, T, int, T> func)
         {
             if (a == null)
@@ -218,6 +265,14 @@ namespace JM.LinqFaster
             return result;
         }
 
+        /// <summary>
+        /// Combines Where and Aggregate for optimal performance with a starting seed.
+        /// </summary>        
+        /// <param name="source">The input to filter then aggregate.</param>
+        /// <param name="predicate">The function to filter the input sequence with.</param>
+        /// <param name="seed">The initial value to aggregate on.</param>
+        /// <param name="func">The function to aggregate the filtered seqeuence.</param>
+        /// <returns>The filtered then aggregated sequence.</returns>
         public static TAccumulate WhereAggregateF<TSource, TAccumulate>(this List<TSource> source, Func<TSource, bool> predicate, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func)
         {
             if (source == null)
@@ -245,6 +300,15 @@ namespace JM.LinqFaster
             return result;
         }
 
+        /// <summary>
+        /// Combines Where and Aggregate for optimal performance with a starting seed and a result transformation.
+        /// </summary>        
+        /// <param name="source">The input to filter then aggregate.</param>
+        /// <param name="predicate">The function to filter the input sequence with.</param>
+        /// <param name="seed">The initial value to aggregate on.</param>
+        /// <param name="func">The function to aggregate the filtered seqeuence.</param>
+        /// <param name="resultSelector">A function to transform the final result.</param>
+        /// <returns>The filtered then aggregated then transformed sequence.</returns>
         public static TResult WhereAggregateF<TSource, TAccumulate, TResult>(this List<TSource> source, Func<TSource, bool> predicate, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func, Func<TAccumulate, TResult> resultSelector)
         {
             if (source == null)

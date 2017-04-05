@@ -150,21 +150,21 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LinqFaster\LinqFaster.csproj">
-      <Project>{5b2f0f9f-6dda-4f06-a999-26e43ae04f86}</Project>
-      <Name>LinqFaster</Name>
-    </ProjectReference>
     <ProjectReference Include="..\LinqFasterParallelSIMD\LinqFasterParallelSIMD.csproj">
-      <Project>{351e4681-fae7-4ee2-b6c7-8e8dfbad0d72}</Project>
+      <Project>{f13bac10-bcbe-4440-b9f0-3a2778ca9221}</Project>
       <Name>LinqFasterParallelSIMD</Name>
     </ProjectReference>
     <ProjectReference Include="..\LinqFasterParallel\LinqFasterParallel.csproj">
-      <Project>{eab5abd7-a908-462f-889a-40d7acc367d2}</Project>
+      <Project>{1b6d88e4-8745-4a0e-b459-53f7add04a12}</Project>
       <Name>LinqFasterParallel</Name>
     </ProjectReference>
     <ProjectReference Include="..\LinqFasterSIMD\LinqFasterSIMD.csproj">
-      <Project>{c68d1198-4015-4c61-bdce-b1f7a1a0d0aa}</Project>
+      <Project>{050c43b5-4a4f-45d9-be0c-9b2a6acc189e}</Project>
       <Name>LinqFasterSIMD</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LinqFaster\LinqFaster.csproj">
+      <Project>{5b2f0f9f-6dda-4f06-a999-26e43ae04f86}</Project>
+      <Name>LinqFaster</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

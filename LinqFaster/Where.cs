@@ -8,11 +8,17 @@ namespace JM.LinqFaster
     {
         // --------------------------  ARRAYS --------------------------------------------
 
-        public static T[] WhereF<T>(this T[] a, Func<T, bool> predicate)
+        /// <summary>
+        /// Filters a sequence of values based on a predicate.
+        /// </summary>        
+        /// <param name="source">A sequence to filter.</param>
+        /// <param name="predicate">A function to test each element for a condition.</param>
+        /// <returns>A sequence that contains elements from the input sequence that satisfy the condition.</returns>
+        public static T[] WhereF<T>(this T[] source, Func<T, bool> predicate)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (predicate == null)
@@ -20,13 +26,13 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(predicate));
             }
 
-            T[] result = new T[a.Length];
+            T[] result = new T[source.Length];
             int idx = 0;
-            for (int i = 0; i < a.Length; i++)
+            for (int i = 0; i < source.Length; i++)
             {
-                if (predicate(a[i]))
+                if (predicate(source[i]))
                 {
-                    result[idx] = a[i];
+                    result[idx] = source[i];
                     idx++;
                 }
             }
@@ -34,11 +40,17 @@ namespace JM.LinqFaster
             return result;
         }
 
-        public static T[] WhereF<T>(this T[] a, Func<T, int, bool> predicate)
+        /// <summary>
+        /// Filters a sequence of values based on a predicate that includes the index in it's logic.
+        /// </summary>        
+        /// <param name="source">A sequence to filter.</param>
+        /// <param name="predicate">A function to test each element for a condition along with the element's index.</param>
+        /// <returns>A sequence that contains elements from the input sequence that satisfy the condition.</returns>
+        public static T[] WhereF<T>(this T[] source, Func<T, int, bool> predicate)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (predicate == null)
@@ -46,13 +58,13 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull(nameof(predicate));
             }
 
-            T[] result = new T[a.Length];
+            T[] result = new T[source.Length];
             int idx = 0;
-            for (int i = 0; i < a.Length; i++)
+            for (int i = 0; i < source.Length; i++)
             {
-                if (predicate(a[i], i))
+                if (predicate(source[i], i))
                 {
-                    result[idx] = a[i];
+                    result[idx] = source[i];
                     idx++;
                 }
             }
@@ -62,6 +74,12 @@ namespace JM.LinqFaster
 
         // --------------------------  LISTS --------------------------------------------
 
+        /// <summary>
+        /// Filters a sequence of values based on a predicate.
+        /// </summary>        
+        /// <param name="source">A sequence to filter.</param>
+        /// <param name="predicate">A function to test each element for a condition.</param>
+        /// <returns>A sequence that contains elements from the input sequence that satisfy the condition.</returns>
         public static List<T> WhereF<T>(this List<T> a, Func<T, bool> predicate)
         {
             if (a == null)
@@ -82,11 +100,17 @@ namespace JM.LinqFaster
             return r;
         }
 
-        public static List<T> WhereF<T>(this List<T> a, Func<T, int, bool> predicate)
+        /// <summary>
+        /// Filters a sequence of values based on a predicate that includes the index in it's logic.
+        /// </summary>        
+        /// <param name="source">A sequence to filter.</param>
+        /// <param name="predicate">A function to test each element for a condition along with the element's index.</param>
+        /// <returns>A sequence that contains elements from the input sequence that satisfy the condition.</returns>
+        public static List<T> WhereF<T>(this List<T> source, Func<T, int, bool> predicate)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (predicate == null)
@@ -95,9 +119,9 @@ namespace JM.LinqFaster
             }
 
             List<T> r = new List<T>();
-            for (int i = 0; i < a.Count; i++)
+            for (int i = 0; i < source.Count; i++)
             {
-                if (predicate(a[i], i)) r.Add(a[i]);
+                if (predicate(source[i], i)) r.Add(source[i]);
             }
             return r;
         }

@@ -5,6 +5,14 @@ namespace JM.LinqFaster
 {
     public static partial class LinqFaster
     {
+
+        /// <summary>
+        /// Applies a specified function to the corresponding elements of two sequences, producing a sequence of the results.
+        /// </summary>
+        /// <param name="first">The first sequence to merge.</param>
+        /// <param name="second">The second sequence to merge.</param>
+        /// <param name="selector">A function that specifies how to merge the elements from the two sequences.</param>
+        /// <returns>A sequence that contains merged elements of two input sequences.</returns>
         public static R[] ZipF<T, U, R>(this T[] first, U[] second, Func<T, U, R> selector)
         {
             if (first == null)
@@ -43,6 +51,13 @@ namespace JM.LinqFaster
 
         }
 
+        /// <summary>
+        /// Applies a specified function to the corresponding elements of two sequences, producing a sequence of the results.
+        /// </summary>
+        /// <param name="first">The first sequence to merge.</param>
+        /// <param name="second">The second sequence to merge.</param>
+        /// <param name="selector">A function that specifies how to merge the elements from the two sequences.</param>
+        /// <returns>A sequence that contains merged elements of two input sequences.</returns>
         public static List<R> ZipF<T, U, R>(this List<T> first, List<U> second, Func<T, U, R> selector)
         {
             if (first == null)
