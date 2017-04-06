@@ -187,22 +187,14 @@ namespace Tests
             
         
 
-        [Benchmark]
-        public double[] WhereP()
-        {
-            return array.WhereSelectF(x => x % 2 == 0, x => Math.Sqrt(x * x + x * x));
-        }
-
+       
         [Benchmark]
         public double[] WhereSelectP()
         {            
-            return array.WhereSelectP(x => x % 2 == 0, x => Math.Sqrt(x * x + x*x));
+            return array.WhereSelectP(x => x % 2 == 0, x => Math.Sqrt(x * 5.0 + x*2.0));
         }
 
-
-
-
-
+     
 
 
 
@@ -210,7 +202,12 @@ namespace Tests
 
         public static void Main(string[] args)
         {
-           var summary = BenchmarkRunner.Run<Benchmarks>(ManualConfig.Create(DefaultConfig.Instance).With(Job.RyuJitX64));
+
+         /*  Benchmarks b = new Benchmarks();
+            b.TEST_SIZE = 100000;
+            b.Setup();
+            b.array.WhereSelectPB(x => x % 2 == 0, x => Math.Sqrt(x * x + x * x));*/
+            var summary = BenchmarkRunner.Run<Benchmarks>(ManualConfig.Create(DefaultConfig.Instance).With(Job.RyuJitX64));
 
         }
 

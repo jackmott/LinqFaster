@@ -215,7 +215,7 @@ namespace JM.LinqFaster.Parallel
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 (range, s) => {
                     for (int i = range.Item1; i < range.Item2; i++) {
-                        r[i] = selector(source[i]);
+                        r.Add(selector(source[i]));
                     }
                 });
 
@@ -248,7 +248,7 @@ namespace JM.LinqFaster.Parallel
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 (range, s) => {
                     for (int i = range.Item1; i < range.Item2; i++) {
-                        r[i] = selector(source[i],i);
+                        r.Add(selector(source[i], i));
                     }
                 });
 

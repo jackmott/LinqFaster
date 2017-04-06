@@ -12,10 +12,10 @@ namespace JM.LinqFaster
         /// <summary>
         /// Combined Where and Select for optimal performance.
         /// </summary>        
-        /// <param name="source"></param>
-        /// <param name="predicate"></param>
-        /// <param name="selector"></param>
-        /// <returns></returns>
+        /// <param name="source">The input sequence to filter then transform.</param>
+        /// <param name="predicate">A function to use to filter the sequence.</param>
+        /// <param name="selector">A function to transform the filtered elements.</param>
+        /// <returns>A sequence of filtered and transformed elements.</returns>
         public static TResult[] WhereSelectF<T, TResult>(this T[] source, Func<T, bool> predicate, Func<T, TResult> selector)
         {
             if (source == null)
@@ -46,8 +46,15 @@ namespace JM.LinqFaster
             Array.Resize(ref result, idx);
             return result;
         }
-       
 
+        /// <summary>
+        /// Combined Where and Select for optimal performance that uses the index in the 
+        /// predicate and selector.
+        /// </summary>        
+        /// <param name="source">The input sequence to filter then transform.</param>
+        /// <param name="predicate">A function to use to filter the sequence.</param>
+        /// <param name="selector">A function to transform the filtered elements.</param>
+        /// <returns>A sequence of filtered and transformed elements.</returns>
         public static TResult[] WhereSelectF<T, TResult>(this T[] source, Func<T, int, bool> predicate, Func<T, int, TResult> selector)
         {
             if (source == null)

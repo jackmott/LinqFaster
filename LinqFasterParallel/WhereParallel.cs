@@ -154,14 +154,12 @@ namespace JM.LinqFaster.Parallel
                     Interlocked.Add(ref count, acc);
                 });
 
-            List<TSource> result = new List<TSource>(count);
-            int idx = 0;
+            List<TSource> result = new List<TSource>(count);            
             for (int i = 0; i < isChosen.Length; i++)
             {
                 if (isChosen[i])
                 {
-                    result.Add(source[i]);
-                    idx++;
+                    result.Add(source[i]);                    
                 }
             }
             return result;
@@ -208,14 +206,12 @@ namespace JM.LinqFaster.Parallel
                     Interlocked.Add(ref count, acc);
                 });
 
-            List<TSource> result = new List<TSource>(count);
-            int idx = 0;
+            List<TSource> result = new List<TSource>(count);            
             for (int i = 0; i < isChosen.Length; i++)
             {
                 if (isChosen[i])
                 {
-                    result.Add(source[i]);
-                    idx++;
+                    result.Add(source[i]);                    
                 }
             }
             return result;
