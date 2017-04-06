@@ -59,6 +59,8 @@ namespace JM.LinqFaster.Parallel
             return result;
         }
 
+       
+
         /// <summary>
         /// Filters a sequence of values in parallel based on a predicate that includes the index in it's logic.
         /// </summary>        

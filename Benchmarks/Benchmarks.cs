@@ -188,16 +188,15 @@ namespace Tests
         
 
         [Benchmark]
-        public int[] WhereSelectF()
+        public double[] WhereP()
         {
-            return array.WhereSelectF(x => x % 2 == 0, x => x * x);
+            return array.WhereSelectF(x => x % 2 == 0, x => Math.Sqrt(x * x + x * x));
         }
 
         [Benchmark]
-        public int[] WhereSelectP()
-        {
-            return new int[1];
-           // return array.WhereSelectP(x => x % 2 == 0, x => x * x);
+        public double[] WhereSelectP()
+        {            
+            return array.WhereSelectP(x => x % 2 == 0, x => Math.Sqrt(x * x + x*x));
         }
 
 
@@ -211,8 +210,6 @@ namespace Tests
 
         public static void Main(string[] args)
         {
-            
-            
            var summary = BenchmarkRunner.Run<Benchmarks>(ManualConfig.Create(DefaultConfig.Instance).With(Job.RyuJitX64));
 
         }

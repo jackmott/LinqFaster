@@ -15,7 +15,7 @@ namespace JM.LinqFaster.Parallel
         /// <param name="selector"></param>
         /// <returns></returns>
         
-            /*
+            
         public static TResult[] WhereSelectP<T, TResult>(this T[] source, Func<T, bool> predicate, Func<T, TResult> selector, int? batchSize = null)
         {
             if (source == null)
@@ -32,32 +32,40 @@ namespace JM.LinqFaster.Parallel
             {
                 throw Error.ArgumentNull("predicate");
             }
-
-            object LOCK = new object();
-            var results = new TResult[source.Length];
-            int idx = 0;
+            
+            var isChosen = new bool[source.Length];
+            int count = 0;
             var rangePartitioner = MakePartition(source.Length, batchSize);
-            System.Threading.Tasks.Parallel.ForEach(rangePartitioner,                
-                (range, loopState) =>
+            System.Threading.Tasks.Parallel.ForEach(rangePartitioner, () => 0,               
+                (range, loopState,acc) =>
                 {
                     for (int i = range.Item1; i < range.Item2; i++)
                     {
                         if (predicate(source[i]))
                         {
-                            var result = selector(source[i]);
-                            do {
-                                var localCopy = idx;
-                                results[idx] = result;
-                            }
-                            idx++;
-                            
-                        }
-                    }                    
-                });
+                            isChosen[i] = true;
+                            acc++;
+                        }                        
+                    }
+                    return acc;
+                },
+                 acc =>
+                 {
+                     Interlocked.Add(ref count, acc);
+                 });
 
-            Array.Resize(ref results, idx);
-            return results;
-        }*/
+            var result = new TResult[count];
+            int idx = 0;
+            for (int i = 0; i < isChosen.Length; i++)
+            {
+                if (isChosen[i])
+                {
+                    result[idx] = selector(source[i]);
+                    idx++;
+                }
+            }
+            return result;
+        }
     }
 }
 
