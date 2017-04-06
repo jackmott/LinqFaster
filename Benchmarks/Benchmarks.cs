@@ -188,24 +188,20 @@ namespace Tests
         
 
         [Benchmark]
-        public List<int> WhereScalar()
+        public int WhereAggregateF()
         {
-            return list.WhereF(x => x % 2 == 0);
+            return array.WhereAggregateF(x => x % 2 == 0, (acc, x) => acc += x);
         }
 
         [Benchmark]
-        public List<int> WherePLinq()
+        public int WhereAggregateP()
         {
-            return list.AsParallel().Where(x => x % 2 == 0).ToList();
+            return array.WhereAggregateP(x => x % 2 == 0, (acc, x) => acc += x);
         }
 
-        [Benchmark]
-        public List<int> WhereP()
-        {
-            return list.WhereP(x => x % 2 == 0);
-        }
 
-     
+
+
 
 
 

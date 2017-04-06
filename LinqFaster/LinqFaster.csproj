@@ -2,21 +2,19 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard1.3;net461</TargetFrameworks>
-    <PackageId>LinqFaster</PackageId>
-    <PackageVersion>0.9.1</PackageVersion>
-    <Title>LinqFaster</Title>
+    <Version>0.9.2</Version>
     <Authors>Jack Mott</Authors>
-    <Description>High performance Linq-like extension methods for Arrays and Lists</Description>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>Added comments to all functions for intellisense.</PackageReleaseNotes>
+    <Company />
+    <Description>High performance Linq-style extension methods for arrays and lists.</Description>
     <Copyright>Copyright 2017 (c) Jack Mott. All rights reserved.</Copyright>
-    <PackageTags>Linq Performance</PackageTags>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>0.9.1</Version>
+    <RepositoryUrl>https://github.com/jackmott/LinqFaster</RepositoryUrl>
     <PackageProjectUrl>https://github.com/jackmott/LinqFaster</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/jackmott/LinqFaster</RepositoryUrl>    
-    <RepositoryType>Github</RepositoryType>
     <PackageIconUrl>https://jackmott.github.io/images/LinqFaster.png</PackageIconUrl>
+    <RepositoryType>Github</RepositoryType>
+    <PackageTags>performance linq</PackageTags>
+    <PackageReleaseNotes>Many performance improvements</PackageReleaseNotes>
+    <NeutralLanguage />
+    
   </PropertyGroup>
 
   
