@@ -18,12 +18,12 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (keySelector == null)
             {
-                throw Error.ArgumentNull(nameof(keySelector));
+                throw Error.ArgumentNull("keySelector");
             }
 
             if (comparer == null)
@@ -51,11 +51,11 @@ namespace JM.LinqFaster
         /// <returns>A sequence whose alements are ordered according to a key</returns>
         public static TSource[] OrderByDescendingF<TSource, TKey>(this TSource[] source, Func<TSource, TKey> keySelector, IComparer<TKey> comparer = null) {
             if (source == null) {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (keySelector == null) {
-                throw Error.ArgumentNull(nameof(keySelector));
+                throw Error.ArgumentNull("keySelector");
             }
 
             if (comparer == null) {
@@ -86,12 +86,12 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (keySelector == null)
             {
-                throw Error.ArgumentNull(nameof(keySelector));
+                throw Error.ArgumentNull("keySelector");
             }
 
             if (comparer == null)
@@ -115,11 +115,11 @@ namespace JM.LinqFaster
         /// <returns>A sequence whose alements are ordered according to a key</returns>
         public static List<TSource> OrderByDescendingF<TSource, TKey>(this List<TSource> source, Func<TSource, TKey> keySelector, IComparer<TKey> comparer = null) {
             if (source == null) {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (keySelector == null) {
-                throw Error.ArgumentNull(nameof(keySelector));
+                throw Error.ArgumentNull("keySelector");
             }
 
             if (comparer == null) {

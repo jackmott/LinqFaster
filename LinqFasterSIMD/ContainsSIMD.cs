@@ -10,7 +10,7 @@ namespace JM.LinqFaster.SIMD
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             var count = Vector<T>.Count;

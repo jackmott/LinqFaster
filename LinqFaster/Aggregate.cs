@@ -19,12 +19,12 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (func == null)
             {
-                throw Error.ArgumentNull(nameof(func));
+                throw Error.ArgumentNull("func");
             }
 
             if (source.Length == 0)
@@ -53,12 +53,12 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (func == null)
             {
-                throw Error.ArgumentNull(nameof(func));
+                throw Error.ArgumentNull("func");
             }
 
             TAccumulate result = seed;
@@ -84,17 +84,17 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (func == null)
             {
-                throw Error.ArgumentNull(nameof(func));
+                throw Error.ArgumentNull("func");
             }
 
             if (resultSelector == null)
             {
-                throw Error.ArgumentNull(nameof(resultSelector));
+                throw Error.ArgumentNull("resultSelector");
             }
 
             TAccumulate result = seed;
@@ -118,12 +118,12 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (func == null)
             {
-                throw Error.ArgumentNull(nameof(func));
+                throw Error.ArgumentNull("func");
             }
 
             if (source.Count == 0)
@@ -152,12 +152,12 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (func == null)
             {
-                throw Error.ArgumentNull(nameof(func));
+                throw Error.ArgumentNull("func");
             }
 
             TAccumulate result = seed;
@@ -183,17 +183,17 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (func == null)
             {
-                throw Error.ArgumentNull(nameof(func));
+                throw Error.ArgumentNull("func");
             }
 
             if (resultSelector == null)
             {
-                throw Error.ArgumentNull(nameof(resultSelector));
+                throw Error.ArgumentNull("resultSelector");
             }
 
             TAccumulate result = seed;

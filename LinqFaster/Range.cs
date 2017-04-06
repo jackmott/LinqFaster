@@ -15,7 +15,7 @@ namespace JM.LinqFaster
             long max = ((long)start) + count - 1;
             if (count < 0 || max > int.MaxValue)
             {
-                throw Error.ArgumentOutOfRange(nameof(count));
+                throw Error.ArgumentOutOfRange("count");
             }
 
             if (count == 0)
@@ -44,7 +44,7 @@ namespace JM.LinqFaster
             long max = ((long)start) + count - 1;
             if (count < 0 || max > int.MaxValue)
             {
-                throw Error.ArgumentOutOfRange(nameof(count));
+                throw Error.ArgumentOutOfRange("count");
             }
 
             if (count == 0)

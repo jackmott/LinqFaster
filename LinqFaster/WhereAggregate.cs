@@ -19,16 +19,16 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (predicate == null)
             {
-                throw Error.ArgumentNull(nameof(predicate));
+                throw Error.ArgumentNull("predicate");
             }
             if (func == null)
             {
-                throw Error.ArgumentNull(nameof(func));
+                throw Error.ArgumentNull("func");
             }
 
             var result = default(T);
@@ -64,12 +64,12 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (predicate == null)
             {
-                throw Error.ArgumentNull(nameof(predicate));
+                throw Error.ArgumentNull("predicate");
             }
 
             var result = default(T);
@@ -106,17 +106,17 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (func == null)
             {
-                throw Error.ArgumentNull(nameof(func));
+                throw Error.ArgumentNull("func");
             }
 
             if (predicate == null)
             {
-                throw Error.ArgumentNull(nameof(predicate));
+                throw Error.ArgumentNull("predicate");
             }
 
             TAccumulate result = seed;
@@ -141,22 +141,22 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (func == null)
             {
-                throw Error.ArgumentNull(nameof(func));
+                throw Error.ArgumentNull("func");
             }
 
             if (predicate == null)
             {
-                throw Error.ArgumentNull(nameof(predicate));
+                throw Error.ArgumentNull("predicate");
             }
 
             if (resultSelector == null)
             {
-                throw Error.ArgumentNull(nameof(resultSelector));
+                throw Error.ArgumentNull("resultSelector");
             }
 
             TAccumulate result = seed;
@@ -185,17 +185,17 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (predicate == null)
             {
-                throw Error.ArgumentNull(nameof(predicate));
+                throw Error.ArgumentNull("predicate");
             }
 
             if (func == null)
             {
-                throw Error.ArgumentNull(nameof(func));
+                throw Error.ArgumentNull("func");
             }
 
             var result = default(T);
@@ -227,35 +227,35 @@ namespace JM.LinqFaster
         /// <param name="predicate">The function to filter the input sequence and it's index with.</param>
         /// <param name="func">The function to aggregate the filtered seqeuence.</param>
         /// <returns>The filtered then aggregated sequence.</returns>
-        public static T WhereAggregateF<T>(this List<T> a, Func<T, int, bool> predicate, Func<T, T, T> func)
+        public static T WhereAggregateF<T>(this List<T> source, Func<T, int, bool> predicate, Func<T, T, T> func)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull("source");
             }
 
             if (predicate == null)
             {
-                throw Error.ArgumentNull(nameof(predicate));
+                throw Error.ArgumentNull("predicate");
             }
 
             var result = default(T);
 
             int i = 0;
-            for (; i < a.Count; i++)
+            for (; i < source.Count; i++)
             {
-                if (predicate(a[i], i))
+                if (predicate(source[i], i))
                 {
-                    result = a[i];
+                    result = source[i];
                     i++;
                     break;
                 }
             }            
-            for (; i < a.Count; i++)
+            for (; i < source.Count; i++)
             {
-                if (predicate(a[i], i))
+                if (predicate(source[i], i))
                 {
-                    result = func(result, a[i]);                    
+                    result = func(result, source[i]);                    
                 }
             }
             return result;
@@ -273,17 +273,17 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (func == null)
             {
-                throw Error.ArgumentNull(nameof(func));
+                throw Error.ArgumentNull("func");
             }
 
             if (predicate == null)
             {
-                throw Error.ArgumentNull(nameof(predicate));
+                throw Error.ArgumentNull("predicate");
             }
 
             TAccumulate result = seed;
@@ -309,17 +309,17 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (func == null)
             {
-                throw Error.ArgumentNull(nameof(func));
+                throw Error.ArgumentNull("func");
             }
 
             if (resultSelector == null)
             {
-                throw Error.ArgumentNull(nameof(resultSelector));
+                throw Error.ArgumentNull("resultSelector");
             }
 
             TAccumulate result = seed;

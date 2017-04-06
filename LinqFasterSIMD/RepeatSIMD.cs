@@ -10,7 +10,7 @@ namespace JM.LinqFaster.SIMD
         {
             if (count < 0)
             {
-                throw Error.ArgumentOutOfRange(nameof(count));
+                throw Error.ArgumentOutOfRange("count");
             }
 
             var result = new T[count];

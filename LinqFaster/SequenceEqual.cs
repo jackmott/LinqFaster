@@ -24,12 +24,12 @@ namespace JM.LinqFaster
 
             if (first == null)
             {
-                throw Error.ArgumentNull(nameof(first));
+                throw Error.ArgumentNull("first");
             }
 
             if (second == null)
             {
-                throw Error.ArgumentNull(nameof(second));
+                throw Error.ArgumentNull("second");
             }
 
             if (first.Length != second.Length) return false;
@@ -60,12 +60,12 @@ namespace JM.LinqFaster
 
             if (first == null)
             {
-                throw Error.ArgumentNull(nameof(first));
+                throw Error.ArgumentNull("first");
             }
 
             if (second == null)
             {
-                throw Error.ArgumentNull(nameof(second));
+                throw Error.ArgumentNull("second");
             }
 
             if (first.Count != second.Count) return false;
@@ -96,12 +96,12 @@ namespace JM.LinqFaster
 
             if (first == null)
             {
-                throw Error.ArgumentNull(nameof(first));
+                throw Error.ArgumentNull("first");
             }
 
             if (second == null)
             {
-                throw Error.ArgumentNull(nameof(second));
+                throw Error.ArgumentNull("second");
             }
 
             if (first.Length != second.Count) return false;
@@ -132,12 +132,12 @@ namespace JM.LinqFaster
 
             if (first == null)
             {
-                throw Error.ArgumentNull(nameof(first));
+                throw Error.ArgumentNull("first");
             }
 
             if (second == null)
             {
-                throw Error.ArgumentNull(nameof(second));
+                throw Error.ArgumentNull("second");
             }
 
             if (first.Count != second.Length) return false;

@@ -31,21 +31,21 @@ namespace JM.LinqFaster.SIMD.Parallel
             return result;
         }   
              
-        public static T SumSP<T>(this T[] a) where T : struct
+        public static T SumSP<T>(this T[] source) where T : struct
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull("source");
             }
 
             
             T acc = default(T);
-            acc = ForVectorAggregate(a,acc,SumSPHelper,(x,y) => Add(x,y));
+            acc = ForVectorAggregate(source,acc,SumSPHelper,(x,y) => Add(x,y));
             int count = Vector<T>.Count;
             
-            for (int i = a.Length-a.Length%count;i < a.Length;i++)
+            for (int i = source.Length-source.Length%count;i < source.Length;i++)
             {
-                acc = Add(acc, a[i]);
+                acc = Add(acc, source[i]);
             }
 
           

@@ -7,27 +7,27 @@ namespace JM.LinqFaster.SIMD
     public static partial class LinqFasterSIMD
     {
 
-        public static T MinS<T> (this T[] a)
+        public static T MinS<T> (this T[] source)
             where T : struct
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull("source");
             }
 
-            if (a.Length == 0)
+            if (source.Length == 0)
             {
                 throw Error.NoElements();
             }
 
-            T min = a[0];
+            T min = source[0];
             int count = Vector<T>.Count;
-            if (count <= a.Length)
+            if (count <= source.Length)
             {
-                var vMin = new Vector<T>(a, 0);
-                for (int i = count; i <= a.Length-count; i+=count)
+                var vMin = new Vector<T>(source, 0);
+                for (int i = count; i <= source.Length-count; i+=count)
                 {
-                    var v = new Vector<T>(a, i);
+                    var v = new Vector<T>(source, i);
                     vMin = Vector.Min(v, vMin);
                 }
 
@@ -38,9 +38,9 @@ namespace JM.LinqFaster.SIMD
                 }
             }
 
-            for (int i = a.Length-a.Length%count; i < a.Length;i++)
+            for (int i = source.Length-source.Length%count; i < source.Length;i++)
             {
-                if (LessThan(a[i],min)) min = a[i];
+                if (LessThan(source[i],min)) min = source[i];
             }
             return min;
         }

@@ -7,27 +7,27 @@ namespace JM.LinqFaster.SIMD
     public static partial class LinqFasterSIMD
     {
 
-        public static T MaxS<T> (this T[] a)
+        public static T MaxS<T> (this T[] source)
             where T : struct
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull("source");
             }
 
-            if (a.Length == 0)
+            if (source.Length == 0)
             {
                 throw Error.NoElements();
             }
 
-            T max = a[0];
+            T max = source[0];
             int count = Vector<T>.Count;
-            if (count <= a.Length)
+            if (count <= source.Length)
             {
-                var vMax = new Vector<T>(a, 0);
-                for (int i = count; i <= a.Length-count; i+=count)
+                var vMax = new Vector<T>(source, 0);
+                for (int i = count; i <= source.Length-count; i+=count)
                 {
-                    var v = new Vector<T>(a, i);
+                    var v = new Vector<T>(source, i);
                     vMax = Vector.Max(v, vMax);
                 }
 
@@ -38,9 +38,9 @@ namespace JM.LinqFaster.SIMD
                 }
             }
 
-            for (int i = a.Length-a.Length%count; i < a.Length;i++)
+            for (int i = source.Length-source.Length%count; i < source.Length;i++)
             {
-                if (GreaterThan(a[i],max)) max = a[i];
+                if (GreaterThan(source[i],max)) max = source[i];
             }
             return max;
         }

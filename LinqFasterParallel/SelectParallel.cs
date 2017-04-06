@@ -18,12 +18,12 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             
@@ -48,12 +48,12 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
 
@@ -78,12 +78,12 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             var r = new TResult[source.Length];
@@ -110,12 +110,12 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
             var r = new TResult[source.Length];
             var rangePartitioner = MakePartition(source.Length, batchSize);
@@ -141,12 +141,12 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
 
@@ -171,12 +171,12 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
 
@@ -201,12 +201,12 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             var r = new List<TResult>(source.Count);
@@ -234,12 +234,12 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             var r = new List<TResult>(source.Count);

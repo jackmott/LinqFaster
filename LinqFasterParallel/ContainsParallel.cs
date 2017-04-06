@@ -21,12 +21,12 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (comparer == null)
             {
-                throw Error.ArgumentNull(nameof(comparer));
+                throw Error.ArgumentNull("comparer");
             }
 
 
@@ -67,12 +67,12 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (comparer == null)
             {
-                throw Error.ArgumentNull(nameof(comparer));
+                throw Error.ArgumentNull("comparer");
             }
 
 

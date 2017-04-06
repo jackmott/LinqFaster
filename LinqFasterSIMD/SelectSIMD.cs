@@ -7,40 +7,40 @@ namespace JM.LinqFaster.SIMD
     public static partial class LinqFasterSIMD
     {
                           
-        public static U[] SelectS<T,U>(this T[] a, Func<Vector<T>,Vector<U>> slectorSIMD, Func<T,U> selector = null) 
+        public static U[] SelectS<T,U>(this T[] source, Func<Vector<T>,Vector<U>> slectorSIMD, Func<T,U> selector = null) 
             where T : struct 
             where U : struct
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull("source");
             }            
             if (slectorSIMD == null)
             {
-                throw Error.ArgumentNull(nameof(slectorSIMD));
+                throw Error.ArgumentNull("selectorSIMD");
             }
         
             var count = Vector<T>.Count;
 
             if (count != Vector<U>.Count)
             {
-                throw Error.ArgumentOutOfRange(nameof(slectorSIMD));
+                throw Error.ArgumentOutOfRange("selectorSIMD");
             }
 
-            var result = new U[a.Length];
+            var result = new U[source.Length];
 
             int i = 0;
-            for (; i <= a.Length-count;i+=count)
+            for (; i <= source.Length-count;i+=count)
             {
-                slectorSIMD(new Vector<T>(a, i)).CopyTo(result, i);
+                slectorSIMD(new Vector<T>(source, i)).CopyTo(result, i);
             }
 
             if (selector != null)
             {
-                i = a.Length - a.Length % count;
+                i = source.Length - source.Length % count;
                 for (; i < result.Length; i++)
                 {
-                    result[i] = selector(a[i]);
+                    result[i] = selector(source[i]);
                 }
             }
             return result;

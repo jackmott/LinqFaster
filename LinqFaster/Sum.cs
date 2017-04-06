@@ -17,7 +17,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             int sum = 0;
             checked
@@ -40,12 +40,12 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             int sum = 0;
@@ -68,7 +68,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             long sum = 0;
             checked
@@ -91,12 +91,12 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             long sum = 0;
@@ -119,7 +119,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             double sum = 0;
 
@@ -141,12 +141,12 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             double sum = 0;
@@ -167,7 +167,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             double sum = 0;
             foreach (var v in source)
@@ -188,12 +188,12 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             double sum = 0;
@@ -214,7 +214,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             decimal sum = 0;
 
@@ -236,12 +236,12 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             decimal sum = 0;
@@ -264,7 +264,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             int sum = 0;
             checked
@@ -287,12 +287,12 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             int sum = 0;
@@ -315,7 +315,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             long sum = 0;
             checked
@@ -338,12 +338,12 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             long sum = 0;
@@ -366,7 +366,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             double sum = 0;
 
@@ -388,12 +388,12 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             double sum = 0;
@@ -414,7 +414,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             double sum = 0;
             for (int i = 0; i < source.Count; i++)
@@ -435,12 +435,12 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             double sum = 0;
@@ -461,7 +461,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             decimal sum = 0;
 
@@ -483,12 +483,12 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             decimal sum = 0;

@@ -9,7 +9,7 @@ namespace JM.LinqFaster.SIMD
         {
             long max = ((long)start) + len - 1;
             if (len < 0 || max > int.MaxValue) {
-                throw Error.ArgumentOutOfRange(nameof(len));
+                throw Error.ArgumentOutOfRange("len");
             }
 
             var count = Vector<int>.Count;

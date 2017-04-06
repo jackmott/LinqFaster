@@ -21,12 +21,12 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (predicate == null)
             {
-                throw Error.ArgumentNull(nameof(predicate));
+                throw Error.ArgumentNull("predicate");
             }
 
             int total = 0;
@@ -71,12 +71,12 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (predicate == null)
             {
-                throw Error.ArgumentNull(nameof(predicate));
+                throw Error.ArgumentNull("predicate");
             }
 
             int total = 0;

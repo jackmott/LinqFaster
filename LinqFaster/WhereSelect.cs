@@ -20,17 +20,17 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (predicate == null)
             {
-                throw Error.ArgumentNull(nameof(predicate));
+                throw Error.ArgumentNull("predicate");
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(predicate));
+                throw Error.ArgumentNull("predicate");
             }
 
             var result = new TResult[source.Length];
@@ -48,30 +48,30 @@ namespace JM.LinqFaster
         }
        
 
-        public static TResult[] WhereSelectF<T, TResult>(this T[] a, Func<T, int, bool> predicate, Func<T, int, TResult> selector)
+        public static TResult[] WhereSelectF<T, TResult>(this T[] source, Func<T, int, bool> predicate, Func<T, int, TResult> selector)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull("source");
             }
 
             if (predicate == null)
             {
-                throw Error.ArgumentNull(nameof(predicate));
+                throw Error.ArgumentNull("predicate");
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(predicate));
+                throw Error.ArgumentNull("predicate");
             }
 
-            var result = new TResult[a.Length];
+            var result = new TResult[source.Length];
             int idx = 0;
-            for (int i = 0; i < a.Length; i++)
+            for (int i = 0; i < source.Length; i++)
             {
-                if (predicate(a[i], i))
+                if (predicate(source[i], i))
                 {
-                    result[idx] = selector(a[i], idx);
+                    result[idx] = selector(source[i], idx);
                     idx++;
                 }
             }
@@ -86,17 +86,17 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (predicate == null)
             {
-                throw Error.ArgumentNull(nameof(predicate));
+                throw Error.ArgumentNull("predicate");
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(predicate));
+                throw Error.ArgumentNull("predicate");
             }
 
             var r = new List<TResult>();
@@ -111,17 +111,17 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (predicate == null)
             {
-                throw Error.ArgumentNull(nameof(predicate));
+                throw Error.ArgumentNull("predicate");
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(predicate));
+                throw Error.ArgumentNull("predicate");
             }
 
             var r = new List<TResult>();

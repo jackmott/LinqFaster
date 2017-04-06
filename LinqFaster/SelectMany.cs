@@ -18,12 +18,12 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             var result = new List<TResult>(source.Length);
@@ -49,12 +49,12 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             var result = new List<TResult>(source.Length);
@@ -82,12 +82,12 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             var result = new List<TResult>(source.Count);
@@ -113,12 +113,12 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             var result = new List<TResult>(source.Count);

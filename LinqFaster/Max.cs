@@ -17,7 +17,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (source.Length == 0)
             {
@@ -55,11 +55,11 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (source.Length == 0)
             {
@@ -98,7 +98,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (source.Length == 0)
             {
@@ -122,7 +122,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (source.Length == 0)
             {
@@ -130,7 +130,7 @@ namespace JM.LinqFaster
             }
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             int r = int.MinValue;
@@ -151,7 +151,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (source.Length == 0)
             {
@@ -176,7 +176,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (source.Length == 0)
             {
@@ -184,7 +184,7 @@ namespace JM.LinqFaster
             }
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             long r = long.MinValue;
@@ -205,7 +205,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (source.Length == 0)
             {
@@ -238,7 +238,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (source.Length == 0)
             {
@@ -246,7 +246,7 @@ namespace JM.LinqFaster
             }
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             float r = selector(source[0]);
@@ -277,7 +277,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (source.Length == 0)
             {
@@ -310,7 +310,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (source.Length == 0)
             {
@@ -318,7 +318,7 @@ namespace JM.LinqFaster
             }
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             double r = selector(source[0]);
@@ -350,7 +350,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (source.Length == 0)
             {
@@ -374,7 +374,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (source.Length == 0)
             {
@@ -382,7 +382,7 @@ namespace JM.LinqFaster
             }
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
             decimal r = decimal.MinValue;
             for (int i = 0; i < source.Length; i++)
@@ -404,7 +404,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (source.Count == 0)
             {
@@ -442,12 +442,12 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             if (source.Count == 0)
@@ -488,7 +488,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (source.Count == 0)
             {
@@ -512,7 +512,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (source.Count == 0)
             {
@@ -520,7 +520,7 @@ namespace JM.LinqFaster
             }
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             int r = int.MinValue;
@@ -541,7 +541,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (source.Count == 0)
             {
@@ -565,7 +565,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (source.Count == 0)
             {
@@ -573,7 +573,7 @@ namespace JM.LinqFaster
             }
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             long r = long.MinValue;
             for (int i = 0; i < source.Count; i++)
@@ -593,7 +593,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (source.Count == 0)
             {
@@ -626,7 +626,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (source.Count == 0)
             {
@@ -634,7 +634,7 @@ namespace JM.LinqFaster
             }
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
             float r = selector(source[0]);
             int startIndex = 0;
@@ -664,7 +664,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (source.Count == 0)
             {
@@ -697,7 +697,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (source.Count == 0)
             {
@@ -705,7 +705,7 @@ namespace JM.LinqFaster
             }
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
             double r = selector(source[0]);
             int startIndex = 0;
@@ -735,7 +735,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (source.Count == 0)
             {
@@ -759,7 +759,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (source.Count == 0)
             {

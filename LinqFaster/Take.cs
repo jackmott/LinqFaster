@@ -16,7 +16,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (count < 0)
             {
@@ -42,11 +42,11 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (predicate == null)
             {
-                throw Error.ArgumentNull(nameof(predicate));
+                throw Error.ArgumentNull("predicate");
             }
 
             var result = new List<T>();
@@ -70,11 +70,11 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (predicate == null)
             {
-                throw Error.ArgumentNull(nameof(predicate));
+                throw Error.ArgumentNull("predicate");
             }
 
             var result = new List<T>();
@@ -102,7 +102,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (count < 0)
             {
@@ -127,23 +127,23 @@ namespace JM.LinqFaster
         /// <param name="source">A sequence to return elements from.</param>
         /// <param name="predicate">A function to test each element for a condition.</param>
         /// <returns>A sequence that contains the elements from the input sequence that occur before the element at which the test no longer passes.</returns>
-        public static List<T> TakeWhileF<T>(this List<T> a, Func<T, bool> predicate)
+        public static List<T> TakeWhileF<T>(this List<T> source, Func<T, bool> predicate)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull("source");
             }
             if (predicate == null)
             {
-                throw Error.ArgumentNull(nameof(predicate));
+                throw Error.ArgumentNull("predicate");
             }
 
             var result = new List<T>();
-            for (int i = 0; i < a.Count; i++)
+            for (int i = 0; i < source.Count; i++)
             {
-                if (predicate(a[i]))
+                if (predicate(source[i]))
                 {
-                    result.Add(a[i]);
+                    result.Add(source[i]);
                 }
                 else
                 {
@@ -164,11 +164,11 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (predicate == null)
             {
-                throw Error.ArgumentNull(nameof(predicate));
+                throw Error.ArgumentNull("predicate");
             }
 
             var result = new List<T>();

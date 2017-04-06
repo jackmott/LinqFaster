@@ -188,15 +188,16 @@ namespace Tests
         
 
         [Benchmark]
-        public int WhereAggregateF()
+        public int[] WhereSelectF()
         {
-            return array.WhereAggregateF(x => x % 2 == 0, (acc, x) => acc += x);
+            return array.WhereSelectF(x => x % 2 == 0, x => x * x);
         }
 
         [Benchmark]
-        public int WhereAggregateP()
+        public int[] WhereSelectP()
         {
-            return array.WhereAggregateP(x => x % 2 == 0, (acc, x) => acc += x);
+            return new int[1];
+           // return array.WhereSelectP(x => x % 2 == 0, x => x * x);
         }
 
 

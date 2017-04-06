@@ -24,24 +24,24 @@ namespace JM.LinqFaster.SIMD.Parallel
         
         }   
              
-        public static U[] SelectSP<T,U>(this T[] a, Func<Vector<T>,Vector<U>> selectorSIMD, Func<T,U> selector = null) 
+        public static U[] SelectSP<T,U>(this T[] source, Func<Vector<T>,Vector<U>> selectorSIMD, Func<T,U> selector = null) 
             where T : struct
             where U : struct
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull("source");
             }
 
-            var result = new U[a.Length];
-            ForVector(a,result,selectorSIMD,SelectSPHelper);
+            var result = new U[source.Length];
+            ForVector(source,result,selectorSIMD,SelectSPHelper);
 
             if (selector != null)
             {
                 int count = Vector<T>.Count;
-                for (int i = a.Length - a.Length % count; i < a.Length; i++)
+                for (int i = source.Length - source.Length % count; i < source.Length; i++)
                 {
-                    result[i] = selector(a[i]);
+                    result[i] = selector(source[i]);
                 }
             }
 

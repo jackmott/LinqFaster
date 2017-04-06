@@ -15,7 +15,7 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (count < 0)
             {
@@ -41,11 +41,11 @@ namespace JM.LinqFaster
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
             if (predicate == null)
             {
-                throw Error.ArgumentNull(nameof(predicate));
+                throw Error.ArgumentNull("predicate");
             }
 
             int i = 0;
@@ -68,25 +68,25 @@ namespace JM.LinqFaster
         /// <param name="source">A sequence to return elements from.</param>
         /// <param name="count">The number of elements to skip before returning the remaining elements.</param>
         /// <returns>A sequence that contains the elements that occur after the specified index in the input sequence.</returns>
-        public static List<T> SkipF<T>(this List<T> a, int count)
+        public static List<T> SkipF<T>(this List<T> source, int count)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull("source");
             }
             if (count < 0)
             {
                 count = 0;
             }
-            else if (count > a.Count)
+            else if (count > source.Count)
             {
                 return new List<T>();
             }
 
-            var result = new List<T>(a.Count - count);
-            for (int i = count; i < a.Count; i++)
+            var result = new List<T>(source.Count - count);
+            for (int i = count; i < source.Count; i++)
             {
-                result.Add(a[i]);
+                result.Add(source[i]);
             }
             return result;
         }
@@ -97,29 +97,29 @@ namespace JM.LinqFaster
         /// <param name="source">A sequence to return elements from.</param>
         /// <param name="predicate">A function to test each element for a condition.</param>
         /// <returns>A sequence that contains the elements from the input sequence starting at the first element in the linear series that does not pass the test specified by predicate.</returns>
-        public static List<T> SkipWhileF<T>(this List<T> a, Func<T, bool> predicate)
+        public static List<T> SkipWhileF<T>(this List<T> source, Func<T, bool> predicate)
         {
-            if (a == null)
+            if (source == null)
             {
-                throw Error.ArgumentNull(nameof(a));
+                throw Error.ArgumentNull("source");
             }
             if (predicate == null)
             {
-                throw Error.ArgumentNull(nameof(predicate));
+                throw Error.ArgumentNull("predicate");
             }
 
             int i = 0;
-            for (; i < a.Count; i++)
+            for (; i < source.Count; i++)
             {
-                if (!predicate(a[i])) {
+                if (!predicate(source[i])) {
                     break;
                 }
             }
 
-            var result = new List<T>(a.Count - i);
-            for (; i < a.Count; i++)
+            var result = new List<T>(source.Count - i);
+            for (; i < source.Count; i++)
             {
-                result.Add(a[i]);
+                result.Add(source[i]);
             }
             return result;
         }

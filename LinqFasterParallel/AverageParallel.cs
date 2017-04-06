@@ -20,7 +20,7 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (source.Length == 0)
@@ -60,7 +60,7 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (source.Length == 0)
@@ -70,7 +70,7 @@ namespace JM.LinqFaster.Parallel
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             long sum = 0;
@@ -103,7 +103,7 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (source.Length == 0)
@@ -143,7 +143,7 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (source.Length == 0)
@@ -153,7 +153,7 @@ namespace JM.LinqFaster.Parallel
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             long sum = 0;
@@ -186,7 +186,7 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (source.Length == 0)
@@ -224,7 +224,7 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (source.Length == 0)
@@ -234,7 +234,7 @@ namespace JM.LinqFaster.Parallel
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             double sum = 0;
@@ -266,7 +266,7 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (source.Length == 0)
@@ -305,7 +305,7 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (source.Length == 0)
@@ -315,7 +315,7 @@ namespace JM.LinqFaster.Parallel
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             double sum = 0;
@@ -347,7 +347,7 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (source.Length == 0)
@@ -387,7 +387,7 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (source.Length == 0)
@@ -397,7 +397,7 @@ namespace JM.LinqFaster.Parallel
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
 
@@ -433,7 +433,7 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (source.Count == 0)
@@ -474,7 +474,7 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (source.Count == 0)
@@ -484,7 +484,7 @@ namespace JM.LinqFaster.Parallel
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             long sum = 0;
@@ -516,7 +516,7 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (source.Count == 0)
@@ -556,7 +556,7 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (source.Count == 0)
@@ -566,7 +566,7 @@ namespace JM.LinqFaster.Parallel
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             long sum = 0;
@@ -598,7 +598,7 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (source.Count == 0)
@@ -636,7 +636,7 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (source.Count == 0)
@@ -646,7 +646,7 @@ namespace JM.LinqFaster.Parallel
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             double sum = 0;
@@ -678,7 +678,7 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (source.Count == 0)
@@ -717,7 +717,7 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (source.Count == 0)
@@ -727,7 +727,7 @@ namespace JM.LinqFaster.Parallel
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             double sum = 0;
@@ -759,7 +759,7 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (source.Count == 0)
@@ -798,7 +798,7 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull(nameof(source));
+                throw Error.ArgumentNull("source");
             }
 
             if (source.Count == 0)
@@ -808,7 +808,7 @@ namespace JM.LinqFaster.Parallel
 
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
 

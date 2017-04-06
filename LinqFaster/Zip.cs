@@ -17,15 +17,15 @@ namespace JM.LinqFaster
         {
             if (first == null)
             {
-                throw Error.ArgumentNull(nameof(first));
+                throw Error.ArgumentNull("first");
             }
             if (second == null)
             {
-                throw Error.ArgumentNull(nameof(second));
+                throw Error.ArgumentNull("second");
             }
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             //maintain array bounds elision
@@ -62,15 +62,15 @@ namespace JM.LinqFaster
         {
             if (first == null)
             {
-                throw Error.ArgumentNull(nameof(first));
+                throw Error.ArgumentNull("first");
             }
             if (second == null)
             {
-                throw Error.ArgumentNull(nameof(second));
+                throw Error.ArgumentNull("second");
             }
             if (selector == null)
             {
-                throw Error.ArgumentNull(nameof(selector));
+                throw Error.ArgumentNull("selector");
             }
 
             //maintain array bounds elision
