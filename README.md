@@ -11,7 +11,7 @@ A set of extension methods for `arrays[]` and `List<T>` that are faster and allo
 LinqFaster now includes all relevant Linq extension methods, and **SIMD** and **parallel** enhanced extension methods are
 being worked on now as well.
 
-## [Beta now available on Nuget](https://www.nuget.org/packages/LinqFaster/)
+## [Beta now available on Nuget](https://www.nuget.org/packages?q=linqfaster)
 
 # Benchmarks
 
