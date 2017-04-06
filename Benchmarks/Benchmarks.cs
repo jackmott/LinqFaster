@@ -189,14 +189,18 @@ namespace Tests
 
        
         [Benchmark]
-        public double[] WhereSelectP()
+        public double[] WhereSelectF()
         {            
-            return array.WhereSelectP(x => x % 2 == 0, x => Math.Sqrt(x * 5.0 + x*2.0));
+            return array.WhereSelectF(x => x % 2 == 0, x => Math.Sqrt(x * 5.0 + x*2.0));
+        }
+
+        [Benchmark]
+        public double[] WhereSelectP()
+        {
+            return array.WhereSelectP(x => x % 2 == 0, x => Math.Sqrt(x * 5.0 + x * 2.0));
         }
 
      
-
-
 
 
 
