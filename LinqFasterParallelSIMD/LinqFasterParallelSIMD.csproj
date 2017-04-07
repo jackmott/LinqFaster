@@ -2,10 +2,36 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard1.3;net461</TargetFrameworks>
+    <Version>0.9.0</Version>
+    <Authors>Jack Mott</Authors>
+    <Company />
+    <Description>High performance Linq-style extension methods that are multithreaded and use System.Numerics SIMD for arrays and lists.</Description>
+    <Copyright>Copyright 2017 (c) Jack Mott. All rights reserved.</Copyright>
+    <RepositoryUrl>https://github.com/jackmott/LinqFaster</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/jackmott/LinqFaster</PackageProjectUrl>
+    <PackageIconUrl>https://jackmott.github.io/images/LinqFaster.png</PackageIconUrl>
+    <RepositoryType>Github</RepositoryType>
+    <PackageTags>performance linq simd system.numerics multithreaded parallel</PackageTags>
+    <PackageReleaseNotes>Beta 1</PackageReleaseNotes>
+    <NeutralLanguage />
+    <PackageId>LinqFaster.SIMD.Parallel</PackageId>
+    <Product>LinqFaster.SIMD.Parallel</Product>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Numerics.Vectors" Version="4.3.0" />
+    <Compile Include="..\LinqFaster\Utils\CustomPartition.cs" Link="Utils\CustomPartition.cs" />
+    <Compile Include="..\LinqFaster\Utils\Error.cs" Link="Utils\Error.cs" />
+    <Compile Include="..\LinqFaster\Utils\GenericOperators.cs" Link="Utils\GenericOperators.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Numerics.Vectors" Version="4.3.0" />
+    <PackageReference Include="System.Threading.Tasks.Parallel" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Utils\" />
+  </ItemGroup>  
+    
+  
 </Project>

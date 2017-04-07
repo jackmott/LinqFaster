@@ -6,7 +6,11 @@ namespace JM.LinqFaster.SIMD
 
     public static partial class LinqFasterSIMD
     {
-
+        /// <summary>
+        /// Finds the maximum value the sequence using SIMD
+        /// </summary>        
+        /// <param name="source">A sequence of primitive values</param>
+        /// <returns>The maximum value in the sequence</returns>
         public static T MaxS<T> (this T[] source)
             where T : struct
         {

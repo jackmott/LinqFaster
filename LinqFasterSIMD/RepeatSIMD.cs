@@ -5,6 +5,12 @@ namespace JM.LinqFaster.SIMD
 
     public static partial class LinqFasterSIMD
     {
+        /// <summary>
+        /// Generates a sequence that contains one repeated value using SIMD.
+        /// </summary>        
+        /// <param name="element">The value to be repeated.</param>
+        /// <param name="count">The number of times to repeat the value in the generated sequence.</param>
+        /// <returns>A sequence that contains a repeated value</returns>
         public static T[] RepeatS<T>(T e, int count)
             where T : struct
         {
@@ -18,7 +24,7 @@ namespace JM.LinqFaster.SIMD
             var vCount = Vector<T>.Count;
 
             int i = 0;
-            for (; i <= result.Length-count; i += vCount)
+            for (; i <= result.Length-vCount; i += vCount)
             {
                 v.CopyTo(result, i);
             }

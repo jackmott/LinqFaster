@@ -3,6 +3,8 @@ using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
 using JM.LinqFaster;
 using JM.LinqFaster.Parallel;
+using JM.LinqFaster.SIMD;
+using JM.LinqFaster.SIMD.Parallel;
 using System.Linq;
 using System.Collections.Generic;
 using BenchmarkDotNet.Configs;
@@ -14,17 +16,18 @@ namespace Tests
     public class Benchmarks
     {
 
-        const int LARGE_TEST_SIZE = 100000;
+        const int LARGE_TEST_SIZE = 1000000;
         const int SMALL_TEST_SIZE = 100;
 
 
 
         public List<int> list;
         public int[] array;
+        public float[] floatArray;
         public string[] strarray;
         
 
-        [Params(100000)]
+        [Params(1000000)]
         public int TEST_SIZE { get; set; }
 
         public Benchmarks()
@@ -38,6 +41,7 @@ namespace Tests
         {
             Random r = new Random();
             array = new int[TEST_SIZE];
+            floatArray = new float[TEST_SIZE];
             list = new List<int>(TEST_SIZE);
             strarray = new string[TEST_SIZE];
                                     
@@ -46,6 +50,7 @@ namespace Tests
                 array[i] = i - (TEST_SIZE)/2;
                 list.Add(array[i]);
                 strarray[i] = array[i].ToString();
+                floatArray[i] = array[i];
             }
         }
 
@@ -183,25 +188,36 @@ namespace Tests
         {                        
             return array.MinS();
         }*/
-        
-            
-        
-
-       
-        [Benchmark]
-        public double[] WhereSelectF()
-        {            
-            return array.WhereSelectF(x => x % 2 == 0, x => Math.Sqrt(x * 5.0 + x*2.0));
-        }
 
         [Benchmark]
-        public double[] WhereSelectP()
+        public float SumLinq()
         {
-            return array.WhereSelectP(x => x % 2 == 0, x => Math.Sqrt(x * 5.0 + x * 2.0));
+            return floatArray.Sum();
         }
 
-     
+        [Benchmark]
+        public float SumLinqFaster()
+        {
+            return floatArray.SumF();
+        }
 
+        [Benchmark]
+        public float SumLinqFasterParallel()
+        {
+            return floatArray.SumP();
+        }
+
+        [Benchmark]
+        public float SumLinqFasterSIMD()
+        {
+            return floatArray.SumS();
+        }
+
+        [Benchmark]
+        public float SumLinqFasterParallelSIMD()
+        {
+            return floatArray.SumSP();
+        }
 
 
         public static void Main(string[] args)

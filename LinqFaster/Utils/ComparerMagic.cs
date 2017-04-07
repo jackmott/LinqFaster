@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 namespace JM.LinqFaster.Utils {
 
     //Takes a comparer, and creates a reverse comparer, for Descending sorts
-    public sealed class ComparerReverser<T> : IComparer<T> {
+    internal sealed class ComparerReverser<T> : IComparer<T> {
         private readonly IComparer<T> wrappedComparer;
 
         public ComparerReverser(IComparer<T> wrappedComparer) {
@@ -19,7 +19,7 @@ namespace JM.LinqFaster.Utils {
     }
 
     
-    public static class ComparerExtensions {
+    internal static class ComparerExtensions {
 
         // Lets us reverse a comparere with comparer.Reverse();
         public static IComparer<T> Reverse<T>(this IComparer<T> comparer) {
@@ -27,7 +27,7 @@ namespace JM.LinqFaster.Utils {
         }
     }
 
-    public sealed class LambdaComparer<T, U> : IComparer<T> {
+    internal sealed class LambdaComparer<T, U> : IComparer<T> {
         IComparer<U> comparer;
         Func<T, U> selector;
 
@@ -42,7 +42,7 @@ namespace JM.LinqFaster.Utils {
         }
     }
 
-    public sealed class ReverseLambdaComparer<T, U> : IComparer<T> {
+    internal sealed class ReverseLambdaComparer<T, U> : IComparer<T> {
         IComparer<U> comparer;
         Func<T, U> selector;
 

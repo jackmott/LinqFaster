@@ -19,7 +19,7 @@ using System.Runtime.CompilerServices;
  */
 namespace JM.LinqFaster.Utils
 {
-    public static class GenericOperators
+    internal static class GenericOperators
     {
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -260,6 +260,55 @@ namespace JM.LinqFaster.Utils
             else if (typeof(T) == typeof(Double))
             {
                 return (double)(object)((Double)(object)a / b);
+            }
+            else
+            {
+                throw new NotSupportedException("Nope");
+            }
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float DivideFloat<T>(T a, float b)
+        {
+            if (typeof(T) == typeof(Byte))
+            {
+                return (float)(object)((Byte)(object)a / b);
+            }
+            else if (typeof(T) == typeof(SByte))
+            {
+                return (float)(object)((SByte)(object)a / b);
+            }
+            else if (typeof(T) == typeof(UInt16))
+            {
+                return (float)(object)((UInt16)(object)a / b);
+            }
+            else if (typeof(T) == typeof(Int16))
+            {
+                return (float)(object)((Int16)(object)a / b);
+            }
+            else if (typeof(T) == typeof(UInt32))
+            {
+                return (float)(object)((UInt32)(object)a / b);
+            }
+            else if (typeof(T) == typeof(Int32))
+            {
+                return (float)(object)((Int32)(object)a / b);
+            }
+            else if (typeof(T) == typeof(UInt64))
+            {
+                return (float)(object)((UInt64)(object)a / b);
+            }
+            else if (typeof(T) == typeof(Int64))
+            {
+                return (float)(object)((Int64)(object)a / b);
+            }
+            else if (typeof(T) == typeof(Single))
+            {
+                return (float)(object)((Single)(object)a / b);
+            }
+            else if (typeof(T) == typeof(Double))
+            {
+                return (float)(object)((Double)(object)a / b);
             }
             else
             {

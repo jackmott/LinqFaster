@@ -158,7 +158,7 @@ namespace JM.LinqFaster.Parallel
         /// <param name="source">The sequence to add.</param>
         /// <param name="batchSize">Optional custom batch size to divide work into.</param>
         /// <returns>The sum of the sequence.</returns>
-        public static float SumP(this float[] source, int? batchSize)
+        public static float SumP(this float[] source, int? batchSize = null)
         {
             if (source == null)
             {

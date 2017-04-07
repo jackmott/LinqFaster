@@ -8,7 +8,12 @@ namespace JM.LinqFaster.SIMD
 
     public static partial class LinqFasterSIMD
     {
-                          
+     
+        /// <summary>
+        /// Computes the sum of a sequence using SIMD
+        /// </summary>        
+        /// <param name="source">A sequence of primitive values to sum.</param>
+        /// <returns>The sum of the sequence of values.</returns>
         public static T SumS<T>(this T[] source) where T:struct
         {
             if (source == null)
@@ -39,6 +44,14 @@ namespace JM.LinqFaster.SIMD
             return result;
         }
 
+
+        /// <summary>
+        /// Computes the sum of a sequence of transformed values using SIMD
+        /// </summary>        
+        /// <param name="source">A sequence of elements to transform then sum.</param>
+        /// <param name="selectorSIMD">A transformation function that operates on vectors. </param>
+        /// <param nume="selector">An optional transformation function to transform any leftover elements.</param>
+        /// <returns>The sum of the sequence of transformed values.</returns>
         public static U SumS<T,U>(this T[] source, Func<Vector<T>,Vector<U>> selectorSIMD, Func<T,U> selector = null)
             where T : struct
             where U : struct

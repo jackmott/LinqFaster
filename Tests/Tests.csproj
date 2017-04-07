@@ -68,6 +68,12 @@
     <Compile Include="SelectTests.cs" />
     <Compile Include="SelectWhereTests.cs" />
     <Compile Include="SequenceEqualsTests.cs" />
+    <Compile Include="SIMDTests\AverageSIMDTests.cs" />
+    <Compile Include="SIMDTests\RepeatTests.cs" />
+    <Compile Include="SIMDTests\RangeSIMDTests.cs" />
+    <Compile Include="SIMDTests\SumSIMDTests.cs" />
+    <Compile Include="SIMDTests\SelectSIMDTests.cs" />
+    <Compile Include="SIMDTests\ContainsSIMDTests.cs" />
     <Compile Include="SIMDTests\MaxSIMDTests.cs" />
     <Compile Include="SIMDTests\MinSIMDTests.cs" />
     <Compile Include="SingleTests.cs" />

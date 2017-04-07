@@ -7,6 +7,11 @@ namespace JM.LinqFaster.SIMD
     public static partial class LinqFasterSIMD
     {
 
+        /// <summary>
+        /// Finds the minimum value in a sequence using SIMD.
+        /// </summary>        
+        /// <param name="source">A sequence of primitive values</param>
+        /// <returns>The minimum value in the sequence</returns>
         public static T MinS<T> (this T[] source)
             where T : struct
         {

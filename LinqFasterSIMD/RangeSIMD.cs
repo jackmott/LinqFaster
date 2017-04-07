@@ -5,6 +5,14 @@ namespace JM.LinqFaster.SIMD
 
     public static partial class LinqFasterSIMD
     {
+
+        /// <summary>
+        /// Generates a sequence of integral numbers within a specified range
+        /// using SIMD
+        /// </summary>
+        /// <param name="start">The value of the first integer in the sequence.</param>
+        /// <param name="count">The number of sequential integers to generate.</param>
+        /// <returns>A sequence that contains a range of sequential integral numbers.</returns>
         public static int[] RangeS(int start, int len)            
         {
             long max = ((long)start) + len - 1;

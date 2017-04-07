@@ -2,10 +2,32 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard1.3;net461</TargetFrameworks>
+    <PackageId>LinqFaster.Parallel</PackageId>
+    <Version>0.9.0</Version>
+    <Authors>Jack Mott</Authors>
+    <Company>Jack Mott</Company>
+    <Product>LinqFaster Parallel</Product>
+    <Description>Provides multithreaded Linq-Like extensions for arrays and lists.</Description>
+    <Copyright>Copyright 2017 (c) Jack Mott. All rights reserved.</Copyright>
+    <PackageProjectUrl>https://github.com/jackmott/LinqFaster</PackageProjectUrl>
+    <PackageIconUrl>https://jackmott.github.io/images/LinqFaster.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/jackmott/LinqFaster</RepositoryUrl>
+    <RepositoryType>Github</RepositoryType>
+    <PackageTags>performance parallel multithreaded linq</PackageTags>
+    <PackageReleaseNotes>Beta 1</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="..\LinqFaster\Utils\CustomPartition.cs" Link="Utils\CustomPartition.cs" />
+    <Compile Include="..\LinqFaster\Utils\Error.cs" Link="Utils\Error.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="System.Threading.Tasks.Parallel" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Utils\" />
   </ItemGroup>
 
 </Project>
