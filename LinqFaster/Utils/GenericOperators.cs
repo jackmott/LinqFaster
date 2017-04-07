@@ -1,4 +1,6 @@
-﻿using System;
+﻿#if !UNITY_CONFIG
+      
+using System;
 using System.Runtime.CompilerServices;
 
 /*
@@ -315,10 +317,7 @@ namespace JM.LinqFaster.Utils
                 throw new NotSupportedException("Nope");
             }
         }
-
-
-
-
-
     }
 }
+
+#endif

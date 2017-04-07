@@ -11,8 +11,9 @@ namespace JM.LinqFaster.Utils {
         public ComparerReverser(IComparer<T> wrappedComparer) {
             this.wrappedComparer = wrappedComparer;
         }
-
+#if !UNITY_CONFIG
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
         public int Compare(T x, T y) {
             return wrappedComparer.Compare(y, x);
         }
@@ -35,8 +36,9 @@ namespace JM.LinqFaster.Utils {
             this.comparer = comparer;
             this.selector = selector;
         }
-
+#if !UNITY_CONFIG
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif      
         public int Compare(T x, T y) {
             return comparer.Compare(selector(x), selector(y));
         }
@@ -50,8 +52,9 @@ namespace JM.LinqFaster.Utils {
             this.comparer = comparer;
             this.selector = selector;
         }
-
+#if !UNITY_CONFIG
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif      
         public int Compare(T x, T y) {
             return comparer.Compare(selector(y), selector(x));
         }

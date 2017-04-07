@@ -17,8 +17,9 @@ namespace JM.LinqFaster.Utils
                 return Partitioner.Create(0, len, batchSize.Value);
             }
         }
-       
 
+#if !UNITY_CONFIG
+      
         public static OrderablePartitioner<Tuple<int, int>> MakeSIMDPartition(int len, int chunkSize, int? batchSize)
         {
             int chunkLen = len - len % chunkSize;
@@ -32,5 +33,6 @@ namespace JM.LinqFaster.Utils
                 return Partitioner.Create(0, numChunks, batchSize.Value);
             }
         }
+#endif
     }
 }

@@ -15,4 +15,4 @@ internal static class Error
     internal static Exception NoMatch() { return new InvalidOperationException("Sequence contains no matching element"); }
 
     internal static Exception NotSupported() { return new NotSupportedException(); }
-} //hello
+} 
