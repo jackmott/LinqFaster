@@ -61,6 +61,13 @@
     <Compile Include="ParallelSIMDTests\SelectSIMDP.cs" />
     <Compile Include="ParallelSIMDTests\SumSIMDP.cs" />
     <Compile Include="ParallelTests\ContainsParallelTests.cs" />
+    <Compile Include="ParallelTests\WhereSelectParallelTests.cs" />
+    <Compile Include="ParallelTests\WhereParallelTests.cs" />
+    <Compile Include="ParallelTests\WhereAggregateParallelTests.cs" />
+    <Compile Include="ParallelTests\SelectWhereParallelTests.cs" />
+    <Compile Include="ParallelTests\SelectParallelTests.cs" />
+    <Compile Include="ParallelTests\MinParallelTests.cs" />
+    <Compile Include="ParallelTests\MaxParallelTests.cs" />
     <Compile Include="ParallelTests\CountParallelTests.cs" />
     <Compile Include="ParallelTests\SumParallelTests.cs" />
     <Compile Include="ParallelTests\AverageParallelTests.cs" />

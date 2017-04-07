@@ -118,7 +118,7 @@ namespace JM.LinqFaster.Parallel
             {
                 if (isChosen[i])
                 {
-                    result[idx] = selector(source[i],i);
+                    result[idx] = selector(source[i],idx);
                     idx++;
                 }
             }
@@ -230,12 +230,14 @@ namespace JM.LinqFaster.Parallel
                      Interlocked.Add(ref count, acc);
                  });
 
-            var result = new List<TResult>(count);          
+            var result = new List<TResult>(count);
+            int idx = 0;
             for (int i = 0; i < isChosen.Length; i++)
             {
                 if (isChosen[i])
                 {
-                    result.Add(selector(source[i], i));                    
+                    result.Add(selector(source[i], idx));
+                    idx++;
                 }
             }
             return result;

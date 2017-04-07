@@ -208,19 +208,19 @@ namespace JM.LinqFaster.Parallel
             {
                 throw Error.ArgumentNull("selector");
             }
-
-            var r = new List<TResult>(source.Count);
+            var r = new TResult[source.Count];
 
             var rangePartitioner = MakePartition(source.Count, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 (range, s) => {
-                    for (int i = range.Item1; i < range.Item2; i++) {
-                        r.Add(selector(source[i]));
+                    for (int i = range.Item1; i < range.Item2; i++)
+                    {
+                        r[i] = selector(source[i]);
                     }
                 });
 
 
-            return r;
+            return new List<TResult>(r);
         }
 
         /// <summary>
@@ -242,12 +242,47 @@ namespace JM.LinqFaster.Parallel
                 throw Error.ArgumentNull("selector");
             }
 
-            var r = new List<TResult>(source.Count);
+            var r = new TResult[source.Count];
 
             var rangePartitioner = MakePartition(source.Count, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 (range, s) => {
                     for (int i = range.Item1; i < range.Item2; i++) {
+                        r[i] = selector(source[i], i);
+                    }
+                });
+
+
+            return new List<TResult>(r);
+        }
+
+        /// <summary>
+        ///  Projects each element of a sequence into a new form by incorporating the element's index using multiple Tasks / Threads.
+        ///  !!Order of the collection is not preserved!! for more speed and less memory use.
+        /// </summary>        
+        /// <param name="source">A sequence of values to invoke a transform function on.</param>
+        /// <param name="selector">A transform function to apply to each source element; the second parameter of the function represents the index of the source element.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <returns>A sequence whose elements are the result of invoking the transform function on each element of source.</returns>
+        public static List<TResult> SelectUnorderedP<T, TResult>(this List<T> source, Func<T, int, TResult> selector, int? batchSize = null)
+        {
+            if (source == null)
+            {
+                throw Error.ArgumentNull("source");
+            }
+
+            if (selector == null)
+            {
+                throw Error.ArgumentNull("selector");
+            }
+
+            var r = new List<TResult>(source.Count);
+
+            var rangePartitioner = MakePartition(source.Count, batchSize);
+            System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
+                (range, s) => {
+                    for (int i = range.Item1; i < range.Item2; i++)
+                    {
                         r.Add(selector(source[i], i));
                     }
                 });

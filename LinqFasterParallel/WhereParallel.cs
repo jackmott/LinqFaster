@@ -113,6 +113,11 @@ namespace JM.LinqFaster.Parallel
             return result;
         }
 
+
+        // ----------------------------------- Lists ----------------------------------------
+
+
+
         /// <summary>
         /// Filters a sequence of values based on a predicate in parallel.
         /// </summary>        

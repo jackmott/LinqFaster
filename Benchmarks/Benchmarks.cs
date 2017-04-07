@@ -190,34 +190,31 @@ namespace Tests
         }*/
 
         [Benchmark]
-        public float SumLinq()
+        public List<int> ToListA()
         {
-            return floatArray.Sum();
+            int[] a = array;
+            List<int> r = new List<int>(a.Length);
+            foreach (var e in a)
+            {
+                r.Add(e);
+            }
+            return r;
         }
 
         [Benchmark]
-        public float SumLinqFaster()
+        public List<int> ToListB()
         {
-            return floatArray.SumF();
+            int[] a = array;
+            return a.ToList();
         }
 
         [Benchmark]
-        public float SumLinqFasterParallel()
+        public List<int> ToListC()
         {
-            return floatArray.SumP();
+            int[] a = array;
+            return new List<int>(a);
         }
 
-        [Benchmark]
-        public float SumLinqFasterSIMD()
-        {
-            return floatArray.SumS();
-        }
-
-        [Benchmark]
-        public float SumLinqFasterParallelSIMD()
-        {
-            return floatArray.SumSP();
-        }
 
 
         public static void Main(string[] args)
