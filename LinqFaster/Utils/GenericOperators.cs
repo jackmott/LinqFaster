@@ -1,5 +1,5 @@
-﻿#if !UNITY_CONFIG
-      
+﻿#if !(UNITY_4 || UNITY_5)
+
 using System;
 using System.Runtime.CompilerServices;
 

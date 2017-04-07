@@ -11,7 +11,7 @@ A set of extension methods for `arrays[]` and `List<T>` that are faster and allo
 LinqFaster now includes all relevant Linq extension methods, and **SIMD** and **parallel** enhanced extension methods are
 being worked on now as well.
 
-The base LinqFaster package is now compatible with Unity3D, just define UNITY_CONFIG
+The base LinqFaster project is now compatible with Unity3D
 
 ## [Beta now available on Nuget](https://www.nuget.org/packages?q=linqfaster)
 

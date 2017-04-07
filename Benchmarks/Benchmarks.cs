@@ -190,28 +190,54 @@ namespace Tests
         }*/
 
         [Benchmark]
-        public int DistinctLinq()
+        public int MinLinq()
         {
-            return list.Distinct().Sum();
+            return array.Min();
         }
 
         [Benchmark]
-        public int DistinctFast()
+        public int MinLF()
         {
-            return list.DistinctF().Sum();
+
+            return array.MinF();
         }
 
-       
+        [Benchmark]
+        public int SumLinq()
+        {
+            return array.Sum();
+        }
+
+        [Benchmark]
+        public int SumLF()
+        {
+            return array.SumF();
+        }
+
+        [Benchmark]
+        public int[] WhereSelectLinq()
+        {
+            return array.Where(x => x%2 == 0).Select(x=>x*x).ToArray();
+        }
+
+        [Benchmark]
+        public int[] WhereSelectLF()
+        {
+            return array.WhereSelectF(x=>x%2 == 0,x=>x*x);
+        }
+
+
 
 
 
         public static void Main(string[] args)
         {
 
-         /*  Benchmarks b = new Benchmarks();
-            b.TEST_SIZE = 100000;
-            b.Setup();
-            b.array.WhereSelectPB(x => x % 2 == 0, x => Math.Sqrt(x * x + x * x));*/
+            /*  Benchmarks b = new Benchmarks();
+               b.TEST_SIZE = 100000;
+               b.Setup();
+               b.array.WhereSelectPB(x => x % 2 == 0, x => Math.Sqrt(x */
+
             var summary = BenchmarkRunner.Run<Benchmarks>(ManualConfig.Create(DefaultConfig.Instance).With(Job.RyuJitX64));
 
         }
