@@ -89,6 +89,7 @@
     <Compile Include="SIMDTests\MinSIMDTests.cs" />
     <Compile Include="SingleTests.cs" />
     <Compile Include="SkipTests.cs" />
+    <Compile Include="WhereSumTests.cs" />
     <Compile Include="SumTests.cs" />
     <Compile Include="TakeTests.cs" />
     <Compile Include="Test.cs" />

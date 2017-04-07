@@ -216,7 +216,7 @@ namespace Tests
 
         [Benchmark]
         public int[] WhereSelectLinq()
-        {
+        {            
             return array.Where(x => x%2 == 0).Select(x=>x*x).ToArray();
         }
 
@@ -232,6 +232,36 @@ namespace Tests
 
         public static void Main(string[] args)
         {
+            //Create an array of with values -500 to 500
+            var myArray = LinqFaster.RangeArrayF(-500, 500);
+            //Create a List<T> with 1000 elements all set to 5.0
+            var myList = LinqFaster.RepeatListF(5.0, 1000);
+
+            //Compute sum, average, max,min
+            var sum = myArray.SumF();
+            var average = myArray.AverageF();
+            var min = myArray.Min();
+            var max = myArray.Max();
+
+            //As above but on a transformation
+            var sum2 = myArray.SumF(x => x*x);
+            var average2 = myArray.AverageF(x => x*x);
+            var min2 = myArray.Min(x => x*x);
+            var max2 = myArray.Max(x => x*x);
+
+            //Do a where and a select or select and where in a single pass
+            var newArray = myArray.WhereSelectF(x => x % 2 == 0,x=>x*x);
+            var newArray2 = myArray.SelectWhereF(x => x * x,x => x % 2 == 0);
+
+            //Compute the sum of only the even values in a single pass
+            var filteredSum = myArray.WhereAggregateF(x => x % 2 == 0, (acc, x) => acc + x);
+
+            //New in-place methods are provided where appropriate
+            myArray.SelectInPlace(x => x * x);
+            myArray.ReverseInPlace();
+
+
+
 
             /*  Benchmarks b = new Benchmarks();
                b.TEST_SIZE = 100000;
