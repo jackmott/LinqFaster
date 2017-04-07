@@ -60,6 +60,9 @@
     <Compile Include="OrderByTests.cs" />
     <Compile Include="ParallelSIMDTests\SelectSIMDP.cs" />
     <Compile Include="ParallelSIMDTests\SumSIMDP.cs" />
+    <Compile Include="ParallelTests\ContainsParallelTests.cs" />
+    <Compile Include="ParallelTests\SumParallelTests.cs" />
+    <Compile Include="ParallelTests\AverageParallelTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RangeTests.cs" />
     <Compile Include="RepeatTests.cs" />

@@ -33,21 +33,18 @@ namespace JM.LinqFaster.Parallel
             int total = 0;
             var rangePartitioner = MakePartition(source.Length, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
-                () => 0,
-                (range, loopState, acc) =>
+                (range, loopState) =>
                 {
-                    if (acc > 0) loopState.Stop();
                     for (int i = range.Item1; i < range.Item2; i++)
                     {
                         if (comparer.Equals(source[i], value))
                         {
-                            return 1;
+                            Interlocked.Increment(ref total);
+                            loopState.Stop();
                         }
                     }
 
-                    return 0;
-                },
-                 acc => Interlocked.Add(ref total, acc));
+                });
 
 
             return total > 0;
@@ -79,21 +76,18 @@ namespace JM.LinqFaster.Parallel
             int total = 0;
             var rangePartitioner = MakePartition(source.Count, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
-                () => 0,
-                (range, loopState, acc) =>
+                (range, loopState) =>
                 {
-                    if (acc > 0) loopState.Stop();
                     for (int i = range.Item1; i < range.Item2; i++)
                     {
                         if (comparer.Equals(source[i], value))
                         {
-                            return 1;
+                            Interlocked.Increment(ref total);
+                            loopState.Stop();
                         }
                     }
 
-                    return 0;
-                },
-                 acc => Interlocked.Add(ref total, acc));
+                });
 
 
             return total > 0;
