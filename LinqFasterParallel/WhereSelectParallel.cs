@@ -247,4 +247,3 @@ namespace JM.LinqFaster.Parallel
 
     }
 }
-

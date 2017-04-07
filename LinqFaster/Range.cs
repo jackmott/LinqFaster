@@ -18,11 +18,7 @@ namespace JM.LinqFaster
                 throw Error.ArgumentOutOfRange("count");
             }
 
-            if (count == 0)
-            {
-                return new int[0];
-            }
-
+            
             int[] result = new int[count];
             for (int i = 0; i < result.Length; i++)
             {
@@ -47,11 +43,7 @@ namespace JM.LinqFaster
                 throw Error.ArgumentOutOfRange("count");
             }
 
-            if (count == 0)
-            {
-                return new List<int>();
-            }
-
+            
             var result = new List<int>(count);
             for (int i = 0; i < count; i++)
             {

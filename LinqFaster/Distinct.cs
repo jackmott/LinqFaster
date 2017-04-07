@@ -10,7 +10,7 @@ namespace JM.LinqFaster
 
         /// <summary>
         /// Returns distinct elements from an array using the provided equality comparer
-        /// or the default comparer if none is provided.
+        /// or the default comparer if none is provided. 
         /// </summary>        
         /// <param name="source">The array to remove duplicate elements from.</param>
         /// <param name="comparer">An IEqualityComparer to compare values.</param>
@@ -26,17 +26,13 @@ namespace JM.LinqFaster
                 comparer = EqualityComparer<TSource>.Default;
             }
 
-
-            var dict = new Dictionary<TSource, byte>(comparer);
-            for (int i = 0; i < source.Length; i++)
-            {
-                if (!dict.ContainsKey(source[i]))
-                    dict.Add(source[i], 0);
-            }
+            var dict = new HashSet<TSource>(source, comparer);
             var result = new TSource[dict.Count];
-            dict.Keys.CopyTo(result, 0);
+            dict.CopyTo(result);
             return result;
         }
+
+     
 
 
 
@@ -60,22 +56,8 @@ namespace JM.LinqFaster
                 comparer = EqualityComparer<TSource>.Default;
             }
 
-            var dict = new Dictionary<TSource, byte>(comparer);
-
-            for (int i = 0; i < source.Count; i++)
-            {
-                if (!dict.ContainsKey(source[i]))
-                {
-                    dict.Add(source[i], 0);
-                    //result.Add(source[i]);
-                }
-            }
-            var result = new List<TSource>(dict.Count);
-            foreach (var v in dict.Keys)
-            {
-                result.Add(v);
-            }
-            return result;
+            var dict = new HashSet<TSource>(source, comparer);              
+            return new List<TSource>(dict);
         }
      
     }

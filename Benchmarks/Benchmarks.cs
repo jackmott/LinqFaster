@@ -27,7 +27,7 @@ namespace Tests
         public string[] strarray;
         
 
-        [Params(1000000)]
+        [Params(100000)]
         public int TEST_SIZE { get; set; }
 
         public Benchmarks()
@@ -190,30 +190,18 @@ namespace Tests
         }*/
 
         [Benchmark]
-        public List<int> ToListA()
+        public int DistinctLinq()
         {
-            int[] a = array;
-            List<int> r = new List<int>(a.Length);
-            foreach (var e in a)
-            {
-                r.Add(e);
-            }
-            return r;
+            return list.Distinct().Sum();
         }
 
         [Benchmark]
-        public List<int> ToListB()
+        public int DistinctFast()
         {
-            int[] a = array;
-            return a.ToList();
+            return list.DistinctF().Sum();
         }
 
-        [Benchmark]
-        public List<int> ToListC()
-        {
-            int[] a = array;
-            return new List<int>(a);
-        }
+       
 
 
 
