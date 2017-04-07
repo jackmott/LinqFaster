@@ -34,8 +34,7 @@ namespace JM.LinqFaster.Parallel
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0,
                 (range, loopState, acc) =>
-                {
-                    if (acc > 0) loopState.Stop();
+                {                    
                     checked
                     {
                         for (int i = range.Item1; i < range.Item2; i++)
@@ -84,8 +83,7 @@ namespace JM.LinqFaster.Parallel
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => 0,
                 (range, loopState, acc) =>
-                {
-                    if (acc > 0) loopState.Stop();
+                {                    
                     checked
                     {
                         for (int i = range.Item1; i < range.Item2; i++)

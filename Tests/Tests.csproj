@@ -61,6 +61,7 @@
     <Compile Include="ParallelSIMDTests\SelectSIMDP.cs" />
     <Compile Include="ParallelSIMDTests\SumSIMDP.cs" />
     <Compile Include="ParallelTests\ContainsParallelTests.cs" />
+    <Compile Include="ParallelTests\CountParallelTests.cs" />
     <Compile Include="ParallelTests\SumParallelTests.cs" />
     <Compile Include="ParallelTests\AverageParallelTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
