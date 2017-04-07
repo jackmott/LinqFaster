@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using JM.LinqFaster.Utils;
 
 namespace JM.LinqFaster.SIMD
 {
@@ -30,9 +31,9 @@ namespace JM.LinqFaster.SIMD
                     return true;
                 }
             }
-            for (int i = source.Length-source.Length%count; i < source.Length;i++)
+            for (int i = source.Length-(source.Length%count); i < source.Length;i++)
             {
-                if (Equals(source[i],value)) return true;
+                if (GenericOperators.Equals(source[i],value)) return true;
             }
             return false;
         }

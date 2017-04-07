@@ -16,7 +16,11 @@ namespace Tests
 
             Assert.That(a, Is.EqualTo(b));
 
-           
+            var c = floatArray.WhereSumF(x => x > 0.0f);
+            var d = floatArray.Where(x => x > 0.0f).Sum();
+
+            Assert.That(c, Is.EqualTo(d));
+
         }
 
         [Test]
@@ -26,6 +30,11 @@ namespace Tests
 
             Assert.That(a, Is.EqualTo(b));
 
+            var c = floatArray.WhereSumF(x => x > 0.0f,x => x / 2.0f);
+            var d = floatArray.Where(x => x > 0.0f).Sum(x => x/2.0f);
+
+            Assert.That(c, Is.EqualTo(d));
+
         }
 
         [Test]
@@ -34,7 +43,12 @@ namespace Tests
             var a = intList.WhereSumF(x => x % 2 == 0);
             var b = intList.Where(x => x % 2 == 0).Sum();
 
-            
+            Assert.That(a, Is.EqualTo(b));
+
+            var c = floatList.WhereSumF(x => x > 0.0f);
+            var d = floatList.Where(x => x > 0.0f).Sum();
+
+            Assert.That(c, Is.EqualTo(d));
         }
 
         [Test]
@@ -43,6 +57,11 @@ namespace Tests
             var b = intList.Where(x => x % 2 == 0).Sum(x => x + 1);
 
             Assert.That(a, Is.EqualTo(b));
+
+            var c = floatList.WhereSumF(x => x > 0.0f, x => x / 2.0f);
+            var d = floatList.Where(x => x > 0.0f).Sum(x => x / 2.0f);
+
+            Assert.That(c, Is.EqualTo(d));
         }
 
     }
