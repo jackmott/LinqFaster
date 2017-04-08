@@ -4,7 +4,9 @@ using static JM.LinqFaster.Utils.GenericOperators;
 
 namespace JM.LinqFaster.SIMD
 {
-
+    /// <summary>
+    /// SIMD accelerated Linq-style extension methods for arrays.
+    /// </summary>
     public static partial class LinqFasterSIMD
     {
         /// <summary>
