@@ -8,7 +8,7 @@ namespace JM.LinqFaster.SIMD
         /// <summary>
         /// Generates a sequence that contains one repeated value using SIMD.
         /// </summary>        
-        /// <param name="element">The value to be repeated.</param>
+        /// <param name="e">The value to be repeated.</param>
         /// <param name="count">The number of times to repeat the value in the generated sequence.</param>
         /// <returns>A sequence that contains a repeated value</returns>
         public static T[] RepeatS<T>(T e, int count)

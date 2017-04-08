@@ -5,6 +5,10 @@ using static JM.LinqFaster.Utils.CustomPartition;
 
 namespace JM.LinqFaster.Parallel
 {
+    /// <summary>
+    /// Provides Linq-style extension methods that for arrays and lists
+    /// that use multiple Tasks / Threads.
+    /// </summary>
     public static partial class LinqFasterParallel
     {
 
@@ -12,6 +16,7 @@ namespace JM.LinqFaster.Parallel
         /// Returns the minimum value in a sequence of values using multiple Tasks / Threads.
         /// </summary>        
         /// <param name="source">A sequence of values to determine the minimum of.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The minimum value in the sequence</returns>
         public static T MinP<T>(this T[] source, int? batchSize = null)
         {
@@ -84,6 +89,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">A sequence of values to determine the minimum of.</param>
         /// <param name="selector">A function to transform elements into a value that will be compared.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The minimum value in the sequence</returns>
         public static TResult MinP<T,TResult>(this T[] source,Func<T,TResult> selector, int? batchSize = null)
         {
@@ -159,6 +165,7 @@ namespace JM.LinqFaster.Parallel
         /// Returns the minimum value in a sequence of values using multiple Tasks / Threads.
         /// </summary>        
         /// <param name="source">A sequence of values to determine the minimum of.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The minimum value in the sequence</returns>
         public static int MinP(this int[] source, int? batchSize = null)
         {
@@ -206,6 +213,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">A sequence of values to determine the minimum of.</param>
         /// <param name="selector">A function to transform elements into a value that will be compared.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The minimum value in the sequence</returns>
         public static int MinP<T>(this T[] source, Func<T,int> selector, int? batchSize = null)
         {
@@ -253,6 +261,7 @@ namespace JM.LinqFaster.Parallel
         /// Returns the minimum value in a sequence of values using multiple Tasks / Threads.
         /// </summary>        
         /// <param name="source">A sequence of values to determine the minimum of.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The minimum value in the sequence</returns>
         public static long MinP(this long[] source, int? batchSize = null)
         {
@@ -300,6 +309,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">A sequence of values to determine the minimum of.</param>
         /// <param name="selector">A function to transform elements into a value that will be compared.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The minimum value in the sequence</returns>
         public static long MinP<T>(this T[] source, Func<T, long> selector, int? batchSize = null)
         {
@@ -347,6 +357,7 @@ namespace JM.LinqFaster.Parallel
         /// Returns the minimum value in a sequence of values using multiple Tasks / Threads.
         /// </summary>        
         /// <param name="source">A sequence of values to determine the minimum of.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The minimum value in the sequence</returns>
         public static float MinP(this float[] source, int? batchSize = null)
         {
@@ -394,6 +405,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">A sequence of values to determine the minimum of.</param>
         /// <param name="selector">A function to transform elements into a value that will be compared.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The minimum value in the sequence</returns>
         public static float MinP<T>(this T[] source, Func<T, float> selector, int? batchSize = null)
         {
@@ -441,6 +453,7 @@ namespace JM.LinqFaster.Parallel
         /// Returns the minimum value in a sequence of values using multiple Tasks / Threads.
         /// </summary>        
         /// <param name="source">A sequence of values to determine the minimum of.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The minimum value in the sequence</returns>
         public static double MinP(this double[] source, int? batchSize = null)
         {
@@ -488,6 +501,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">A sequence of values to determine the minimum of.</param>
         /// <param name="selector">A function to transform elements into a value that will be compared.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The minimum value in the sequence</returns>
         public static double MinP<T>(this T[] source, Func<T, double> selector, int? batchSize = null)
         {
@@ -535,6 +549,7 @@ namespace JM.LinqFaster.Parallel
         /// Returns the minimum value in a sequence of values using multiple Tasks / Threads.
         /// </summary>        
         /// <param name="source">A sequence of values to determine the minimum of.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The minimum value in the sequence</returns>
         public static decimal MinP(this decimal[] source, int? batchSize = null)
         {
@@ -582,6 +597,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">A sequence of values to determine the minimum of.</param>
         /// <param name="selector">A function to transform elements into a value that will be compared.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The minimum value in the sequence</returns>
         public static decimal MinP<T>(this T[] source, Func<T, decimal> selector, int? batchSize = null)
         {
@@ -632,6 +648,7 @@ namespace JM.LinqFaster.Parallel
         /// Returns the minimum value in a sequence of values using multiple Tasks / Threads.
         /// </summary>        
         /// <param name="source">A sequence of values to determine the minimum of.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The minimum value in the sequence</returns>
         public static T MinP<T>(this List<T> source, int? batchSize = null)
         {
@@ -704,6 +721,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">A sequence of values to determine the minimum of.</param>
         /// <param name="selector">A function to transform elements into a value that will be compared.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The minimum value in the sequence</returns>
         public static TResult MinP<T, TResult>(this List<T> source, Func<T, TResult> selector, int? batchSize = null)
         {
@@ -779,6 +797,7 @@ namespace JM.LinqFaster.Parallel
         /// Returns the minimum value in a sequence of values using multiple Tasks / Threads.
         /// </summary>        
         /// <param name="source">A sequence of values to determine the minimum of.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The minimum value in the sequence</returns>
         public static int MinP(this List<int> source, int? batchSize = null)
         {
@@ -826,6 +845,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">A sequence of values to determine the minimum of.</param>
         /// <param name="selector">A function to transform elements into a value that will be compared.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The minimum value in the sequence</returns>
         public static int MinP<T>(this List<T> source, Func<T, int> selector, int? batchSize = null)
         {
@@ -873,6 +893,7 @@ namespace JM.LinqFaster.Parallel
         /// Returns the minimum value in a sequence of values using multiple Tasks / Threads.
         /// </summary>        
         /// <param name="source">A sequence of values to determine the minimum of.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The minimum value in the sequence</returns>
         public static long MinP(this List<long> source, int? batchSize = null)
         {
@@ -920,6 +941,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">A sequence of values to determine the minimum of.</param>
         /// <param name="selector">A function to transform elements into a value that will be compared.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The minimum value in the sequence</returns>
         public static long MinP<T>(this List<T> source, Func<T, long> selector, int? batchSize = null)
         {
@@ -967,6 +989,7 @@ namespace JM.LinqFaster.Parallel
         /// Returns the minimum value in a sequence of values using multiple Tasks / Threads.
         /// </summary>        
         /// <param name="source">A sequence of values to determine the minimum of.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The minimum value in the sequence</returns>
         public static float MinP(this List<float> source, int? batchSize = null)
         {
@@ -1014,6 +1037,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">A sequence of values to determine the minimum of.</param>
         /// <param name="selector">A function to transform elements into a value that will be compared.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The minimum value in the sequence</returns>
         public static float MinP<T>(this List<T> source, Func<T, float> selector, int? batchSize = null)
         {
@@ -1061,6 +1085,7 @@ namespace JM.LinqFaster.Parallel
         /// Returns the minimum value in a sequence of values using multiple Tasks / Threads.
         /// </summary>        
         /// <param name="source">A sequence of values to determine the minimum of.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The minimum value in the sequence</returns>
         public static double MinP(this List<double> source, int? batchSize = null)
         {
@@ -1108,6 +1133,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">A sequence of values to determine the minimum of.</param>
         /// <param name="selector">A function to transform elements into a value that will be compared.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The minimum value in the sequence</returns>
         public static double MinP<T>(this List<T> source, Func<T, double> selector, int? batchSize = null)
         {
@@ -1155,6 +1181,7 @@ namespace JM.LinqFaster.Parallel
         /// Returns the minimum value in a sequence of values using multiple Tasks / Threads.
         /// </summary>        
         /// <param name="source">A sequence of values to determine the minimum of.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The minimum value in the sequence</returns>
         public static decimal MinP(this List<decimal> source, int? batchSize = null)
         {
@@ -1202,6 +1229,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">A sequence of values to determine the minimum of.</param>
         /// <param name="selector">A function to transform elements into a value that will be compared.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The minimum value in the sequence</returns>
         public static decimal MinP<T>(this List<T> source, Func<T, decimal> selector, int? batchSize = null)
         {

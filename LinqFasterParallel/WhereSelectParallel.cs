@@ -13,6 +13,7 @@ namespace JM.LinqFaster.Parallel
         /// <param name="source">The input sequence to filter then transform.</param>
         /// <param name="predicate">A function to use to filter the sequence.</param>
         /// <param name="selector">A function to transform the filtered elements.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>A sequence of filtered and transformed elements.</returns>     
         public static TResult[] WhereSelectP<T, TResult>(this T[] source, Func<T, bool> predicate, Func<T, TResult> selector, int? batchSize = null)
         {
@@ -65,7 +66,7 @@ namespace JM.LinqFaster.Parallel
             return result;
         }
 
-    
+
         /// <summary>
         /// Combined Where and Select with the Where phase in parallel using the
         /// index in the predicate and selector.
@@ -73,6 +74,7 @@ namespace JM.LinqFaster.Parallel
         /// <param name="source">The input sequence to filter then transform.</param>
         /// <param name="predicate">A function to use to filter the sequence.</param>
         /// <param name="selector">A function to transform the filtered elements.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>A sequence of filtered and transformed elements.</returns>     
         public static TResult[] WhereSelectP<T, TResult>(this T[] source, Func<T,int, bool> predicate, Func<T,int, TResult> selector, int? batchSize = null)
         {
@@ -133,6 +135,7 @@ namespace JM.LinqFaster.Parallel
         /// <param name="source">The input sequence to filter then transform.</param>
         /// <param name="predicate">A function to use to filter the sequence.</param>
         /// <param name="selector">A function to transform the filtered elements.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>A sequence of filtered and transformed elements.</returns>     
         public static List<TResult> WhereSelectP<T, TResult>(this List<T> source, Func<T, bool> predicate, Func<T, TResult> selector, int? batchSize = null)
         {
@@ -191,6 +194,7 @@ namespace JM.LinqFaster.Parallel
         /// <param name="source">The input sequence to filter then transform.</param>
         /// <param name="predicate">A function to use to filter the sequence.</param>
         /// <param name="selector">A function to transform the filtered elements.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>A sequence of filtered and transformed elements.</returns>     
         public static List<TResult> WhereSelectP<T, TResult>(this List<T> source, Func<T, int, bool> predicate, Func<T, int, TResult> selector, int? batchSize = null)
         {

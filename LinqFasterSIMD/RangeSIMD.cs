@@ -11,7 +11,7 @@ namespace JM.LinqFaster.SIMD
         /// using SIMD
         /// </summary>
         /// <param name="start">The value of the first integer in the sequence.</param>
-        /// <param name="count">The number of sequential integers to generate.</param>
+        /// <param name="len">The number of sequential integers to generate.</param>
         /// <returns>A sequence that contains a range of sequential integral numbers.</returns>
         public static int[] RangeS(int start, int len)            
         {

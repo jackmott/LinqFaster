@@ -3,6 +3,10 @@ using System.Collections.Generic;
 
 namespace JM.LinqFaster
 {
+    /// <summary>
+    /// Provides faster array and list specific extension methods with
+    /// the same semantics as the Linq extensions methods.
+    /// </summary>
     public static partial class LinqFaster
     {
 
@@ -43,8 +47,7 @@ namespace JM.LinqFaster
         /// <summary>
         /// Applies an accumulator function over an array. The specified seed
         /// value is used as the initial accumulator value.
-        /// </summary>
-        /// <typeparam name="TSource"></typeparam>
+        /// </summary>        
         /// <param name="source">An array to aggregate over.</param>
         /// <param name="seed">The initial accumulator value.</param>
         /// <param name="func">An accumulator function to be invoked on each element</param>
@@ -73,8 +76,7 @@ namespace JM.LinqFaster
         /// Applies an accumulator function over an array. The specified seed
         /// value is used as the initial accumulator value, and the specified 
         /// function is used to select the result value.
-        /// </summary>
-        /// <typeparam name="TSource"></typeparam>
+        /// </summary>        
         /// <param name="source">An array to aggregate over.</param>
         /// <param name="seed">The initial accumulator value.</param>
         /// <param name="func">An accumulator function to be invoked on each element</param>
@@ -142,8 +144,7 @@ namespace JM.LinqFaster
         /// <summary>
         /// Applies an accumulator function over a List. The specified seed
         /// value is used as the initial accumulator value.
-        /// </summary>
-        /// <typeparam name="TSource"></typeparam>
+        /// </summary>        
         /// <param name="source">A List to aggregate over.</param>
         /// <param name="seed">The initial accumulator value.</param>
         /// <param name="func">An accumulator function to be invoked on each element</param>
@@ -172,8 +173,7 @@ namespace JM.LinqFaster
         /// Applies an accumulator function over a List. The specified seed
         /// value is used as the initial accumulator value, and the specified 
         /// function is used to select the result value.
-        /// </summary>
-        /// <typeparam name="TSource"></typeparam>
+        /// </summary>        
         /// <param name="source">A List to aggregate over.</param>
         /// <param name="seed">The initial accumulator value.</param>
         /// <param name="func">An accumulator function to be invoked on each element</param>

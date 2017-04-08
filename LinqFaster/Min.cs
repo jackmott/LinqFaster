@@ -582,6 +582,12 @@ namespace JM.LinqFaster
             return r;
         }
 
+        /// <summary>
+        /// Invokes a transform function on each element of a sequence and returns the maximum value.
+        /// </summary>        
+        /// <param name="source">A sequence of values to determine the maximum value of.</param>
+        /// <param name="selector">A transform function to apply to each element.</param>
+        /// <returns>The maximum value in the transform of the sequence.</returns>
         public static double MinF<T>(this List<T> source, Func<T, double> selector)
         {
             if (source == null)

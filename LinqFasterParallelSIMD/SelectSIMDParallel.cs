@@ -8,7 +8,15 @@ namespace JM.LinqFaster.SIMD.Parallel
     public static partial class LinqFasterSIMDParallel
     {
 
-
+        /// <summary>
+        /// Projects each element of a sequence into a new form with SIMD and
+        /// multiple threads / tasks.
+        /// </summary>        
+        /// <param name="source">The sequence of primitive values to transform.</param>
+        /// <param name="selectorSIMD">A transformation function that operates on Vectors.</param>
+        /// <param name="selector">An optional selection function to transform the leftover values.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+        /// <returns>A sequence of transformed values.</returns>        
         public static U[] SelectSP<T, U>(this T[] source, Func<Vector<T>, Vector<U>> selectorSIMD, Func<T, U> selector = null, int? batchSize = null)
             where T : struct
             where U : struct

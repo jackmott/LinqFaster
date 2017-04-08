@@ -473,6 +473,7 @@ namespace JM.LinqFaster.Parallel
         ///  Adds a sequence of values using multiple Tasks / Threads.
         /// </summary>
         /// <param name="source">The sequence to add.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The sum of the sequence.</returns>
         public static long SumP(this List<long> source, int? batchSize = null)
         {

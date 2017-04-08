@@ -257,8 +257,8 @@ namespace Tests
             var filteredSum = myArray.WhereAggregateF(x => x % 2 == 0, (acc, x) => acc + x);
 
             //New in-place methods are provided where appropriate
-            myArray.SelectInPlace(x => x * x);
-            myArray.ReverseInPlace();
+            myArray.SelectInPlaceF(x => x * x);
+            myArray.ReverseInPlaceF();
 
 
 

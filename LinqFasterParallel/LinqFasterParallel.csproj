@@ -17,6 +17,14 @@
     <PackageReleaseNotes>Bug fixes, performance improvements, added unordered select option for lists.</PackageReleaseNotes>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard1.3|AnyCPU'">
+    <DocumentationFile>bin\linqfaster-parallel.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard1.3|AnyCPU'">
+    <DocumentationFile>bin\linqfaster-parallel.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Include="..\LinqFaster\Utils\CustomPartition.cs" Link="Utils\CustomPartition.cs" />
     <Compile Include="..\LinqFaster\Utils\Error.cs" Link="Utils\Error.cs" />

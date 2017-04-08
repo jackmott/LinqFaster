@@ -18,6 +18,14 @@
     <Product>LinqFaster.SIMD</Product>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard1.3|AnyCPU'">
+    <DocumentationFile>bin\linqfaster-simd.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard1.3|AnyCPU'">
+    <DocumentationFile>bin\linqfaster-simd.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Include="..\LinqFaster\Utils\Error.cs" Link="Utils\Error.cs" />
     <Compile Include="..\LinqFaster\Utils\GenericOperators.cs" Link="Utils\GenericOperators.cs" />

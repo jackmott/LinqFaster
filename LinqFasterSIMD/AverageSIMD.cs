@@ -21,13 +21,15 @@ namespace JM.LinqFaster.SIMD
         /// Calculates the average value of an array via a selector using SIMD.
         /// </summary>        
         /// <param name="source">The sequence of primitive values to transform then average</param>
+        /// <param name="selectorSIMD">A transformation function to operate on vectors.</param>
+        /// <param name="selector">A transformation function to operate on leftover elements.</param>
         /// <returns>The average of the transformed sequence of values as a double</returns>
-        public static double AverageS<T,U>(this T[] a, Func<Vector<T>, Vector<U>> selectorSIMD, Func<T, U> selector = null) 
+        public static double AverageS<T,U>(this T[] source, Func<Vector<T>, Vector<U>> selectorSIMD, Func<T, U> selector = null) 
             where T : struct
             where U : struct
         {
 
-            return Divide(SumS(a,selectorSIMD,selector), a.Length);
+            return Divide(SumS(source,selectorSIMD,selector), source.Length);
         }
 
         /// <summary>
@@ -44,13 +46,15 @@ namespace JM.LinqFaster.SIMD
         /// Calculates the average value of an array via a selector using SIMD.
         /// </summary>        
         /// <param name="source">The sequence of primitive values to transform then average</param>
-        /// <returns>The average of the transformed sequence of values as a float</returns>
-        public static float AverageSf<T, U>(this T[] a, Func<Vector<T>, Vector<U>> selectorSIMD, Func<T, U> selector = null)
+        /// <param name="selectorSIMD">A transformation function to operate on vectors.</param>
+        /// <param name="selector">A transformation function to operate on leftover elements.</param>
+        /// <returns>The average of the transformed sequence of values as a double</returns>
+        public static float AverageSf<T, U>(this T[] source, Func<Vector<T>, Vector<U>> selectorSIMD, Func<T, U> selector = null)
             where T : struct
             where U : struct
         {
 
-            return DivideFloat(SumS(a, selectorSIMD, selector), a.Length);
+            return DivideFloat(SumS(source, selectorSIMD, selector), source.Length);
         }
 
     }

@@ -13,6 +13,7 @@ namespace JM.LinqFaster.Parallel
         /// <param name="source">The input sequence to filter and select</param>
         /// <param name="selector">The transformation to apply before filtering.</param>
         /// <param name="predicate">The predicate with which to filter result.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>A seqence transformed and then filtered by selector and predicate.</returns>
         public static TResult[] SelectWhereP<T, TResult>(this T[] source, Func<T, TResult> selector, Func<TResult, bool> predicate, int? batchSize = null)
         {
@@ -74,6 +75,7 @@ namespace JM.LinqFaster.Parallel
         /// <param name="source">The input sequence to filter and select</param>
         /// <param name="selector">The transformation to apply before filtering.</param>
         /// <param name="predicate">The predicate with which to filter result.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>A seqence transformed and then filtered by selector and predicate.</returns>
         public static TResult[] SelectWhereP<T, TResult>(this T[] source, Func<T, int,TResult> selector, Func<TResult,int, bool> predicate, int? batchSize = null)
         {
@@ -137,6 +139,7 @@ namespace JM.LinqFaster.Parallel
         /// <param name="source">The input sequence to filter and select</param>
         /// <param name="selector">The transformation to apply before filtering.</param>
         /// <param name="predicate">The predicate with which to filter result.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>A seqence transformed and then filtered by selector and predicate.</returns>
         public static List<TResult> SelectWhereP<T, TResult>(this List<T> source, Func<T, TResult> selector, Func<TResult, bool> predicate, int? batchSize = null)
         {
@@ -196,6 +199,7 @@ namespace JM.LinqFaster.Parallel
         /// <param name="source">The input sequence to filter and select</param>
         /// <param name="selector">The transformation to apply before filtering.</param>
         /// <param name="predicate">The predicate with which to filter result.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>A seqence transformed and then filtered by selector and predicate.</returns>
         public static List<TResult> SelectWhereP<T, TResult>(this List<T> source, Func<T, int, TResult> selector, Func<TResult, int, bool> predicate, int? batchSize = null)
         {

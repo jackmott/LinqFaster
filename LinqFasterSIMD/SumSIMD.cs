@@ -50,7 +50,7 @@ namespace JM.LinqFaster.SIMD
         /// </summary>        
         /// <param name="source">A sequence of elements to transform then sum.</param>
         /// <param name="selectorSIMD">A transformation function that operates on vectors. </param>
-        /// <param nume="selector">An optional transformation function to transform any leftover elements.</param>
+        /// <param name="selector">An optional transformation function to transform any leftover elements.</param>
         /// <returns>The sum of the sequence of transformed values.</returns>
         public static U SumS<T,U>(this T[] source, Func<Vector<T>,Vector<U>> selectorSIMD, Func<T,U> selector = null)
             where T : struct

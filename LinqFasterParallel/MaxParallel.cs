@@ -12,6 +12,7 @@ namespace JM.LinqFaster.Parallel
         /// Returns the Maximum value in a sequence of values using multiple Tasks / Threads.
         /// </summary>        
         /// <param name="source">A sequence of values to determine the Maximum of.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The Maximum value in the sequence</returns>
         public static T MaxP<T>(this T[] source, int? batchSize = null)
         {
@@ -84,6 +85,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">A sequence of values to determine the Maximum of.</param>
         /// <param name="selector">A function to transform elements into a value that will be compared.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The Maximum value in the sequence</returns>
         public static TResult MaxP<T,TResult>(this T[] source,Func<T,TResult> selector, int? batchSize = null)
         {
@@ -159,6 +161,7 @@ namespace JM.LinqFaster.Parallel
         /// Returns the Maximum value in a sequence of values using multiple Tasks / Threads.
         /// </summary>        
         /// <param name="source">A sequence of values to determine the Maximum of.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The Maximum value in the sequence</returns>
         public static int MaxP(this int[] source, int? batchSize = null)
         {
@@ -206,6 +209,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">A sequence of values to determine the Maximum of.</param>
         /// <param name="selector">A function to transform elements into a value that will be compared.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The Maximum value in the sequence</returns>
         public static int MaxP<T>(this T[] source, Func<T,int> selector, int? batchSize = null)
         {
@@ -253,6 +257,7 @@ namespace JM.LinqFaster.Parallel
         /// Returns the Maximum value in a sequence of values using multiple Tasks / Threads.
         /// </summary>        
         /// <param name="source">A sequence of values to determine the Maximum of.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The Maximum value in the sequence</returns>
         public static long MaxP(this long[] source, int? batchSize = null)
         {
@@ -300,6 +305,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">A sequence of values to determine the Maximum of.</param>
         /// <param name="selector">A function to transform elements into a value that will be compared.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The Maximum value in the sequence</returns>
         public static long MaxP<T>(this T[] source, Func<T, long> selector, int? batchSize = null)
         {
@@ -347,6 +353,7 @@ namespace JM.LinqFaster.Parallel
         /// Returns the Maximum value in a sequence of values using multiple Tasks / Threads.
         /// </summary>        
         /// <param name="source">A sequence of values to determine the Maximum of.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The Maximum value in the sequence</returns>
         public static float MaxP(this float[] source, int? batchSize = null)
         {
@@ -394,6 +401,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">A sequence of values to determine the Maximum of.</param>
         /// <param name="selector">A function to transform elements into a value that will be compared.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The Maximum value in the sequence</returns>
         public static float MaxP<T>(this T[] source, Func<T, float> selector, int? batchSize = null)
         {
@@ -441,6 +449,7 @@ namespace JM.LinqFaster.Parallel
         /// Returns the Maximum value in a sequence of values using multiple Tasks / Threads.
         /// </summary>        
         /// <param name="source">A sequence of values to determine the Maximum of.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The Maximum value in the sequence</returns>
         public static double MaxP(this double[] source, int? batchSize = null)
         {
@@ -488,6 +497,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">A sequence of values to determine the Maximum of.</param>
         /// <param name="selector">A function to transform elements into a value that will be compared.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The Maximum value in the sequence</returns>
         public static double MaxP<T>(this T[] source, Func<T, double> selector, int? batchSize = null)
         {
@@ -535,6 +545,7 @@ namespace JM.LinqFaster.Parallel
         /// Returns the Maximum value in a sequence of values using multiple Tasks / Threads.
         /// </summary>        
         /// <param name="source">A sequence of values to determine the Maximum of.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The Maximum value in the sequence</returns>
         public static decimal MaxP(this decimal[] source, int? batchSize = null)
         {
@@ -582,6 +593,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">A sequence of values to determine the Maximum of.</param>
         /// <param name="selector">A function to transform elements into a value that will be compared.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The Maximum value in the sequence</returns>
         public static decimal MaxP<T>(this T[] source, Func<T, decimal> selector, int? batchSize = null)
         {
@@ -632,6 +644,7 @@ namespace JM.LinqFaster.Parallel
         /// Returns the Maximum value in a sequence of values using multiple Tasks / Threads.
         /// </summary>        
         /// <param name="source">A sequence of values to determine the Maximum of.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The Maximum value in the sequence</returns>
         public static T MaxP<T>(this List<T> source, int? batchSize = null)
         {
@@ -704,6 +717,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">A sequence of values to determine the Maximum of.</param>
         /// <param name="selector">A function to transform elements into a value that will be compared.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The Maximum value in the sequence</returns>
         public static TResult MaxP<T, TResult>(this List<T> source, Func<T, TResult> selector, int? batchSize = null)
         {
@@ -779,6 +793,7 @@ namespace JM.LinqFaster.Parallel
         /// Returns the Maximum value in a sequence of values using multiple Tasks / Threads.
         /// </summary>        
         /// <param name="source">A sequence of values to determine the Maximum of.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The Maximum value in the sequence</returns>
         public static int MaxP(this List<int> source, int? batchSize = null)
         {
@@ -826,6 +841,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">A sequence of values to determine the Maximum of.</param>
         /// <param name="selector">A function to transform elements into a value that will be compared.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The Maximum value in the sequence</returns>
         public static int MaxP<T>(this List<T> source, Func<T, int> selector, int? batchSize = null)
         {
@@ -873,6 +889,7 @@ namespace JM.LinqFaster.Parallel
         /// Returns the Maximum value in a sequence of values using multiple Tasks / Threads.
         /// </summary>        
         /// <param name="source">A sequence of values to determine the Maximum of.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The Maximum value in the sequence</returns>
         public static long MaxP(this List<long> source, int? batchSize = null)
         {
@@ -920,6 +937,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">A sequence of values to determine the Maximum of.</param>
         /// <param name="selector">A function to transform elements into a value that will be compared.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The Maximum value in the sequence</returns>
         public static long MaxP<T>(this List<T> source, Func<T, long> selector, int? batchSize = null)
         {
@@ -967,6 +985,7 @@ namespace JM.LinqFaster.Parallel
         /// Returns the Maximum value in a sequence of values using multiple Tasks / Threads.
         /// </summary>        
         /// <param name="source">A sequence of values to determine the Maximum of.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The Maximum value in the sequence</returns>
         public static float MaxP(this List<float> source, int? batchSize = null)
         {
@@ -1014,6 +1033,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">A sequence of values to determine the Maximum of.</param>
         /// <param name="selector">A function to transform elements into a value that will be compared.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The Maximum value in the sequence</returns>
         public static float MaxP<T>(this List<T> source, Func<T, float> selector, int? batchSize = null)
         {
@@ -1061,6 +1081,7 @@ namespace JM.LinqFaster.Parallel
         /// Returns the Maximum value in a sequence of values using multiple Tasks / Threads.
         /// </summary>        
         /// <param name="source">A sequence of values to determine the Maximum of.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The Maximum value in the sequence</returns>
         public static double MaxP(this List<double> source, int? batchSize = null)
         {
@@ -1108,6 +1129,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">A sequence of values to determine the Maximum of.</param>
         /// <param name="selector">A function to transform elements into a value that will be compared.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The Maximum value in the sequence</returns>
         public static double MaxP<T>(this List<T> source, Func<T, double> selector, int? batchSize = null)
         {
@@ -1155,6 +1177,7 @@ namespace JM.LinqFaster.Parallel
         /// Returns the Maximum value in a sequence of values using multiple Tasks / Threads.
         /// </summary>        
         /// <param name="source">A sequence of values to determine the Maximum of.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The Maximum value in the sequence</returns>
         public static decimal MaxP(this List<decimal> source, int? batchSize = null)
         {
@@ -1202,6 +1225,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">A sequence of values to determine the Maximum of.</param>
         /// <param name="selector">A function to transform elements into a value that will be compared.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The Maximum value in the sequence</returns>
         public static decimal MaxP<T>(this List<T> source, Func<T, decimal> selector, int? batchSize = null)
         {

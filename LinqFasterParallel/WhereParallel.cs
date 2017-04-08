@@ -12,6 +12,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">A sequence to filter.</param>
         /// <param name="predicate">A function to test each element for a condition.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>A sequence that contains elements from the input sequence that satisfy the condition.</returns>
         public static TSource[] WhereP<TSource>(this TSource[] source, Func<TSource, bool> predicate, int? batchSize = null)
         {
@@ -59,13 +60,14 @@ namespace JM.LinqFaster.Parallel
             return result;
         }
 
-       
+
 
         /// <summary>
         /// Filters a sequence of values in parallel based on a predicate that includes the index in it's logic.
         /// </summary>        
         /// <param name="source">A sequence to filter.</param>
         /// <param name="predicate">A function to test each element for a condition along with the element's index.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>A sequence that contains elements from the input sequence that satisfy the condition.</returns>
         public static TSource[] WhereP<TSource>(this TSource[] source, Func<TSource,int, bool> predicate, int? batchSize = null)
         {
@@ -123,6 +125,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">A sequence to filter.</param>
         /// <param name="predicate">A function to test each element for a condition.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>A sequence that contains elements from the input sequence that satisfy the condition.</returns>
         public static List<TSource> WhereP<TSource>(this List<TSource> source, Func<TSource, bool> predicate, int? batchSize = null)
         {
@@ -175,6 +178,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">A sequence to filter.</param>
         /// <param name="predicate">A function to test each element for a condition along with the element's index.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>A sequence that contains elements from the input sequence that satisfy the condition.</returns>
         public static List<TSource> WhereP<TSource>(this List<TSource> source, Func<TSource,int, bool> predicate, int? batchSize = null)
         {

@@ -96,7 +96,7 @@ namespace JM.LinqFaster.Parallel
         /// <summary>
         /// Computes the average of a sequence in parallel.
         /// </summary>
-        /// <param name="source">The array to calculate the average of.</param
+        /// <param name="source">The array to calculate the average of.</param>
         /// <param name="batchSize">Optional custom batch size to divide work into.</param>
         /// <returns>The average of the array.</returns>
         public static double AverageP(this long[] source, int? batchSize = null)
@@ -467,8 +467,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>
         /// <param name="source">The array to calculate the transformed average of.</param>
         /// <param name="selector">A transform function to apply to each element.</param>
-        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
-        /// <param name="batchSize">Optional custom batch size to divide work into.</param>
+        /// <param name="batchSize">Optional custom batch size to divide work into.</param>        
         /// <returns>The average of the array.</returns>
         public static double AverageP<T>(this List<T> source, Func<T, int> selector, int? batchSize = null)
         {
