@@ -109,8 +109,8 @@ using JM.LinqFaster.SIMD;
 var myArray = LinqFaster.RangeS(-500, 500);
 
 // Some operations work identically to their scalar
-// counterparts, as long as the machine has SIMD
-// hardware.
+// counterparts,but faster, as long as the machine has 
+// SIMD hardware.
 
 var sum = myArray.SumS();
 bool b = myArray.ContainsS(5);
