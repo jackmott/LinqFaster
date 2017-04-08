@@ -1,0 +1,1101 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LinqFasterParallel</name>
+    </assembly>
+    <members>
+        <member name="T:JM.LinqFaster.Parallel.LinqFasterParallel">
+            <summary>
+            Provides Linq-style extension methods that for arrays and lists
+            that use multiple Tasks / Threads.
+            </summary>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.AverageP(System.Int32[],System.Nullable{System.Int32})">
+            <summary>
+            Computes the average of a sequence in parallel.
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.AverageP``1(``0[],System.Func{``0,System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Computes the average of values obtained by invoking a transform function on
+            each element of the input array in parallel.
+            </summary>
+            <param name="source">The array to calculate the transformed average of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.AverageP(System.Int64[],System.Nullable{System.Int32})">
+            <summary>
+            Computes the average of a sequence in parallel.
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.AverageP``1(``0[],System.Func{``0,System.Int64},System.Nullable{System.Int32})">
+            <summary>
+            Computes the average of values obtained by invoking a transform function on
+            each element of the input array in parallel.
+            </summary>
+            <param name="source">The array to calculate the transformed average of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.AverageP(System.Single[],System.Nullable{System.Int32})">
+            <summary>
+            Computes the average of a sequence in parallel.
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.AverageP``1(``0[],System.Func{``0,System.Single},System.Nullable{System.Int32})">
+            <summary>
+            Computes the average of values obtained by invoking a transform function on
+            each element of the input array in parallel.
+            </summary>
+            <param name="source">The array to calculate the transformed average of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.AverageP(System.Double[],System.Nullable{System.Int32})">
+            <summary>
+            Computes the average of a sequence in parallel.
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.AverageP``1(``0[],System.Func{``0,System.Double},System.Nullable{System.Int32})">
+            <summary>
+            Computes the average of values obtained by invoking a transform function on
+            each element of the input array in parallel.
+            </summary>
+            <param name="source">The array to calculate the transformed average of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.AverageP(System.Decimal[],System.Nullable{System.Int32})">
+            <summary>
+            Computes the average of a sequence in parallel.
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.AverageP``1(``0[],System.Func{``0,System.Decimal},System.Nullable{System.Int32})">
+            <summary>
+            Computes the average of values obtained by invoking a transform function on
+            each element of the input array in parallel.
+            </summary>
+            <param name="source">The array to calculate the transformed average of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.AverageP(System.Collections.Generic.List{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Computes the average of a sequence in parallel.
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.AverageP``1(System.Collections.Generic.List{``0},System.Func{``0,System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Computes the average of values obtained by invoking a transform function on
+            each element of the input array in parallel.
+            </summary>
+            <param name="source">The array to calculate the transformed average of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>        
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.AverageP(System.Collections.Generic.List{System.Int64},System.Nullable{System.Int32})">
+            <summary>
+            Computes the average of a sequence in parallel.
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.AverageP``1(System.Collections.Generic.List{``0},System.Func{``0,System.Int64},System.Nullable{System.Int32})">
+            <summary>
+            Computes the average of values obtained by invoking a transform function on
+            each element of the input array in parallel.
+            </summary>
+            <param name="source">The array to calculate the transformed average of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.AverageP(System.Collections.Generic.List{System.Single},System.Nullable{System.Int32})">
+            <summary>
+            Computes the average of a sequence in parallel.
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.AverageP``1(System.Collections.Generic.List{``0},System.Func{``0,System.Single},System.Nullable{System.Int32})">
+            <summary>
+            Computes the average of values obtained by invoking a transform function on
+            each element of the input array in parallel.
+            </summary>
+            <param name="source">The array to calculate the transformed average of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.AverageP(System.Collections.Generic.List{System.Double},System.Nullable{System.Int32})">
+            <summary>
+            Computes the average of a sequence in parallel.
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.AverageP``1(System.Collections.Generic.List{``0},System.Func{``0,System.Double},System.Nullable{System.Int32})">
+            <summary>
+            Computes the average of values obtained by invoking a transform function on
+            each element of the input array in parallel.
+            </summary>
+            <param name="source">The array to calculate the transformed average of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.AverageP(System.Collections.Generic.List{System.Decimal},System.Nullable{System.Int32})">
+            <summary>
+            Computes the average of a sequence in parallel.
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.AverageP``1(System.Collections.Generic.List{``0},System.Func{``0,System.Decimal},System.Nullable{System.Int32})">
+            <summary>
+            Computes the average of values obtained by invoking a transform function on
+            each element of the input array in parallel.
+            </summary>
+            <param name="source">The array to calculate the transformed average of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.ContainsP``1(``0[],``0,System.Collections.Generic.IEqualityComparer{``0},System.Nullable{System.Int32})">
+            <summary>
+            Determines whether an array contains a specified element by using the 
+            provided IEqualityComparer or the default comparer if none is provided,
+            in parallel. If using a default comparer, use the non parallel version, it is faster.
+            </summary>        
+            <param name="source">An array in which to locate a value.</param>
+            <param name="value">The value to locate.</param>
+            <param name="comparer">An equality comparer to compare values.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>true if the source sequence contains an element that has the specified value; otherwise, false.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.ContainsP``1(System.Collections.Generic.List{``0},``0,System.Collections.Generic.IEqualityComparer{``0},System.Nullable{System.Int32})">
+            <summary>
+            Determines whether an array contains a specified element by using the 
+            provided IEqualityComparer or the default comparer if none is provided,
+            in parallel. If using a default comparer, use the non parallel version, it is faster.
+            </summary>        
+            <param name="source">An array in which to locate a value.</param>
+            <param name="value">The value to locate.</param>
+            <param name="comparer">An equality comparer to compare values.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>true if the source sequence contains an element that has the specified value; otherwise, false.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.CountP``1(``0[],System.Func{``0,System.Boolean},System.Nullable{System.Int32})">
+            <summary>
+            Returns a number that represents how many elements in the specified in parallel.
+            array satisfy a condition.
+            </summary>        
+            <param name="source">An array that contains elements to be tested and counted.</param>
+            <param name="predicate">A function to test each element for a condition.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>A number that represents how many elements in the array satisfy the condition
+            in the predicate function.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.CountP``1(System.Collections.Generic.List{``0},System.Func{``0,System.Boolean},System.Nullable{System.Int32})">
+            <summary>
+            Returns a number that represents how many elements in the specified in parallel.
+            list satisfy a condition.
+            </summary>        
+            <param name="source">A list that contains elements to be tested and counted.</param>
+            <param name="predicate">A function to test each element for a condition.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>A number that represents how many elements in the list satisfy the condition
+            in the predicate function.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MaxP``1(``0[],System.Nullable{System.Int32})">
+            <summary>
+            Returns the Maximum value in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the Maximum of.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The Maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MaxP``2(``0[],System.Func{``0,``1},System.Nullable{System.Int32})">
+            <summary>
+            Returns the Maximum value via the selector in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the Maximum of.</param>
+            <param name="selector">A function to transform elements into a value that will be compared.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The Maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MaxP(System.Int32[],System.Nullable{System.Int32})">
+            <summary>
+            Returns the Maximum value in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the Maximum of.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The Maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MaxP``1(``0[],System.Func{``0,System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Returns the Maximum value via the selector in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the Maximum of.</param>
+            <param name="selector">A function to transform elements into a value that will be compared.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The Maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MaxP(System.Int64[],System.Nullable{System.Int32})">
+            <summary>
+            Returns the Maximum value in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the Maximum of.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The Maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MaxP``1(``0[],System.Func{``0,System.Int64},System.Nullable{System.Int32})">
+            <summary>
+            Returns the Maximum value via the selector in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the Maximum of.</param>
+            <param name="selector">A function to transform elements into a value that will be compared.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The Maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MaxP(System.Single[],System.Nullable{System.Int32})">
+            <summary>
+            Returns the Maximum value in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the Maximum of.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The Maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MaxP``1(``0[],System.Func{``0,System.Single},System.Nullable{System.Int32})">
+            <summary>
+            Returns the Maximum value via the selector in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the Maximum of.</param>
+            <param name="selector">A function to transform elements into a value that will be compared.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The Maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MaxP(System.Double[],System.Nullable{System.Int32})">
+            <summary>
+            Returns the Maximum value in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the Maximum of.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The Maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MaxP``1(``0[],System.Func{``0,System.Double},System.Nullable{System.Int32})">
+            <summary>
+            Returns the Maximum value via the selector in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the Maximum of.</param>
+            <param name="selector">A function to transform elements into a value that will be compared.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The Maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MaxP(System.Decimal[],System.Nullable{System.Int32})">
+            <summary>
+            Returns the Maximum value in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the Maximum of.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The Maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MaxP``1(``0[],System.Func{``0,System.Decimal},System.Nullable{System.Int32})">
+            <summary>
+            Returns the Maximum value via the selector in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the Maximum of.</param>
+            <param name="selector">A function to transform elements into a value that will be compared.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The Maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MaxP``1(System.Collections.Generic.List{``0},System.Nullable{System.Int32})">
+            <summary>
+            Returns the Maximum value in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the Maximum of.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The Maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MaxP``2(System.Collections.Generic.List{``0},System.Func{``0,``1},System.Nullable{System.Int32})">
+            <summary>
+            Returns the Maximum value via the selector in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the Maximum of.</param>
+            <param name="selector">A function to transform elements into a value that will be compared.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The Maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MaxP(System.Collections.Generic.List{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Returns the Maximum value in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the Maximum of.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The Maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MaxP``1(System.Collections.Generic.List{``0},System.Func{``0,System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Returns the Maximum value via the selector in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the Maximum of.</param>
+            <param name="selector">A function to transform elements into a value that will be compared.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The Maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MaxP(System.Collections.Generic.List{System.Int64},System.Nullable{System.Int32})">
+            <summary>
+            Returns the Maximum value in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the Maximum of.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The Maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MaxP``1(System.Collections.Generic.List{``0},System.Func{``0,System.Int64},System.Nullable{System.Int32})">
+            <summary>
+            Returns the Maximum value via the selector in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the Maximum of.</param>
+            <param name="selector">A function to transform elements into a value that will be compared.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The Maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MaxP(System.Collections.Generic.List{System.Single},System.Nullable{System.Int32})">
+            <summary>
+            Returns the Maximum value in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the Maximum of.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The Maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MaxP``1(System.Collections.Generic.List{``0},System.Func{``0,System.Single},System.Nullable{System.Int32})">
+            <summary>
+            Returns the Maximum value via the selector in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the Maximum of.</param>
+            <param name="selector">A function to transform elements into a value that will be compared.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The Maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MaxP(System.Collections.Generic.List{System.Double},System.Nullable{System.Int32})">
+            <summary>
+            Returns the Maximum value in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the Maximum of.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The Maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MaxP``1(System.Collections.Generic.List{``0},System.Func{``0,System.Double},System.Nullable{System.Int32})">
+            <summary>
+            Returns the Maximum value via the selector in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the Maximum of.</param>
+            <param name="selector">A function to transform elements into a value that will be compared.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The Maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MaxP(System.Collections.Generic.List{System.Decimal},System.Nullable{System.Int32})">
+            <summary>
+            Returns the Maximum value in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the Maximum of.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The Maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MaxP``1(System.Collections.Generic.List{``0},System.Func{``0,System.Decimal},System.Nullable{System.Int32})">
+            <summary>
+            Returns the Maximum value via the selector in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the Maximum of.</param>
+            <param name="selector">A function to transform elements into a value that will be compared.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The Maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MinP``1(``0[],System.Nullable{System.Int32})">
+            <summary>
+            Returns the minimum value in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the minimum of.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MinP``2(``0[],System.Func{``0,``1},System.Nullable{System.Int32})">
+            <summary>
+            Returns the minimum value via the selector in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the minimum of.</param>
+            <param name="selector">A function to transform elements into a value that will be compared.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MinP(System.Int32[],System.Nullable{System.Int32})">
+            <summary>
+            Returns the minimum value in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the minimum of.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MinP``1(``0[],System.Func{``0,System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Returns the minimum value via the selector in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the minimum of.</param>
+            <param name="selector">A function to transform elements into a value that will be compared.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MinP(System.Int64[],System.Nullable{System.Int32})">
+            <summary>
+            Returns the minimum value in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the minimum of.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MinP``1(``0[],System.Func{``0,System.Int64},System.Nullable{System.Int32})">
+            <summary>
+            Returns the minimum value via the selector in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the minimum of.</param>
+            <param name="selector">A function to transform elements into a value that will be compared.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MinP(System.Single[],System.Nullable{System.Int32})">
+            <summary>
+            Returns the minimum value in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the minimum of.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MinP``1(``0[],System.Func{``0,System.Single},System.Nullable{System.Int32})">
+            <summary>
+            Returns the minimum value via the selector in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the minimum of.</param>
+            <param name="selector">A function to transform elements into a value that will be compared.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MinP(System.Double[],System.Nullable{System.Int32})">
+            <summary>
+            Returns the minimum value in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the minimum of.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MinP``1(``0[],System.Func{``0,System.Double},System.Nullable{System.Int32})">
+            <summary>
+            Returns the minimum value via the selector in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the minimum of.</param>
+            <param name="selector">A function to transform elements into a value that will be compared.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MinP(System.Decimal[],System.Nullable{System.Int32})">
+            <summary>
+            Returns the minimum value in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the minimum of.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MinP``1(``0[],System.Func{``0,System.Decimal},System.Nullable{System.Int32})">
+            <summary>
+            Returns the minimum value via the selector in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the minimum of.</param>
+            <param name="selector">A function to transform elements into a value that will be compared.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MinP``1(System.Collections.Generic.List{``0},System.Nullable{System.Int32})">
+            <summary>
+            Returns the minimum value in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the minimum of.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MinP``2(System.Collections.Generic.List{``0},System.Func{``0,``1},System.Nullable{System.Int32})">
+            <summary>
+            Returns the minimum value via the selector in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the minimum of.</param>
+            <param name="selector">A function to transform elements into a value that will be compared.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MinP(System.Collections.Generic.List{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Returns the minimum value in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the minimum of.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MinP``1(System.Collections.Generic.List{``0},System.Func{``0,System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Returns the minimum value via the selector in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the minimum of.</param>
+            <param name="selector">A function to transform elements into a value that will be compared.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MinP(System.Collections.Generic.List{System.Int64},System.Nullable{System.Int32})">
+            <summary>
+            Returns the minimum value in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the minimum of.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MinP``1(System.Collections.Generic.List{``0},System.Func{``0,System.Int64},System.Nullable{System.Int32})">
+            <summary>
+            Returns the minimum value via the selector in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the minimum of.</param>
+            <param name="selector">A function to transform elements into a value that will be compared.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MinP(System.Collections.Generic.List{System.Single},System.Nullable{System.Int32})">
+            <summary>
+            Returns the minimum value in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the minimum of.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MinP``1(System.Collections.Generic.List{``0},System.Func{``0,System.Single},System.Nullable{System.Int32})">
+            <summary>
+            Returns the minimum value via the selector in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the minimum of.</param>
+            <param name="selector">A function to transform elements into a value that will be compared.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MinP(System.Collections.Generic.List{System.Double},System.Nullable{System.Int32})">
+            <summary>
+            Returns the minimum value in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the minimum of.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MinP``1(System.Collections.Generic.List{``0},System.Func{``0,System.Double},System.Nullable{System.Int32})">
+            <summary>
+            Returns the minimum value via the selector in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the minimum of.</param>
+            <param name="selector">A function to transform elements into a value that will be compared.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MinP(System.Collections.Generic.List{System.Decimal},System.Nullable{System.Int32})">
+            <summary>
+            Returns the minimum value in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the minimum of.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.MinP``1(System.Collections.Generic.List{``0},System.Func{``0,System.Decimal},System.Nullable{System.Int32})">
+            <summary>
+            Returns the minimum value via the selector in a sequence of values using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to determine the minimum of.</param>
+            <param name="selector">A function to transform elements into a value that will be compared.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SelectInPlaceP``1(``0[],System.Func{``0,``0},System.Nullable{System.Int32})">
+            <summary>
+             Projects each element of a sequence into a new form in place using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to invoke a transform function on (map).</param>
+            <param name="selector">A transform function to apply (map) to each element.</param>       
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SelectInPlaceP``1(``0[],System.Func{``0,System.Int32,``0},System.Nullable{System.Int32})">
+            <summary>
+             Projects each element of a sequence into a new form, in place, by incorporating the element's index using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to invoke a transform function on.</param>
+            <param name="selector">A transform function to apply to each source element; the second parameter of the function represents the index of the source element.</param>        
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SelectP``2(``0[],System.Func{``0,``1},System.Nullable{System.Int32})">
+            <summary>
+             Projects each element of a sequence into a new form using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to invoke a transform function on.</param>
+            <param name="selector">A transform function to apply to each source element.</param>        
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SelectP``2(``0[],System.Func{``0,System.Int32,``1},System.Nullable{System.Int32})">
+            <summary>
+             Projects each element of a sequence into a new form by incorporating the element's index using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to invoke a transform function on.</param>
+            <param name="selector">A transform function to apply to each source element; the second parameter of the function represents the index of the source element.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>A sequence whose elements are the result of invoking the transform function on each element of source.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SelectInPlaceP``1(System.Collections.Generic.List{``0},System.Func{``0,``0},System.Nullable{System.Int32})">
+            <summary>
+             Projects each element of a sequence into a new form in place using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to invoke a transform function on (map).</param>
+            <param name="selector">A transform function to apply (map) to each element.</param>        
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SelectInPlaceP``1(System.Collections.Generic.List{``0},System.Func{``0,System.Int32,``0},System.Nullable{System.Int32})">
+            <summary>
+             Projects each element of a sequence into a new form, in place, by incorporating the element's index using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to invoke a transform function on.</param>
+            <param name="selector">A transform function to apply to each source element; the second parameter of the function represents the index of the source element.</param>        
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SelectP``2(System.Collections.Generic.List{``0},System.Func{``0,``1},System.Nullable{System.Int32})">
+            <summary>
+             Projects each element of a sequence into a new form, in place, by incorporating the element's index using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to invoke a transform function on.</param>
+            <param name="selector">A transform function to apply to each source element; the second parameter of the function represents the index of the source element.</param>        
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SelectP``2(System.Collections.Generic.List{``0},System.Func{``0,System.Int32,``1},System.Nullable{System.Int32})">
+            <summary>
+             Projects each element of a sequence into a new form by incorporating the element's index using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">A sequence of values to invoke a transform function on.</param>
+            <param name="selector">A transform function to apply to each source element; the second parameter of the function represents the index of the source element.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>A sequence whose elements are the result of invoking the transform function on each element of source.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SelectUnorderedP``2(System.Collections.Generic.List{``0},System.Func{``0,System.Int32,``1},System.Nullable{System.Int32})">
+            <summary>
+             Projects each element of a sequence into a new form by incorporating the element's index using multiple Tasks / Threads.
+             !!Order of the collection is not preserved!! for more speed and less memory use.
+            </summary>        
+            <param name="source">A sequence of values to invoke a transform function on.</param>
+            <param name="selector">A transform function to apply to each source element; the second parameter of the function represents the index of the source element.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>A sequence whose elements are the result of invoking the transform function on each element of source.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SelectWhereP``2(``0[],System.Func{``0,``1},System.Func{``1,System.Boolean},System.Nullable{System.Int32})">
+            <summary>
+            Combines Select and Where into a single call in parallel.
+            </summary>        
+            <param name="source">The input sequence to filter and select</param>
+            <param name="selector">The transformation to apply before filtering.</param>
+            <param name="predicate">The predicate with which to filter result.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>A seqence transformed and then filtered by selector and predicate.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SelectWhereP``2(``0[],System.Func{``0,System.Int32,``1},System.Func{``1,System.Int32,System.Boolean},System.Nullable{System.Int32})">
+            <summary>
+            Combines Select and Where into a single call in parallel with indexes
+            </summary>        
+            <param name="source">The input sequence to filter and select</param>
+            <param name="selector">The transformation to apply before filtering.</param>
+            <param name="predicate">The predicate with which to filter result.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>A seqence transformed and then filtered by selector and predicate.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SelectWhereP``2(System.Collections.Generic.List{``0},System.Func{``0,``1},System.Func{``1,System.Boolean},System.Nullable{System.Int32})">
+            <summary>
+            Combines Select and Where into a single call in parallel.
+            </summary>        
+            <param name="source">The input sequence to filter and select</param>
+            <param name="selector">The transformation to apply before filtering.</param>
+            <param name="predicate">The predicate with which to filter result.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>A seqence transformed and then filtered by selector and predicate.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SelectWhereP``2(System.Collections.Generic.List{``0},System.Func{``0,System.Int32,``1},System.Func{``1,System.Int32,System.Boolean},System.Nullable{System.Int32})">
+            <summary>
+            Combines Select and Where into a single call in parallel with indexes
+            </summary>        
+            <param name="source">The input sequence to filter and select</param>
+            <param name="selector">The transformation to apply before filtering.</param>
+            <param name="predicate">The predicate with which to filter result.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>A seqence transformed and then filtered by selector and predicate.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SumP(System.Int32[],System.Nullable{System.Int32})">
+            <summary>
+             Adds a sequence of values using multiple Tasks / Threads.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SumP``1(``0[],System.Func{``0,System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Adds the transformed sequence of elements using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">The sequence of values to transform then sum.</param>
+            <param name="selector">A transformation function.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The sum of the transformed elements.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SumP(System.Int64[],System.Nullable{System.Int32})">
+            <summary>
+             Adds a sequence of values using multiple Tasks / Threads.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SumP``1(``0[],System.Func{``0,System.Int64},System.Nullable{System.Int32})">
+            <summary>
+            Adds the transformed sequence of elements using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">The sequence of values to transform then sum.</param>
+            <param name="selector">A transformation function.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The sum of the transformed elements.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SumP(System.Single[],System.Nullable{System.Int32})">
+            <summary>
+             Adds a sequence of values using multiple Tasks / Threads.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SumP``1(``0[],System.Func{``0,System.Single},System.Nullable{System.Int32})">
+            <summary>
+            Adds the transformed sequence of elements using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">The sequence of values to transform then sum.</param>
+            <param name="selector">A transformation function.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The sum of the transformed elements.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SumP(System.Double[],System.Nullable{System.Int32})">
+            <summary>
+             Adds a sequence of values using multiple Tasks / Threads.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SumP``1(``0[],System.Func{``0,System.Double},System.Nullable{System.Int32})">
+            <summary>
+            Adds the transformed sequence of elements using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">The sequence of values to transform then sum.</param>
+            <param name="selector">A transformation function.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The sum of the transformed elements.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SumP(System.Decimal[],System.Nullable{System.Int32})">
+            <summary>
+             Adds a sequence of values using multiple Tasks / Threads.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SumP``1(``0[],System.Func{``0,System.Decimal},System.Nullable{System.Int32})">
+            <summary>
+            Adds the transformed sequence of elements using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">The sequence of values to transform then sum.</param>
+            <param name="selector">A transformation function.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The sum of the transformed elements.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SumP(System.Collections.Generic.List{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+             Adds a sequence of values using multiple Tasks / Threads.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SumP``1(System.Collections.Generic.List{``0},System.Func{``0,System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Adds the transformed sequence of elements using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">The sequence of values to transform then sum.</param>
+            <param name="selector">A transformation function.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The sum of the transformed elements.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SumP(System.Collections.Generic.List{System.Int64},System.Nullable{System.Int32})">
+            <summary>
+             Adds a sequence of values using multiple Tasks / Threads.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SumP``1(System.Collections.Generic.List{``0},System.Func{``0,System.Int64},System.Nullable{System.Int32})">
+            <summary>
+            Adds the transformed sequence of elements using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">The sequence of values to transform then sum.</param>
+            <param name="selector">A transformation function.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The sum of the transformed elements.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SumP(System.Collections.Generic.List{System.Single},System.Nullable{System.Int32})">
+            <summary>
+             Adds a sequence of values using multiple Tasks / Threads.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SumP``1(System.Collections.Generic.List{``0},System.Func{``0,System.Single},System.Nullable{System.Int32})">
+            <summary>
+            Adds the transformed sequence of elements using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">The sequence of values to transform then sum.</param>
+            <param name="selector">A transformation function.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The sum of the transformed elements.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SumP(System.Collections.Generic.List{System.Double},System.Nullable{System.Int32})">
+            <summary>
+             Adds a sequence of values using multiple Tasks / Threads.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SumP``1(System.Collections.Generic.List{``0},System.Func{``0,System.Double},System.Nullable{System.Int32})">
+            <summary>
+            Adds the transformed sequence of elements using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">The sequence of values to transform then sum.</param>
+            <param name="selector">A transformation function.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The sum of the transformed elements.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SumP(System.Collections.Generic.List{System.Decimal},System.Nullable{System.Int32})">
+            <summary>
+             Adds a sequence of values using multiple Tasks / Threads.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SumP``1(System.Collections.Generic.List{``0},System.Func{``0,System.Decimal},System.Nullable{System.Int32})">
+            <summary>
+            Adds the transformed sequence of elements using multiple Tasks / Threads.
+            </summary>        
+            <param name="source">The sequence of values to transform then sum.</param>
+            <param name="selector">A transformation function.</param>
+            <param name="batchSize">Optional custom batch size to divide work into.</param>
+            <returns>The sum of the transformed elements.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.WhereAggregateP``1(``0[],System.Func{``0,System.Boolean},System.Func{``0,``0,``0},System.Nullable{System.Int32})">
+            <summary>
+            Combines Where and Aggregate and performs the Where phase in parallel.
+            </summary>        
+            <param name="source">The input to filter then aggregate.</param>
+            <param name="predicate">The function to filter the input sequence with.</param>
+            <param name="func">The function to aggregate the filtered seqeuence.</param>        
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The filtered then aggregated sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.WhereAggregateP``1(``0[],System.Func{``0,System.Int32,System.Boolean},System.Func{``0,``0,``0},System.Nullable{System.Int32})">
+            <summary>
+            Combines Where and Aggregate with index, run the where phase in parallel.
+            </summary>        
+            <param name="source">The input to filter then aggregate.</param>
+            <param name="predicate">The function to filter the input sequence and it's index with.</param>
+            <param name="func">The function to aggregate the filtered seqeuence.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The filtered then aggregated sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.WhereAggregateP``2(``0[],System.Func{``0,System.Boolean},``1,System.Func{``1,``0,``1},System.Nullable{System.Int32})">
+            <summary>
+            Combines Where and Aggregate for optimal performance with a starting seed, 
+            perform the Where phase in parallel.
+            </summary>        
+            <param name="source">The input to filter then aggregate.</param>
+            <param name="predicate">The function to filter the input sequence with.</param>
+            <param name="seed">The initial value to aggregate on.</param>
+            <param name="func">The function to aggregate the filtered seqeuence.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The filtered then aggregated sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.WhereAggregateP``3(``0[],System.Func{``0,System.Boolean},``1,System.Func{``1,``0,``1},System.Func{``1,``2},System.Nullable{System.Int32})">
+            <summary>
+            Combines Where and Aggregate for optimal performance with a starting seed and a result transformation.
+            Perform the where phase in parallel.
+            </summary>        
+            <param name="source">The input to filter then aggregate.</param>
+            <param name="predicate">The function to filter the input sequence with.</param>
+            <param name="seed">The initial value to aggregate on.</param>
+            <param name="func">The function to aggregate the filtered seqeuence.</param>
+            <param name="resultSelector">A function to transform the final result.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The filtered then aggregated then transformed sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.WhereAggregateP``1(System.Collections.Generic.List{``0},System.Func{``0,System.Boolean},System.Func{``0,``0,``0},System.Nullable{System.Int32})">
+            <summary>
+            Combines Where and Aggregate and performs the Where phase in parallel.
+            </summary>        
+            <param name="source">The input to filter then aggregate.</param>
+            <param name="predicate">The function to filter the input sequence with.</param>
+            <param name="func">The function to aggregate the filtered seqeuence.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The filtered then aggregated sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.WhereAggregateP``1(System.Collections.Generic.List{``0},System.Func{``0,System.Int32,System.Boolean},System.Func{``0,``0,``0},System.Nullable{System.Int32})">
+            <summary>
+            Combines Where and Aggregate with index for optimal performance
+            </summary>        
+            <param name="source">The input to filter then aggregate.</param>
+            <param name="predicate">The function to filter the input sequence and it's index with.</param>
+            <param name="func">The function to aggregate the filtered seqeuence.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The filtered then aggregated sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.WhereAggregateP``2(System.Collections.Generic.List{``0},System.Func{``0,System.Boolean},``1,System.Func{``1,``0,``1},System.Nullable{System.Int32})">
+            <summary>
+            Combines Where and Aggregate for optimal performance with a starting seed.
+            </summary>        
+            <param name="source">The input to filter then aggregate.</param>
+            <param name="predicate">The function to filter the input sequence with.</param>
+            <param name="seed">The initial value to aggregate on.</param>
+            <param name="func">The function to aggregate the filtered seqeuence.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The filtered then aggregated sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.WhereAggregateP``3(System.Collections.Generic.List{``0},System.Func{``0,System.Boolean},``1,System.Func{``1,``0,``1},System.Func{``1,``2},System.Nullable{System.Int32})">
+            <summary>
+            Combines Where and Aggregate for optimal performance with a starting seed and a result transformation.
+            Perform the where phase in parallel.
+            </summary>        
+            <param name="source">The input to filter then aggregate.</param>
+            <param name="predicate">The function to filter the input sequence with.</param>
+            <param name="seed">The initial value to aggregate on.</param>
+            <param name="func">The function to aggregate the filtered seqeuence.</param>
+            <param name="resultSelector">A function to transform the final result.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The filtered then aggregated then transformed sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.WhereP``1(``0[],System.Func{``0,System.Boolean},System.Nullable{System.Int32})">
+            <summary>
+            Filters a sequence of values based on a predicate in parallel.
+            </summary>        
+            <param name="source">A sequence to filter.</param>
+            <param name="predicate">A function to test each element for a condition.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>A sequence that contains elements from the input sequence that satisfy the condition.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.WhereP``1(``0[],System.Func{``0,System.Int32,System.Boolean},System.Nullable{System.Int32})">
+            <summary>
+            Filters a sequence of values in parallel based on a predicate that includes the index in it's logic.
+            </summary>        
+            <param name="source">A sequence to filter.</param>
+            <param name="predicate">A function to test each element for a condition along with the element's index.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>A sequence that contains elements from the input sequence that satisfy the condition.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.WhereP``1(System.Collections.Generic.List{``0},System.Func{``0,System.Boolean},System.Nullable{System.Int32})">
+            <summary>
+            Filters a sequence of values based on a predicate in parallel.
+            </summary>        
+            <param name="source">A sequence to filter.</param>
+            <param name="predicate">A function to test each element for a condition.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>A sequence that contains elements from the input sequence that satisfy the condition.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.WhereP``1(System.Collections.Generic.List{``0},System.Func{``0,System.Int32,System.Boolean},System.Nullable{System.Int32})">
+            <summary>
+            Filters a sequence of values in parallel based on a predicate that includes the index in it's logic.
+            </summary>        
+            <param name="source">A sequence to filter.</param>
+            <param name="predicate">A function to test each element for a condition along with the element's index.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>A sequence that contains elements from the input sequence that satisfy the condition.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.WhereSelectP``2(``0[],System.Func{``0,System.Boolean},System.Func{``0,``1},System.Nullable{System.Int32})">
+            <summary>
+            Combined Where and Select with the Where phase in parallel.
+            </summary>        
+            <param name="source">The input sequence to filter then transform.</param>
+            <param name="predicate">A function to use to filter the sequence.</param>
+            <param name="selector">A function to transform the filtered elements.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>A sequence of filtered and transformed elements.</returns>     
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.WhereSelectP``2(``0[],System.Func{``0,System.Int32,System.Boolean},System.Func{``0,System.Int32,``1},System.Nullable{System.Int32})">
+            <summary>
+            Combined Where and Select with the Where phase in parallel using the
+            index in the predicate and selector.
+            </summary>        
+            <param name="source">The input sequence to filter then transform.</param>
+            <param name="predicate">A function to use to filter the sequence.</param>
+            <param name="selector">A function to transform the filtered elements.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>A sequence of filtered and transformed elements.</returns>     
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.WhereSelectP``2(System.Collections.Generic.List{``0},System.Func{``0,System.Boolean},System.Func{``0,``1},System.Nullable{System.Int32})">
+            <summary>
+            Combined Where and Select with the Where phase in parallel.
+            </summary>        
+            <param name="source">The input sequence to filter then transform.</param>
+            <param name="predicate">A function to use to filter the sequence.</param>
+            <param name="selector">A function to transform the filtered elements.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>A sequence of filtered and transformed elements.</returns>     
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.WhereSelectP``2(System.Collections.Generic.List{``0},System.Func{``0,System.Int32,System.Boolean},System.Func{``0,System.Int32,``1},System.Nullable{System.Int32})">
+            <summary>
+            Combined Where and Select with the Where phase in parallel using the
+            index in the predicate and selector.
+            </summary>        
+            <param name="source">The input sequence to filter then transform.</param>
+            <param name="predicate">A function to use to filter the sequence.</param>
+            <param name="selector">A function to transform the filtered elements.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>A sequence of filtered and transformed elements.</returns>     
+        </member>
+    </members>
+</doc>

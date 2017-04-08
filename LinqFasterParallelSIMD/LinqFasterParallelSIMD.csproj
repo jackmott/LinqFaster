@@ -19,11 +19,11 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard1.3|AnyCPU'">
-    <DocumentationFile>bin\linqfaster-parallel-simd.xml</DocumentationFile>
+    <DocumentationFile>..\docs\linqfaster-parallel-simd.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard1.3|AnyCPU'">
-    <DocumentationFile>bin\linqfaster-parallel-simd.xml</DocumentationFile>
+    <DocumentationFile>..\docs\linqfaster-parallel-simd.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
