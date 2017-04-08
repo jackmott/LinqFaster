@@ -60,6 +60,8 @@ We need more tests and I would love input on performance tweaks.
 * [LinqFaster.SIMD.Parallel](#linqfastersimdparallel)
 * [Limitations](#limitations)
 
+As well, all functions are properly documented so as to be explorable via intellisense.
+
 ### LinqFaster
 ```c#
 	using JM.LinqFaster;
