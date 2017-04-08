@@ -26,7 +26,7 @@ namespace JM.LinqFaster
         /// Inverts the order of the elements in a sequence in place.
         /// </summary>        
         /// <param name="source">A sequence of values to reverse.</param>        
-        public static void ReverseInPlace<T>(this T[] source)
+        public static void ReverseInPlaceF<T>(this T[] source)
         {
             Array.Reverse(source);
         }
@@ -50,7 +50,7 @@ namespace JM.LinqFaster
         /// Inverts the order of the elements in a sequence in place.
         /// </summary>        
         /// <param name="source">A sequence of values to reverse.</param>        
-        public static void ReverseInPlace<T>(this List<T> source)
+        public static void ReverseInPlaceF<T>(this List<T> source)
         {
             source.Reverse();            
         }

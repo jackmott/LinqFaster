@@ -14,7 +14,7 @@ namespace JM.LinqFaster
         /// </summary>        
         /// <param name="source">A sequence of values to invoke a transform function on (map).</param>
         /// <param name="selector">A transform function to apply (map) to each element.</param>        
-        public static void SelectInPlace<T>(this T[] source, Func<T,T> selector)
+        public static void SelectInPlaceF<T>(this T[] source, Func<T,T> selector)
         {
             if (source == null)
             {
@@ -37,7 +37,7 @@ namespace JM.LinqFaster
         /// </summary>        
         /// <param name="source">A sequence of values to invoke a transform function on.</param>
         /// <param name="selector">A transform function to apply to each source element; the second parameter of the function represents the index of the source element.</param>        
-        public static void SelectInPlace<T>(this T[] source, Func<T, int, T> selector)
+        public static void SelectInPlaceF<T>(this T[] source, Func<T, int, T> selector)
         {
             if (source == null)
             {
@@ -116,7 +116,7 @@ namespace JM.LinqFaster
         /// </summary>        
         /// <param name="source">A sequence of values to invoke a transform function on (map).</param>
         /// <param name="selector">A transform function to apply (map) to each element.</param>        
-        public static void SelectInPlace<T>(this List<T> source, Func<T, T> selector)
+        public static void SelectInPlaceF<T>(this List<T> source, Func<T, T> selector)
         {
             if (source == null)
             {
@@ -139,7 +139,7 @@ namespace JM.LinqFaster
         /// </summary>        
         /// <param name="source">A sequence of values to invoke a transform function on.</param>
         /// <param name="selector">A transform function to apply to each source element; the second parameter of the function represents the index of the source element.</param>        
-        public static void SelectInPlace<T>(this List<T> source, Func<T, int, T> selector)
+        public static void SelectInPlaceF<T>(this List<T> source, Func<T, int, T> selector)
         {
             if (source == null)
             {
