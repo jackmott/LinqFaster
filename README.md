@@ -54,11 +54,11 @@ We need more tests and I would love input on performance tweaks.
 
 # Documentation
 
-* [LinqFaster](###LinqFaster)
-* [LinqFaster.SIMD](###LinqFaster.SIMD)
-* [LinqFaster.Parallel](###LinqFaster.Parallel)
-* [LinqFaster.SIMD.Parallel](###LinqFaster.SIMD.Parallel)
-* [Limitations](###Limitations)
+* [LinqFaster](#linqfaster-1)
+* [LinqFaster.SIMD](#linqfastersimd)
+* [LinqFaster.Parallel](#linqfasterparallel)
+* [LinqFaster.SIMD.Parallel](#linqfastersimdparallel)
+* [Limitations](#limitations)
 
 ### LinqFaster
 ```c#
