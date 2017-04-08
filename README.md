@@ -73,14 +73,14 @@ We need more tests and I would love input on performance tweaks.
 	//Compute sum, average, max,min
 	var sum = myArray.SumF();
 	var average = myArray.AverageF();
-	var min = myArray.Min();
-	var max = myArray.Max();
+	var min = myArray.MinF();
+	var max = myArray.MaxF();
 
 	//As above but on a transformation
 	var sum2 = myArray.SumF(x => x*x);
 	var average2 = myArray.AverageF(x => x*x);
-	var min2 = myArray.Min(x => x*x);
-	var max2 = myArray.Max(x => x*x);
+	var min2 = myArray.MinF(x => x*x);
+	var max2 = myArray.MaxF(x => x*x);
 
 	//Do a where and a select or select and where in a single pass
 	var newArray = myArray.WhereSelectF(x => x % 2 == 0,x=>x*x);
@@ -90,8 +90,8 @@ We need more tests and I would love input on performance tweaks.
 	var filteredSum = myArray.WhereAggregateF(x => x % 2 == 0, (acc, x) => acc + x);
 
 	//New in-place methods are provided where appropriate
-	myArray.SelectInPlace(x => x * x);
-	myArray.ReverseInPlace();
+	myArray.SelectInPlaceF(x => x * x);
+	myArray.ReverseInPlaceF();
 ```
 
 ### LinqFaster.SIMD
