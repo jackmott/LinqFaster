@@ -32,7 +32,7 @@ namespace JM.LinqFaster.SIMD
                 }
             }
             for (int i = source.Length-(source.Length%count); i < source.Length;i++)
-            {
+            {                
                 if (GenericOperators.Equals(source[i],value)) return true;
             }
             return false;

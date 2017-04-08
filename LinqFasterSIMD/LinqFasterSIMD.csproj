@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard1.3;net461</TargetFrameworks>
-    <Version>0.9.0</Version>
+    <Version>0.9.1</Version>
     <Authors>Jack Mott</Authors>
     <Company />
     <Description>High performance Linq-style extension methods that use System.Numerics SIMD for arrays and lists.</Description>
@@ -12,7 +12,7 @@
     <PackageIconUrl>https://jackmott.github.io/images/LinqFaster.png</PackageIconUrl>
     <RepositoryType>Github</RepositoryType>
     <PackageTags>performance linq simd system.numerics</PackageTags>
-    <PackageReleaseNotes>Beta 1</PackageReleaseNotes>
+    <PackageReleaseNotes>Fix for ContainsS</PackageReleaseNotes>
     <NeutralLanguage />
     <PackageId>LinqFaster.SIMD</PackageId>
     <Product>LinqFaster.SIMD</Product>
