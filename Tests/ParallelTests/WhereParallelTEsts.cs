@@ -3,7 +3,6 @@ using JM.LinqFaster.Parallel;
 using System.Linq;
 using static Tests.Test;
 using System;
-using System.Collections.Generic;
 
 namespace Tests
 {

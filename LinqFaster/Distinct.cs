@@ -1,64 +1,53 @@
 ﻿using System.Collections.Generic;
 
-
 namespace JM.LinqFaster
 {
     public static partial class LinqFaster
     {
-
-        // --------------------------  ARRAYS  --------------------------------------------
-
-        /// <summary>
-        /// Returns distinct elements from an array using the provided equality comparer
-        /// or the default comparer if none is provided. 
-        /// </summary>        
-        /// <param name="source">The array to remove duplicate elements from.</param>
-        /// <param name="comparer">An IEqualityComparer to compare values.</param>
-        /// <returns>An array that contains distinct elements from the source array.</returns>
-        public static TSource[] DistinctF<TSource>(this TSource[] source, IEqualityComparer<TSource> comparer = null)
-        {
-            if (source == null)
-            {
-                throw Error.ArgumentNull("source");
-            }
-
-            if (comparer == null) {
-                comparer = EqualityComparer<TSource>.Default;
-            }
-
-            var dict = new HashSet<TSource>(source, comparer);
-            var result = new TSource[dict.Count];
-            dict.CopyTo(result);
-            return result;
-        }
-
-     
-
-
-
+       
         // --------------------------  LISTS --------------------------------------------
 
+
         /// <summary>
-        /// Returns distinct elements from a list using the provided equality comparer
-        /// or the default comparer if none is provided.
+        /// Removes duplicate elements from source, does not maintain order. Elements will be
+        /// sorted in ascending order.
         /// </summary>        
         /// <param name="source">The list to remove duplicate elements from.</param>
-        /// <param name="comparer">An IEqualityComparer to compare values.</param>
-        /// <returns>A list that contains distinct elements from the source list.</returns>
-        public static List<TSource> DistinctF<TSource>(this List<TSource> source, IEqualityComparer<TSource> comparer = null)
+        /// <param name="eqComparer">Optional IEqualityComparer to compare values.</param>        
+        /// <param name="comparer">Optional IComparer to compare values.</param>        
+        public static void DistinctInPlaceF<TSource>(this List<TSource> source, IEqualityComparer<TSource> eqComparer = null, IComparer<TSource> comparer = null)
         {
             if (source == null)
             {
                 throw Error.ArgumentNull("source");
             }
 
-            if (comparer == null) {
-                comparer = EqualityComparer<TSource>.Default;
+            if (comparer == null)
+            {
+                comparer = Comparer<TSource>.Default;
             }
 
-            var dict = new HashSet<TSource>(source, comparer);              
-            return new List<TSource>(dict);
+            if (eqComparer == null)
+            {
+                eqComparer = EqualityComparer<TSource>.Default;
+            }
+
+            source.Sort(comparer);
+
+            TSource oldV = source[0];
+            int pos = 1;
+            for (int i = 1; i < source.Count; i++)
+            {
+                var newV = source[i];
+                source[pos] = newV;
+                if (!eqComparer.Equals(newV, oldV))
+                {
+                    pos++;
+                }                
+                oldV = newV;
+            }
+            source.RemoveRange(pos, source.Count - pos);            
         }
-     
+
     }
 }

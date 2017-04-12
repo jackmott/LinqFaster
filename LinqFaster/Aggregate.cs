@@ -14,8 +14,7 @@ namespace JM.LinqFaster
 
         /// <summary>
         /// Applies an accumulator function over an array.
-        /// </summary>
-        /// <typeparam name="TSource"></typeparam>
+        /// </summary>        
         /// <param name="source">An array to aggregate over.</param>
         /// <param name="func">An accumulator function to be invoked on each element</param>
         /// <returns>The final accumulator value</returns>

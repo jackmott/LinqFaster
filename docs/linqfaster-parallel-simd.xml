@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LinqFasterParallelSIMD</name>
+    </assembly>
+    <members>
+        <member name="T:JM.LinqFaster.SIMD.Parallel.LinqFasterSIMDParallel">
+            <summary>
+            Provides Linq style extension methods that use both
+            SIMD and multiple threads / tasks.
+            </summary>
+        </member>
+        <member name="M:JM.LinqFaster.SIMD.Parallel.LinqFasterSIMDParallel.AverageSP``1(``0[],System.Nullable{System.Int32})">
+            <summary>
+            Calculates the average value of an array using SIMD and
+            multiple threads/tasks.
+            </summary>        
+            <param name="source">The sequence of primitive values to average</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The average of the sequence of values as a double</returns>
+        </member>
+        <member name="M:JM.LinqFaster.SIMD.Parallel.LinqFasterSIMDParallel.AverageSPf``1(``0[],System.Nullable{System.Int32})">
+            <summary>
+            Calculates the average value of an array using SIMD and
+            multiple threads/tasks.
+            </summary>        
+            <param name="source">The sequence of primitive values to average</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>The average of the sequence of values as a double</returns>
+        </member>
+        <member name="M:JM.LinqFaster.SIMD.Parallel.LinqFasterSIMDParallel.SelectSP``2(``0[],System.Func{System.Numerics.Vector{``0},System.Numerics.Vector{``1}},System.Func{``0,``1},System.Nullable{System.Int32})">
+            <summary>
+            Projects each element of a sequence into a new form with SIMD and
+            multiple threads / tasks.
+            </summary>        
+            <param name="source">The sequence of primitive values to transform.</param>
+            <param name="selectorSIMD">A transformation function that operates on Vectors.</param>
+            <param name="selector">An optional selection function to transform the leftover values.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>A sequence of transformed values.</returns>        
+        </member>
+        <member name="M:JM.LinqFaster.SIMD.Parallel.LinqFasterSIMDParallel.SumSP``1(``0[],System.Nullable{System.Int32})">
+            <summary>
+            Sums the values in source using SIMD and multiple Tasks/Threads.
+            </summary>        
+            <param name="source">A sequence to sum.</param>
+            <param name ="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

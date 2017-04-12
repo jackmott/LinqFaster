@@ -14,15 +14,19 @@
     <PackageTags>performance linq</PackageTags>
     <PackageReleaseNotes>Many performance improvements</PackageReleaseNotes>
     <NeutralLanguage />
+    <AssemblyName>JM.LinqFaster</AssemblyName>
+    <RootNamespace>JM.LinqFaster</RootNamespace>
     
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard1.3|AnyCPU'">
     <DocumentationFile>..\docs\linqfaster.xml</DocumentationFile>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard1.3|AnyCPU'">
     <DocumentationFile>..\docs\linqfaster.xml</DocumentationFile>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
 
   
