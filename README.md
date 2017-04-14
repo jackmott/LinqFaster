@@ -6,16 +6,15 @@
 
 ![Logo](https://jackmott.github.io/images/LinqFaster.png "Logo")
 
-A set of extension methods for `arrays[]` and `List<T>` that are faster and allocate less.
+A set of Linq-Like extension methods for `arrays[]` and `List<T>` that are faster and allocate less.
 
-LinqFaster now includes all relevant Linq extension methods, and **SIMD** and **parallel** enhanced extension methods are
-being worked on now as well.
+LinqFaster now includes all relevant Linq extension methods, and many **SIMD** and **parallel** enhanced extension methos are available as well.  The projects have no depdencies on each other so you can pick and choose at will.
 
 The base LinqFaster project is now compatible with Unity3D
 
 ## [Beta now available on Nuget](https://www.nuget.org/packages?q=linqfaster)
 
-# Benchmarks
+# Sample Benchmarks
 
 64bit Win 10, 2 Core I7 Mobile
 
@@ -35,10 +34,6 @@ The base LinqFaster project is now compatible with Unity3D
 More detailed info and benchmarks available in the **[benchmarks](Benchmarks.md)**  file which
 will be continually updated.
 
-
-# Please Contribute
-This is a work in progress, PRs would be appreciated. Lots of easy grunt work to do here to cover all the Linq extension methods. Feel free to contact me I can give guidance if you are not sure what to do or how to use github / git.
-We need more tests and I would love input on performance tweaks.
 
 # Features
 
