@@ -29,7 +29,7 @@ namespace JM.LinqFaster
             if (r == null)
             {
                 r = source[0];
-                for (long i = 1; i < source.Length; i++)
+                for (int i = 1; i < source.Length; i++)
                 {
                     if (source[i] != null && comparer.Compare(source[i], r) > 0) r = source[i];
                 }
@@ -37,7 +37,7 @@ namespace JM.LinqFaster
             else
             {
                 r = source[0];
-                for (long i = 1; i < source.Length; i++)
+                for (int i = 1; i < source.Length; i++)
                 {
                     if (comparer.Compare(source[i], r) > 0) r = source[i];
                 }
@@ -71,7 +71,7 @@ namespace JM.LinqFaster
             if (r == null)
             {
                 r = selector(source[0]);
-                for (long i = 1; i < source.Length; i++)
+                for (int i = 1; i < source.Length; i++)
                 {
                     var v = selector(source[i]);
                     if (v != null && comparer.Compare(v, r) > 0) r = v;
@@ -80,7 +80,7 @@ namespace JM.LinqFaster
             else
             {
                 r = selector(source[0]);                
-                for (long i = 1; i < source.Length; i++)
+                for (int i = 1; i < source.Length; i++)
                 {
                     var v = selector(source[i]);
                     if (comparer.Compare(v, r) > 0) r = v;
@@ -221,7 +221,7 @@ namespace JM.LinqFaster
                     break;
                 }
             }
-            for (long i = startIndex; i < source.Length; i++)
+            for (int i = startIndex; i < source.Length; i++)
             {
                 if (source[i] > r) r = source[i];
             }
@@ -260,7 +260,7 @@ namespace JM.LinqFaster
                     break;
                 }
             }
-            for (long i = startIndex; i < source.Length; i++)
+            for (int i = startIndex; i < source.Length; i++)
             {
                 var v = selector(source[i]);
                 if (v > r) r = v;
@@ -293,7 +293,7 @@ namespace JM.LinqFaster
                     break;
                 }
             }
-            for (long i = startIndex; i < source.Length; i++)
+            for (int i = startIndex; i < source.Length; i++)
             {
                 if (source[i] > r) r = source[i];
             }
@@ -332,7 +332,7 @@ namespace JM.LinqFaster
                     break;
                 }
             }
-            for (long i = startIndex; i < source.Length; i++)
+            for (int i = startIndex; i < source.Length; i++)
             {
                 var v = selector(source[i]);
                 if (v > r) r = v;
