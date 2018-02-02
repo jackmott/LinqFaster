@@ -34,7 +34,7 @@ namespace Tests
             var a = Test.floatArray.Sum(x => x * x);
             var b = Test.floatArray.SumS(x => x * x);
             double diff = Math.Abs(a - b);
-            Assert.That(diff, Is.LessThan(0.1));
+            Assert.That(diff, Is.LessThan(0.15));
 
         }
 
