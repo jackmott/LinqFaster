@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.3;net461</TargetFrameworks>
+    <TargetFrameworks>netstandard1.3;netstandard2.0;net461</TargetFrameworks>
     <PackageId>LinqFaster.Parallel</PackageId>
     <Version>0.9.1</Version>
     <Authors>Jack Mott</Authors>
@@ -17,11 +17,7 @@
     <PackageReleaseNotes>Bug fixes, performance improvements, added unordered select option for lists.</PackageReleaseNotes>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard1.3|AnyCPU'">
-    <DocumentationFile>..\docs\linqfaster-parallel.xml</DocumentationFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard1.3|AnyCPU'">
+  <PropertyGroup>
     <DocumentationFile>..\docs\linqfaster-parallel.xml</DocumentationFile>
   </PropertyGroup>
 
@@ -30,10 +26,10 @@
     <Compile Include="..\LinqFaster\Utils\Error.cs" Link="Utils\Error.cs" />
   </ItemGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard1.3'">
     <PackageReference Include="System.Threading.Tasks.Parallel" Version="4.3.0" />
   </ItemGroup>
-
+  
   <ItemGroup>
     <Folder Include="Utils\" />
   </ItemGroup>
