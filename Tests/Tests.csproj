@@ -1,102 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F92895E6-ED5C-4469-A056-B21C8432BDE6}</ProjectGuid>
+    <TargetFramework>net461</TargetFramework>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tests</RootNamespace>
-    <AssemblyName>Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="nunit.framework, Version=3.6.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.3.6.1\lib\net45\nunit.framework.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Numerics.Vectors.4.3.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
+    <PackageReference Include="NUnit" Version="3.9" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="AggregateTests.cs" />
-    <Compile Include="AnyAllTests.cs" />
-    <Compile Include="AverageTests.cs" />
-    <Compile Include="ContainsTests.cs" />
-    <Compile Include="CountTests.cs" />
-    <Compile Include="DistinctTests.cs" />
-    <Compile Include="FirstTests.cs" />
-    <Compile Include="LastTests.cs" />
-    <Compile Include="MaxTests.cs" />
-    <Compile Include="MinTests.cs" />
-    <Compile Include="OrderByTests.cs" />
-    <Compile Include="ParallelSIMDTests\SelectSIMDP.cs" />
-    <Compile Include="ParallelSIMDTests\SumSIMDP.cs" />
-    <Compile Include="ParallelTests\ContainsParallelTests.cs" />
-    <Compile Include="ParallelTests\WhereSelectParallelTests.cs" />
-    <Compile Include="ParallelTests\WhereParallelTests.cs" />
-    <Compile Include="ParallelTests\WhereAggregateParallelTests.cs" />
-    <Compile Include="ParallelTests\SelectWhereParallelTests.cs" />
-    <Compile Include="ParallelTests\SelectParallelTests.cs" />
-    <Compile Include="ParallelTests\MinParallelTests.cs" />
-    <Compile Include="ParallelTests\MaxParallelTests.cs" />
-    <Compile Include="ParallelTests\CountParallelTests.cs" />
-    <Compile Include="ParallelTests\SumParallelTests.cs" />
-    <Compile Include="ParallelTests\AverageParallelTests.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RangeTests.cs" />
-    <Compile Include="RepeatTests.cs" />
-    <Compile Include="ReverseTests.cs" />
-    <Compile Include="SelectManyTests.cs" />
-    <Compile Include="SelectTests.cs" />
-    <Compile Include="SelectWhereTests.cs" />
-    <Compile Include="SequenceEqualsTests.cs" />
-    <Compile Include="SIMDTests\AverageSIMDTests.cs" />
-    <Compile Include="SIMDTests\RepeatTests.cs" />
-    <Compile Include="SIMDTests\RangeSIMDTests.cs" />
-    <Compile Include="SIMDTests\SumSIMDTests.cs" />
-    <Compile Include="SIMDTests\SelectSIMDTests.cs" />
-    <Compile Include="SIMDTests\ContainsSIMDTests.cs" />
-    <Compile Include="SIMDTests\MaxSIMDTests.cs" />
-    <Compile Include="SIMDTests\MinSIMDTests.cs" />
-    <Compile Include="SingleTests.cs" />
-    <Compile Include="SkipTests.cs" />
-    <Compile Include="WhereSumTests.cs" />
-    <Compile Include="SumTests.cs" />
-    <Compile Include="TakeTests.cs" />
-    <Compile Include="Test.cs" />
-    <Compile Include="WhereAggregateTests.cs" />
-    <Compile Include="WhereSelectTests.cs" />
-    <Compile Include="WhereTests.cs" />
-  </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\LinqFasterParallelSIMD\LinqFasterParallelSIMD.csproj">
       <Project>{f13bac10-bcbe-4440-b9f0-3a2778ca9221}</Project>
@@ -114,9 +25,5 @@
       <Project>{5b2f0f9f-6dda-4f06-a999-26e43ae04f86}</Project>
       <Name>LinqFaster</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  </ItemGroup>  
 </Project>
