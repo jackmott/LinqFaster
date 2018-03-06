@@ -11,7 +11,7 @@ LinqFaster now includes all relevant Linq extension methods, and many **SIMD** a
 
 The base LinqFaster project is now compatible with Unity3D
 
-## [Beta now available on Nuget](https://www.nuget.org/packages?q=linqfaster)
+## [Now available on Nuget](https://www.nuget.org/packages?q=linqfaster)
 
 # Sample Benchmarks
 
