@@ -39,6 +39,16 @@
             <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
             <returns>A sequence of transformed values.</returns>        
         </member>
+        <member name="M:JM.LinqFaster.SIMD.Parallel.LinqFasterSIMDParallel.SequenceEqualSP``1(``0[],``0[],System.Nullable{System.Int32})">
+            <summary>
+            Determines whether two sequences are equal by comparing the elements using bitwise comparison        
+            </summary>        
+            <param name="first">A sequence to compare to second.</param>
+            <param name="second">A sequence to compare to first.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>true of the two sources are of equal length and their corresponding 
+            elements are equal according to the equality comparer. Otherwise, false.</returns>
+        </member>
         <member name="M:JM.LinqFaster.SIMD.Parallel.LinqFasterSIMDParallel.SumSP``1(``0[],System.Nullable{System.Int32})">
             <summary>
             Sums the values in source using SIMD and multiple Tasks/Threads.

@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
+using static JM.LinqFaster.Utils.CustomPartition;
 
-namespace JM.LinqFaster
+namespace JM.LinqFaster.Parallel
 {
 
-    public static partial class LinqFaster
+    public static partial class LinqFasterParallel
     {
 
         /// <summary>
@@ -13,9 +15,10 @@ namespace JM.LinqFaster
         /// <param name="first">A sequence to compare to second.</param>
         /// <param name="second">A sequence to compare to first.</param>
         /// <param name="comparer">An optional Comparer to use for the comparison.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>true of the two sources are of equal length and their corresponding 
         /// elements are equal according to the equality comparer. Otherwise, false.</returns>
-        public static bool SequenceEqualF<T>(this T[] first, T[] second, IEqualityComparer<T> comparer = null)
+        public static bool SequenceEqualP<T>(this T[] first, T[] second, IEqualityComparer<T> comparer = null, int? batchSize = null)
         {
             if (comparer == null)
             {
@@ -34,13 +37,23 @@ namespace JM.LinqFaster
 
             if (first.Length != second.Length) return false;
             if (first == second) return true;
+            int count = 0;
+            var rangePartitioner = MakePartition(first.Length, batchSize);
+            System.Threading.Tasks.Parallel.ForEach(rangePartitioner,               
+                (range, loopState) =>
+                {
+                    for (int i = range.Item1; i < range.Item2; i++)
+                    {
+                        if (!comparer.Equals(first[i], second[i]))
+                        {
+                            Interlocked.Increment(ref count);
+                            loopState.Break();
+                        }
+                    }
+                    
+                });
 
-            for (int i = 0; i < first.Length; i++)
-            {
-                if (!comparer.Equals(first[i], second[i])) return false;
-            }
-
-            return true;
+            return count == 0;
         }
 
         /// <summary>
@@ -50,9 +63,10 @@ namespace JM.LinqFaster
         /// <param name="first">A sequence to compare to second.</param>
         /// <param name="second">A sequence to compare to first.</param>
         /// <param name="comparer">An optional Comparer to use for the comparison.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>true of the two sources are of equal length and their corresponding 
         /// elements are equal according to the equality comparer. Otherwise, false.</returns>
-        public static bool SequenceEqualF<T>(this List<T> first, List<T> second, IEqualityComparer<T> comparer = null)
+        public static bool SequenceEqualP<T>(this List<T> first, List<T> second, IEqualityComparer<T> comparer = null, int? batchSize = null)
         {
             if (comparer == null)
             {
@@ -72,12 +86,23 @@ namespace JM.LinqFaster
             if (first.Count != second.Count) return false;
             if (first == second) return true;
 
-            for (int i = 0; i < first.Count; i++)
-            {
-                if (!comparer.Equals(first[i], second[i])) return false;
-            }
+            int count = 0;
+            var rangePartitioner = MakePartition(first.Count, batchSize);
+            System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
+                (range, loopState) =>
+                {
+                    for (int i = range.Item1; i < range.Item2; i++)
+                    {
+                        if (!comparer.Equals(first[i], second[i]))
+                        {
+                            Interlocked.Increment(ref count);
+                            loopState.Break();
+                        }
+                    }
 
-            return true;
+                });
+
+            return count == 0;            
         }
 
         /// <summary>
@@ -87,9 +112,10 @@ namespace JM.LinqFaster
         /// <param name="first">A sequence to compare to second.</param>
         /// <param name="second">A sequence to compare to first.</param>
         /// <param name="comparer">An optional Comparer to use for the comparison.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>true of the two sources are of equal length and their corresponding 
         /// elements are equal according to the equality comparer. Otherwise, false.</returns>
-        public static bool SequenceEqualF<T>(this T[] first, List<T> second, IEqualityComparer<T> comparer = null)
+        public static bool SequenceEqualP<T>(this T[] first, List<T> second, IEqualityComparer<T> comparer = null, int? batchSize = null)
         {
             if (comparer == null)
             {
@@ -108,12 +134,23 @@ namespace JM.LinqFaster
 
             if (first.Length != second.Count) return false;
 
-            for (int i = 0; i < first.Length; i++)
-            {
-                if (!comparer.Equals(first[i], second[i])) return false;
-            }
+            int count = 0;
+            var rangePartitioner = MakePartition(first.Length, batchSize);
+            System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
+                (range, loopState) =>
+                {
+                    for (int i = range.Item1; i < range.Item2; i++)
+                    {
+                        if (!comparer.Equals(first[i], second[i]))
+                        {
+                            Interlocked.Increment(ref count);
+                            loopState.Break();
+                        }
+                    }
 
-            return true;
+                });
+
+            return count == 0;
         }
 
         /// <summary>
@@ -123,9 +160,10 @@ namespace JM.LinqFaster
         /// <param name="first">A sequence to compare to second.</param>
         /// <param name="second">A sequence to compare to first.</param>
         /// <param name="comparer">An optional Comparer to use for the comparison.</param>
+        /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>true of the two sources are of equal length and their corresponding 
         /// elements are equal according to the equality comparer. Otherwise, false.</returns>
-        public static bool SequenceEqualF<T>(this List<T> first, T[] second, IEqualityComparer<T> comparer = null)
+        public static bool SequenceEqualP<T>(this List<T> first, T[] second, IEqualityComparer<T> comparer = null, int? batchSize = null)
         {
             if (comparer == null)
             {
@@ -144,12 +182,23 @@ namespace JM.LinqFaster
 
             if (first.Count != second.Length) return false;
 
-            for (int i = 0; i < first.Count; i++)
-            {
-                if (!comparer.Equals(first[i], second[i])) return false;
-            }
+            int count = 0;
+            var rangePartitioner = MakePartition(first.Count, batchSize);
+            System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
+                (range, loopState) =>
+                {
+                    for (int i = range.Item1; i < range.Item2; i++)
+                    {
+                        if (!comparer.Equals(first[i], second[i]))
+                        {
+                            Interlocked.Increment(ref count);
+                            loopState.Break();
+                        }
+                    }
 
-            return true;
+                });
+
+            return count == 0;            
         }
     }
 }

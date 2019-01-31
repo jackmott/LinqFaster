@@ -2,6 +2,10 @@
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
 using JM.LinqFaster;
+using JM.LinqFaster.Parallel;
+using JM.LinqFaster.SIMD.Parallel;
+using JM.LinqFaster.SIMD;
+
 using System.Linq;
 using System.Collections.Generic;
 using BenchmarkDotNet.Configs;
@@ -20,11 +24,12 @@ namespace Tests
 
         public List<int> list;
         public int[] array;
+        public int[] array2;
         public float[] floatArray;
         public string[] strarray;
         
 
-        [Params(100000)]
+        [Params(1000000)]
         public int TEST_SIZE { get; set; }
 
         public Benchmarks()
@@ -33,11 +38,12 @@ namespace Tests
             
         }
 
-        [Setup]
+        [GlobalSetup]
         public void Setup()
         {
             Random r = new Random();
             array = new int[TEST_SIZE];
+            array2 = new int[TEST_SIZE];
             floatArray = new float[TEST_SIZE];
             list = new List<int>(TEST_SIZE);
             strarray = new string[TEST_SIZE];
@@ -45,10 +51,12 @@ namespace Tests
             for (int i = 0; i < TEST_SIZE; i++)
             {
                 array[i] = i % 2;
+                array2[i] = i % 2;
                 list.Add(array[i]);
                 strarray[i] = array[i].ToString();
                 floatArray[i] = array[i];
             }
+            array2[TEST_SIZE / 2] = 0;
         }
 
 
@@ -187,28 +195,43 @@ namespace Tests
         }*/
 
         [Benchmark]
-        public int[] DiscintLinqArray()
+        public bool SequenceEqual()
         {
-            return array.Distinct().ToArray();
+            return array.SequenceEqual(array2);
         }
 
-      
-     
+        [Benchmark]
+        public bool SequenceEqualF()
+        {
+            return array.SequenceEqualF(array2);
+        }
+
+        [Benchmark]
+        public bool SequenceEqualP()
+        {
+            return array.SequenceEqualP(array2);
+        }
+
+        [Benchmark]
+        public bool SequenceEqualS()
+        {
+            return array.SequenceEqualS(array2);
+        }
+
+        [Benchmark]
+        public bool SequenceEqualSP()
+        {
+            return array.SequenceEqualSP(array2);
+        }
+
+
+
+
         public static void Main(string[] args)
         {
-
-
-               Benchmarks b = new Benchmarks();
-               b.TEST_SIZE = 100000;
-               b.Setup();
-               b.list.DistinctInPlaceF();
-            foreach (var v in b.list)
-            {
-                Console.Write(v + " ");
-            }
-            Console.ReadLine();
+              
             var summary = BenchmarkRunner.Run<Benchmarks>(ManualConfig.Create(DefaultConfig.Instance).With(Job.RyuJitX64));
-
+            Console.ReadLine();
         }
 
     }

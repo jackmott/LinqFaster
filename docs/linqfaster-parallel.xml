@@ -760,6 +760,54 @@
             <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
             <returns>A seqence transformed and then filtered by selector and predicate.</returns>
         </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SequenceEqualP``1(``0[],``0[],System.Collections.Generic.IEqualityComparer{``0},System.Nullable{System.Int32})">
+            <summary>
+            Determines whether two sequences are equal by comparing the elements by using the 
+            provided comparer or the default equality comparer for their type if none is provided.
+            </summary>        
+            <param name="first">A sequence to compare to second.</param>
+            <param name="second">A sequence to compare to first.</param>
+            <param name="comparer">An optional Comparer to use for the comparison.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>true of the two sources are of equal length and their corresponding 
+            elements are equal according to the equality comparer. Otherwise, false.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SequenceEqualP``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0},System.Collections.Generic.IEqualityComparer{``0},System.Nullable{System.Int32})">
+            <summary>
+            Determines whether two sequences are equal by comparing the elements by using the 
+            provided comparer or the default equality comparer for their type if none is provided.
+            </summary>        
+            <param name="first">A sequence to compare to second.</param>
+            <param name="second">A sequence to compare to first.</param>
+            <param name="comparer">An optional Comparer to use for the comparison.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>true of the two sources are of equal length and their corresponding 
+            elements are equal according to the equality comparer. Otherwise, false.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SequenceEqualP``1(``0[],System.Collections.Generic.List{``0},System.Collections.Generic.IEqualityComparer{``0},System.Nullable{System.Int32})">
+            <summary>
+            Determines whether two sequences are equal by comparing the elements by using the 
+            provided comparer or the default equality comparer for their type if none is provided.
+            </summary>        
+            <param name="first">A sequence to compare to second.</param>
+            <param name="second">A sequence to compare to first.</param>
+            <param name="comparer">An optional Comparer to use for the comparison.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>true of the two sources are of equal length and their corresponding 
+            elements are equal according to the equality comparer. Otherwise, false.</returns>
+        </member>
+        <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SequenceEqualP``1(System.Collections.Generic.List{``0},``0[],System.Collections.Generic.IEqualityComparer{``0},System.Nullable{System.Int32})">
+            <summary>
+            Determines whether two sequences are equal by comparing the elements by using the 
+            provided comparer or the default equality comparer for their type if none is provided.
+            </summary>        
+            <param name="first">A sequence to compare to second.</param>
+            <param name="second">A sequence to compare to first.</param>
+            <param name="comparer">An optional Comparer to use for the comparison.</param>
+            <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
+            <returns>true of the two sources are of equal length and their corresponding 
+            elements are equal according to the equality comparer. Otherwise, false.</returns>
+        </member>
         <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SumP(System.Int32[],System.Nullable{System.Int32})">
             <summary>
              Adds a sequence of values using multiple Tasks / Threads.

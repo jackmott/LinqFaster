@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard1.3;netstandard2.0;net461</TargetFrameworks>
-    <Version>0.9.0</Version>
+    <Version>1.0.0</Version>
     <Authors>Jack Mott</Authors>
     <Company />
     <Description>High performance Linq-style extension methods that are multithreaded and use System.Numerics SIMD for arrays and lists.</Description>
@@ -12,7 +12,7 @@
     <PackageIconUrl>https://jackmott.github.io/images/LinqFaster.png</PackageIconUrl>
     <RepositoryType>Github</RepositoryType>
     <PackageTags>performance linq simd system.numerics multithreaded parallel</PackageTags>
-    <PackageReleaseNotes>Beta 1</PackageReleaseNotes>
+    <PackageReleaseNotes>Added SequenceEqual</PackageReleaseNotes>
     <NeutralLanguage />
     <PackageId>LinqFaster.SIMD.Parallel</PackageId>
     <Product>LinqFaster.SIMD.Parallel</Product>
@@ -20,6 +20,7 @@
 
   <PropertyGroup>
     <DocumentationFile>..\docs\linqfaster-parallel-simd.xml</DocumentationFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Numerics.Vectors" Version="4.4.0" />
+    <PackageReference Include="System.Numerics.Vectors" Version="4.5.0" />
     <PackageReference Condition="'$(TargetFramework)'=='netstandard1.3'" Include="System.Threading.Tasks.Parallel" Version="4.3.0" />
   </ItemGroup>
 
