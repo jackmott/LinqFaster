@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using JM.LinqFaster;
 using System.Linq;
+using System;
 using static Tests.Test;
 
 namespace Tests
@@ -15,17 +16,21 @@ namespace Tests
         public void TakeArray(int count) {
 
             var a = intArray.TakeF(count);
+            var aSpan = intArray.AsSpan().TakeF(count);
             var b = intArray.Take(count);
 
             Assert.That(a, Is.EqualTo(b));
+            Assert.That(aSpan, Is.EqualTo(b));
         }
 
         [Test]
         public void TakeWhileArray() {
             var a = intArray.TakeWhileF(onlyEvenInts);
+            var aSpan = intArray.AsSpan().TakeWhileF(onlyEvenInts);
             var b = intArray.TakeWhile(onlyEvenInts);
 
             Assert.That(a, Is.EqualTo(b));
+            Assert.That(aSpan, Is.EqualTo(b));
         }
 
 

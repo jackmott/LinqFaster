@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard1.3;netstandard2.0;net461</TargetFrameworks>
     <PackageId>LinqFaster.Parallel</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Authors>Jack Mott</Authors>
     <Company>Jack Mott</Company>
     <Product>LinqFaster Parallel</Product>

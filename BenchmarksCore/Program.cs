@@ -1,4 +1,5 @@
 ﻿using System;
+using BenchmarkDotNet;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
 using JM.LinqFaster;
@@ -27,7 +28,7 @@ namespace Tests
         public int[] array2;
         public float[] floatArray;
         public string[] strarray;
-        
+
 
         [Params(1000000)]
         public int TEST_SIZE { get; set; }
@@ -35,7 +36,7 @@ namespace Tests
         public Benchmarks()
         {
 
-            
+
         }
 
         [GlobalSetup]
@@ -47,7 +48,7 @@ namespace Tests
             floatArray = new float[TEST_SIZE];
             list = new List<int>(TEST_SIZE);
             strarray = new string[TEST_SIZE];
-                                    
+
             for (int i = 0; i < TEST_SIZE; i++)
             {
                 array[i] = i % 2;
@@ -199,14 +200,21 @@ namespace Tests
         {
             return array.SequenceEqual(array2);
         }*/
-        
+
         [Benchmark]
         public bool SequenceEqualF()
-        {            
+        {
             return array.SequenceEqualF(array2);
         }
 
-      
+        [Benchmark]
+        public bool SequenceEqualFSPan()
+        {
+
+            return array.AsSpan().SequenceEqualF(array2.AsSpan());
+        }
+
+
         /*
         [Benchmark]
         public bool SequenceEqualP()
@@ -231,7 +239,7 @@ namespace Tests
 
         public static void Main(string[] args)
         {
-              
+            
             var summary = BenchmarkRunner.Run<Benchmarks>(ManualConfig.Create(DefaultConfig.Instance).With(Job.RyuJitX64));
             Console.ReadLine();
         }

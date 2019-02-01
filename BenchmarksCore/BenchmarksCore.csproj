@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" Version="0.11.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LinqFasterParallelSIMD\LinqFasterParallelSIMD.csproj" />
+    <ProjectReference Include="..\LinqFasterParallel\LinqFasterParallel.csproj" />
+    <ProjectReference Include="..\LinqFasterSIMD\LinqFasterSIMD.csproj" />
+    <ProjectReference Include="..\LinqFaster\LinqFaster.csproj" />
+  </ItemGroup>
+
+</Project>

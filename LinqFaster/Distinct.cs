@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+//todo: more distinct
 
 namespace JM.LinqFaster
 {
@@ -16,7 +18,7 @@ namespace JM.LinqFaster
         /// <param name="eqComparer">Optional IEqualityComparer to compare values.</param>        
         /// <param name="comparer">Optional IComparer to compare values.</param>        
         public static void DistinctInPlaceF<TSource>(this List<TSource> source, IEqualityComparer<TSource> eqComparer = null, IComparer<TSource> comparer = null)
-        {
+        {                        
             if (source == null)
             {
                 throw Error.ArgumentNull("source");
@@ -46,7 +48,7 @@ namespace JM.LinqFaster
                 }                
                 oldV = newV;
             }
-            source.RemoveRange(pos, source.Count - pos);            
+            source.RemoveRange(pos, source.Count - pos);           
         }
 
     }

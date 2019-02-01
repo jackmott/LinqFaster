@@ -16,6 +16,7 @@ namespace JM.LinqFaster
         /// <returns>A sequence whose alements are ordered according to a key</returns>
         public static TSource[] OrderByF<TSource, TKey>(this TSource[] source, Func<TSource, TKey> keySelector,IComparer<TKey> comparer = null)
         {
+            
             if (source == null)
             {
                 throw Error.ArgumentNull("source");
@@ -37,7 +38,7 @@ namespace JM.LinqFaster
                 keys[i] = keySelector(source[i]);
             }            
             var result = (TSource[])source.Clone();
-            Array.Sort(keys,result,comparer);                        
+            Array.Sort(keys,result,comparer);            
             return result;
         }
 
