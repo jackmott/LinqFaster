@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
     <Authors>Jack Mott</Authors>
     <Company />
     <Description>High performance Linq-style extension methods for arrays and lists.</Description>
@@ -12,7 +12,7 @@
     <PackageIconUrl>https://jackmott.github.io/images/LinqFaster.png</PackageIconUrl>
     <RepositoryType>Github</RepositoryType>
     <PackageTags>performance linq</PackageTags>
-    <PackageReleaseNotes>Fixed sequenceequal to be usable as method, and added reference equality pre check</PackageReleaseNotes>
+    <PackageReleaseNotes>Added Span&lt;T&gt; support, improved performance of Take functions.</PackageReleaseNotes>
     <NeutralLanguage />
     <AssemblyName>JM.LinqFaster</AssemblyName>
     <RootNamespace>JM.LinqFaster</RootNamespace>
