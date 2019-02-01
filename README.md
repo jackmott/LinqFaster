@@ -62,7 +62,7 @@ As well, all functions are properly documented so as to be explorable via intell
 	
 	
 	//Create an array of ints with values -500 to 500
-	var myArray = LinqFaster.RangeArrayF(-500, 500);
+	var myArray = LinqFaster.RangeArrayF(-500, 1000);
 	//Create a List<T> with 1000 elements all set to 5.0
 	var myList = LinqFaster.RepeatListF(5.0, 1000);
 
