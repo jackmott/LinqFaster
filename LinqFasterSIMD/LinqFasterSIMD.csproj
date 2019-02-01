@@ -2,17 +2,17 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard1.3;netstandard2.0;net461</TargetFrameworks>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>Jack Mott</Authors>
     <Company />
-    <Description>High performance Linq-style extension methods that use System.Numerics SIMD for arrays and lists.</Description>
+    <Description>High performance Linq-style extension methods that use System.Numerics SIMD for arrays.</Description>
     <Copyright>Copyright 2017 (c) Jack Mott. All rights reserved.</Copyright>
     <RepositoryUrl>https://github.com/jackmott/LinqFaster</RepositoryUrl>
     <PackageProjectUrl>https://github.com/jackmott/LinqFaster</PackageProjectUrl>
     <PackageIconUrl>https://jackmott.github.io/images/LinqFaster.png</PackageIconUrl>
     <RepositoryType>Github</RepositoryType>
     <PackageTags>performance linq simd system.numerics</PackageTags>
-    <PackageReleaseNotes>Added SequenceEqual</PackageReleaseNotes>
+    <PackageReleaseNotes>Added SequenceCompre and fixed bug in SequenceEqual</PackageReleaseNotes>
     <NeutralLanguage />
     <PackageId>LinqFaster.SIMD</PackageId>
     <Product>LinqFaster.SIMD</Product>

@@ -44,7 +44,41 @@ namespace JM.LinqFaster
             return true;
         }
 
-       
+        /// <summary>
+        /// Determines whether two sequences are equal by comparing the elements by using the 
+        /// provided comparer or the default equality comparer for their type if none is provided.
+        /// </summary>        
+        /// <param name="first">A sequence to compare to second.</param>
+        /// <param name="second">A sequence to compare to first.</param>
+        /// <param name="comparer">An optional Comparer to use for the comparison.</param>
+        /// <returns>An array of integers, where the value corresponds to IComparer.Compare indicating less than, greater than, or equals</returns>     
+        public static int[] SequenceCompareF<T>(this T[] first, T[] second, IComparer<T> comparer = null)
+        {
+            if (first == null)
+            {
+                throw Error.ArgumentNull("first");
+            }
+
+            if (second == null)
+            {
+                throw Error.ArgumentNull("second");
+            }
+
+            if (comparer == null)
+            {
+                comparer = Comparer<T>.Default;
+            }
+            if (first.Length != second.Length) throw Error.NotSupported();
+
+            var result = new int[first.Length];
+            for (int i = 0; i < first.Length; i++)
+            {
+                result[i] = comparer.Compare(first[i], second[i]);               
+            }
+            return result;
+        }
+
+
 
         /// <summary>
         /// Determines whether two sequences are equal by comparing the elements by using the 

@@ -107,6 +107,15 @@
             <returns>true of the two sources are of equal length and their corresponding 
             elements are equal according to the equality comparer. Otherwise, false.</returns>
         </member>
+        <member name="M:JM.LinqFaster.SIMD.LinqFasterSIMD.SequenceCompareS``1(``0[],``0[])">
+            <summary>
+            Determines whether two sequences are equal by comparing the elements by using the 
+            provided comparer or the default equality comparer for their type if none is provided.
+            </summary>        
+            <param name="first">A sequence to compare to second.</param>
+            <param name="second">A sequence to compare to first.</param>        
+            <returns>An array of integers, where the value corresponds to IComparer.Compare indicating less than, greater than, or equals</returns>     
+        </member>
         <member name="M:JM.LinqFaster.SIMD.LinqFasterSIMD.SumS``1(``0[])">
             <summary>
             Computes the sum of a sequence using SIMD

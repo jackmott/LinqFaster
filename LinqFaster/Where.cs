@@ -139,9 +139,7 @@ namespace JM.LinqFaster
             Array.Resize(ref result, idx);
             return result;
         }
-        //todo 
-        //(this\s)(\w+)(\[\])
-        //$1Span<$2>
+        
         // --------------------------  LISTS --------------------------------------------
 
         /// <summary>

@@ -1546,6 +1546,16 @@
             <returns>true of the two sources are of equal length and their corresponding 
             elements are equal according to the equality comparer. Otherwise, false.</returns>     
         </member>
+        <member name="M:JM.LinqFaster.LinqFaster.SequenceCompareF``1(``0[],``0[],System.Collections.Generic.IComparer{``0})">
+            <summary>
+            Determines whether two sequences are equal by comparing the elements by using the 
+            provided comparer or the default equality comparer for their type if none is provided.
+            </summary>        
+            <param name="first">A sequence to compare to second.</param>
+            <param name="second">A sequence to compare to first.</param>
+            <param name="comparer">An optional Comparer to use for the comparison.</param>
+            <returns>An array of integers, where the value corresponds to IComparer.Compare indicating less than, greater than, or equals</returns>     
+        </member>
         <member name="M:JM.LinqFaster.LinqFaster.SequenceEqualF``1(``0[],System.Collections.Generic.List{``0},System.Collections.Generic.IEqualityComparer{``0})">
             <summary>
             Determines whether two sequences are equal by comparing the elements by using the 

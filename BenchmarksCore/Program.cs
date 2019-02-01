@@ -51,8 +51,8 @@ namespace Tests
 
             for (int i = 0; i < TEST_SIZE; i++)
             {
-                array[i] = i % 2;
-                array2[i] = i % 2;
+                array[i] = r.Next(-100,100);
+                array2[i] = r.Next(-100,100);                
                 list.Add(array[i]);
                 strarray[i] = array[i].ToString();
                 floatArray[i] = array[i];
@@ -201,20 +201,6 @@ namespace Tests
             return array.SequenceEqual(array2);
         }*/
 
-        [Benchmark]
-        public bool SequenceEqualF()
-        {
-            return array.SequenceEqualF(array2);
-        }
-
-        [Benchmark]
-        public bool SequenceEqualFSPan()
-        {
-
-            return array.AsSpan().SequenceEqualF(array2.AsSpan());
-        }
-
-
         /*
         [Benchmark]
         public bool SequenceEqualP()
@@ -236,9 +222,29 @@ namespace Tests
 
     */
 
+        [Benchmark]
+        public int[] SequenceCompareSIMD()
+        {
+            return array.SequenceCompareS(array2);
+        }
+
+
+        [Benchmark]
+        public int[] SequenceCompareScalar()
+        {
+            return array.SequenceCompareF(array2);
+        }
+
 
         public static void Main(string[] args)
         {
+            int[] a = { 1, 2, 3, 4, 5, 6, 7, 8 };
+            int[] b = { 1, 0, 4, 4, 6, 7, 2, 10 };
+            var r = a.SequenceCompareS(b);
+            foreach (var i in r)
+            {
+                Console.Write(i + ",");
+            }
             
             var summary = BenchmarkRunner.Run<Benchmarks>(ManualConfig.Create(DefaultConfig.Instance).With(Job.RyuJitX64));
             Console.ReadLine();

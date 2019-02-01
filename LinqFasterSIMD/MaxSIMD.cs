@@ -32,7 +32,7 @@ namespace JM.LinqFaster.SIMD
                 for (int i = count; i <= source.Length-count; i+=count)
                 {
                     var v = new Vector<T>(source, i);
-                    vMax = Vector.Max(v, vMax);                    
+                    vMax = Vector.Max(v, vMax);                         
                 }
 
                 max = vMax[0];
