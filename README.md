@@ -71,6 +71,9 @@ As well, all functions are properly documented so as to be explorable via intell
 	var average = myArray.AverageF();
 	var min = myArray.MinF();
 	var max = myArray.MaxF();
+	
+	// Compute the sum of a slice of your array 
+	var sliceSum = myArray.AsSpan().Slice(10,20);
 
 	//As above but on a transformation
 	var sum2 = myArray.SumF(x => x*x);
