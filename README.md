@@ -7,7 +7,7 @@
 A set of Linq-Like extension methods for `arrays[]`, `Span<T>`, and `List<T>` that are faster and allocate less.  LinqFaster is designed
 to work well alongside Linq, rather than replace it completely. Extension method names mirror Linq names with an extra character, e.g. Select**F**.  If you have code that is often doing small Linq operations and immediatelly calling `ToArray()` or `ToList()`, or you are often using `Min`,`Max`,`Sum`,`Average`,or `Aggregate`, LinqFaster may provide massive cpu and memory usage reductions. See the documentation section below for more details.
 
-LinqFaster now includes all relevant Linq extension methods, and many **SIMD** and **Parallel** enhanced extension methods are available as well in separate projects and nuget packages.  The projects have no depdencies on each other so you can pick and choose at will.
+LinqFaster now includes all relevant Linq extension methods, and many **SIMD** and **Parallel** enhanced extension methods are available as well in separate projects and nuget packages.  The projects have no dependencies on each other so you can pick and choose at will.
 
 The base LinqFaster project is now compatible with Unity3D
 
