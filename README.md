@@ -74,7 +74,7 @@ As well, all functions are properly documented so as to be explorable via intell
 	
 	// Compute the sum of a slice of your array using Span<T>
 	// LinqFaster includes a handy extension method to make slices easier
-	var sliceSum = myArray.AsSpan().Slice(10,20).SumF();
+	var sliceSum = myArray.Slice(10,20).SumF();
 
 	//As above but on a transformation
 	var sum2 = myArray.SumF(x => x*x);
