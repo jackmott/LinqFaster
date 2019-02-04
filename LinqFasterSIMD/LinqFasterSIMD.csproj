@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.3;netstandard2.0;net461</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <Version>1.0.2</Version>
     <Authors>Jack Mott</Authors>
     <Company />
@@ -21,6 +21,14 @@
   <PropertyGroup>
     <DocumentationFile>..\docs\linqfaster-simd.xml</DocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>

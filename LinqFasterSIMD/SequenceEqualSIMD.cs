@@ -46,7 +46,7 @@ namespace JM.LinqFaster.SIMD
 
             return true;
         }
-
+              
         /// <summary>
         /// Determines whether two sequences are equal by comparing the elements by using the 
         /// provided comparer or the default equality comparer for their type if none is provided.
@@ -54,7 +54,7 @@ namespace JM.LinqFaster.SIMD
         /// <param name="first">A sequence to compare to second.</param>
         /// <param name="second">A sequence to compare to first.</param>        
         /// <returns>An array of integers, where the value corresponds to IComparer.Compare indicating less than, greater than, or equals</returns>     
-        public static int[] SequenceCompareS<T>(this T[] first, T[] second) where T: struct
+        public static int[] SequenceCompareS<T>(this T[] first, T[] second) where T : struct
         {
             if (first == null)
             {
@@ -67,8 +67,8 @@ namespace JM.LinqFaster.SIMD
             }
 
             if (first.Length != second.Length) throw Error.NotSupported();
-                                    
-            var minusone = new Vector<int>(-1);            
+
+            var minusone = new Vector<int>(-1);
             var count = Vector<T>.Count;
             var result = new int[first.Length];
             for (int i = 0; i <= first.Length - count; i += count)
@@ -84,11 +84,11 @@ namespace JM.LinqFaster.SIMD
             }
             for (int i = first.Length - (first.Length % count); i < first.Length; i++)
             {
-                if (GreaterThan(first[i],second[i]))                
+                if (GreaterThan(first[i], second[i]))
                 {
                     result[i] = 1;
                 }
-                else if (LessThan(first[i],second[i]))
+                else if (LessThan(first[i], second[i]))
                 {
                     result[i] = -1;
                 }

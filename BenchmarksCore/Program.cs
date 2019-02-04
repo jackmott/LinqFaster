@@ -223,17 +223,13 @@ namespace Tests
     */
 
         [Benchmark]
-        public int[] SequenceCompareSIMD()
+        public int MaxSIMD()
         {
-            return array.SequenceCompareS(array2);
+            return array.MaxS();
         }
 
+     
 
-        [Benchmark]
-        public int[] SequenceCompareScalar()
-        {
-            return array.SequenceCompareF(array2);
-        }
 
 
         public static void Main(string[] args)
@@ -241,6 +237,7 @@ namespace Tests
             int[] a = { 1, 2, 3, 4, 5, 6, 7, 8 };
             int[] b = { 1, 0, 4, 4, 6, 7, 2, 10 };
             var r = a.SequenceCompareS(b);
+            a.Slice(2, 4).SumF();
             foreach (var i in r)
             {
                 Console.Write(i + ",");
