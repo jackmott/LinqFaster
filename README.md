@@ -73,7 +73,7 @@ As well, all functions are properly documented so as to be explorable via intell
 	var max = myArray.MaxF();
 	
 	// Compute the sum of a slice of your array 
-	var sliceSum = myArray.AsSpan().Slice(10,20);
+	var sliceSum = myArray.AsSpan().Slice(10,20).SumF();
 
 	//As above but on a transformation
 	var sum2 = myArray.SumF(x => x*x);
