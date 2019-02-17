@@ -25,7 +25,7 @@ namespace JM.LinqFaster
     
 
         /// <summary>
-        /// Determines whether any element of an array satifies a condition.
+        /// Determines whether any element of an array satisfies a condition.
         /// </summary>        
         /// <param name="source">An array whose elements to apply the predicate to.</param>
         /// <param name="predicate">A function to test each element for a condition.</param>
@@ -87,7 +87,7 @@ namespace JM.LinqFaster
 
 
         /// <summary>
-        /// Determines whether any element of an array satifies a condition.
+        /// Determines whether any element of an array satisfies a condition.
         /// </summary>        
         /// <param name="source">An array whose elements to apply the predicate to.</param>
         /// <param name="predicate">A function to test each element for a condition.</param>
@@ -157,7 +157,7 @@ namespace JM.LinqFaster
         }
 
         /// <summary>
-        /// Determines whether any element of an array satifies a condition.
+        /// Determines whether any element of an array satisfies a condition.
         /// </summary>        
         /// <param name="source">An array whose elements to apply the predicate to.</param>
         /// <param name="predicate">A function to test each element for a condition.</param>
