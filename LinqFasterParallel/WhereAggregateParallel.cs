@@ -12,7 +12,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">The input to filter then aggregate.</param>
         /// <param name="predicate">The function to filter the input sequence with.</param>
-        /// <param name="func">The function to aggregate the filtered seqeuence.</param>        
+        /// <param name="func">The function to aggregate the filtered sequence.</param>        
         /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The filtered then aggregated sequence.</returns>
         public static TSource WhereAggregateP<TSource>(this TSource[] source, Func<TSource, bool> predicate, Func<TSource, TSource, TSource> func, int? batchSize = null)
@@ -73,7 +73,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">The input to filter then aggregate.</param>
         /// <param name="predicate">The function to filter the input sequence and it's index with.</param>
-        /// <param name="func">The function to aggregate the filtered seqeuence.</param>
+        /// <param name="func">The function to aggregate the filtered sequence.</param>
         /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The filtered then aggregated sequence.</returns>
         public static TSource WhereAggregateP<TSource>(this TSource[] source, Func<TSource,int, bool> predicate, Func<TSource, TSource,TSource> func, int? batchSize = null)
@@ -136,7 +136,7 @@ namespace JM.LinqFaster.Parallel
         /// <param name="source">The input to filter then aggregate.</param>
         /// <param name="predicate">The function to filter the input sequence with.</param>
         /// <param name="seed">The initial value to aggregate on.</param>
-        /// <param name="func">The function to aggregate the filtered seqeuence.</param>
+        /// <param name="func">The function to aggregate the filtered sequence.</param>
         /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The filtered then aggregated sequence.</returns>
         public static TAccumulate WhereAggregateP<TSource, TAccumulate>(this TSource[] source, Func<TSource, bool> predicate, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func, int? batchSize = null)
@@ -188,7 +188,7 @@ namespace JM.LinqFaster.Parallel
         /// <param name="source">The input to filter then aggregate.</param>
         /// <param name="predicate">The function to filter the input sequence with.</param>
         /// <param name="seed">The initial value to aggregate on.</param>
-        /// <param name="func">The function to aggregate the filtered seqeuence.</param>
+        /// <param name="func">The function to aggregate the filtered sequence.</param>
         /// <param name="resultSelector">A function to transform the final result.</param>
         /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The filtered then aggregated then transformed sequence.</returns>
@@ -242,7 +242,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">The input to filter then aggregate.</param>
         /// <param name="predicate">The function to filter the input sequence with.</param>
-        /// <param name="func">The function to aggregate the filtered seqeuence.</param>
+        /// <param name="func">The function to aggregate the filtered sequence.</param>
         /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The filtered then aggregated sequence.</returns>
         public static TSource WhereAggregateP<TSource>(this List<TSource> source, Func<TSource, bool> predicate, Func<TSource, TSource, TSource> func, int? batchSize = null)
@@ -303,7 +303,7 @@ namespace JM.LinqFaster.Parallel
         /// </summary>        
         /// <param name="source">The input to filter then aggregate.</param>
         /// <param name="predicate">The function to filter the input sequence and it's index with.</param>
-        /// <param name="func">The function to aggregate the filtered seqeuence.</param>
+        /// <param name="func">The function to aggregate the filtered sequence.</param>
         /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The filtered then aggregated sequence.</returns>
         public static TSource WhereAggregateP<TSource>(this List<TSource> source, Func<TSource, int, bool> predicate, Func<TSource, TSource, TSource> func, int? batchSize = null)
@@ -365,7 +365,7 @@ namespace JM.LinqFaster.Parallel
         /// <param name="source">The input to filter then aggregate.</param>
         /// <param name="predicate">The function to filter the input sequence with.</param>
         /// <param name="seed">The initial value to aggregate on.</param>
-        /// <param name="func">The function to aggregate the filtered seqeuence.</param>
+        /// <param name="func">The function to aggregate the filtered sequence.</param>
         /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The filtered then aggregated sequence.</returns>
         public static TAccumulate WhereAggregateP<TSource, TAccumulate>(this List<TSource> source, Func<TSource, bool> predicate, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func, int? batchSize = null)
@@ -417,7 +417,7 @@ namespace JM.LinqFaster.Parallel
         /// <param name="source">The input to filter then aggregate.</param>
         /// <param name="predicate">The function to filter the input sequence with.</param>
         /// <param name="seed">The initial value to aggregate on.</param>
-        /// <param name="func">The function to aggregate the filtered seqeuence.</param>
+        /// <param name="func">The function to aggregate the filtered sequence.</param>
         /// <param name="resultSelector">A function to transform the final result.</param>
         /// <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
         /// <returns>The filtered then aggregated then transformed sequence.</returns>

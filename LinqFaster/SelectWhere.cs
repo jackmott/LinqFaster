@@ -15,7 +15,7 @@ namespace JM.LinqFaster
         /// <param name="source">The input sequence to filter and select</param>
         /// <param name="selector">The transformation to apply before filtering.</param>
         /// <param name="predicate">The predicate with which to filter result.</param>
-        /// <returns>A seqence transformed and then filtered by selector and predicate.</returns>
+        /// <returns>A sequence transformed and then filtered by selector and predicate.</returns>
         public static TResult[] SelectWhereF<T, TResult>(this T[] source, Func<T, TResult> selector, Func<TResult, bool> predicate)
         {
             if (source == null)
@@ -50,7 +50,7 @@ namespace JM.LinqFaster
         /// <param name="source">The input sequence to filter and select</param>
         /// <param name="selector">The transformation with index to apply before filtering.</param>
         /// <param name="predicate">The predicate with index with which to filter result.</param>
-        /// <returns>A seqence transformed and then filtered by selector and predicate with indexes.</returns>
+        /// <returns>A sequence transformed and then filtered by selector and predicate with indexes.</returns>
         public static TResult[] SelectWhereF<T, TResult>(this T[] source, Func<T, int, TResult> selector, Func<TResult, int, bool> predicate)
         {
             if (source == null)
@@ -87,7 +87,7 @@ namespace JM.LinqFaster
         /// <param name="source">The input sequence to filter and select</param>
         /// <param name="selector">The transformation to apply before filtering.</param>
         /// <param name="predicate">The predicate with which to filter result.</param>
-        /// <returns>A seqence transformed and then filtered by selector and predicate.</returns>
+        /// <returns>A sequence transformed and then filtered by selector and predicate.</returns>
         public static TResult[] SelectWhereF<T, TResult>(this Span<T> source, Func<T, TResult> selector, Func<TResult, bool> predicate)
         {
             if (source == null)
@@ -122,7 +122,7 @@ namespace JM.LinqFaster
         /// <param name="source">The input sequence to filter and select</param>
         /// <param name="selector">The transformation with index to apply before filtering.</param>
         /// <param name="predicate">The predicate with index with which to filter result.</param>
-        /// <returns>A seqence transformed and then filtered by selector and predicate with indexes.</returns>
+        /// <returns>A sequence transformed and then filtered by selector and predicate with indexes.</returns>
         public static TResult[] SelectWhereF<T, TResult>(this Span<T> source, Func<T, int, TResult> selector, Func<TResult, int, bool> predicate)
         {
             if (source == null)
@@ -159,7 +159,7 @@ namespace JM.LinqFaster
         /// <param name="source">The input sequence to filter and select</param>
         /// <param name="selector">The transformation to apply before filtering.</param>
         /// <param name="predicate">The predicate with which to filter result.</param>
-        /// <returns>A seqence transformed and then filtered by selector and predicate.</returns>
+        /// <returns>A sequence transformed and then filtered by selector and predicate.</returns>
         public static List<TResult> SelectWhereF<T, TResult>(this List<T> source, Func<T, TResult> selector, Func<TResult, bool> predicate)
         {
             if (source == null)
@@ -188,7 +188,7 @@ namespace JM.LinqFaster
         /// <param name="source">The input sequence to filter and select</param>
         /// <param name="selector">The transformation with index to apply before filtering.</param>
         /// <param name="predicate">The predicate with index with which to filter result.</param>
-        /// <returns>A seqence transformed and then filtered by selector and predicate with indexes.</returns>
+        /// <returns>A sequence transformed and then filtered by selector and predicate with indexes.</returns>
         public static List<TResult> SelectWhereF<T, TResult>(this List<T> source, Func<T, int, TResult> selector, Func<TResult, int, bool> predicate)
         {
             if (source == null)

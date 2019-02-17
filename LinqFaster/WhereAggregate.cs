@@ -13,7 +13,7 @@ namespace JM.LinqFaster
         /// </summary>        
         /// <param name="source">The input to filter then aggregate.</param>
         /// <param name="predicate">The function to filter the input sequence with.</param>
-        /// <param name="func">The function to aggregate the filtered seqeuence.</param>
+        /// <param name="func">The function to aggregate the filtered sequence.</param>
         /// <returns>The filtered then aggregated sequence.</returns>
         public static T WhereAggregateF<T>(this T[] source, Func<T, bool> predicate, Func<T, T, T> func)
         {
@@ -58,7 +58,7 @@ namespace JM.LinqFaster
         /// </summary>        
         /// <param name="source">The input to filter then aggregate.</param>
         /// <param name="predicate">The function to filter the input sequence and it's index with.</param>
-        /// <param name="func">The function to aggregate the filtered seqeuence.</param>
+        /// <param name="func">The function to aggregate the filtered sequence.</param>
         /// <returns>The filtered then aggregated sequence.</returns>
         public static T WhereAggregateF<T>(this T[] source, Func<T, int, bool> predicate, Func<T, T,T> func)
         {
@@ -100,7 +100,7 @@ namespace JM.LinqFaster
         /// <param name="source">The input to filter then aggregate.</param>
         /// <param name="predicate">The function to filter the input sequence with.</param>
         /// <param name="seed">The initial value to aggregate on.</param>
-        /// <param name="func">The function to aggregate the filtered seqeuence.</param>
+        /// <param name="func">The function to aggregate the filtered sequence.</param>
         /// <returns>The filtered then aggregated sequence.</returns>
         public static TAccumulate WhereAggregateF<TSource, TAccumulate>(this TSource[] source, Func<TSource, bool> predicate, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func)
         {
@@ -134,7 +134,7 @@ namespace JM.LinqFaster
         /// <param name="source">The input to filter then aggregate.</param>
         /// <param name="predicate">The function to filter the input sequence with.</param>
         /// <param name="seed">The initial value to aggregate on.</param>
-        /// <param name="func">The function to aggregate the filtered seqeuence.</param>
+        /// <param name="func">The function to aggregate the filtered sequence.</param>
         /// <param name="resultSelector">A function to transform the final result.</param>
         /// <returns>The filtered then aggregated then transformed sequence.</returns>
         public static TResult WhereAggregateF<TSource, TAccumulate, TResult>(this TSource[] source, Func<TSource, bool> predicate, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func, Func<TAccumulate, TResult> resultSelector)
@@ -178,7 +178,7 @@ namespace JM.LinqFaster
         /// </summary>        
         /// <param name="source">The input to filter then aggregate.</param>
         /// <param name="predicate">The function to filter the input sequence with.</param>
-        /// <param name="func">The function to aggregate the filtered seqeuence.</param>
+        /// <param name="func">The function to aggregate the filtered sequence.</param>
         /// <returns>The filtered then aggregated sequence.</returns>
         public static T WhereAggregateF<T>(this Span<T> source, Func<T, bool> predicate, Func<T, T, T> func)
         {
@@ -223,7 +223,7 @@ namespace JM.LinqFaster
         /// </summary>        
         /// <param name="source">The input to filter then aggregate.</param>
         /// <param name="predicate">The function to filter the input sequence and it's index with.</param>
-        /// <param name="func">The function to aggregate the filtered seqeuence.</param>
+        /// <param name="func">The function to aggregate the filtered sequence.</param>
         /// <returns>The filtered then aggregated sequence.</returns>
         public static T WhereAggregateF<T>(this Span<T> source, Func<T, int, bool> predicate, Func<T, T, T> func)
         {
@@ -265,7 +265,7 @@ namespace JM.LinqFaster
         /// <param name="source">The input to filter then aggregate.</param>
         /// <param name="predicate">The function to filter the input sequence with.</param>
         /// <param name="seed">The initial value to aggregate on.</param>
-        /// <param name="func">The function to aggregate the filtered seqeuence.</param>
+        /// <param name="func">The function to aggregate the filtered sequence.</param>
         /// <returns>The filtered then aggregated sequence.</returns>
         public static TAccumulate WhereAggregateF<TSource, TAccumulate>(this Span<TSource> source, Func<TSource, bool> predicate, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func)
         {
@@ -299,7 +299,7 @@ namespace JM.LinqFaster
         /// <param name="source">The input to filter then aggregate.</param>
         /// <param name="predicate">The function to filter the input sequence with.</param>
         /// <param name="seed">The initial value to aggregate on.</param>
-        /// <param name="func">The function to aggregate the filtered seqeuence.</param>
+        /// <param name="func">The function to aggregate the filtered sequence.</param>
         /// <param name="resultSelector">A function to transform the final result.</param>
         /// <returns>The filtered then aggregated then transformed sequence.</returns>
         public static TResult WhereAggregateF<TSource, TAccumulate, TResult>(this Span<TSource> source, Func<TSource, bool> predicate, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func, Func<TAccumulate, TResult> resultSelector)
@@ -345,7 +345,7 @@ namespace JM.LinqFaster
         /// </summary>        
         /// <param name="source">The input to filter then aggregate.</param>
         /// <param name="predicate">The function to filter the input sequence with.</param>
-        /// <param name="func">The function to aggregate the filtered seqeuence.</param>
+        /// <param name="func">The function to aggregate the filtered sequence.</param>
         /// <returns>The filtered then aggregated sequence.</returns>
         public static T WhereAggregateF<T>(this List<T> source, Func<T, bool> predicate, Func<T, T, T> func)
         {
@@ -391,7 +391,7 @@ namespace JM.LinqFaster
         /// </summary>        
         /// <param name="source">The input to filter then aggregate.</param>
         /// <param name="predicate">The function to filter the input sequence and it's index with.</param>
-        /// <param name="func">The function to aggregate the filtered seqeuence.</param>
+        /// <param name="func">The function to aggregate the filtered sequence.</param>
         /// <returns>The filtered then aggregated sequence.</returns>
         public static T WhereAggregateF<T>(this List<T> source, Func<T, int, bool> predicate, Func<T, T, T> func)
         {
@@ -433,7 +433,7 @@ namespace JM.LinqFaster
         /// <param name="source">The input to filter then aggregate.</param>
         /// <param name="predicate">The function to filter the input sequence with.</param>
         /// <param name="seed">The initial value to aggregate on.</param>
-        /// <param name="func">The function to aggregate the filtered seqeuence.</param>
+        /// <param name="func">The function to aggregate the filtered sequence.</param>
         /// <returns>The filtered then aggregated sequence.</returns>
         public static TAccumulate WhereAggregateF<TSource, TAccumulate>(this List<TSource> source, Func<TSource, bool> predicate, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func)
         {
@@ -468,7 +468,7 @@ namespace JM.LinqFaster
         /// <param name="source">The input to filter then aggregate.</param>
         /// <param name="predicate">The function to filter the input sequence with.</param>
         /// <param name="seed">The initial value to aggregate on.</param>
-        /// <param name="func">The function to aggregate the filtered seqeuence.</param>
+        /// <param name="func">The function to aggregate the filtered sequence.</param>
         /// <param name="resultSelector">A function to transform the final result.</param>
         /// <returns>The filtered then aggregated then transformed sequence.</returns>
         public static TResult WhereAggregateF<TSource, TAccumulate, TResult>(this List<TSource> source, Func<TSource, bool> predicate, TAccumulate seed, Func<TAccumulate, TSource, TAccumulate> func, Func<TAccumulate, TResult> resultSelector)

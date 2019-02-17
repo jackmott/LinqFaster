@@ -13,7 +13,7 @@ namespace JM.LinqFaster
         /// <param name="source">A sequence of values to order.</param>
         /// <param name="keySelector">A function to extract a key from an element.</param>
         /// <param name="comparer">A Comparer to compare keys.</param>
-        /// <returns>A sequence whose alements are ordered according to a key</returns>
+        /// <returns>A sequence whose elements are ordered according to a key</returns>
         public static TSource[] OrderByF<TSource, TKey>(this TSource[] source, Func<TSource, TKey> keySelector,IComparer<TKey> comparer = null)
         {
             
@@ -49,7 +49,7 @@ namespace JM.LinqFaster
         /// <param name="source">A sequence of values to order.</param>
         /// <param name="keySelector">A function to extract a key from an element.</param>
         /// <param name="comparer">A Comparer to compare keys.</param>
-        /// <returns>A sequence whose alements are ordered according to a key</returns>
+        /// <returns>A sequence whose elements are ordered according to a key</returns>
         public static TSource[] OrderByDescendingF<TSource, TKey>(this TSource[] source, Func<TSource, TKey> keySelector, IComparer<TKey> comparer = null) {
             if (source == null) {
                 throw Error.ArgumentNull("source");
@@ -82,7 +82,7 @@ namespace JM.LinqFaster
         /// <param name="source">A sequence of values to order.</param>
         /// <param name="keySelector">A function to extract a key from an element.</param>
         /// <param name="comparer">A Comparer to compare keys.</param>
-        /// <returns>A sequence whose alements are ordered according to a key</returns>
+        /// <returns>A sequence whose elements are ordered according to a key</returns>
         public static List<TSource> OrderByF<TSource, TKey>(this List<TSource> source, Func<TSource, TKey> keySelector, IComparer<TKey> comparer = null)
         {
             if (source == null)
@@ -113,7 +113,7 @@ namespace JM.LinqFaster
         /// <param name="source">A sequence of values to order.</param>
         /// <param name="keySelector">A function to extract a key from an element.</param>
         /// <param name="comparer">A Comparer to compare keys.</param>
-        /// <returns>A sequence whose alements are ordered according to a key</returns>
+        /// <returns>A sequence whose elements are ordered according to a key</returns>
         public static List<TSource> OrderByDescendingF<TSource, TKey>(this List<TSource> source, Func<TSource, TKey> keySelector, IComparer<TKey> comparer = null) {
             if (source == null) {
                 throw Error.ArgumentNull("source");
