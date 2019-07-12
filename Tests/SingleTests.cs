@@ -2,6 +2,7 @@
 using JM.LinqFaster;
 using static Tests.Test;
 using System.Collections.Generic;
+using System;
 
 namespace Tests
 {
@@ -28,7 +29,7 @@ namespace Tests
 
         [Test]
         public void SingleArrayMoreThanOne() {                        
-            Assert.That(intArray.SingleF,Throws.Exception);
+            Assert.Throws<InvalidOperationException>(() => intArray.SingleF());
             Assert.That(SingleArrayFunc, Throws.Exception);
         }
 
@@ -68,7 +69,7 @@ namespace Tests
 
         [Test]
         public void SingleArrayDefaultMoreThanOne() {
-            Assert.That(intArray.SingleOrDefaultF, Throws.Exception);
+            Assert.Throws<InvalidOperationException>(() => intArray.SingleOrDefaultF());
             Assert.That(SingleOrDefaultArrayFunc, Throws.Exception);
         }
 
@@ -76,7 +77,7 @@ namespace Tests
 
         [Test]
         public void SingleListMoreThanOne() {
-            Assert.That(intList.SingleF, Throws.Exception);
+            Assert.Throws<InvalidOperationException>(() => intList.SingleF());
             Assert.That(SingleListFunc, Throws.Exception);
         }
 
@@ -114,8 +115,8 @@ namespace Tests
         }
 
         [Test]
-        public void SingleListDefaultMoreThanOne() {            
-            Assert.That(intList.SingleOrDefaultF, Throws.Exception);
+        public void SingleListDefaultMoreThanOne() {
+            Assert.Throws<InvalidOperationException>(() => intList.SingleOrDefaultF());
             Assert.That(SingleOrDefaultListFunc, Throws.Exception);
         }
 
