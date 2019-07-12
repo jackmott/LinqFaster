@@ -728,7 +728,7 @@
             <param name="selector">The transformation to apply before filtering.</param>
             <param name="predicate">The predicate with which to filter result.</param>
             <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
-            <returns>A seqence transformed and then filtered by selector and predicate.</returns>
+            <returns>A sequence transformed and then filtered by selector and predicate.</returns>
         </member>
         <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SelectWhereP``2(``0[],System.Func{``0,System.Int32,``1},System.Func{``1,System.Int32,System.Boolean},System.Nullable{System.Int32})">
             <summary>
@@ -738,7 +738,7 @@
             <param name="selector">The transformation to apply before filtering.</param>
             <param name="predicate">The predicate with which to filter result.</param>
             <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
-            <returns>A seqence transformed and then filtered by selector and predicate.</returns>
+            <returns>A sequence transformed and then filtered by selector and predicate.</returns>
         </member>
         <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SelectWhereP``2(System.Collections.Generic.List{``0},System.Func{``0,``1},System.Func{``1,System.Boolean},System.Nullable{System.Int32})">
             <summary>
@@ -748,7 +748,7 @@
             <param name="selector">The transformation to apply before filtering.</param>
             <param name="predicate">The predicate with which to filter result.</param>
             <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
-            <returns>A seqence transformed and then filtered by selector and predicate.</returns>
+            <returns>A sequence transformed and then filtered by selector and predicate.</returns>
         </member>
         <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SelectWhereP``2(System.Collections.Generic.List{``0},System.Func{``0,System.Int32,``1},System.Func{``1,System.Int32,System.Boolean},System.Nullable{System.Int32})">
             <summary>
@@ -758,7 +758,7 @@
             <param name="selector">The transformation to apply before filtering.</param>
             <param name="predicate">The predicate with which to filter result.</param>
             <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
-            <returns>A seqence transformed and then filtered by selector and predicate.</returns>
+            <returns>A sequence transformed and then filtered by selector and predicate.</returns>
         </member>
         <member name="M:JM.LinqFaster.Parallel.LinqFasterParallel.SequenceEqualP``1(``0[],``0[],System.Collections.Generic.IEqualityComparer{``0},System.Nullable{System.Int32})">
             <summary>
@@ -984,7 +984,7 @@
             </summary>        
             <param name="source">The input to filter then aggregate.</param>
             <param name="predicate">The function to filter the input sequence with.</param>
-            <param name="func">The function to aggregate the filtered seqeuence.</param>        
+            <param name="func">The function to aggregate the filtered sequence.</param>        
             <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
             <returns>The filtered then aggregated sequence.</returns>
         </member>
@@ -994,7 +994,7 @@
             </summary>        
             <param name="source">The input to filter then aggregate.</param>
             <param name="predicate">The function to filter the input sequence and it's index with.</param>
-            <param name="func">The function to aggregate the filtered seqeuence.</param>
+            <param name="func">The function to aggregate the filtered sequence.</param>
             <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
             <returns>The filtered then aggregated sequence.</returns>
         </member>
@@ -1006,7 +1006,7 @@
             <param name="source">The input to filter then aggregate.</param>
             <param name="predicate">The function to filter the input sequence with.</param>
             <param name="seed">The initial value to aggregate on.</param>
-            <param name="func">The function to aggregate the filtered seqeuence.</param>
+            <param name="func">The function to aggregate the filtered sequence.</param>
             <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
             <returns>The filtered then aggregated sequence.</returns>
         </member>
@@ -1018,7 +1018,7 @@
             <param name="source">The input to filter then aggregate.</param>
             <param name="predicate">The function to filter the input sequence with.</param>
             <param name="seed">The initial value to aggregate on.</param>
-            <param name="func">The function to aggregate the filtered seqeuence.</param>
+            <param name="func">The function to aggregate the filtered sequence.</param>
             <param name="resultSelector">A function to transform the final result.</param>
             <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
             <returns>The filtered then aggregated then transformed sequence.</returns>
@@ -1029,7 +1029,7 @@
             </summary>        
             <param name="source">The input to filter then aggregate.</param>
             <param name="predicate">The function to filter the input sequence with.</param>
-            <param name="func">The function to aggregate the filtered seqeuence.</param>
+            <param name="func">The function to aggregate the filtered sequence.</param>
             <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
             <returns>The filtered then aggregated sequence.</returns>
         </member>
@@ -1039,7 +1039,7 @@
             </summary>        
             <param name="source">The input to filter then aggregate.</param>
             <param name="predicate">The function to filter the input sequence and it's index with.</param>
-            <param name="func">The function to aggregate the filtered seqeuence.</param>
+            <param name="func">The function to aggregate the filtered sequence.</param>
             <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
             <returns>The filtered then aggregated sequence.</returns>
         </member>
@@ -1050,7 +1050,7 @@
             <param name="source">The input to filter then aggregate.</param>
             <param name="predicate">The function to filter the input sequence with.</param>
             <param name="seed">The initial value to aggregate on.</param>
-            <param name="func">The function to aggregate the filtered seqeuence.</param>
+            <param name="func">The function to aggregate the filtered sequence.</param>
             <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
             <returns>The filtered then aggregated sequence.</returns>
         </member>
@@ -1062,7 +1062,7 @@
             <param name="source">The input to filter then aggregate.</param>
             <param name="predicate">The function to filter the input sequence with.</param>
             <param name="seed">The initial value to aggregate on.</param>
-            <param name="func">The function to aggregate the filtered seqeuence.</param>
+            <param name="func">The function to aggregate the filtered sequence.</param>
             <param name="resultSelector">A function to transform the final result.</param>
             <param name="batchSize">Optional. Specify a batch size for Tasks to operate over. </param>
             <returns>The filtered then aggregated then transformed sequence.</returns>

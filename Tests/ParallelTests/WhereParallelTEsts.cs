@@ -9,6 +9,19 @@ namespace Tests
     [TestFixture]
     class WhereParallel
     {
+        [Test]
+        public void ParallelWhereEmpty()
+        {
+            var emptyArray = new int[0];
+
+            Assert.DoesNotThrow(() =>
+            {
+                var a = emptyArray.WhereP(x => x == 0);
+                var emptyList = new System.Collections.Generic.List<int>(0);
+                var b = emptyList.WhereP(x => x == 0);
+            });
+
+        }
 
         [Test]
         public void ParallelWhereArray()

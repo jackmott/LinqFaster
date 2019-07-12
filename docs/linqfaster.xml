@@ -110,7 +110,7 @@
         </member>
         <member name="M:JM.LinqFaster.LinqFaster.AnyF``1(``0[],System.Predicate{``0})">
             <summary>
-            Determines whether any element of an array satifies a condition.
+            Determines whether any element of an array satisfies a condition.
             </summary>        
             <param name="source">An array whose elements to apply the predicate to.</param>
             <param name="predicate">A function to test each element for a condition.</param>
@@ -134,7 +134,7 @@
         </member>
         <member name="M:JM.LinqFaster.LinqFaster.AnyF``1(System.Span{``0},System.Predicate{``0})">
             <summary>
-            Determines whether any element of an array satifies a condition.
+            Determines whether any element of an array satisfies a condition.
             </summary>        
             <param name="source">An array whose elements to apply the predicate to.</param>
             <param name="predicate">A function to test each element for a condition.</param>
@@ -158,7 +158,7 @@
         </member>
         <member name="M:JM.LinqFaster.LinqFaster.AnyF``1(System.Collections.Generic.List{``0},System.Predicate{``0})">
             <summary>
-            Determines whether any element of an array satifies a condition.
+            Determines whether any element of an array satisfies a condition.
             </summary>        
             <param name="source">An array whose elements to apply the predicate to.</param>
             <param name="predicate">A function to test each element for a condition.</param>
@@ -1228,7 +1228,7 @@
             <param name="source">A sequence of values to order.</param>
             <param name="keySelector">A function to extract a key from an element.</param>
             <param name="comparer">A Comparer to compare keys.</param>
-            <returns>A sequence whose alements are ordered according to a key</returns>
+            <returns>A sequence whose elements are ordered according to a key</returns>
         </member>
         <member name="M:JM.LinqFaster.LinqFaster.OrderByDescendingF``2(``0[],System.Func{``0,``1},System.Collections.Generic.IComparer{``1})">
             <summary>
@@ -1238,7 +1238,7 @@
             <param name="source">A sequence of values to order.</param>
             <param name="keySelector">A function to extract a key from an element.</param>
             <param name="comparer">A Comparer to compare keys.</param>
-            <returns>A sequence whose alements are ordered according to a key</returns>
+            <returns>A sequence whose elements are ordered according to a key</returns>
         </member>
         <member name="M:JM.LinqFaster.LinqFaster.OrderByF``2(System.Collections.Generic.List{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1})">
             <summary>
@@ -1248,7 +1248,7 @@
             <param name="source">A sequence of values to order.</param>
             <param name="keySelector">A function to extract a key from an element.</param>
             <param name="comparer">A Comparer to compare keys.</param>
-            <returns>A sequence whose alements are ordered according to a key</returns>
+            <returns>A sequence whose elements are ordered according to a key</returns>
         </member>
         <member name="M:JM.LinqFaster.LinqFaster.OrderByDescendingF``2(System.Collections.Generic.List{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1})">
             <summary>
@@ -1258,7 +1258,7 @@
             <param name="source">A sequence of values to order.</param>
             <param name="keySelector">A function to extract a key from an element.</param>
             <param name="comparer">A Comparer to compare keys.</param>
-            <returns>A sequence whose alements are ordered according to a key</returns>
+            <returns>A sequence whose elements are ordered according to a key</returns>
         </member>
         <member name="M:JM.LinqFaster.LinqFaster.RangeArrayF(System.Int32,System.Int32)">
             <summary>
@@ -1483,7 +1483,7 @@
             <param name="source">The input sequence to filter and select</param>
             <param name="selector">The transformation to apply before filtering.</param>
             <param name="predicate">The predicate with which to filter result.</param>
-            <returns>A seqence transformed and then filtered by selector and predicate.</returns>
+            <returns>A sequence transformed and then filtered by selector and predicate.</returns>
         </member>
         <member name="M:JM.LinqFaster.LinqFaster.SelectWhereF``2(``0[],System.Func{``0,System.Int32,``1},System.Func{``1,System.Int32,System.Boolean})">
             <summary>
@@ -1493,7 +1493,7 @@
             <param name="source">The input sequence to filter and select</param>
             <param name="selector">The transformation with index to apply before filtering.</param>
             <param name="predicate">The predicate with index with which to filter result.</param>
-            <returns>A seqence transformed and then filtered by selector and predicate with indexes.</returns>
+            <returns>A sequence transformed and then filtered by selector and predicate with indexes.</returns>
         </member>
         <member name="M:JM.LinqFaster.LinqFaster.SelectWhereF``2(System.Span{``0},System.Func{``0,``1},System.Func{``1,System.Boolean})">
             <summary>
@@ -1503,7 +1503,7 @@
             <param name="source">The input sequence to filter and select</param>
             <param name="selector">The transformation to apply before filtering.</param>
             <param name="predicate">The predicate with which to filter result.</param>
-            <returns>A seqence transformed and then filtered by selector and predicate.</returns>
+            <returns>A sequence transformed and then filtered by selector and predicate.</returns>
         </member>
         <member name="M:JM.LinqFaster.LinqFaster.SelectWhereF``2(System.Span{``0},System.Func{``0,System.Int32,``1},System.Func{``1,System.Int32,System.Boolean})">
             <summary>
@@ -1513,7 +1513,7 @@
             <param name="source">The input sequence to filter and select</param>
             <param name="selector">The transformation with index to apply before filtering.</param>
             <param name="predicate">The predicate with index with which to filter result.</param>
-            <returns>A seqence transformed and then filtered by selector and predicate with indexes.</returns>
+            <returns>A sequence transformed and then filtered by selector and predicate with indexes.</returns>
         </member>
         <member name="M:JM.LinqFaster.LinqFaster.SelectWhereF``2(System.Collections.Generic.List{``0},System.Func{``0,``1},System.Func{``1,System.Boolean})">
             <summary>
@@ -1523,7 +1523,7 @@
             <param name="source">The input sequence to filter and select</param>
             <param name="selector">The transformation to apply before filtering.</param>
             <param name="predicate">The predicate with which to filter result.</param>
-            <returns>A seqence transformed and then filtered by selector and predicate.</returns>
+            <returns>A sequence transformed and then filtered by selector and predicate.</returns>
         </member>
         <member name="M:JM.LinqFaster.LinqFaster.SelectWhereF``2(System.Collections.Generic.List{``0},System.Func{``0,System.Int32,``1},System.Func{``1,System.Int32,System.Boolean})">
             <summary>
@@ -1533,7 +1533,7 @@
             <param name="source">The input sequence to filter and select</param>
             <param name="selector">The transformation with index to apply before filtering.</param>
             <param name="predicate">The predicate with index with which to filter result.</param>
-            <returns>A seqence transformed and then filtered by selector and predicate with indexes.</returns>
+            <returns>A sequence transformed and then filtered by selector and predicate with indexes.</returns>
         </member>
         <member name="M:JM.LinqFaster.LinqFaster.SequenceEqualF``1(``0[],``0[],System.Collections.Generic.IEqualityComparer{``0})">
             <summary>
@@ -2114,7 +2114,7 @@
             </summary>        
             <param name="source">The input to filter then aggregate.</param>
             <param name="predicate">The function to filter the input sequence with.</param>
-            <param name="func">The function to aggregate the filtered seqeuence.</param>
+            <param name="func">The function to aggregate the filtered sequence.</param>
             <returns>The filtered then aggregated sequence.</returns>
         </member>
         <member name="M:JM.LinqFaster.LinqFaster.WhereAggregateF``1(``0[],System.Func{``0,System.Int32,System.Boolean},System.Func{``0,``0,``0})">
@@ -2123,7 +2123,7 @@
             </summary>        
             <param name="source">The input to filter then aggregate.</param>
             <param name="predicate">The function to filter the input sequence and it's index with.</param>
-            <param name="func">The function to aggregate the filtered seqeuence.</param>
+            <param name="func">The function to aggregate the filtered sequence.</param>
             <returns>The filtered then aggregated sequence.</returns>
         </member>
         <member name="M:JM.LinqFaster.LinqFaster.WhereAggregateF``2(``0[],System.Func{``0,System.Boolean},``1,System.Func{``1,``0,``1})">
@@ -2133,7 +2133,7 @@
             <param name="source">The input to filter then aggregate.</param>
             <param name="predicate">The function to filter the input sequence with.</param>
             <param name="seed">The initial value to aggregate on.</param>
-            <param name="func">The function to aggregate the filtered seqeuence.</param>
+            <param name="func">The function to aggregate the filtered sequence.</param>
             <returns>The filtered then aggregated sequence.</returns>
         </member>
         <member name="M:JM.LinqFaster.LinqFaster.WhereAggregateF``3(``0[],System.Func{``0,System.Boolean},``1,System.Func{``1,``0,``1},System.Func{``1,``2})">
@@ -2143,7 +2143,7 @@
             <param name="source">The input to filter then aggregate.</param>
             <param name="predicate">The function to filter the input sequence with.</param>
             <param name="seed">The initial value to aggregate on.</param>
-            <param name="func">The function to aggregate the filtered seqeuence.</param>
+            <param name="func">The function to aggregate the filtered sequence.</param>
             <param name="resultSelector">A function to transform the final result.</param>
             <returns>The filtered then aggregated then transformed sequence.</returns>
         </member>
@@ -2153,7 +2153,7 @@
             </summary>        
             <param name="source">The input to filter then aggregate.</param>
             <param name="predicate">The function to filter the input sequence with.</param>
-            <param name="func">The function to aggregate the filtered seqeuence.</param>
+            <param name="func">The function to aggregate the filtered sequence.</param>
             <returns>The filtered then aggregated sequence.</returns>
         </member>
         <member name="M:JM.LinqFaster.LinqFaster.WhereAggregateF``1(System.Span{``0},System.Func{``0,System.Int32,System.Boolean},System.Func{``0,``0,``0})">
@@ -2162,7 +2162,7 @@
             </summary>        
             <param name="source">The input to filter then aggregate.</param>
             <param name="predicate">The function to filter the input sequence and it's index with.</param>
-            <param name="func">The function to aggregate the filtered seqeuence.</param>
+            <param name="func">The function to aggregate the filtered sequence.</param>
             <returns>The filtered then aggregated sequence.</returns>
         </member>
         <member name="M:JM.LinqFaster.LinqFaster.WhereAggregateF``2(System.Span{``0},System.Func{``0,System.Boolean},``1,System.Func{``1,``0,``1})">
@@ -2172,7 +2172,7 @@
             <param name="source">The input to filter then aggregate.</param>
             <param name="predicate">The function to filter the input sequence with.</param>
             <param name="seed">The initial value to aggregate on.</param>
-            <param name="func">The function to aggregate the filtered seqeuence.</param>
+            <param name="func">The function to aggregate the filtered sequence.</param>
             <returns>The filtered then aggregated sequence.</returns>
         </member>
         <member name="M:JM.LinqFaster.LinqFaster.WhereAggregateF``3(System.Span{``0},System.Func{``0,System.Boolean},``1,System.Func{``1,``0,``1},System.Func{``1,``2})">
@@ -2182,7 +2182,7 @@
             <param name="source">The input to filter then aggregate.</param>
             <param name="predicate">The function to filter the input sequence with.</param>
             <param name="seed">The initial value to aggregate on.</param>
-            <param name="func">The function to aggregate the filtered seqeuence.</param>
+            <param name="func">The function to aggregate the filtered sequence.</param>
             <param name="resultSelector">A function to transform the final result.</param>
             <returns>The filtered then aggregated then transformed sequence.</returns>
         </member>
@@ -2192,7 +2192,7 @@
             </summary>        
             <param name="source">The input to filter then aggregate.</param>
             <param name="predicate">The function to filter the input sequence with.</param>
-            <param name="func">The function to aggregate the filtered seqeuence.</param>
+            <param name="func">The function to aggregate the filtered sequence.</param>
             <returns>The filtered then aggregated sequence.</returns>
         </member>
         <member name="M:JM.LinqFaster.LinqFaster.WhereAggregateF``1(System.Collections.Generic.List{``0},System.Func{``0,System.Int32,System.Boolean},System.Func{``0,``0,``0})">
@@ -2201,7 +2201,7 @@
             </summary>        
             <param name="source">The input to filter then aggregate.</param>
             <param name="predicate">The function to filter the input sequence and it's index with.</param>
-            <param name="func">The function to aggregate the filtered seqeuence.</param>
+            <param name="func">The function to aggregate the filtered sequence.</param>
             <returns>The filtered then aggregated sequence.</returns>
         </member>
         <member name="M:JM.LinqFaster.LinqFaster.WhereAggregateF``2(System.Collections.Generic.List{``0},System.Func{``0,System.Boolean},``1,System.Func{``1,``0,``1})">
@@ -2211,7 +2211,7 @@
             <param name="source">The input to filter then aggregate.</param>
             <param name="predicate">The function to filter the input sequence with.</param>
             <param name="seed">The initial value to aggregate on.</param>
-            <param name="func">The function to aggregate the filtered seqeuence.</param>
+            <param name="func">The function to aggregate the filtered sequence.</param>
             <returns>The filtered then aggregated sequence.</returns>
         </member>
         <member name="M:JM.LinqFaster.LinqFaster.WhereAggregateF``3(System.Collections.Generic.List{``0},System.Func{``0,System.Boolean},``1,System.Func{``1,``0,``1},System.Func{``1,``2})">
@@ -2221,7 +2221,7 @@
             <param name="source">The input to filter then aggregate.</param>
             <param name="predicate">The function to filter the input sequence with.</param>
             <param name="seed">The initial value to aggregate on.</param>
-            <param name="func">The function to aggregate the filtered seqeuence.</param>
+            <param name="func">The function to aggregate the filtered sequence.</param>
             <param name="resultSelector">A function to transform the final result.</param>
             <returns>The filtered then aggregated then transformed sequence.</returns>
         </member>
