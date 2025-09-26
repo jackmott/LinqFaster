@@ -4,6 +4,8 @@
 
 ![Logo](https://jackmott.github.io/images/LinqFaster.png "Logo")
 
+UPDATE: As of .NET 9 this library is mostly unecessary, as .NET9 had made most of these optimizations part of the native LINQ library, but if you find some useful helper functions, enjoy!  
+
 A set of Linq-Like extension methods for `arrays[]`, `Span<T>`, and `List<T>` that are faster and allocate less.  LinqFaster is designed
 to work well alongside Linq, rather than replace it completely. Extension method names mirror Linq names with an extra character, e.g. Select**F**.  If you have code that is often doing small Linq operations and immediatelly calling `ToArray()` or `ToList()`, or you are often using `Min`,`Max`,`Sum`,`Average`,or `Aggregate`, LinqFaster may provide massive cpu and memory usage reductions. See the documentation section below for more details.
 
