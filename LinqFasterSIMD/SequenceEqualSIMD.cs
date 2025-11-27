@@ -30,7 +30,7 @@ namespace JM.LinqFaster.SIMD
             if (first.Length != second.Length) return false;
             if (first == second) return true;
 
-            var count = Vector<T>.Count;
+            int count = Vector<T>.Count;
             for (int i = 0; i <= first.Length - count; i += count)
             {
                 if (!Vector.EqualsAll(new Vector<T>(first, i), new Vector<T>(second, i)))
@@ -38,7 +38,7 @@ namespace JM.LinqFaster.SIMD
                     return false;
                 }
             }
-            var comparer = EqualityComparer<T>.Default;
+            EqualityComparer<T> comparer = EqualityComparer<T>.Default;
             for (int i = first.Length - (first.Length % count); i < first.Length; i++)
             {
                 if (!comparer.Equals(first[i], second[i])) return false;
@@ -68,17 +68,17 @@ namespace JM.LinqFaster.SIMD
 
             if (first.Length != second.Length) throw Error.NotSupported();
 
-            var minusone = new Vector<int>(-1);
-            var count = Vector<T>.Count;
-            var result = new int[first.Length];
+            Vector<int> minusone = new Vector<int>(-1);
+            int count = Vector<T>.Count;
+            int[] result = new int[first.Length];
             for (int i = 0; i <= first.Length - count; i += count)
             {
-                var a = new Vector<T>(first, i);
-                var b = new Vector<T>(second, i);
+                Vector<T> a = new Vector<T>(first, i);
+                Vector<T> b = new Vector<T>(second, i);
                 if (!Vector.EqualsAll(a, b))
                 {
-                    var gt = Vector.BitwiseAnd(Vector.AsVectorInt32(Vector.GreaterThan(a, b)), Vector<int>.One);
-                    var lt = Vector.BitwiseAnd(Vector.AsVectorInt32(Vector.LessThan(a, b)), minusone);
+                    Vector<int> gt = Vector.BitwiseAnd(Vector.AsVectorInt32(Vector.GreaterThan(a, b)), Vector<int>.One);
+                    Vector<int> lt = Vector.BitwiseAnd(Vector.AsVectorInt32(Vector.LessThan(a, b)), minusone);
                     Vector.BitwiseOr(gt, lt).CopyTo(result, i);
                 }
             }

@@ -11,6 +11,7 @@ namespace Tests
     class MinTests
     {
         public void HelperMin<T>(T[] array)
+            where T : IComparable<T>
         {
             T a = array.MinF();
             T b = array.Min();
@@ -19,6 +20,7 @@ namespace Tests
         }
 
         public void HelperMin<T>(List<T> list)
+            where T : IComparable<T>
         {
             T a = list.MinF();
             T b = list.Min();
@@ -27,6 +29,7 @@ namespace Tests
         }
 
         public void HelperMin<T, U>(T[] array, Func<T, U> selector)
+            where U : IComparable<U>
         {
             U a = array.MinF(selector);
             U b = array.Min(selector);
@@ -35,6 +38,7 @@ namespace Tests
         }
 
         public void HelperMin<T, U>(List<T> list, Func<T, U> selector)
+            where U : IComparable<U>
         {
             U a = list.MinF(selector);
             U b = list.Min(selector);

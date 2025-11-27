@@ -1,28 +1,35 @@
-﻿using NUnit.Framework;
-using JM.LinqFaster;
+﻿using System.Collections.Generic;
 using System.Linq;
+
+using JM.LinqFaster;
+
+using NUnit.Framework;
+
 using static Tests.Test;
 
 namespace Tests
 {
     [TestFixture]
-    class SkipTests {
+    internal class SkipTests
+    {
 
         [Test]
         [TestCase(0)]
         [TestCase(5)]
         [TestCase(Test.TEST_SIZE)]
-        public void SkipArray(int count) {
-            var a = intArray.SkipF(count);
-            var b = intArray.Skip(count);
+        public void SkipArray(int count)
+        {
+            int[] a = intArray.SkipF(count);
+            IEnumerable<int> b = intArray.Skip(count);
 
             Assert.That(a, Is.EqualTo(b));
         }
 
-        [Test]        
-        public void SkipWhileArray() {
-            var a = intArray.SkipWhileF(onlyEvenInts);
-            var b = intArray.SkipWhile(onlyEvenInts);
+        [Test]
+        public void SkipWhileArray()
+        {
+            int[] a = intArray.SkipWhileF(onlyEvenInts);
+            IEnumerable<int> b = intArray.SkipWhile(onlyEvenInts);
 
             Assert.That(a, Is.EqualTo(b));
         }
@@ -31,17 +38,19 @@ namespace Tests
         [TestCase(0)]
         [TestCase(5)]
         [TestCase(Test.TEST_SIZE)]
-        public void SkipList(int count) {
-            var a = intList.SkipF(count);
-            var b = intList.Skip(count);
+        public void SkipList(int count)
+        {
+            List<int> a = intList.SkipF(count);
+            IEnumerable<int> b = intList.Skip(count);
 
             Assert.That(a, Is.EqualTo(b));
         }
 
         [Test]
-        public void SkipWhileList() {
-            var a = intList.SkipWhileF(onlyEvenInts);
-            var b = intList.SkipWhile(onlyEvenInts);
+        public void SkipWhileList()
+        {
+            List<int> a = intList.SkipWhileF(onlyEvenInts);
+            IEnumerable<int> b = intList.SkipWhile(onlyEvenInts);
 
             Assert.That(a, Is.EqualTo(b));
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using static JM.LinqFaster.Utils.CustomPartition;
 
@@ -18,16 +19,16 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull("source");
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull("selector");
+                throw Error.ArgumentNull(nameof(selector));
             }
 
             
-            var rangePartitioner = MakePartition(source.Length, batchSize);
+            OrderablePartitioner<Tuple<int, int>> rangePartitioner = MakePartition(source.Length, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 (range, s) => {
                     for (int i = range.Item1; i < range.Item2; i++)
@@ -48,16 +49,16 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull("source");
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull("selector");
+                throw Error.ArgumentNull(nameof(selector));
             }
 
 
-            var rangePartitioner = MakePartition(source.Length, batchSize);
+            OrderablePartitioner<Tuple<int, int>> rangePartitioner = MakePartition(source.Length, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 (range, s) => {
                     for (int i = range.Item1; i < range.Item2; i++)
@@ -78,17 +79,17 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull("source");
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull("selector");
+                throw Error.ArgumentNull(nameof(selector));
             }
 
-            var r = new TResult[source.Length];
+            TResult[] r = new TResult[source.Length];
 
-            var rangePartitioner = MakePartition(source.Length, batchSize);
+            OrderablePartitioner<Tuple<int, int>> rangePartitioner = MakePartition(source.Length, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 (range, s) => {
                     for (int i = range.Item1; i < range.Item2; i++) {
@@ -110,15 +111,15 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull("source");
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull("selector");
+                throw Error.ArgumentNull(nameof(selector));
             }
-            var r = new TResult[source.Length];
-            var rangePartitioner = MakePartition(source.Length, batchSize);
+            TResult[] r = new TResult[source.Length];
+            OrderablePartitioner<Tuple<int, int>> rangePartitioner = MakePartition(source.Length, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 (range, s) => {
                     for (int i = range.Item1; i < range.Item2; i++) {
@@ -141,16 +142,16 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull("source");
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull("selector");
+                throw Error.ArgumentNull(nameof(selector));
             }
 
 
-            var rangePartitioner = MakePartition(source.Count, batchSize);
+            OrderablePartitioner<Tuple<int, int>> rangePartitioner = MakePartition(source.Count, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 (range, s) => {
                     for (int i = range.Item1; i < range.Item2; i++)
@@ -171,16 +172,16 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull("source");
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull("selector");
+                throw Error.ArgumentNull(nameof(selector));
             }
 
 
-            var rangePartitioner = MakePartition(source.Count, batchSize);
+            OrderablePartitioner<Tuple<int, int>> rangePartitioner = MakePartition(source.Count, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 (range, s) => {
                     for (int i = range.Item1; i < range.Item2; i++)
@@ -201,16 +202,16 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull("source");
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull("selector");
+                throw Error.ArgumentNull(nameof(selector));
             }
-            var r = new TResult[source.Count];
+            TResult[] r = new TResult[source.Count];
 
-            var rangePartitioner = MakePartition(source.Count, batchSize);
+            OrderablePartitioner<Tuple<int, int>> rangePartitioner = MakePartition(source.Count, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 (range, s) => {
                     for (int i = range.Item1; i < range.Item2; i++)
@@ -234,17 +235,17 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull("source");
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull("selector");
+                throw Error.ArgumentNull(nameof(selector));
             }
 
-            var r = new TResult[source.Count];
+            TResult[] r = new TResult[source.Count];
 
-            var rangePartitioner = MakePartition(source.Count, batchSize);
+            OrderablePartitioner<Tuple<int, int>> rangePartitioner = MakePartition(source.Count, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 (range, s) => {
                     for (int i = range.Item1; i < range.Item2; i++) {
@@ -268,17 +269,17 @@ namespace JM.LinqFaster.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull("source");
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (selector == null)
             {
-                throw Error.ArgumentNull("selector");
+                throw Error.ArgumentNull(nameof(selector));
             }
 
-            var r = new List<TResult>(source.Count);
+            List<TResult> r = new List<TResult>(source.Count);
 
-            var rangePartitioner = MakePartition(source.Count, batchSize);
+            OrderablePartitioner<Tuple<int, int>> rangePartitioner = MakePartition(source.Count, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 (range, s) => {
                     for (int i = range.Item1; i < range.Item2; i++)

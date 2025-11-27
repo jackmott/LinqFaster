@@ -12,21 +12,21 @@ namespace Tests
         [Test]
         public void ParallelSumArray()
         {
-            var a = intArray.SumP();
-            var b = intArray.Sum();
+            int a = intArray.SumP();
+            int b = intArray.Sum();
 
             Assert.That(a, Is.EqualTo(b));
 
-            var c = floatArray.SumP();
-            var d = floatArray.Sum();
+            float c = floatArray.SumP();
+            float d = floatArray.Sum();
 
-            var diff = Math.Abs(c - d);
+            float diff = Math.Abs(c - d);
             Assert.That(diff, Is.LessThan(0.1));
 
-            var e = decimalArray.SumP();
-            var f = decimalArray.Sum();
+            decimal e = decimalArray.SumP();
+            decimal f = decimalArray.Sum();
 
-            var diff2 = Math.Abs(e-f);
+            decimal diff2 = Math.Abs(e-f);
             Assert.That(diff2, Is.LessThan(0.1));
 
             
@@ -35,15 +35,15 @@ namespace Tests
         [Test]
         public void ParallelSumArraySelector()
         {
-            var a = intArray.SumP(x => x + 1);
-            var b = intArray.Sum(x => x + 1);
+            int a = intArray.SumP(x => x + 1);
+            int b = intArray.Sum(x => x + 1);
 
             Assert.That(a, Is.EqualTo(b));
 
-            var c = floatArray.SumP(squaredFloats);
-            var d = floatArray.Sum(squaredFloats);
+            float c = floatArray.SumP(squaredFloats);
+            float d = floatArray.Sum(squaredFloats);
 
-            var diff = Math.Abs(c - d);
+            float diff = Math.Abs(c - d);
             Assert.That(diff, Is.LessThan(0.1));
             
         }
@@ -51,36 +51,36 @@ namespace Tests
         [Test]
         public void ParallelSumList()
         {
-            var a = intList.SumP();
-            var b = intList.Sum();
+            int a = intList.SumP();
+            int b = intList.Sum();
 
             Assert.That(a, Is.EqualTo(b));
 
-            var c = floatList.SumP();
-            var d = floatList.Sum();
+            float c = floatList.SumP();
+            float d = floatList.Sum();
 
-            var diff = Math.Abs(c - d);
+            float diff = Math.Abs(c - d);
             Assert.That(diff, Is.LessThan(0.1));
 
-            var e = decimalList.SumP();
-            var f = decimalList.Sum();
+            decimal e = decimalList.SumP();
+            decimal f = decimalList.Sum();
 
-            var diff2 = Math.Abs(e - f);
+            decimal diff2 = Math.Abs(e - f);
             Assert.That(diff2, Is.LessThan(0.1));
         }
 
         [Test]
         public void ParallelSumListSelector()
         {
-            var a = intList.SumP(x => x + 1);
-            var b = intList.Sum(x => x + 1);
+            int a = intList.SumP(x => x + 1);
+            int b = intList.Sum(x => x + 1);
 
             Assert.That(a, Is.EqualTo(b));
 
-            var c = floatList.SumP(squaredFloats);
-            var d = floatList.Sum(squaredFloats);
+            float c = floatList.SumP(squaredFloats);
+            float d = floatList.Sum(squaredFloats);
 
-            var diff = Math.Abs(c - d);
+            float diff = Math.Abs(c - d);
             Assert.That(diff, Is.LessThan(0.1));
             
         }

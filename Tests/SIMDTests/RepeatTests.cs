@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Collections.Generic;
+using NUnit.Framework;
 using JM.LinqFaster.SIMD;
 using System.Linq;
 
@@ -11,8 +12,8 @@ namespace Tests
         [Test]
         public void RepeatSIMD()
         {
-            var a = LinqFasterSIMD.RepeatS(4.0, 1000);
-            var b = Enumerable.Repeat(4.0, 1000);
+            double[] a = LinqFasterSIMD.RepeatS(4.0, 1000);
+            IEnumerable<double> b = Enumerable.Repeat(4.0, 1000);
 
             Assert.That(a, Is.EqualTo(b));
         }

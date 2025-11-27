@@ -1,29 +1,32 @@
-﻿using NUnit.Framework;
+﻿using System.Linq;
+
 using JM.LinqFaster;
-using System.Linq;
+
+using NUnit.Framework;
+
 using static Tests.Test;
 
 namespace Tests
 {
     [TestFixture]
-    class AnyAllTests
+    internal class AnyAllTests
     {
-       
+
         [Test]
         public void AllArray()
-        {            
-            var a = intArray.AllF(x => x % 2 == 0);
-            var b = intArray.All(x => x % 2 == 0);
+        {
+            bool a = intArray.AllF(x => x % 2 == 0);
+            bool b = intArray.All(x => x % 2 == 0);
 
-            Assert.That(a, Is.EqualTo(b));            
+            Assert.That(a, Is.EqualTo(b));
         }
 
 
         [Test]
         public void AllList()
-        {            
-            var a = intList.AllF(x => x % 2 == 0);
-            var b = intList.All(x => x % 2 == 0);
+        {
+            bool a = intList.AllF(x => x % 2 == 0);
+            bool b = intList.All(x => x % 2 == 0);
 
             Assert.That(a, Is.EqualTo(b));
         }
@@ -31,13 +34,13 @@ namespace Tests
         [Test]
         public void AnyArray()
         {
-                        
-            var a = intArray.AnyF();
-            var b = intArray.Any();
+
+            bool a = intArray.AnyF();
+            bool b = intArray.Any();
 
             Assert.That(a, Is.EqualTo(b));
 
-            
+
             a = intArray.AnyF();
             b = intArray.Any();
 
@@ -57,10 +60,10 @@ namespace Tests
 
         [Test]
         public void AnyList()
-        {                        
+        {
 
-            var a = intList.AnyF();
-            var b = intList.Any();
+            bool a = intList.AnyF();
+            bool b = intList.Any();
 
             Assert.That(a, Is.EqualTo(b));
 

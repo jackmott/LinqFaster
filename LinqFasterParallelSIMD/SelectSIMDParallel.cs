@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Numerics;
 using static JM.LinqFaster.Utils.CustomPartition;
 
@@ -23,7 +24,7 @@ namespace JM.LinqFaster.SIMD.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull("source");
+                throw Error.ArgumentNull(nameof(source));
             }
 
             int count = Vector<T>.Count;
@@ -33,8 +34,8 @@ namespace JM.LinqFaster.SIMD.Parallel
                 throw Error.ArgumentOutOfRange("Vector widths do not match.");
             }
 
-            var result = new U[source.Length];
-            var rangePartitioner = MakeSIMDPartition(source.Length, count, batchSize);
+            U[] result = new U[source.Length];
+            OrderablePartitioner<Tuple<int, int>> rangePartitioner = MakeSIMDPartition(source.Length, count, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 (range, s) =>
                 {

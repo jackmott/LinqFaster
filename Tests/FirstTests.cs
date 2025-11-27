@@ -1,53 +1,63 @@
-﻿using NUnit.Framework;
+﻿using System.Linq;
+
 using JM.LinqFaster;
-using System.Linq;
+
+using NUnit.Framework;
+
 using static Tests.Test;
 
 namespace Tests
 {
     [TestFixture]
-    class FirstTests {
+    internal class FirstTests
+    {
 
         [Test]
-        public void FirstArray() {
-            var a = intArray.FirstF();
-            var b = intArray.First();
+        public void FirstArray()
+        {
+            int a = intArray.FirstF();
+            int b = intArray.First();
             Assert.That(a, Is.EqualTo(b));
         }
 
         [Test]
-        public void FirstArrayPredicate() {
-            var a = intArray.FirstF(x => x > 0);
-            var b = intArray.First(x => x > 0);
+        public void FirstArrayPredicate()
+        {
+            int a = intArray.FirstF(x => x > 0);
+            int b = intArray.First(x => x > 0);
             Assert.That(a, Is.EqualTo(b));
         }
 
         [Test]
-        public void FirstOrDefaultArray() {
-            var a = intArray.FirstOrDefaultF(x => x > 99999);
-            var b = intArray.FirstOrDefault(x => x >  99999);
+        public void FirstOrDefaultArray()
+        {
+            int a = intArray.FirstOrDefaultF(x => x > 99999);
+            int b = intArray.FirstOrDefault(x => x > 99999);
             Assert.That(a, Is.EqualTo(b));
         }
 
 
         [Test]
-        public void FirstList() {
-            var a = intList.FirstF();
-            var b = intList.First();
+        public void FirstList()
+        {
+            int a = intList.FirstF();
+            int b = intList.First();
             Assert.That(a, Is.EqualTo(b));
         }
 
         [Test]
-        public void FirstListPredicate() {
-            var a = intList.FirstF(x => x > 0);
-            var b = intList.First(x => x > 0);
+        public void FirstListPredicate()
+        {
+            int a = intList.FirstF(x => x > 0);
+            int b = intList.First(x => x > 0);
             Assert.That(a, Is.EqualTo(b));
         }
 
         [Test]
-        public void FirstOrDefaultList() {
-            var a = intList.FirstOrDefaultF(x => x > 99999);
-            var b = intList.FirstOrDefault(x => x > 99999);
+        public void FirstOrDefaultList()
+        {
+            int a = intList.FirstOrDefaultF(x => x > 99999);
+            int b = intList.FirstOrDefault(x => x > 99999);
             Assert.That(a, Is.EqualTo(b));
         }
     }

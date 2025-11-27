@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Threading;
 using static JM.LinqFaster.Utils.CustomPartition;
 
@@ -38,7 +40,7 @@ namespace JM.LinqFaster.Parallel
             if (first.Length != second.Length) return false;
             if (first == second) return true;
             int count = 0;
-            var rangePartitioner = MakePartition(first.Length, batchSize);
+            OrderablePartitioner<Tuple<int, int>> rangePartitioner = MakePartition(first.Length, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,               
                 (range, loopState) =>
                 {
@@ -87,7 +89,7 @@ namespace JM.LinqFaster.Parallel
             if (first == second) return true;
 
             int count = 0;
-            var rangePartitioner = MakePartition(first.Count, batchSize);
+            OrderablePartitioner<Tuple<int, int>> rangePartitioner = MakePartition(first.Count, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 (range, loopState) =>
                 {
@@ -135,7 +137,7 @@ namespace JM.LinqFaster.Parallel
             if (first.Length != second.Count) return false;
 
             int count = 0;
-            var rangePartitioner = MakePartition(first.Length, batchSize);
+            OrderablePartitioner<Tuple<int, int>> rangePartitioner = MakePartition(first.Length, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 (range, loopState) =>
                 {
@@ -183,7 +185,7 @@ namespace JM.LinqFaster.Parallel
             if (first.Count != second.Length) return false;
 
             int count = 0;
-            var rangePartitioner = MakePartition(first.Count, batchSize);
+            OrderablePartitioner<Tuple<int, int>> rangePartitioner = MakePartition(first.Count, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 (range, loopState) =>
                 {

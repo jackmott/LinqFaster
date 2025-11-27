@@ -1,33 +1,41 @@
-﻿using NUnit.Framework;
-using JM.LinqFaster;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using System;
+
+using JM.LinqFaster;
+using JM.LinqFasterSpan;
+
+using NUnit.Framework;
+
 using static Tests.Test;
 
 namespace Tests
 {
     [TestFixture]
-    class TakeTests {
+    internal class TakeTests
+    {
 
         [Test]
         [TestCase(0)]
         [TestCase(5)]
         [TestCase(TEST_SIZE)]
-        public void TakeArray(int count) {
+        public void TakeArray(int count)
+        {
 
-            var a = intArray.TakeF(count);
-            var aSpan = intArray.AsSpan().TakeF(count);
-            var b = intArray.Take(count);
+            int[] a = intArray.TakeF(count);
+            int[] aSpan = intArray.AsSpan().TakeF(count);
+            IEnumerable<int> b = intArray.Take(count);
 
             Assert.That(a, Is.EqualTo(b));
             Assert.That(aSpan, Is.EqualTo(b));
         }
 
         [Test]
-        public void TakeWhileArray() {
-            var a = intArray.TakeWhileF(onlyEvenInts);
-            var aSpan = intArray.AsSpan().TakeWhileF(onlyEvenInts);
-            var b = intArray.TakeWhile(onlyEvenInts);
+        public void TakeWhileArray()
+        {
+            int[] a = intArray.TakeWhileF(onlyEvenInts);
+            int[] aSpan = intArray.AsSpan().TakeWhileF(onlyEvenInts);
+            IEnumerable<int> b = intArray.TakeWhile(onlyEvenInts);
 
             Assert.That(a, Is.EqualTo(b));
             Assert.That(aSpan, Is.EqualTo(b));
@@ -38,18 +46,20 @@ namespace Tests
         [TestCase(0)]
         [TestCase(5)]
         [TestCase(TEST_SIZE)]
-        public void TakeList(int count) {
+        public void TakeList(int count)
+        {
 
-            var a = intList.TakeF(count);
-            var b = intList.Take(count);
+            List<int> a = intList.TakeF(count);
+            IEnumerable<int> b = intList.Take(count);
 
             Assert.That(a, Is.EqualTo(b));
         }
 
         [Test]
-        public void TakeWhileList() {
-            var a = intList.TakeWhileF(onlyEvenInts);
-            var b = intList.TakeWhile(onlyEvenInts);
+        public void TakeWhileList()
+        {
+            List<int> a = intList.TakeWhileF(onlyEvenInts);
+            IEnumerable<int> b = intList.TakeWhile(onlyEvenInts);
 
             Assert.That(a, Is.EqualTo(b));
         }

@@ -19,9 +19,9 @@ namespace JM.LinqFaster.SIMD
                 throw Error.ArgumentOutOfRange("count");
             }
 
-            var result = new T[count];
-            var v = new Vector<T>(e);
-            var vCount = Vector<T>.Count;
+            T[] result = new T[count];
+            Vector<T> v = new Vector<T>(e);
+            int vCount = Vector<T>.Count;
 
             int i = 0;
             for (; i <= result.Length-vCount; i += vCount)

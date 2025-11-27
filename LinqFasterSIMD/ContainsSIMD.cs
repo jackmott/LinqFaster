@@ -19,11 +19,11 @@ namespace JM.LinqFaster.SIMD
         {
             if (source == null)
             {
-                throw Error.ArgumentNull("source");
+                throw Error.ArgumentNull(nameof(source));
             }
 
-            var count = Vector<T>.Count;
-            var vectorValue = new Vector<T>(value);
+            int count = Vector<T>.Count;
+            Vector<T> vectorValue = new Vector<T>(value);
             for (int i = 0; i < source.Length-count;i+=count)
             {
                 if (Vector.EqualsAny(new Vector<T>(source,i),vectorValue))

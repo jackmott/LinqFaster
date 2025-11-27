@@ -1,4 +1,6 @@
-﻿using System.Numerics;
+﻿using System;
+using System.Collections.Concurrent;
+using System.Numerics;
 using static JM.LinqFaster.Utils.GenericOperators;
 using static JM.LinqFaster.Utils.CustomPartition;
 
@@ -18,14 +20,14 @@ namespace JM.LinqFaster.SIMD.Parallel
         {
             if (source == null)
             {
-                throw Error.ArgumentNull("source");
+                throw Error.ArgumentNull(nameof(source));
             }
 
-            var count = Vector<T>.Count;
-            var sum = Vector<T>.Zero;
+            int count = Vector<T>.Count;
+            Vector<T> sum = Vector<T>.Zero;
             object LOCK = new object();
 
-            var rangePartitioner = MakeSIMDPartition(source.Length, count, batchSize);
+            OrderablePartitioner<Tuple<int, int>> rangePartitioner = MakeSIMDPartition(source.Length, count, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,
                 () => Vector<T>.Zero,
                 (range, s, acc) =>

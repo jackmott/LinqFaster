@@ -17,7 +17,7 @@ namespace JM.LinqFaster.SIMD
         {
             if (source == null)
             {
-                throw Error.ArgumentNull("source");
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (source.Length == 0)
@@ -29,10 +29,10 @@ namespace JM.LinqFaster.SIMD
             int count = Vector<T>.Count;
             if (count <= source.Length)
             {
-                var vMin = new Vector<T>(source, 0);
+                Vector<T> vMin = new Vector<T>(source, 0);
                 for (int i = count; i <= source.Length-count; i+=count)
                 {
-                    var v = new Vector<T>(source, i);
+                    Vector<T> v = new Vector<T>(source, i);
                     vMin = Vector.Min(v, vMin);
                 }
 

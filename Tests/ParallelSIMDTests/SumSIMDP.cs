@@ -10,13 +10,13 @@ namespace Tests
         [Test]
         public  void SumSIMDPArray()
         {
-            var a = Test.intArray.SumSP();
-            var b = Test.intArray.Sum();
+            int a = Test.intArray.SumSP();
+            int b = Test.intArray.Sum();
 
             Assert.That(a, Is.EqualTo(b));
 
-            var c = Test.floatArray.SumSP();
-            var d = Test.floatArray.Sum();
+            float c = Test.floatArray.SumSP();
+            float d = Test.floatArray.Sum();
 
 //            Assert.That(c, Is.EqualTo(d));
 

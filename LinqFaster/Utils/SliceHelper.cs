@@ -1,12 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Runtime.CompilerServices;
 
 namespace JM.LinqFaster
 {
     public static class SliceHelper
     {
-        public static Span<T> Slice<T>(this T[] array,int start, int len) {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Span<T> Slice<T>(this T[] array, int start, int len)
+        {
             return array.AsSpan().Slice(start, len);
         }
     }

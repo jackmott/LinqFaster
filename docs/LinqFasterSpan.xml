@@ -1,0 +1,1497 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JM.LinqFaster.Span</name>
+    </assembly>
+    <members>
+        <member name="T:JM.LinqFasterSpan.LinqFasterSpan">
+            <summary>
+            Provides faster array and list specific extension methods with
+            the same semantics as the Linq extensions methods.
+            </summary>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AggregateF``1(System.Span{``0},System.Func{``0,``0,``0})">
+            <summary>
+            Applies an accumulator function over a Span{T}.
+            </summary>        
+            <param name="source">A Span{T} to aggregate over.</param>
+            <param name="func">An accumulator function to be invoked on each element</param>
+            <returns>The final accumulator value</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AggregateF``2(System.Span{``0},``1,System.Func{``1,``0,``1})">
+            <summary>
+            Applies an accumulator function over a Span{T}. The specified seed
+            value is used as the initial accumulator value.
+            </summary>        
+            <param name="source">A Span{T} to aggregate over.</param>
+            <param name="seed">The initial accumulator value.</param>
+            <param name="func">An accumulator function to be invoked on each element</param>
+            <returns>The final accumulator value</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AggregateF``3(System.Span{``0},``1,System.Func{``1,``0,``1},System.Func{``1,``2})">
+            <summary>
+            Applies an accumulator function over a Span{T}. The specified seed
+            value is used as the initial accumulator value, and the specified 
+            function is used to select the result value.
+            </summary>        
+            <param name="source">A Span{T} to aggregate over.</param>
+            <param name="seed">The initial accumulator value.</param>
+            <param name="func">An accumulator function to be invoked on each element</param>
+            <param name="resultSelector">A function to transform the final accumulator value into the result value.</param>
+            <returns>The transformed final accumulator value</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AggregateF``1(System.ReadOnlySpan{``0},System.Func{``0,``0,``0})">
+            <summary>
+            Applies an accumulator function over a ReadOnlySpan{T}.
+            </summary>        
+            <param name="source">A ReadOnlySpan{T} to aggregate over.</param>
+            <param name="func">An accumulator function to be invoked on each element</param>
+            <returns>The final accumulator value</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AggregateF``2(System.ReadOnlySpan{``0},``1,System.Func{``1,``0,``1})">
+            <summary>
+            Applies an accumulator function over a ReadOnlySpan{T}. The specified seed
+            value is used as the initial accumulator value.
+            </summary>        
+            <param name="source">A ReadOnlySpan{T} to aggregate over.</param>
+            <param name="seed">The initial accumulator value.</param>
+            <param name="func">An accumulator function to be invoked on each element</param>
+            <returns>The final accumulator value</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AggregateF``3(System.ReadOnlySpan{``0},``1,System.Func{``1,``0,``1},System.Func{``1,``2})">
+            <summary>
+            Applies an accumulator function over a ReadOnlySpan{T}. The specified seed
+            value is used as the initial accumulator value, and the specified 
+            function is used to select the result value.
+            </summary>        
+            <param name="source">A ReadOnlySpan{T} to aggregate over.</param>
+            <param name="seed">The initial accumulator value.</param>
+            <param name="func">An accumulator function to be invoked on each element</param>
+            <param name="resultSelector">A function to transform the final accumulator value into the result value.</param>
+            <returns>The transformed final accumulator value</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AnyF``1(System.Span{``0})">
+            <summary>
+            Determines whether an array contains any elements
+            </summary>        
+            <param name="source">The array to check for emptiness</param>
+            <returns>true if the source array contains any elements, otherwise, false/</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AnyF``1(System.Span{``0},System.Predicate{``0})">
+            <summary>
+            Determines whether any element of an array satisfies a condition.
+            </summary>        
+            <param name="source">An array whose elements to apply the predicate to.</param>
+            <param name="predicate">A function to test each element for a condition.</param>
+            <returns>true if any elements in the source array pass the test in the specified predicate; otherwise, false.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AllF``1(System.Span{``0},System.Predicate{``0})">
+            <summary>
+            Determines whether all elements of an array satisfy a condition.
+            </summary>        
+            <param name="source">An array that contains the elements to apply the predicate to.</param>
+            <param name="predicate">A function to test each element for a condition.</param>
+            <returns>true if every element of the source array passes the test in the specified
+            predicate, or if the array is empty; otherwise, false</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AverageF``1(System.Span{``0},System.Func{``0,System.Single})">
+            <summary>
+            Computes the average of values obtained by invoking a transform function on
+            each element of the input array.
+            </summary>
+            <param name="source">The array to calculate the transformed average of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>The average of the array.</returns>
+            <remarks>
+            Special case for floats to be equivalent to IEnumerable !
+            </remarks>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AverageF``2(System.Span{``0},System.Func{``0,``1})">
+            <summary>
+            Computes the average of values obtained by invoking a transform function on
+            each element of the input array.
+            </summary>
+            <param name="source">The array to calculate the transformed average of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AverageF(System.Span{System.Byte})">
+            <summary>
+            Computes the average of an array
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AverageF(System.Span{System.SByte})">
+            <summary>
+            Computes the average of an array
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AverageF(System.Span{System.UInt16})">
+            <summary>
+            Computes the average of an array
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AverageF(System.Span{System.Int16})">
+            <summary>
+            Computes the average of an array
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AverageF(System.Span{System.UInt32})">
+            <summary>
+            Computes the average of an array
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AverageF(System.Span{System.Int32})">
+            <summary>
+            Computes the average of an array
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AverageF(System.Span{System.UInt64})">
+            <summary>
+            Computes the average of an array
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AverageF(System.Span{System.Int64})">
+            <summary>
+            Computes the average of an array
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AverageF(System.Span{System.Single})">
+            <summary>
+            Computes the average of an array
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AverageF(System.Span{System.Double})">
+            <summary>
+            Computes the average of an array
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AverageF(System.Span{System.Decimal})">
+            <summary>
+            Computes the average of an array
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AverageF``1(System.ReadOnlySpan{``0},System.Func{``0,System.Single})">
+            <summary>
+            Computes the average of values obtained by invoking a transform function on
+            each element of the input array.
+            </summary>
+            <param name="source">The array to calculate the transformed average of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>The average of the array.</returns>
+            <remarks>
+            Special case for floats to be equivalent to IEnumerable !
+            </remarks>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AverageF``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
+            <summary>
+            Computes the average of values obtained by invoking a transform function on
+            each element of the input array.
+            </summary>
+            <param name="source">The array to calculate the transformed average of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AverageF(System.ReadOnlySpan{System.Byte})">
+            <summary>
+            Computes the average of an array
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AverageF(System.ReadOnlySpan{System.SByte})">
+            <summary>
+            Computes the average of an array
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AverageF(System.ReadOnlySpan{System.UInt16})">
+            <summary>
+            Computes the average of an array
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AverageF(System.ReadOnlySpan{System.Int16})">
+            <summary>
+            Computes the average of an array
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AverageF(System.ReadOnlySpan{System.UInt32})">
+            <summary>
+            Computes the average of an array
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AverageF(System.ReadOnlySpan{System.Int32})">
+            <summary>
+            Computes the average of an array
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AverageF(System.ReadOnlySpan{System.UInt64})">
+            <summary>
+            Computes the average of an array
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AverageF(System.ReadOnlySpan{System.Int64})">
+            <summary>
+            Computes the average of an array
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AverageF(System.ReadOnlySpan{System.Single})">
+            <summary>
+            Computes the average of an array
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AverageF(System.ReadOnlySpan{System.Double})">
+            <summary>
+            Computes the average of an array
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.AverageF(System.ReadOnlySpan{System.Decimal})">
+            <summary>
+            Computes the average of an array
+            </summary>
+            <param name="source">The array to calculate the average of.</param>
+            <returns>The average of the array.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.ContainsF``1(System.Span{``0},``0,System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Determines whether an array contains a specified element by using the 
+            provided IEqualityComparer.
+            </summary>        
+            <param name="source">An array in which to locate a value.</param>
+            <param name="value">The value to locate.</param>
+            <param name="comparer">An equality comparer to compare values.</param>
+            <returns>true if the source sequence contains an element that has the specified value; otherwise, false.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.CountF``1(System.Span{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Returns a number that represents how many elements in the specified
+            array satisfy a condition.
+            </summary>        
+            <param name="source">An array that contains elements to be tested and counted.</param>
+            <param name="predicate">A function to test each element for a condition.</param>
+            <returns>A number that represents how many elements in the array satisfy the condition
+            in the predicate function.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.DefaultIfEmptyF``1(System.Span{``0})">
+            <summary>
+            Returns source or (if needed) an array (For speed) with a single value set to default{T}
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <returns>source or new array{1}</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.FirstF``1(System.Span{``0})">
+            <summary>
+            Returns the first element of an Span.
+            </summary>        
+            <param name="source">The Span to return the first element of.</param>
+            <returns>The first element in the specified array.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.FirstF``1(System.Span{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Returns the first element in an Span that satisfies a specified condition.
+            </summary>        
+            <param name="source">An Span to return an element from.</param>
+            <param name="func">A function to test each element for a condition.</param>
+            <returns>The first element that satisfies the condition.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.FirstOrDefaultF``1(System.Span{``0})">
+            <summary>
+            Returns the first element of an Span, or a default value if the
+            array contains no elements.
+            </summary>             
+            <param name="source">The Span to return the first element of.</param>
+            <returns>default value if source is empty, otherwise, the first element
+            in source.</returns>        
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.FirstOrDefaultF``1(System.Span{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Returns the first element of the sequence that satisfies a condition or a 
+            default value if no such element is found.
+            </summary>        
+            <param name="source">An Span to return an element from.</param>
+            <param name="func">A function to test each element for a condition.</param>
+            <returns></returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.FirstF``1(System.ReadOnlySpan{``0})">
+            <summary>
+            Returns the first element of an ReadOnlySpan.
+            </summary>        
+            <param name="source">The ReadOnlySpan to return the first element of.</param>
+            <returns>The first element in the specified array.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.FirstF``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Returns the first element in an ReadOnlySpan that satisfies a specified condition.
+            </summary>        
+            <param name="source">An ReadOnlySpan to return an element from.</param>
+            <param name="func">A function to test each element for a condition.</param>
+            <returns>The first element that satisfies the condition.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.FirstOrDefaultF``1(System.ReadOnlySpan{``0})">
+            <summary>
+            Returns the first element of an ReadOnlySpan, or a default value if the
+            array contains no elements.
+            </summary>             
+            <param name="source">The ReadOnlySpan to return the first element of.</param>
+            <returns>default value if source is empty, otherwise, the first element
+            in source.</returns>        
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.FirstOrDefaultF``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Returns the first element of the sequence that satisfies a condition or a 
+            default value if no such element is found.
+            </summary>        
+            <param name="source">An ReadOnlySpan to return an element from.</param>
+            <param name="func">A function to test each element for a condition.</param>
+            <returns></returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.LastF``1(System.Span{``0})">
+            <summary>
+            Returns the first element of an Span.
+            </summary>        
+            <param name="source">The Span to return the first element of.</param>
+            <returns>The first element in the specified array.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.LastF``1(System.Span{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Returns the first element in an Span that satisfies a specified condition.
+            </summary>        
+            <param name="source">An Span to return an element from.</param>
+            <param name="func">A function to test each element for a condition.</param>
+            <returns>The first element that satisfies the condition.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.LastOrDefaultF``1(System.Span{``0})">
+            <summary>
+            Returns the first element of an Span, or a default value if the
+            array contains no elements.
+            </summary>             
+            <param name="source">The Span to return the first element of.</param>
+            <returns>default value if source is empty, otherwise, the first element
+            in source.</returns>        
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.LastOrDefaultF``1(System.Span{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Returns the first element of the sequence that satisfies a condition or a 
+            default value if no such element is found.
+            </summary>        
+            <param name="source">An Span to return an element from.</param>
+            <param name="func">A function to test each element for a condition.</param>
+            <returns></returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.LastF``1(System.ReadOnlySpan{``0})">
+            <summary>
+            Returns the first element of an ReadOnlySpan.
+            </summary>        
+            <param name="source">The ReadOnlySpan to return the first element of.</param>
+            <returns>The first element in the specified array.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.LastF``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Returns the first element in an ReadOnlySpan that satisfies a specified condition.
+            </summary>        
+            <param name="source">An ReadOnlySpan to return an element from.</param>
+            <param name="func">A function to test each element for a condition.</param>
+            <returns>The first element that satisfies the condition.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.LastOrDefaultF``1(System.ReadOnlySpan{``0})">
+            <summary>
+            Returns the first element of an ReadOnlySpan, or a default value if the
+            array contains no elements.
+            </summary>             
+            <param name="source">The ReadOnlySpan to return the first element of.</param>
+            <returns>default value if source is empty, otherwise, the first element
+            in source.</returns>        
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.LastOrDefaultF``1(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Returns the first element of the sequence that satisfies a condition or a 
+            default value if no such element is found.
+            </summary>        
+            <param name="source">An ReadOnlySpan to return an element from.</param>
+            <param name="func">A function to test each element for a condition.</param>
+            <returns></returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MaxF``1(System.Span{``0})">
+            <summary>
+            Returns the maximum value in a sequence of values.
+            </summary>        
+            <param name="source">A sequence of values to determine the maximum of.</param>
+            <returns>The maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MaxF``2(System.Span{``0},System.Func{``0,``1})">
+            <summary>
+            Invokes a transform function on each element of a sequence and returns the maximum value.
+            </summary>        
+            <param name="source">A sequence of values to determine the maximum value of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>The maximum value in the transform of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MaxF(System.Span{System.Int32})">
+            <summary>
+            Returns the maximum value in a sequence of values.
+            </summary>        
+            <param name="source">A sequence of values to determine the maximum of.</param>
+            <returns>The maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MaxF``1(System.Span{``0},System.Func{``0,System.Int32})">
+            <summary>
+            Invokes a transform function on each element of a sequence and returns the maximum value.
+            </summary>        
+            <param name="source">A sequence of values to determine the maximum value of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>The maximum value in the transform of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MaxF(System.Span{System.Int64})">
+            <summary>
+            Returns the maximum value in a sequence of values.
+            </summary>        
+            <param name="source">A sequence of values to determine the maximum of.</param>
+            <returns>The maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MaxF``1(System.Span{``0},System.Func{``0,System.Int64})">
+            <summary>
+            Invokes a transform function on each element of a sequence and returns the maximum value.
+            </summary>        
+            <param name="source">A sequence of values to determine the maximum value of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>The maximum value in the transform of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MaxF(System.Span{System.Single})">
+            <summary>
+            Returns the maximum value in a sequence of values.
+            </summary>        
+            <param name="source">A sequence of values to determine the maximum of.</param>
+            <returns>The maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MaxF``1(System.Span{``0},System.Func{``0,System.Single})">
+            <summary>
+            Invokes a transform function on each element of a sequence and returns the maximum value.
+            </summary>        
+            <param name="source">A sequence of values to determine the maximum value of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>The maximum value in the transform of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MaxF(System.Span{System.Double})">
+            <summary>
+            Returns the maximum value in a sequence of values.
+            </summary>        
+            <param name="source">A sequence of values to determine the maximum of.</param>
+            <returns>The maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MaxF``1(System.Span{``0},System.Func{``0,System.Double})">
+            <summary>
+            Invokes a transform function on each element of a sequence and returns the maximum value.
+            </summary>        
+            <param name="source">A sequence of values to determine the maximum value of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>The maximum value in the transform of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MaxF(System.Span{System.Decimal})">
+            <summary>
+            Returns the maximum value in a sequence of values.
+            </summary>        
+            <param name="source">A sequence of values to determine the maximum of.</param>
+            <returns>The maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MaxF``1(System.Span{``0},System.Func{``0,System.Decimal})">
+            <summary>
+            Invokes a transform function on each element of a sequence and returns the maximum value.
+            </summary>        
+            <param name="source">A sequence of values to determine the maximum value of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>The maximum value in the transform of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MaxF``1(System.ReadOnlySpan{``0})">
+            <summary>
+            Returns the maximum value in a sequence of values.
+            </summary>        
+            <param name="source">A sequence of values to determine the maximum of.</param>
+            <returns>The maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MaxF``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
+            <summary>
+            Invokes a transform function on each element of a sequence and returns the maximum value.
+            </summary>        
+            <param name="source">A sequence of values to determine the maximum value of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>The maximum value in the transform of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MaxF(System.ReadOnlySpan{System.Int32})">
+            <summary>
+            Returns the maximum value in a sequence of values.
+            </summary>        
+            <param name="source">A sequence of values to determine the maximum of.</param>
+            <returns>The maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MaxF``1(System.ReadOnlySpan{``0},System.Func{``0,System.Int32})">
+            <summary>
+            Invokes a transform function on each element of a sequence and returns the maximum value.
+            </summary>        
+            <param name="source">A sequence of values to determine the maximum value of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>The maximum value in the transform of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MaxF(System.ReadOnlySpan{System.Int64})">
+            <summary>
+            Returns the maximum value in a sequence of values.
+            </summary>        
+            <param name="source">A sequence of values to determine the maximum of.</param>
+            <returns>The maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MaxF``1(System.ReadOnlySpan{``0},System.Func{``0,System.Int64})">
+            <summary>
+            Invokes a transform function on each element of a sequence and returns the maximum value.
+            </summary>        
+            <param name="source">A sequence of values to determine the maximum value of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>The maximum value in the transform of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MaxF(System.ReadOnlySpan{System.Single})">
+            <summary>
+            Returns the maximum value in a sequence of values.
+            </summary>        
+            <param name="source">A sequence of values to determine the maximum of.</param>
+            <returns>The maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MaxF``1(System.ReadOnlySpan{``0},System.Func{``0,System.Single})">
+            <summary>
+            Invokes a transform function on each element of a sequence and returns the maximum value.
+            </summary>        
+            <param name="source">A sequence of values to determine the maximum value of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>The maximum value in the transform of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MaxF(System.ReadOnlySpan{System.Double})">
+            <summary>
+            Returns the maximum value in a sequence of values.
+            </summary>        
+            <param name="source">A sequence of values to determine the maximum of.</param>
+            <returns>The maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MaxF``1(System.ReadOnlySpan{``0},System.Func{``0,System.Double})">
+            <summary>
+            Invokes a transform function on each element of a sequence and returns the maximum value.
+            </summary>        
+            <param name="source">A sequence of values to determine the maximum value of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>The maximum value in the transform of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MaxF(System.ReadOnlySpan{System.Decimal})">
+            <summary>
+            Returns the maximum value in a sequence of values.
+            </summary>        
+            <param name="source">A sequence of values to determine the maximum of.</param>
+            <returns>The maximum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MaxF``1(System.ReadOnlySpan{``0},System.Func{``0,System.Decimal})">
+            <summary>
+            Invokes a transform function on each element of a sequence and returns the maximum value.
+            </summary>        
+            <param name="source">A sequence of values to determine the maximum value of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>The maximum value in the transform of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MinF``1(System.Span{``0})">
+            <summary>
+            Returns the Minimum value in a sequence of values.
+            </summary>        
+            <param name="source">A sequence of values to determine the Minimum of.</param>
+            <returns>The Minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MinF``2(System.Span{``0},System.Func{``0,``1})">
+            <summary>
+            Invokes a transform function on each element of a sequence and returns the Minimum value.
+            </summary>        
+            <param name="source">A sequence of values to determine the Minimum value of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>The Minimum value in the transform of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MinF(System.Span{System.Int32})">
+            <summary>
+            Returns the Minimum value in a sequence of values.
+            </summary>        
+            <param name="source">A sequence of values to determine the Minimum of.</param>
+            <returns>The Minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MinF``1(System.Span{``0},System.Func{``0,System.Int32})">
+            <summary>
+            Invokes a transform function on each element of a sequence and returns the Minimum value.
+            </summary>        
+            <param name="source">A sequence of values to determine the Minimum value of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>The Minimum value in the transform of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MinF(System.Span{System.Int64})">
+            <summary>
+            Returns the Minimum value in a sequence of values.
+            </summary>        
+            <param name="source">A sequence of values to determine the Minimum of.</param>
+            <returns>The Minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MinF``1(System.Span{``0},System.Func{``0,System.Int64})">
+            <summary>
+            Invokes a transform function on each element of a sequence and returns the Minimum value.
+            </summary>        
+            <param name="source">A sequence of values to determine the Minimum value of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>The Minimum value in the transform of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MinF(System.Span{System.Single})">
+            <summary>
+            Returns the Minimum value in a sequence of values.
+            </summary>        
+            <param name="source">A sequence of values to determine the Minimum of.</param>
+            <returns>The Minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MinF``1(System.Span{``0},System.Func{``0,System.Single})">
+            <summary>
+            Invokes a transform function on each element of a sequence and returns the Minimum value.
+            </summary>        
+            <param name="source">A sequence of values to determine the Minimum value of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>The Minimum value in the transform of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MinF(System.Span{System.Double})">
+            <summary>
+            Returns the Minimum value in a sequence of values.
+            </summary>        
+            <param name="source">A sequence of values to determine the Minimum of.</param>
+            <returns>The Minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MinF``1(System.Span{``0},System.Func{``0,System.Double})">
+            <summary>
+            Invokes a transform function on each element of a sequence and returns the Minimum value.
+            </summary>        
+            <param name="source">A sequence of values to determine the Minimum value of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>The Minimum value in the transform of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MinF(System.Span{System.Decimal})">
+            <summary>
+            Returns the Minimum value in a sequence of values.
+            </summary>        
+            <param name="source">A sequence of values to determine the Minimum of.</param>
+            <returns>The Minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MinF``1(System.Span{``0},System.Func{``0,System.Decimal})">
+            <summary>
+            Invokes a transform function on each element of a sequence and returns the Minimum value.
+            </summary>        
+            <param name="source">A sequence of values to determine the Minimum value of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>The Minimum value in the transform of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MinF``1(System.ReadOnlySpan{``0})">
+            <summary>
+            Returns the Minimum value in a sequence of values.
+            </summary>        
+            <param name="source">A sequence of values to determine the Minimum of.</param>
+            <returns>The Minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MinF``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
+            <summary>
+            Invokes a transform function on each element of a sequence and returns the Minimum value.
+            </summary>        
+            <param name="source">A sequence of values to determine the Minimum value of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>The Minimum value in the transform of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MinF(System.ReadOnlySpan{System.Int32})">
+            <summary>
+            Returns the Minimum value in a sequence of values.
+            </summary>        
+            <param name="source">A sequence of values to determine the Minimum of.</param>
+            <returns>The Minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MinF``1(System.ReadOnlySpan{``0},System.Func{``0,System.Int32})">
+            <summary>
+            Invokes a transform function on each element of a sequence and returns the Minimum value.
+            </summary>        
+            <param name="source">A sequence of values to determine the Minimum value of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>The Minimum value in the transform of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MinF(System.ReadOnlySpan{System.Int64})">
+            <summary>
+            Returns the Minimum value in a sequence of values.
+            </summary>        
+            <param name="source">A sequence of values to determine the Minimum of.</param>
+            <returns>The Minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MinF``1(System.ReadOnlySpan{``0},System.Func{``0,System.Int64})">
+            <summary>
+            Invokes a transform function on each element of a sequence and returns the Minimum value.
+            </summary>        
+            <param name="source">A sequence of values to determine the Minimum value of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>The Minimum value in the transform of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MinF(System.ReadOnlySpan{System.Single})">
+            <summary>
+            Returns the Minimum value in a sequence of values.
+            </summary>        
+            <param name="source">A sequence of values to determine the Minimum of.</param>
+            <returns>The Minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MinF``1(System.ReadOnlySpan{``0},System.Func{``0,System.Single})">
+            <summary>
+            Invokes a transform function on each element of a sequence and returns the Minimum value.
+            </summary>        
+            <param name="source">A sequence of values to determine the Minimum value of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>The Minimum value in the transform of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MinF(System.ReadOnlySpan{System.Double})">
+            <summary>
+            Returns the Minimum value in a sequence of values.
+            </summary>        
+            <param name="source">A sequence of values to determine the Minimum of.</param>
+            <returns>The Minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MinF``1(System.ReadOnlySpan{``0},System.Func{``0,System.Double})">
+            <summary>
+            Invokes a transform function on each element of a sequence and returns the Minimum value.
+            </summary>        
+            <param name="source">A sequence of values to determine the Minimum value of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>The Minimum value in the transform of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MinF(System.ReadOnlySpan{System.Decimal})">
+            <summary>
+            Returns the Minimum value in a sequence of values.
+            </summary>        
+            <param name="source">A sequence of values to determine the Minimum of.</param>
+            <returns>The Minimum value in the sequence</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.MinF``1(System.ReadOnlySpan{``0},System.Func{``0,System.Decimal})">
+            <summary>
+            Invokes a transform function on each element of a sequence and returns the Minimum value.
+            </summary>        
+            <param name="source">A sequence of values to determine the Minimum value of.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>The Minimum value in the transform of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.ReverseF``1(System.Span{``0})">
+            <summary>
+            Inverts the order of the elements in a sequence.
+            </summary>        
+            <param name="source">A sequence of values to reverse.</param>
+            <returns>A sequence whose elements correspond to those of the input sequence in reverse order.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.ReverseInPlaceF``1(System.Span{``0})">
+            <summary>
+            Inverts the order of the elements in a sequence in place.
+            </summary>        
+            <param name="source">A sequence of values to reverse.</param>        
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SelectInPlaceF``1(System.Span{``0},System.Func{``0,``0})">
+            <summary>
+             Projects each element of a sequence into a new form in place.
+            </summary>        
+            <param name="source">A sequence of values to invoke a transform function on (map).</param>
+            <param name="selector">A transform function to apply (map) to each element.</param>        
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SelectInPlaceF``1(System.Span{``0},System.Func{``0,System.Int32,``0})">
+            <summary>
+             Projects each element of a sequence into a new form, in place, by incorporating the element's index.
+            </summary>        
+            <param name="source">A sequence of values to invoke a transform function on.</param>
+            <param name="selector">A transform function to apply to each source element; the second parameter of the function represents the index of the source element.</param>        
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SelectF``2(System.Span{``0},System.Func{``0,``1})">
+            <summary>
+             Projects each element of a sequence into a new form. (map in every other language)
+            </summary>        
+            <param name="source">A sequence of values to invoke a transform function on (map).</param>
+            <param name="selector">A transform function to apply (map) to each element.</param>
+            <returns>A sequence whose elements are the result of invoking the transform function on each element (mapping) of source.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SelectF``2(System.Span{``0},System.Func{``0,System.Int32,``1})">
+            <summary>
+             Projects each element of a sequence into a new form by incorporating the element's index.
+            </summary>        
+            <param name="source">A sequence of values to invoke a transform function on.</param>
+            <param name="selector">A transform function to apply to each source element; the second parameter of the function represents the index of the source element.</param>
+            <returns>A sequence whose elements are the result of invoking the transform function on each element of source.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SelectManyF``2(System.Span{``0},System.Func{``0,``1[]})">
+            <summary>
+            Projects each element of a sequence to another sequence and flattens the resulting sequences into one sequence.
+            Yo dawg, I heard you like sequences.
+            </summary>                    
+            <param name="source">A sequence of values to project.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>A sequence whose elements are the result of invoking the one-to-many transform function on each element of the input sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SelectManyF``2(System.Span{``0},System.Func{``0,System.Int32,``1[]})">
+            <summary>
+            Projects each element of a sequence to another sequence and flattens the resulting sequences into one sequence
+            utilizing the index of each element.
+            </summary>                    
+            <param name="source">A sequence of values to project.</param>
+            <param name="selector">A transform function to apply to each element and it's index.</param>
+            <returns>A sequence whose elements are the result of invoking the one-to-many transform function on each element and index of the input sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SelectWhereF``2(System.Span{``0},System.Func{``0,``1},System.Func{``1,System.Boolean})">
+            <summary>
+            Combines Select and Where into a single call for optimal
+            performance.
+            </summary>        
+            <param name="source">The input sequence to filter and select</param>
+            <param name="selector">The transformation to apply before filtering.</param>
+            <param name="predicate">The predicate with which to filter result.</param>
+            <returns>A sequence transformed and then filtered by selector and predicate.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SelectWhereF``2(System.Span{``0},System.Func{``0,System.Int32,``1},System.Func{``1,System.Int32,System.Boolean})">
+            <summary>
+            Combines Select and Where with indexes into a single call for optimal
+            performance.
+            </summary>        
+            <param name="source">The input sequence to filter and select</param>
+            <param name="selector">The transformation with index to apply before filtering.</param>
+            <param name="predicate">The predicate with index with which to filter result.</param>
+            <returns>A sequence transformed and then filtered by selector and predicate with indexes.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SequenceEqualF``1(System.Span{``0},System.Span{``0},System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Determines whether two sequences are equal by comparing the elements by using the 
+            provided comparer or the default equality comparer for their type if none is provided.
+            </summary>        
+            <param name="first">A sequence to compare to second.</param>
+            <param name="second">A sequence to compare to first.</param>
+            <param name="comparer">An optional Comparer to use for the comparison.</param>
+            <returns>true of the two sources are of equal length and their corresponding 
+            elements are equal according to the equality comparer. Otherwise, false.</returns>     
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SequenceEqualF``1(System.Span{``0},System.Collections.Generic.List{``0},System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Determines whether two sequences are equal by comparing the elements by using the 
+            provided comparer or the default equality comparer for their type if none is provided.
+            </summary>        
+            <param name="first">A sequence to compare to second.</param>
+            <param name="second">A sequence to compare to first.</param>
+            <param name="comparer">An optional Comparer to use for the comparison.</param>
+            <returns>true of the two sources are of equal length and their corresponding 
+            elements are equal according to the equality comparer. Otherwise, false.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SequenceEqualF``1(System.Collections.Generic.List{``0},System.Span{``0},System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Determines whether two sequences are equal by comparing the elements by using the 
+            provided comparer or the default equality comparer for their type if none is provided.
+            </summary>        
+            <param name="first">A sequence to compare to second.</param>
+            <param name="second">A sequence to compare to first.</param>
+            <param name="comparer">An optional Comparer to use for the comparison.</param>
+            <returns>true of the two sources are of equal length and their corresponding 
+            elements are equal according to the equality comparer. Otherwise, false.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SingleF``1(System.Span{``0})">
+            <summary>
+            Returns the only element of a sequence, and throws an exception if there is not exactly one element in the sequence.
+            </summary>        
+            <param name="source">A sequence to return the single element of</param>
+            <returns>The single element of the input sequence or default if no elements exist.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SingleOrDefaultF``1(System.Span{``0})">
+            <summary>
+            Returns the only element of a sequence, or the default if no elements exist, and throws an exception if there is not exactly one element in the sequence.
+            </summary>        
+            <param name="source">A sequence to return the single element of</param>
+            <returns>The single element of the input sequence</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SingleF``1(System.Span{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Returns the only element of a sequence that satisfies a specified condition, and throws an exception if more than one such element exists.
+            </summary>        
+            <param name="source">A sequence to return a single element from.</param>
+            <param name="predicate">A function to test an element for a condition.</param>
+            <returns>The single element of the input sequence that satisfies a condition.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SingleOrDefaultF``1(System.Span{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Returns the only element of a sequence that satisfies a specified condition, or a default value if
+            no such element exists, and throws an exception if more than one such element exists.
+            </summary>        
+            <param name="source">A sequence to return a single element from.</param>
+            <param name="predicate">A function to test an element for a condition.</param>
+            <returns>The single element of the input sequence that satisfies a condition or default value if no such element is found.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SkipF``1(System.Span{``0},System.Int32)">
+            <summary>
+            Bypasses a specified number of elements in a sequence and then returns the remaining elements.
+            </summary>        
+            <param name="source">A sequence to return elements from.</param>
+            <param name="count">The number of elements to skip before returning the remaining elements.</param>
+            <returns>A sequence that contains the elements that occur after the specified index in the input sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SkipWhileF``1(System.Span{``0},System.Func{``0,System.Boolean})">
+            <summary>
+             Bypasses elements in a sequence as long as a specified condition is true and then returns the remaining elements.
+            </summary>
+            <param name="source">A sequence to return elements from.</param>
+            <param name="predicate">A function to test each element for a condition.</param>
+            <returns>A sequence that contains the elements from the input sequence starting at the first element in the linear series that does not pass the test specified by predicate.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SumF(System.Span{System.Byte})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SumF(System.Span{System.SByte})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SumF(System.Span{System.UInt16})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SumF(System.Span{System.Int16})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SumF(System.Span{System.UInt32})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SumF(System.Span{System.Int32})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SumF(System.Span{System.UInt64})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SumF(System.Span{System.Int64})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SumF(System.Span{System.Single})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SumF``1(System.Span{System.Single},System.Func{System.Single,``0})">
+            <summary>
+            Adds the transformed sequence of elements.
+            </summary>        
+            <param name="source">The sequence of values to transform then sum.</param>
+            <param name="selector">A transformation function.</param>
+            <returns>The sum of the transformed elements.</returns>
+            <remarks>
+            Special case for floats, as IEnumerable does the sums on doubles before returning the type.
+            </remarks>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SumF(System.Span{System.Double})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SumF(System.Span{System.Decimal})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SumF``2(System.Span{``0},System.Func{``0,``1})">
+            <summary>
+            Adds the transformed sequence of elements.
+            </summary>        
+            <param name="source">The sequence of values to transform then sum.</param>
+            <param name="selector">A transformation function.</param>
+            <returns>The sum of the transformed elements.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SumF(System.ReadOnlySpan{System.Byte})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SumF(System.ReadOnlySpan{System.SByte})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SumF(System.ReadOnlySpan{System.UInt16})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SumF(System.ReadOnlySpan{System.Int16})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SumF(System.ReadOnlySpan{System.UInt32})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SumF(System.ReadOnlySpan{System.Int32})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SumF(System.ReadOnlySpan{System.UInt64})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SumF(System.ReadOnlySpan{System.Int64})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SumF(System.ReadOnlySpan{System.Single})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SumF``1(System.ReadOnlySpan{System.Single},System.Func{System.Single,``0})">
+            <summary>
+            Adds the transformed sequence of elements.
+            </summary>        
+            <param name="source">The sequence of values to transform then sum.</param>
+            <param name="selector">A transformation function.</param>
+            <returns>The sum of the transformed elements.</returns>
+            <remarks>
+            Special case for floats, as IEnumerable does the sums on doubles before returning the type.
+            </remarks>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SumF(System.ReadOnlySpan{System.Double})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SumF(System.ReadOnlySpan{System.Decimal})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.SumF``2(System.ReadOnlySpan{``0},System.Func{``0,``1})">
+            <summary>
+            Adds the transformed sequence of elements.
+            </summary>        
+            <param name="source">The sequence of values to transform then sum.</param>
+            <param name="selector">A transformation function.</param>
+            <returns>The sum of the transformed elements.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.TakeF``1(System.Span{``0},System.Int32)">
+            <summary>
+            Returns a specified number of contiguous elements from the start of a sequence.
+            </summary>        
+            <param name="source">The sequence to return elements from.</param>
+            <param name="count">The number of elements to return.</param>
+            <returns>A sequence that contains the specified number of elements from the start of the input sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.TakeWhileF``1(System.Span{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Returns elements from a sequence as long as a specified condition is true.
+            </summary>        
+            <param name="source">A sequence to return elements from.</param>
+            <param name="predicate">A function to test each element for a condition.</param>
+            <returns>A sequence that contains the elements from the input sequence that occur before the element at which the test no longer passes.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.TakeWhileF``1(System.Span{``0},System.Func{``0,System.Int32,System.Boolean})">
+            <summary>
+            Returns elements from a sequence as long as a specified condition is true. The element's index is used in the logic of the predicate function.
+            </summary>        
+            <param name="source">The sequence to return elements from.</param>
+            <param name="predicate">A function to test each source element for a condition; the second parameter of the function represents the index of the source element.</param>
+            <returns>A sequence that contains elements from the input sequence that occur before the element at which the test no longer passes.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereF``1(System.Span{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Filters a sequence of values based on a predicate.
+            </summary>        
+            <param name="source">A sequence to filter.</param>
+            <param name="predicate">A function to test each element for a condition.</param>
+            <returns>A sequence that contains elements from the input sequence that satisfy the condition.</returns>        
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereF``1(System.Span{``0},System.Func{``0,System.Int32,System.Boolean})">
+            <summary>
+            Filters a sequence of values based on a predicate that includes the index in it's logic.
+            </summary>        
+            <param name="source">A sequence to filter.</param>
+            <param name="predicate">A function to test each element for a condition along with the element's index.</param>
+            <returns>A sequence that contains elements from the input sequence that satisfy the condition.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereAggregateF``1(System.Span{``0},System.Func{``0,System.Boolean},System.Func{``0,``0,``0})">
+            <summary>
+            Combines Where and Aggregate for optimal performance
+            </summary>        
+            <param name="source">The input to filter then aggregate.</param>
+            <param name="predicate">The function to filter the input sequence with.</param>
+            <param name="func">The function to aggregate the filtered sequence.</param>
+            <returns>The filtered then aggregated sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereAggregateF``1(System.Span{``0},System.Func{``0,System.Int32,System.Boolean},System.Func{``0,``0,``0})">
+            <summary>
+            Combines Where and Aggregate with index for optimal performance
+            </summary>        
+            <param name="source">The input to filter then aggregate.</param>
+            <param name="predicate">The function to filter the input sequence and it's index with.</param>
+            <param name="func">The function to aggregate the filtered sequence.</param>
+            <returns>The filtered then aggregated sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereAggregateF``2(System.Span{``0},System.Func{``0,System.Boolean},``1,System.Func{``1,``0,``1})">
+            <summary>
+            Combines Where and Aggregate for optimal performance with a starting seed.
+            </summary>        
+            <param name="source">The input to filter then aggregate.</param>
+            <param name="predicate">The function to filter the input sequence with.</param>
+            <param name="seed">The initial value to aggregate on.</param>
+            <param name="func">The function to aggregate the filtered sequence.</param>
+            <returns>The filtered then aggregated sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereAggregateF``3(System.Span{``0},System.Func{``0,System.Boolean},``1,System.Func{``1,``0,``1},System.Func{``1,``2})">
+            <summary>
+            Combines Where and Aggregate for optimal performance with a starting seed and a result transformation.
+            </summary>        
+            <param name="source">The input to filter then aggregate.</param>
+            <param name="predicate">The function to filter the input sequence with.</param>
+            <param name="seed">The initial value to aggregate on.</param>
+            <param name="func">The function to aggregate the filtered sequence.</param>
+            <param name="resultSelector">A function to transform the final result.</param>
+            <returns>The filtered then aggregated then transformed sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereSelectF``2(System.Span{``0},System.Func{``0,System.Boolean},System.Func{``0,``1})">
+            <summary>
+            Combined Where and Select for optimal performance.
+            </summary>        
+            <param name="source">The input sequence to filter then transform.</param>
+            <param name="predicate">A function to use to filter the sequence.</param>
+            <param name="selector">A function to transform the filtered elements.</param>
+            <returns>A sequence of filtered and transformed elements.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereSelectF``2(System.Span{``0},System.Func{``0,System.Int32,System.Boolean},System.Func{``0,System.Int32,``1})">
+            <summary>
+            Combined Where and Select for optimal performance that uses the index in the 
+            predicate and selector.
+            </summary>        
+            <param name="source">The input sequence to filter then transform.</param>
+            <param name="predicate">A function to use to filter the sequence.</param>
+            <param name="selector">A function to transform the filtered elements.</param>
+            <returns>A sequence of filtered and transformed elements.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereSumF(System.Span{System.Byte},System.Func{System.Byte,System.Boolean})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="predicate">A function to filter the sequence with before summing.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereSumF(System.Span{System.SByte},System.Func{System.SByte,System.Boolean})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="predicate">A function to filter the sequence with before summing.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereSumF(System.Span{System.UInt16},System.Func{System.UInt16,System.Boolean})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="predicate">A function to filter the sequence with before summing.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereSumF(System.Span{System.Int16},System.Func{System.Int16,System.Boolean})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="predicate">A function to filter the sequence with before summing.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereSumF(System.Span{System.UInt32},System.Func{System.UInt32,System.Boolean})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="predicate">A function to filter the sequence with before summing.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereSumF(System.Span{System.Int32},System.Func{System.Int32,System.Boolean})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="predicate">A function to filter the sequence with before summing.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereSumF(System.Span{System.UInt64},System.Func{System.UInt64,System.Boolean})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="predicate">A function to filter the sequence with before summing.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereSumF(System.Span{System.Int64},System.Func{System.Int64,System.Boolean})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="predicate">A function to filter the sequence with before summing.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereSumF(System.Span{System.Single},System.Func{System.Single,System.Boolean})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="predicate">A function to filter the sequence with before summing.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereSumF``1(System.Span{System.Single},System.Func{System.Single,System.Boolean},System.Func{System.Single,``0})">
+            <summary>
+            Adds the transformed sequence of elements.
+            </summary>        
+            <param name="source">The sequence of values to transform then sum.</param>
+            <param name="predicate">A function to filter the sequence with before summing.</param>
+            <param name="selector">A transformation function.</param>
+            <returns>The sum of the transformed elements.</returns>
+            <remarks>
+            Special case for floats, as IEnumerable does the sums on doubles before returning the type.
+            </remarks>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereSumF(System.Span{System.Double},System.Func{System.Double,System.Boolean})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="predicate">A function to filter the sequence with before summing.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereSumF(System.Span{System.Decimal},System.Func{System.Decimal,System.Boolean})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="predicate">A function to filter the sequence with before summing.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereSumF``2(System.Span{``0},System.Func{``0,System.Boolean},System.Func{``0,``1})">
+            <summary>
+            Adds the transformed sequence of elements.
+            </summary>        
+            <param name="source">The sequence of values to transform then sum.</param>
+            <param name="predicate">A function to filter the sequence with before summing.</param>
+            <param name="selector">A transformation function.</param>
+            <returns>The sum of the transformed elements.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereSumF(System.ReadOnlySpan{System.Byte},System.Func{System.Byte,System.Boolean})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="predicate">A function to filter the sequence with before summing.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereSumF(System.ReadOnlySpan{System.SByte},System.Func{System.SByte,System.Boolean})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="predicate">A function to filter the sequence with before summing.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereSumF(System.ReadOnlySpan{System.UInt16},System.Func{System.UInt16,System.Boolean})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="predicate">A function to filter the sequence with before summing.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereSumF(System.ReadOnlySpan{System.Int16},System.Func{System.Int16,System.Boolean})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="predicate">A function to filter the sequence with before summing.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereSumF(System.ReadOnlySpan{System.UInt32},System.Func{System.UInt32,System.Boolean})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="predicate">A function to filter the sequence with before summing.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereSumF(System.ReadOnlySpan{System.Int32},System.Func{System.Int32,System.Boolean})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="predicate">A function to filter the sequence with before summing.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereSumF(System.ReadOnlySpan{System.UInt64},System.Func{System.UInt64,System.Boolean})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="predicate">A function to filter the sequence with before summing.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereSumF(System.ReadOnlySpan{System.Int64},System.Func{System.Int64,System.Boolean})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="predicate">A function to filter the sequence with before summing.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereSumF(System.ReadOnlySpan{System.Single},System.Func{System.Single,System.Boolean})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="predicate">A function to filter the sequence with before summing.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereSumF``1(System.ReadOnlySpan{System.Single},System.Func{System.Single,System.Boolean},System.Func{System.Single,``0})">
+            <summary>
+            Adds the transformed sequence of elements.
+            </summary>        
+            <param name="source">The sequence of values to transform then sum.</param>
+            <param name="predicate">A function to filter the sequence with before summing.</param>
+            <param name="selector">A transformation function.</param>
+            <returns>The sum of the transformed elements.</returns>
+            <remarks>
+            Special case for floats, as IEnumerable does the sums on doubles before returning the type.
+            </remarks>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereSumF(System.ReadOnlySpan{System.Double},System.Func{System.Double,System.Boolean})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="predicate">A function to filter the sequence with before summing.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereSumF(System.ReadOnlySpan{System.Decimal},System.Func{System.Decimal,System.Boolean})">
+            <summary>
+             Adds a sequence of values.
+            </summary>
+            <param name="source">The sequence to add.</param>
+            <param name="predicate">A function to filter the sequence with before summing.</param>
+            <returns>The sum of the sequence.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.WhereSumF``2(System.ReadOnlySpan{``0},System.Func{``0,System.Boolean},System.Func{``0,``1})">
+            <summary>
+            Adds the transformed sequence of elements.
+            </summary>        
+            <param name="source">The sequence of values to transform then sum.</param>
+            <param name="predicate">A function to filter the sequence with before summing.</param>
+            <param name="selector">A transformation function.</param>
+            <returns>The sum of the transformed elements.</returns>
+        </member>
+        <member name="M:JM.LinqFasterSpan.LinqFasterSpan.ZipF``3(System.Span{``0},System.Span{``1},System.Func{``0,``1,``2})">
+            <summary>
+            Applies a specified function to the corresponding elements of two sequences, producing a sequence of the results.
+            </summary>
+            <param name="first">The first sequence to merge.</param>
+            <param name="second">The second sequence to merge.</param>
+            <param name="selector">A function that specifies how to merge the elements from the two sequences.</param>
+            <returns>A sequence that contains merged elements of two input sequences.</returns>
+        </member>
+        <member name="T:JM.LinqFaster.Utils.NumericPolicies">
+            <summary>
+            checked will be done at the for LOOP level
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,32 +1,31 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
-    <Version>1.1.0</Version>
-    <Authors>Jack Mott</Authors>
-    <Company />
-    <Description>High performance Linq-style extension methods for arrays and lists.</Description>
-    <Copyright>Copyright 2017 (c) Jack Mott. All rights reserved.</Copyright>
-    <RepositoryUrl>https://github.com/jackmott/LinqFaster</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/jackmott/LinqFaster</PackageProjectUrl>
-    <PackageIconUrl>https://jackmott.github.io/images/LinqFaster.png</PackageIconUrl>
-    <RepositoryType>Github</RepositoryType>
-    <PackageTags>performance linq</PackageTags>
-    <PackageReleaseNotes>Added Span&lt;T&gt; support, improved performance of Take functions.</PackageReleaseNotes>
-    <NeutralLanguage />
-    <AssemblyName>JM.LinqFaster</AssemblyName>
-    <RootNamespace>JM.LinqFaster</RootNamespace>
-    
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.0;net461;net48</TargetFrameworks>
+        <Version>1.1.1</Version>
+        <Authors>Jack Mott</Authors>
+        <Company>Jack Mott</Company>
+        <Description>High performance Linq-style extension methods for arrays and lists.</Description>
+        <Copyright>Copyright 2017 (c) Jack Mott. All rights reserved.</Copyright>
+        <RepositoryUrl>https://github.com/jackmott/LinqFaster</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/jackmott/LinqFaster</PackageProjectUrl>
+        <PackageIconUrl>https://jackmott.github.io/images/LinqFaster.png</PackageIconUrl>
+        <RepositoryType>Github</RepositoryType>
+        <PackageTags>performance linq</PackageTags>
+        <PackageReleaseNotes>improved performance of Array and List functions.</PackageReleaseNotes>
+        <NeutralLanguage />
+        <AssemblyName>JM.LinqFaster</AssemblyName>
+        <RootNamespace>JM.LinqFaster</RootNamespace>
+    </PropertyGroup>
 
-  <PropertyGroup>
-    <DocumentationFile>..\docs\linqfaster.xml</DocumentationFile>
-    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-  </PropertyGroup>
+    <PropertyGroup>
+        <DocumentationFile>..\docs\LinqFaster.xml</DocumentationFile>
+        <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="System.Memory" Version="4.5.3" />
-  </ItemGroup>
+    <ItemGroup>
+        <Compile Remove="Utils\SliceHelper.cs" />
+    </ItemGroup>
 
 </Project>

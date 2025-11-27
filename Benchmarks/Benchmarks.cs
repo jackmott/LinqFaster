@@ -1,238 +1,100 @@
 ﻿using System;
-using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Running;
-using JM.LinqFaster;
-using JM.LinqFaster.Parallel;
-using JM.LinqFaster.SIMD.Parallel;
-using JM.LinqFaster.SIMD;
-
-using System.Linq;
 using System.Collections.Generic;
+
+using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Jobs;
+using BenchmarkDotNet.Reports;
+using BenchmarkDotNet.Running;
 
 namespace Tests
 {
     [MemoryDiagnoser]
-    public class Benchmarks
+    public partial class Benchmarks
     {
+        private const int LARGE_TEST_SIZE = 1000000;
+        private const int SMALL_TEST_SIZE = 100;
 
-        const int LARGE_TEST_SIZE = 1000000;
-        const int SMALL_TEST_SIZE = 100;
+        internal static List<int> list;
+        internal static byte[] byteArray;
+        internal static short[] shortArray;
+        internal static int[] intArray;
+        internal static List<int> intList;
+        internal static int?[] intNullArray;
+        internal static int[] array2;
+        internal static float[] floatArray;
+        internal static List<float> floatList;
+        internal static float?[] floatNullArray;
+        internal static double[] doubleArray;
+        internal static List<double> doubleList;
+        internal static double?[] doubleNullArray;
+        internal static string[] strarray;
 
 
+        internal static int TEST_SIZE => LARGE_TEST_SIZE;
 
-        public List<int> list;
-        public int[] array;
-        public int[] array2;
-        public float[] floatArray;
-        public string[] strarray;
-        
-
-        [Params(1000000)]
-        public int TEST_SIZE { get; set; }
-
-        public Benchmarks()
+        static Benchmarks()
         {
-
-            
-        }
-
-        [GlobalSetup]
-        public void Setup()
-        {
-            Random r = new Random();
-            array = new int[TEST_SIZE];
+            byteArray = new byte[TEST_SIZE];
+            shortArray = new short[TEST_SIZE];
+            intArray = new int[TEST_SIZE];
+            intNullArray = new int?[TEST_SIZE];
+            intList = new List<int>(TEST_SIZE);
             array2 = new int[TEST_SIZE];
             floatArray = new float[TEST_SIZE];
+            floatList = new List<float>(TEST_SIZE);
+            floatNullArray = new float?[TEST_SIZE];
+            doubleArray = new double[TEST_SIZE];
+            doubleList = new List<double>(TEST_SIZE);
+            doubleNullArray = new double?[TEST_SIZE];
             list = new List<int>(TEST_SIZE);
             strarray = new string[TEST_SIZE];
-                                    
+
             for (int i = 0; i < TEST_SIZE; i++)
             {
-                array[i] = i % 2;
+                intArray[i] = i % 2;
+                byteArray[i] = (byte)intArray[i];
+                shortArray[i] = (short)intArray[i];
+                intNullArray[i] = intArray[i];
+                intList.Add(intArray[i]);
                 array2[i] = i % 2;
-                list.Add(array[i]);
-                strarray[i] = array[i].ToString();
-                floatArray[i] = array[i];
+                list.Add(intArray[i]);
+                strarray[i] = intArray[i].ToString();
+                floatArray[i] = intArray[i];
+                floatList.Add(floatArray[i]);
+                floatNullArray[i] = floatArray[i];
+                doubleArray[i] = floatArray[i];
+                doubleList.Add(doubleArray[i]);
+                doubleNullArray[i] = doubleArray[i];
             }
             array2[TEST_SIZE / 2] = 0;
         }
 
 
-        /*
-        [Benchmark]
-        public int OrderByLinq()
-        {
-            return array.OrderBy((x => x -1)).Sum();
-        }
-
-        [Benchmark]
-        public int OrderByFast()
-        {
-            return array.OrderByF((x => x - 1)).Sum();
-        }
-        
-
-        
-
-        [Benchmark]
-        public int SumLinq()
-        {
-            return array.Sum();
-        }
-
-        [Benchmark]
-        public int SumFast()
-        {
-            return array.SumF();
-        }
-
-        [Benchmark]
-        public int SumFastSIMD()
-        {
-            return array.SumS();
-        }
-
-        [Benchmark]
-        public double AverageLinq()
-        {
-            return array.Average();
-        }
-
-        [Benchmark]
-        public double AverageFast()
-        {
-            return array.AverageF();
-        }
-
-        [Benchmark]
-        public double AverageFastSIMD()
-        {
-            return array.AverageS();
-        }
-
-        [Benchmark]
-        public int SumWithSelectLinq()
-        {
-            return array.Sum(x => x / 2);
-        }
-
-        [Benchmark]
-        public int SumWithSelectFast()
-        {
-            return array.SumF(x => x/2);
-        }
-
-        
-        [Benchmark]
-        public double WhereAggregateLinq()
-        {        
-            return array.Where(x => x % 2 == 0).Aggregate(0.0, (acc, x) => acc += x * x, acc => acc / array.Length);
-        }
-
-        [Benchmark]
-        public double WhereAggregateFast()
-        {
-            return array.WhereAggregateF(x => x % 2 == 0,0.0,(acc,x)=> acc += x*x,acc => acc/array.Length);
-        }
-
-        [Benchmark]
-        public int[] SelectFast()
-        {
-            return array.SelectF(x => x * x);
-        }
-
-        [Benchmark]
-        public int[] SelectFastSIMD()
-        {
-            return array.SelectS(x => x * x, x=>x*x);
-        }
-
-        
-
-        [Benchmark]
-        public int[] RepeatLinq()
-        {
-            return Enumerable.Repeat(5, TEST_SIZE).ToArray();
-        }
-
-        [Benchmark]
-        public int[] RepeastFast()
-        {
-            return LinqFaster.RepeatArrayF(5, TEST_SIZE);
-        }
-
-
-        [Benchmark]
-        public int[] RepeastFastSIMD()
-        {
-            return LinqFasterSIMD.RepeatS(5, TEST_SIZE);
-        }
-
-        [Benchmark]
-        public int[] RepeastFastSIMDB()
-        {
-            return LinqFasterSIMD.RepeatSB(5, TEST_SIZE);
-        }
-        
-        [Benchmark]
-        public int MinLinq()
-        {
-            return array.Min();
-        }
-
-        [Benchmark]
-        public int MinFast()
-        {
-            return array.MinF();
-        }
-
-        [Benchmark]
-        public int MinFastSIMD()
-        {                        
-            return array.MinS();
-        }
-        
-        [Benchmark]
-        public bool SequenceEqual()
-        {
-            return array.SequenceEqual(array2);
-        }*/
-        
-        [Benchmark]
-        public bool SequenceEqualF()
-        {            
-            return array.SequenceEqualF(array2);
-        }
-
-      
-        /*
-        [Benchmark]
-        public bool SequenceEqualP()
-        {
-            return array.SequenceEqualP(array2);
-        }
-
-        [Benchmark]
-        public bool SequenceEqualS()
-        {
-            return array.SequenceEqualS(array2);
-        }
-
-        [Benchmark]
-        public bool SequenceEqualSP()
-        {
-            return array.SequenceEqualSP(array2);
-        }
-
-    */
-
 
         public static void Main(string[] args)
         {
-              
-            var summary = BenchmarkRunner.Run<Benchmarks>(ManualConfig.Create(DefaultConfig.Instance).With(Job.RyuJitX64));
+            ManualConfig config = (ManualConfig)ManualConfig.Create(DefaultConfig.Instance).With(Job.RyuJitX64);
+            config.Options |= ConfigOptions.JoinSummary;
+
+            BenchmarkRunInfo[] benchmarkRunInfos =
+            {
+                BenchmarkConverter.TypeToBenchmarks(typeof (BenchmarkSum), config),
+                BenchmarkConverter.TypeToBenchmarks(typeof (BenchmarksAverage), config),
+                BenchmarkConverter.TypeToBenchmarks(typeof (BenchmarksFirst), config),
+                BenchmarkConverter.TypeToBenchmarks(typeof (BenchmarksLast), config),
+                BenchmarkConverter.TypeToBenchmarks(typeof (BenchmarksMax), config),
+                BenchmarkConverter.TypeToBenchmarks(typeof (BenchmarksMin), config),
+                BenchmarkConverter.TypeToBenchmarks(typeof (BenchmarksAggregate), config),
+                BenchmarkConverter.TypeToBenchmarks(typeof (BenchmarksRepeat), config),
+                BenchmarkConverter.TypeToBenchmarks(typeof (BenchmarkOrderBy), config),
+                BenchmarkConverter.TypeToBenchmarks(typeof (BenchmarkSequenceEqual), config),
+                BenchmarkConverter.TypeToBenchmarks(typeof (BenchmarkSelect), config),
+                BenchmarkConverter.TypeToBenchmarks(typeof (BenchmarksWhereAggregate), config),
+                //BenchmarkConverter.TypeToBenchmarks(typeof (
+        };
+            Summary[] summaries = BenchmarkRunner.Run(benchmarkRunInfos);
+            Console.WriteLine("Press enter to close");
             Console.ReadLine();
         }
 

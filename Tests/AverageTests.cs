@@ -1,29 +1,32 @@
-﻿using NUnit.Framework;
-using JM.LinqFaster;
+﻿using System;
 using System.Linq;
-using System;
+
+using JM.LinqFaster;
+
+using NUnit.Framework;
+
 using static Tests.Test;
 
 namespace Tests
 {
     [TestFixture]
-    class AverageTests
+    internal class AverageTests
     {
-       
+
         [Test]
         public void AverageArrayInt()
         {
-            var a = intArray.AverageF();
-            var b = intArray.Average();
+            double a = intArray.AverageF();
+            double b = intArray.Average();
 
-            Assert.That(a, Is.EqualTo(b));            
+            Assert.That(a, Is.EqualTo(b));
         }
 
         [Test]
         public void AverageArrayLong()
         {
-            var a = Test.longArray.AverageF();
-            var b = Test.longArray.Average();
+            double a = Test.longArray.AverageF();
+            double b = Test.longArray.Average();
 
             Assert.That(a, Is.EqualTo(b));
         }
@@ -31,8 +34,8 @@ namespace Tests
         [Test]
         public void AverageArrayFloat()
         {
-            var a = floatArray.AverageF();
-            var b = floatArray.Average();
+            float a = floatArray.AverageF();
+            float b = floatArray.Average();
 
             Assert.That(a, Is.EqualTo(b));
         }
@@ -40,8 +43,8 @@ namespace Tests
         [Test]
         public void AverageArrayDouble()
         {
-            var a = Test.doubleArray.AverageF();
-            var b = Test.doubleArray.Average();
+            double a = Test.doubleArray.AverageF();
+            double b = Test.doubleArray.Average();
 
             Assert.That(a, Is.EqualTo(b));
         }
@@ -49,8 +52,8 @@ namespace Tests
         [Test]
         public void AverageArrayDecimal()
         {
-            var a = decimalArray.AverageF();
-            var b = decimalArray.Average();
+            decimal a = decimalArray.AverageF();
+            decimal b = decimalArray.Average();
 
             Assert.That(a, Is.EqualTo(b));
         }
@@ -59,8 +62,8 @@ namespace Tests
         public void AverageArrayString()
         {
             Func<string, float> lambda = (x => int.Parse(x));
-            var a = stringArray.AverageF(lambda);
-            var b = stringArray.Average(lambda);
+            float a = stringArray.AverageF(lambda);
+            float b = stringArray.Average(lambda);
 
             Assert.That(a, Is.EqualTo(b));
         }
@@ -70,50 +73,56 @@ namespace Tests
 
 
         [Test]
-        public void AverageListInt() {
-            var a = intList.AverageF();
-            var b = intList.Average();
+        public void AverageListInt()
+        {
+            double a = intList.AverageF();
+            double b = intList.Average();
 
             Assert.That(a, Is.EqualTo(b));
         }
 
         [Test]
-        public void AverageListLong() {
-            var a = Test.longList.AverageF();
-            var b = Test.longList.Average();
+        public void AverageListLong()
+        {
+            double a = Test.longList.AverageF();
+            double b = Test.longList.Average();
 
             Assert.That(a, Is.EqualTo(b));
         }
 
         [Test]
-        public void AverageListFloat() {
-            var a = floatList.AverageF();
-            var b = floatList.Average();
+        public void AverageListFloat()
+        {
+            float a = floatList.AverageF();
+            float b = floatList.Average();
 
             Assert.That(a, Is.EqualTo(b));
         }
 
         [Test]
-        public void AverageListDouble() {
-            var a = Test.doubleList.AverageF();
-            var b = Test.doubleList.Average();
+        public void AverageListDouble()
+        {
+            double a = Test.doubleList.AverageF();
+            double b = Test.doubleList.Average();
 
             Assert.That(a, Is.EqualTo(b));
         }
 
         [Test]
-        public void AverageListDecimal() {
-            var a = decimalList.AverageF();
-            var b = decimalList.Average();
+        public void AverageListDecimal()
+        {
+            decimal a = decimalList.AverageF();
+            decimal b = decimalList.Average();
 
             Assert.That(a, Is.EqualTo(b));
         }
 
         [Test]
-        public void AverageListString() {
+        public void AverageListString()
+        {
             Func<string, float> lambda = (x => int.Parse(x));
-            var a = stringList.AverageF(lambda);
-            var b = stringList.Average(lambda);
+            float a = stringList.AverageF(lambda);
+            float b = stringList.Average(lambda);
 
             Assert.That(a, Is.EqualTo(b));
         }

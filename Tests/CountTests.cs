@@ -1,26 +1,32 @@
-﻿using NUnit.Framework;
+﻿using System.Linq;
+
 using JM.LinqFaster;
-using System.Linq;
+
+using NUnit.Framework;
+
 using static Tests.Test;
 
 namespace Tests
 {
     [TestFixture]
-    class CountTests {
+    internal class CountTests
+    {
 
         [Test]
-        public void CountArray() {
-            var a = intArray.CountF(onlyEvenInts);
-            var b = intArray.Count(onlyEvenInts);
+        public void CountArray()
+        {
+            int a = intArray.CountF(onlyEvenInts);
+            int b = intArray.Count(onlyEvenInts);
 
-            Assert.That(a, Is.EqualTo(b));            
+            Assert.That(a, Is.EqualTo(b));
         }
-      
+
 
         [Test]
-        public void CountList() {
-            var a = intList.CountF(onlyEvenInts);
-            var b = intList.Count(onlyEvenInts);
+        public void CountList()
+        {
+            int a = intList.CountF(onlyEvenInts);
+            int b = intList.Count(onlyEvenInts);
 
             Assert.That(a, Is.EqualTo(b));
         }

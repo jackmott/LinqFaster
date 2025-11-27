@@ -1,24 +1,28 @@
-﻿using NUnit.Framework;
-using JM.LinqFaster;
+﻿using System.Collections.Generic;
 using System.Linq;
+
+using JM.LinqFaster;
+
+using NUnit.Framework;
+
 using static Tests.Test;
 
 namespace Tests
 {
     [TestFixture]
-    class SelectManyTests
+    internal class SelectManyTests
     {
 
         [Test]
         public void SelectManyArray()
         {
-            var a = floatArray.SelectManyF(x => LinqFaster.RepeatArrayF(x, 2));
-            var b = floatArray.SelectMany(x => Enumerable.Repeat(x, 2).ToArray()).ToArray();
+            float[] a = floatArray.SelectManyF(x => LinqFaster.RepeatArrayF(x, 2));
+            float[] b = floatArray.SelectMany(x => Enumerable.Repeat(x, 2).ToArray()).ToArray();
 
             Assert.That(a, Is.EqualTo(b));
 
-            a = floatArray.SelectManyF((x,i) => LinqFaster.RepeatArrayF(x+i, 2));
-            b = floatArray.SelectMany((x,i) => Enumerable.Repeat(x+i, 2).ToArray()).ToArray();
+            a = floatArray.SelectManyF((x, i) => LinqFaster.RepeatArrayF(x + i, 2));
+            b = floatArray.SelectMany((x, i) => Enumerable.Repeat(x + i, 2).ToArray()).ToArray();
 
             Assert.That(a, Is.EqualTo(b));
         }
@@ -26,8 +30,8 @@ namespace Tests
         [Test]
         public void SelectManyList()
         {
-            var a = floatList.SelectManyF(x => LinqFaster.RepeatListF(x, 2));
-            var b = floatList.SelectMany(x => Enumerable.Repeat(x, 2).ToList()).ToList();
+            List<float> a = floatList.SelectManyF(x => LinqFaster.RepeatListF(x, 2));
+            List<float> b = floatList.SelectMany(x => Enumerable.Repeat(x, 2).ToList()).ToList();
 
             Assert.That(a, Is.EqualTo(b));
 

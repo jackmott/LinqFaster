@@ -54,6 +54,7 @@ will be continually updated.
 * [LinqFaster.SIMD](#linqfastersimd)
 * [LinqFaster.Parallel](#linqfasterparallel)
 * [LinqFaster.SIMD.Parallel](#linqfastersimdparallel)
+* [LinqFaster.Span](#linqfasterspan)
 * [Limitations](#limitations)
 
 As well, all functions are properly documented so as to be explorable via intellisense.
@@ -212,7 +213,20 @@ myArray.SelectSP(x=>x*x,10000); // split the array into ranges of 10,000 element
 // for very expensive operations.
 ```
 
-# Limitations
+### LinqFaster.Span
+Applies to Span<T> and ReadonlySpan<T><br/>
+Currently in Development<br/>
+e.g.:
+```c#
+	var Span<int> mySpan = new Span<int>(100)
+	var sum2 = mySpan.SumF(x => x*x);
+	var average2 = mySpan.AverageF(x => x*x);
+	var min2 = mySpan.MinF(x => x*x);
+	var max2 = mySpan.MaxF(x => x*x);
+
+```
+
+### Limitations
 
 These are purely imperative implementations of the same higher order functions that
 Linq provides, but unlike Linq they are not lazily evaluated.  This means that when chaining

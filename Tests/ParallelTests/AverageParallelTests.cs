@@ -12,8 +12,8 @@ namespace Tests
         [Test]
         public void ParallelAverageArrayInt()
         {
-            var a = intArray.AverageP();
-            var b = intArray.Average();
+            double a = intArray.AverageP();
+            double b = intArray.Average();
 
             Assert.That(a, Is.EqualTo(b));
         }
@@ -21,8 +21,8 @@ namespace Tests
         [Test]
         public void ParallelAverageArrayLong()
         {
-            var a = longArray.AverageP();
-            var b = longArray.Average();
+            double a = longArray.AverageP();
+            double b = longArray.Average();
 
             Assert.That(a, Is.EqualTo(b));
         }
@@ -30,27 +30,27 @@ namespace Tests
         [Test]
         public void ParallelAverageArrayFloat()
         {
-            var a = floatArray.AverageP();
-            var b = floatArray.Average();
-            var diff = Math.Abs(a-b);
+            float a = floatArray.AverageP();
+            float b = floatArray.Average();
+            float diff = Math.Abs(a-b);
             Assert.That(diff, Is.LessThan(0.1f));
         }
 
         [Test]
         public void ParallelAverageArrayDouble()
         {
-            var a = Test.doubleArray.AverageP();
-            var b = Test.doubleArray.Average();
-            var diff = Math.Abs(a-b);
+            double a = Test.doubleArray.AverageP();
+            double b = Test.doubleArray.Average();
+            double diff = Math.Abs(a-b);
             Assert.That(diff, Is.LessThan(0.1));
         }
 
         [Test]
         public void ParallelAverageArrayDecimal()
         {
-            var a = decimalArray.AverageP();
-            var b = decimalArray.Average();
-            var diff = Math.Abs(a-b);
+            decimal a = decimalArray.AverageP();
+            decimal b = decimalArray.Average();
+            decimal diff = Math.Abs(a-b);
             Assert.That(diff, Is.LessThan(0.1));
             
         }
@@ -59,8 +59,8 @@ namespace Tests
         public void ParallelAverageArrayString()
         {
             Func<string, float> lambda = (x => int.Parse(x));
-            var a = stringArray.AverageP(lambda);
-            var b = stringArray.Average(lambda);
+            float a = stringArray.AverageP(lambda);
+            float b = stringArray.Average(lambda);
 
             Assert.That(a, Is.EqualTo(b));
         }
@@ -72,8 +72,8 @@ namespace Tests
         [Test]
         public void ParallelAverageListInt()
         {
-            var a = intList.AverageP();
-            var b = intList.Average();
+            double a = intList.AverageP();
+            double b = intList.Average();
 
             Assert.That(a, Is.EqualTo(b));
         }
@@ -81,8 +81,8 @@ namespace Tests
         [Test]
         public void ParallelAverageListLong()
         {
-            var a = Test.longList.AverageP();
-            var b = Test.longList.Average();
+            double a = Test.longList.AverageP();
+            double b = Test.longList.Average();
 
             Assert.That(a, Is.EqualTo(b));
         }
@@ -90,27 +90,27 @@ namespace Tests
         [Test]
         public void ParallelAverageListFloat()
         {
-            var a = floatList.AverageP();
-            var b = floatList.Average();
-            var diff = Math.Abs(a-b);
+            double a = floatList.AverageP();
+            float b = floatList.Average();
+            double diff = Math.Abs(a-b);
             Assert.That(diff, Is.LessThan(0.1f));
         }
 
         [Test]
         public void ParallelAverageListDouble()
         {
-            var a = Test.doubleList.AverageP();
-            var b = Test.doubleList.Average();
-            var diff = Math.Abs(a-b);
+            double a = Test.doubleList.AverageP();
+            double b = Test.doubleList.Average();
+            double diff = Math.Abs(a-b);
             Assert.That(diff, Is.LessThan(0.1));
         }
 
         [Test]
         public void ParallelAverageListDecimal()
         {
-            var a = decimalList.AverageP();
-            var b = decimalList.Average();
-            var diff = Math.Abs(a-b);
+            decimal a = decimalList.AverageP();
+            decimal b = decimalList.Average();
+            decimal diff = Math.Abs(a-b);
             Assert.That(diff, Is.LessThan(0.1));
         }
 
@@ -118,9 +118,9 @@ namespace Tests
         public void ParallelAverageListString()
         {
             Func<string, float> lambda = (x => int.Parse(x));
-            var a = stringList.AverageP(lambda);
-            var b = stringList.Average(lambda);
-            var diff = Math.Abs(a-b);
+            double a = stringList.AverageP(lambda);
+            float b = stringList.Average(lambda);
+            double diff = Math.Abs(a-b);
             Assert.That(diff, Is.LessThan(0.1f));
             
         }

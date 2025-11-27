@@ -127,6 +127,10 @@
       <Project>{050c43b5-4a4f-45d9-be0c-9b2a6acc189e}</Project>
       <Name>LinqFasterSIMD</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LinqFasterSpan\LinqFasterSpan.csproj">
+      <Project>{68835792-9274-4ddc-8312-29700ef16f62}</Project>
+      <Name>LinqFasterSpan</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LinqFaster\LinqFaster.csproj">
       <Project>{5b2f0f9f-6dda-4f06-a999-26e43ae04f86}</Project>
       <Name>LinqFaster</Name>

@@ -44,7 +44,7 @@ namespace JM.LinqFaster
             }
 
             
-            var result = new List<int>(count);
+            List<int> result = new List<int>(count);
             for (int i = 0; i < count; i++)
             {
                 result.Add(i + start);

@@ -16,7 +16,7 @@ namespace JM.LinqFaster
         /// <returns>A sequence that contains a repeated value</returns>
         public static T[] RepeatArrayF<T>(T element, int count)
         {
-            var result = new T[count];
+            T[] result = new T[count];
             for (int i = 0; i < result.Length; i++)
             {
                 result[i] = element;
@@ -34,7 +34,7 @@ namespace JM.LinqFaster
         /// <returns>A sequence that contains a repeated value</returns>
         public static List<T> RepeatListF<T>(T element, int count)
         {
-            var result = new List<T>(count);
+            List<T> result = new List<T>(count);
             for (int i = 0; i < count; i++)
             {
                 result.Add(element);

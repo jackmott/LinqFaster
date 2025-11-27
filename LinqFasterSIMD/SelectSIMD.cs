@@ -20,21 +20,21 @@ namespace JM.LinqFaster.SIMD
         {
             if (source == null)
             {
-                throw Error.ArgumentNull("source");
+                throw Error.ArgumentNull(nameof(source));
             }            
             if (slectorSIMD == null)
             {
                 throw Error.ArgumentNull("selectorSIMD");
             }
         
-            var count = Vector<T>.Count;
+            int count = Vector<T>.Count;
 
             if (count != Vector<U>.Count)
             {
                 throw Error.ArgumentOutOfRange("selectorSIMD");
             }
 
-            var result = new U[source.Length];
+            U[] result = new U[source.Length];
 
             int i = 0;
             for (; i <= source.Length-count;i+=count)
@@ -64,14 +64,14 @@ namespace JM.LinqFaster.SIMD
         {
             if (source == null)
             {
-                throw Error.ArgumentNull("source");
+                throw Error.ArgumentNull(nameof(source));
             }
             if (slectorSIMD == null)
             {
                 throw Error.ArgumentNull("selectorSIMD");
             }
 
-            var count = Vector<T>.Count;
+            int count = Vector<T>.Count;
                         
 
             int i = 0;

@@ -11,8 +11,8 @@ namespace Tests
         [Test]
         public void ParallelCountArray()
         {
-            var a = intArray.CountP(onlyEvenInts);
-            var b = intArray.Count(onlyEvenInts);
+            int a = intArray.CountP(onlyEvenInts);
+            int b = intArray.Count(onlyEvenInts);
 
             Assert.That(a, Is.EqualTo(b));
         }
@@ -21,8 +21,8 @@ namespace Tests
         [Test]
         public void ParallelCountList()
         {
-            var a = intList.CountP(onlyEvenInts);
-            var b = intList.Count(onlyEvenInts);
+            int a = intList.CountP(onlyEvenInts);
+            int b = intList.Count(onlyEvenInts);
 
             Assert.That(a, Is.EqualTo(b));
         }

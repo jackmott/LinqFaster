@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace JM.LinqFaster.Utils
 {
-    public class EmptyOrderablePartitioner<T> : OrderablePartitioner<T>
+    internal class EmptyOrderablePartitioner<T> : OrderablePartitioner<T>
     {
         // Constructor just grabs the collection to wrap
         public EmptyOrderablePartitioner()

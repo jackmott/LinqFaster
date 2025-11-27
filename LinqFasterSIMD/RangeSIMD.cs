@@ -20,7 +20,7 @@ namespace JM.LinqFaster.SIMD
                 throw Error.ArgumentOutOfRange("len");
             }
 
-            var count = Vector<int>.Count;
+            int count = Vector<int>.Count;
             int[] result = new int[len];
             if (len >= count) {
                 //use result array for double duty to save memory
@@ -29,8 +29,8 @@ namespace JM.LinqFaster.SIMD
                     result[i] = i + start;
                 }
 
-                var V = new Vector<int>(result);
-                var Increment = new Vector<int>(count);
+                Vector<int> V = new Vector<int>(result);
+                Vector<int> Increment = new Vector<int>(count);
                 V = V + Increment;
                 for (int i = count; i <= len - count; i += count) {
                     V.CopyTo(result, i);

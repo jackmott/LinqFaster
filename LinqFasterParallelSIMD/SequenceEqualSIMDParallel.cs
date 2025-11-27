@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Numerics;
 using System.Threading;
 using static JM.LinqFaster.Utils.CustomPartition;
@@ -33,9 +35,9 @@ namespace JM.LinqFaster.SIMD.Parallel
             if (first.Length != second.Length) return false;
             if (first == second) return true;
 
-            var count = Vector<T>.Count;
+            int count = Vector<T>.Count;
             int nonEqualCount = 0;            
-            var rangePartitioner = MakeSIMDPartition(first.Length, count, batchSize);
+            OrderablePartitioner<Tuple<int, int>> rangePartitioner = MakeSIMDPartition(first.Length, count, batchSize);
             System.Threading.Tasks.Parallel.ForEach(rangePartitioner,               
                 (range, loopState) =>
                 {
@@ -53,7 +55,7 @@ namespace JM.LinqFaster.SIMD.Parallel
 
                 });
             if (nonEqualCount != 0) return false;
-            var comparer = EqualityComparer<T>.Default;
+            EqualityComparer<T> comparer = EqualityComparer<T>.Default;
             for (int i = first.Length - (first.Length % count); i < first.Length; i++)
             {
                 if (!comparer.Equals(first[i], second[i])) return false;

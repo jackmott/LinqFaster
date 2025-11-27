@@ -1,42 +1,50 @@
-﻿using NUnit.Framework;
-using JM.LinqFaster;
+﻿using System.Collections.Generic;
 using System.Linq;
+
+using JM.LinqFaster;
+
+using NUnit.Framework;
+
 using static Tests.Test;
-using System.Collections.Generic;
 
 namespace Tests
 {
     [TestFixture]
-    class ContainsTests {
+    internal class ContainsTests
+    {
 
         [Test]
-        public void ContainsStringArrayTrue() {
-            var a = stringArray.ContainsF("0",EqualityComparer<string>.Default);
-            var b = stringArray.Contains("0", EqualityComparer<string>.Default);
-
-            Assert.That(a, Is.EqualTo(b));          
-        }
-
-        [Test]
-        public void ContainsStringArrayFalse() {
-            var a = stringArray.ContainsF("No Match", EqualityComparer<string>.Default);
-            var b = stringArray.Contains("No Match", EqualityComparer<string>.Default);
+        public void ContainsStringArrayTrue()
+        {
+            bool a = stringArray.ContainsF("0", EqualityComparer<string>.Default);
+            bool b = stringArray.Contains("0", EqualityComparer<string>.Default);
 
             Assert.That(a, Is.EqualTo(b));
         }
 
         [Test]
-        public void ContainsStringListTrue() {
-            var a = stringList.ContainsF("0", EqualityComparer<string>.Default);
-            var b = stringList.Contains("0", EqualityComparer<string>.Default);
+        public void ContainsStringArrayFalse()
+        {
+            bool a = stringArray.ContainsF("No Match", EqualityComparer<string>.Default);
+            bool b = stringArray.Contains("No Match", EqualityComparer<string>.Default);
 
             Assert.That(a, Is.EqualTo(b));
         }
 
         [Test]
-        public void ContainsStringListFalse() {
-            var a = stringList.ContainsF("no match", EqualityComparer<string>.Default);
-            var b = stringList.Contains("no match", EqualityComparer<string>.Default);
+        public void ContainsStringListTrue()
+        {
+            bool a = stringList.ContainsF("0", EqualityComparer<string>.Default);
+            bool b = stringList.Contains("0", EqualityComparer<string>.Default);
+
+            Assert.That(a, Is.EqualTo(b));
+        }
+
+        [Test]
+        public void ContainsStringListFalse()
+        {
+            bool a = stringList.ContainsF("no match", EqualityComparer<string>.Default);
+            bool b = stringList.Contains("no match", EqualityComparer<string>.Default);
 
             Assert.That(a, Is.EqualTo(b));
         }

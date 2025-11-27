@@ -1,19 +1,21 @@
-﻿using NUnit.Framework;
-using JM.LinqFaster.SIMD;
+﻿using System;
 using System.Linq;
-using System;
+
+using JM.LinqFaster.SIMD;
+
+using NUnit.Framework;
 
 namespace Tests
 {
     [TestFixture]
-    class SumSIMDTests
+    internal class SumSIMDTests
     {
 
         [Test]
         public void SumSIMDInts()
         {
-            var a = Test.intArray.Sum();
-            var b = Test.intArray.SumS();
+            int a = Test.intArray.Sum();
+            int b = Test.intArray.SumS();
 
             Assert.That(a, Is.EqualTo(b));
         }
@@ -21,8 +23,8 @@ namespace Tests
         [Test]
         public void SumSIMDFloats()
         {
-            var a = Test.floatArray.Sum();
-            var b = Test.floatArray.SumS();
+            float a = Test.floatArray.Sum();
+            float b = Test.floatArray.SumS();
             double diff = Math.Abs(a - b);
             Assert.That(diff, Is.LessThan(0.1));
         }
@@ -31,8 +33,8 @@ namespace Tests
         [Test]
         public void SumBySIMDFloats()
         {
-            var a = Test.floatArray.Sum(x => x * x);
-            var b = Test.floatArray.SumS(x => x * x);
+            float a = Test.floatArray.Sum(x => x * x);
+            float b = Test.floatArray.SumS(x => x * x);
             double diff = Math.Abs(a - b);
             Assert.That(diff, Is.LessThan(0.15));
 

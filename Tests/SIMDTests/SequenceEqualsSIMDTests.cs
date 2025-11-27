@@ -10,9 +10,9 @@ namespace Tests {
         [Test]
         public void SequenceEqualArray()
         {
-            var intArray2 = (int[])intArray.Clone();
-            var a = LinqFasterSIMD.SequenceEqualS(intArray, intArray2);
-            var b = Enumerable.SequenceEqual(intArray, intArray2);
+            int[] intArray2 = (int[])intArray.Clone();
+            bool a = LinqFasterSIMD.SequenceEqualS(intArray, intArray2);
+            bool b = Enumerable.SequenceEqual(intArray, intArray2);
 
             Assert.That(a, Is.EqualTo(b));
         }
@@ -20,10 +20,10 @@ namespace Tests {
         [Test]
         public void SequenceNotEqualArray()
         {
-            var intArray2 = (int[])intArray.Clone();
+            int[] intArray2 = (int[])intArray.Clone();
             intArray2[3] = -10;
-            var a = LinqFasterSIMD.SequenceEqualS(intArray, intArray2);
-            var b = Enumerable.SequenceEqual(intArray, intArray2);
+            bool a = LinqFasterSIMD.SequenceEqualS(intArray, intArray2);
+            bool b = Enumerable.SequenceEqual(intArray, intArray2);
 
             Assert.That(a, Is.EqualTo(b));
         }    

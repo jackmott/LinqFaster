@@ -3,9 +3,10 @@
 namespace Tests
 {
     [TestFixture]
-    class DistinctTests {
+    internal class DistinctTests
+    {
 
-       
+
 
     }
 }

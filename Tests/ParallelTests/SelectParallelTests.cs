@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Collections.Generic;
+using NUnit.Framework;
 using JM.LinqFaster.Parallel;
 using System.Linq;
 using static Tests.Test;
@@ -12,8 +13,8 @@ namespace Tests
         [Test]
         public void ParallelSelectArray()
         {
-            var a = intArray.SelectP(x => x * x);
-            var b = intArray.Select(x => x * x);
+            int[] a = intArray.SelectP(x => x * x);
+            IEnumerable<int> b = intArray.Select(x => x * x);
 
             Assert.That(a, Is.EqualTo(b));
 
@@ -26,8 +27,8 @@ namespace Tests
         [Test]
         public void ParallelSelectList()
         {
-            var a = intList.SelectP(x => x * x);
-            var b = intList.Select(x => x * x).ToList();
+            List<int> a = intList.SelectP(x => x * x);
+            List<int> b = intList.Select(x => x * x).ToList();
             Assert.That(a.Count, Is.Not.EqualTo(0));
             Assert.That(a, Is.EqualTo(b));
 

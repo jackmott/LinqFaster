@@ -21,7 +21,7 @@ namespace JM.LinqFaster
         {                        
             if (source == null)
             {
-                throw Error.ArgumentNull("source");
+                throw Error.ArgumentNull(nameof(source));
             }
 
             if (comparer == null)
@@ -34,13 +34,16 @@ namespace JM.LinqFaster
                 eqComparer = EqualityComparer<TSource>.Default;
             }
 
+            if (source.Count == 0)
+                return;
+
             source.Sort(comparer);
 
             TSource oldV = source[0];
             int pos = 1;
             for (int i = 1; i < source.Count; i++)
             {
-                var newV = source[i];
+                TSource newV = source[i];
                 source[pos] = newV;
                 if (!eqComparer.Equals(newV, oldV))
                 {
