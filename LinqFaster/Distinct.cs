@@ -24,6 +24,11 @@ namespace JM.LinqFaster
                 throw Error.ArgumentNull("source");
             }
 
+            if (source.Count == 0)
+            {
+                return;
+            }
+
             if (comparer == null)
             {
                 comparer = Comparer<TSource>.Default;
